@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siebel Training: 4 - Advanced Features</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .page { display: none; flex-direction: column; min-height: 520px; }
+        .page.active { display: flex; }
+        .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
+        .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
+        .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+        .page h3 { font-weight: bold; }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
+        <header class="bg-slate-800 p-4 text-white text-center">
+            <h1 class="text-2xl font-bold">4. Advanced Features and Optimization</h1>
+        </header>
+
+        <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
+            <div id="page-container" class="content-area">
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Managing Sales Pipelines and Opportunities</h2><p>An Opportunity in Siebel represents a potential revenue-generating event. The sales pipeline is the process of guiding an opportunity through various Sales Stages, from initial qualification to closing the deal.</p><h3 class="font-bold mt-4 text-lg">Opportunity Attributes:</h3><ul class="list-disc space-y-3"><li><b>Sales Stage:</b> Defines the current phase of the deal (e.g., 01-Prospecting, 03-Closing, 05-Won). This often drives the expected timeline and resources required.</li><li><b>Probability:</b> A key metric that is often driven by the Sales Stage. This is used for forecasting.</li><li><b>Revenue:</b> Tracks the expected or committed value of the deal.</li><li><b>Sales Team (MVG):</b> An <b>Multi-Value Group (MVG)</b> that links the Opportunity to multiple **Positions** (people) involved in the sale.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Sales Pipeline Diagram</h2><div class="flex-grow flex items-center justify-center"><img src="Images/sales_pipeline.png" alt="Sales Pipeline" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=Sales+Pipeline+Stages';"></div></div>
+                
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Forecasting and quota management</h2><p>The Siebel Forecasting module allows management to collect, consolidate, and analyze projected sales data against assigned targets.</p><h3 class="font-bold mt-4 text-lg">Key Concepts:</h3><ul class="list-disc space-y-3"><li><b>Hierarchical Roll-up:</b> Forecasts submitted by individual Sales Reps are automatically **aggregated** up the **Position Hierarchy** to provide sales managers and executives a consolidated view of projected revenue for their entire reporting structure.</li><li><b>Forecasting Periods:</b> The system allows for setting targets (quotas) and collecting forecasts based on predefined time periods (e.g., quarterly or annual).</li><li><b>Data Model:</b> Forecasting data uses dedicated tables and BCs (e.g., `S_FORECAST`), allowing for separation from the core Opportunity records.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Sales Forecasting Flow</h2><div class="flex-grow flex items-center justify-center"><img src="Images/forecasting.png" alt="Forecasting" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=Sales+Forecasting';"></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Creating and managing marketing campaigns</h2><p>Siebel's campaign management is geared toward multi-stage, multi-channel execution and detailed response tracking for accurate ROI.</p><h3 class="font-bold mt-4 text-lg">Campaign Lifecycle:</h3><ul class="list-disc space-y-3"><li><b>Design:</b> Campaigns are designed to target specific **Segments** (audiences) and execute a series of steps (e.g., sending an initial email, followed by a follow-up call if no response).</li><li><b>Execution:</b> Campaigns interact with various channels (Web, email, print) to deliver personalized offers.</li><li><b>Response Tracking:</b> The system tracks customer response (e.g., a purchase, a form fill) and links it directly back to the originating Campaign ID and the Segment ID.</li><li><b>Lead Creation:</b> A successful campaign response can automatically create a **Lead** record, passing all relevant data to the sales process.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Marketing Campaign Flow</h2><div class="flex-grow flex items-center justify-center"><img src="Images/marketing_campaign.png" alt="Marketing Campaigns" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=Marketing+Campaign+Flow';"></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Lead generation and nurturing</h2><p>The Lead Management process focuses on converting raw inquiries into qualified sales opportunities by efficiently routing and tracking prospects.</p><h3 class="font-bold mt-4 text-lg">The Lead Management Process:</h3><ul class="list-disc space-y-3"><li><b>Capture and Qualification:</b> Leads are captured from various sources. **Qualification Rules** (often declarative expressions or Workflows) are applied to determine if the lead is sales-ready.</li><li><b>Routing (Assignment Manager):</b> Qualified leads are automatically routed to the correct Sales Rep or Sales Team using **Assignment Manager**. The routing rules consider factors like territory, product interest, and Rep workload.</li><li><b>Nurturing:</b> Leads that are **not** sales-ready are routed to the marketing department, where they are enrolled in **Nurturing Campaigns** until they become qualified.</li><li><b>Conversion:</b> A qualified Lead is converted into an **Opportunity** and **Contact** record, transferring all necessary data to the sales process.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Lead Generation Flow</h2><div class="flex-grow flex items-center justify-center"><img src="Images/lead_generation.png" alt="Lead Generation" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=Lead+Generation+Flow';"></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Managing customer support and service operations</h2><p>Siebel Service Management extends the Call Center functionality to include full **Field Service** capabilities, critical for organizations that service physical assets at customer locations.</p><h3 class="font-bold mt-4 text-lg">Field Service Lifecycle:</h3><ul class="list-disc space-y-3"><li><b>Asset Tracking:</b> Service is managed against customer **Assets** (installed products). The Asset record tracks the product's serial number, configuration, and service history.</li><li><b>Dispatch and Scheduling:</b> Service Requests are converted into **Activities** (work orders). The system automates the **dispatch and scheduling** of mobile field technicians based on technician **Skills**, **Location**, and current **Workload**.</li><li><b>Inventory:</b> Tracks parts required for repairs, managing inventory levels in regional warehouses and on individual service vehicles.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Service Operations Diagram</h2><div class="flex-grow flex items-center justify-center"><img src="Images/service_operations.png" alt="Service Operations" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=Service+Operations';"></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Configuring service level agreements (SLAs)</h2><p><b>Service Level Agreements (SLAs)</b> define contracted performance metrics (like response or resolution time) for specific customers or service types. Siebel monitors these commitments in real-time.</p><h3 class="font-bold mt-4 text-lg">SLA Management:</h3><ul class="list-disc space-y-3"><li><b>SLA Definition:</b> SLAs are defined by linking **Service Contracts** (what the customer bought) to **Entitlements** (what they are owed). The SLA specifies time-to-respond and time-to-resolve targets.</li><li><b>Automated Monitoring:</b> Siebel automatically starts timing an SR as soon as it's logged.</li><li><b>Breach Prevention:</b> **Workflow Policies** are typically configured to monitor the remaining time on an SLA. If the time limit is approaching, the system triggers an **Automated Escalation** (e.g., sending an alert email to the manager).</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">SLA Monitoring Example</h2><div class="flex-grow flex items-center justify-center"><img src="Images/slas.png" alt="SLA Monitoring" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=SLA+Monitoring';"></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Integrating Siebel CRM with ERP and other applications</h2><p>Siebel **EAI (Enterprise Application Integration)** provides a comprehensive platform for connecting Siebel to external systems (ERP, legacy databases, cloud services).</p><h3 class="font-bold mt-4 text-lg">Key Integration Technologies:</h3><ul class="list-disc space-y-3"><li><b>Siebel Business Services:</b> These are reusable, callable functions that perform specific tasks. Services like **EAI Siebel Adapter** (to read/write Siebel BC data) and **EAI HTTP Transport** (to make web service calls) are used to interact with outside systems.</li><li><b>Integration Objects:</b> A metadata definition in Siebel Tools that represents a Siebel Business Object in a flat, hierarchical structure (XML) for easy data exchange. The Integration Object defines the common language for integration.</li><li><b>Web Services:</b> Siebel can consume and expose **SOAP** and **REST** Web Services, allowing real-time, synchronous integration with other applications.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="10" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Ensuring seamless data flow between systems</h2><p>For large-scale, asynchronous integrations, using **EIM** remains the standard. For real-time flows, careful modeling and **error handling** are paramount.</p><h3 class="font-bold mt-4 text-lg">Real-time Integration Pipeline:</h3><ul class="list-disc space-y-3"><li><b>Data Mapping/Transformation:</b> Data traveling between systems is transformed using declarative mapping or **Integration Workflow Processes**.</li><li><b>Business Service Invocation:</b> A **Workflow Process** orchestrates the entire flow, calling the **EAI Siebel Adapter** to get data and then calling a **Transport Business Service** to send the data out.</li><li><b>Error Handling:</b> The integration workflow must include robust error steps to log and notify administrators if the external system fails or returns an invalid payload.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">EAI Architecture Example</h2><div class="flex-grow flex items-center justify-center"><img src="Images/integration_architecture.png" alt="EAI Architecture" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=EAI+Architecture';"></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Using Siebel CRM on mobile devices</h2><p>Siebel provides specialized client types to ensure users can access the CRM when disconnected from the network or using mobile devices.</p><h3 class="font-bold mt-4 text-lg">Siebel Client Types:</h3><ul class="list-disc space-y-3"><li><b>Siebel Web Client (Web Browser):</b> The primary client. Accesses the Siebel Enterprise via a web server (synchronous).</li><li><b>Siebel Mobile Web Client:</b> A local executable installed on a laptop. It accesses a <b>Local Database</b> (`sse_data.dbf`) and a <b>Local SRF</b>, allowing users to work **disconnected**. Data is periodically synchronized with the server.</li><li><b>Siebel Developer Web Client:</b> Used by developers/administrators for direct access to the Siebel database/repository.</li></ul></div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Mobile Web Client Architecture</h2><div class="flex-grow flex items-center justify-center"><img src="Images/siebel_mobile_arch.png" alt="Mobile Web Client Arch" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=Mobile+Arch';"></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-assignment-index="20">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Mobile app configuration and usage</h2>
+                    <p>Mobile access often requires separate configuration of screens and applets to ensure an optimal touch-friendly experience on small form factors.</p>
+                    <h3 class="font-bold mt-4 text-lg">Mobile Configuration:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Streamlined Application:</b> Administrators may define a separate **Application Object** (in Siebel Tools) designed specifically for mobile users, including only the essential screens and views.</li>
+                        <li><b>Mobile Web Templates:</b> Mobile views and applets use specialized **Web Templates** designed for touch interaction and responsive behavior.</li>
+                        <li><b>Synchronization:</b> Mobile users synchronize their data using the **Synchronization Manager** server component, pushing local changes to the server and downloading updates from other users.</li>
+                    </ul>
+                </div>
+                 <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2" data-assignment-index="20">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-teal-500 pb-2">Siebel Mobile UI</h2>
+                    <div class="flex-grow flex items-center justify-center"><img src="Images/siebel_mobile.png" alt="Siebel Mobile" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/f0fdfa/0d9488?text=Siebel+Mobile+UI';"></div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="2" data-next-topic-index="21"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 4: Integration & Mobile Access Review</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Final Configuration Validation</h3><ol class="list-decimal list-inside space-y-2"><li>Log into the Siebel <b>Developer Web Client</b> (local environment).</li><li>Navigate to <b>Administration - Business Service > Simulator</b>.</li><li>Select a business service (e.g., `String Manipulation`) and a method (e.g., `Length`).</li><li>In the <b>Input Arguments</b> tab, create a new argument and set the <b>Type</b> to `Literal` and the <b>Value</b> to your name.</li><li>Click <b>Run on One Input</b> and observe the <b>Output Arguments</b> tab. The output should return the length of your name. This validates that business services are callable.</li><li><b>Discussion:</b> Explain why the Mobile Web Client requires a local SRF and local DB to function, while the Web Client does not.</li></ol></div></div>
+                
+            </div>
+        </main>
+        <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
+            <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back</button>
+            <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
+            <a href="Index.html" id="main-menu-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700" style="display: none;">Return to Main Menu</a>
+            <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700">Next</button>
+            <button id="assignment-btn" class="footer-btn px-4 py-2 bg-yellow-500 text-yellow-900 rounded-md font-semibold hover:bg-yellow-600">Assignment</button>
+            <button id="continue-training-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700">Continue Training</button>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageContainer = document.getElementById('page-container');
+            const pages = Array.from(pageContainer.children);
+            const backBtn = document.getElementById('back-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const assignmentBtn = document.getElementById('assignment-btn');
+            const continueTrainingBtn = document.getElementById('continue-training-btn');
+            const pageIndicator = document.getElementById('page-indicator');
+            const mainMenuBtn = document.getElementById('main-menu-btn');
+
+            let currentPageIndex = 0;
+
+            function showPage(index) {
+                if (index < 0 || index >= pages.length) return;
+                
+                pages.forEach((page, i) => {
+                    page.classList.toggle('active', i === index);
+                });
+                currentPageIndex = index;
+                updateUI();
+            }
+
+            function updateUI() {
+                const currentPageElement = pages[currentPageIndex];
+                const totalPages = pages.length;
+                const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
+                const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
+                
+                let footerText = `Page ${currentPageIndex + 1 + 64} of 186`; // Offset for this section
+                 if (pageDuration > 0) {
+                    footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
+                } else if (currentPageElement.dataset.pageType !== 'divider') {
+                     footerText += `<br>Day ${pageDay}`;
+                }
+                pageIndicator.innerHTML = footerText;
+
+                const pageType = currentPageElement.dataset.pageType;
+                const assignmentIndex = currentPageElement.dataset.assignmentIndex;
+                
+                nextBtn.style.display = 'none';
+                assignmentBtn.style.display = 'none';
+                continueTrainingBtn.style.display = 'none';
+                mainMenuBtn.style.display = 'none';
+                backBtn.style.display = 'inline-flex';
+
+                if (pageType === 'assignment') {
+                    continueTrainingBtn.style.display = 'inline-flex';
+                } else { 
+                    if (assignmentIndex) {
+                        assignmentBtn.style.display = 'inline-flex';
+                    } else if (currentPageIndex < pages.length - 1) {
+                        nextBtn.style.display = 'inline-flex';
+                    }
+                }
+                
+                backBtn.disabled = currentPageIndex === 0;
+                 if (currentPageIndex === 0) {
+                    backBtn.style.display = 'none';
+                }
+                 if (currentPageIndex === pages.length - 1) {
+                    nextBtn.style.display = 'none';
+                    assignmentBtn.style.display = 'none';
+                    mainMenuBtn.style.display = 'inline-flex';
+                }
+            }
+
+            nextBtn.addEventListener('click', () => showPage(currentPageIndex + 1));
+            backBtn.addEventListener('click', () => showPage(currentPageIndex - 1));
+
+            assignmentBtn.addEventListener('click', () => {
+                const assignmentIndex = pages[currentPageIndex].dataset.assignmentIndex;
+                if (assignmentIndex) {
+                    showPage(parseInt(assignmentIndex, 10));
+                }
+            });
+
+            continueTrainingBtn.addEventListener('click', () => {
+                const nextTopicIndex = pages[currentPageIndex].dataset.nextTopicIndex;
+                if (nextTopicIndex) {
+                    showPage(parseInt(nextTopicIndex, 10));
+                } else {
+                    showPage(currentPageIndex + 1);
+                }
+            });
+            
+            showPage(0);
+        });
+    </script>
+</body>
+</html>
+

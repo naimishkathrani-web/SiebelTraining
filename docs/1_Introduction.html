@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siebel Training: 1 - Introduction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .page { display: none; flex-direction: column; min-height: 520px; }
+        .page.active { display: flex; }
+        .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
+        .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
+        .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+        .page h3 { font-weight: bold; }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
+        <header class="bg-slate-800 p-4 text-white text-center">
+            <h1 class="text-2xl font-bold">1. Introduction to Oracle Siebel CRM</h1>
+        </header>
+
+        <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
+            <div id="page-container" class="content-area">
+                
+                <div class="page space-y-6" data-page-type="topic" data-duration="10" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Course Overview</h2>
+                    <p class="text-lg">This intensive 2-day course provides a thorough understanding of Oracle Siebel CRM, focusing on the modern architecture (IP25+) from fundamental concepts to advanced configuration and best practices. You will learn not only the 'what' but the 'why' behind Siebel's architecture and development model, equipping you with the skills to effectively configure and manage a robust CRM implementation.</p>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Training Environment Details:</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>URL:</strong> <code class="bg-slate-200 px-2 py-1 rounded">http://siebel.trainingserver.com/callcenter_enu</code></li>
+                             <li><strong>Web Tools URL:</strong> <code class="bg-slate-200 px-2 py-1 rounded">http://siebel.trainingserver.com/siebel/app/webtools/enu</code></li>
+                            <li><strong>Username:</strong> <code class="bg-slate-200 px-2 py-1 rounded">TRAINEE##</code> (e.g., TRAINEE01, TRAINEE02)</li>
+                            <li><strong>Password:</strong> <code class="bg-slate-200 px-2 py-1 rounded">Welcome123</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="page day-divider" data-page-type="divider" data-duration="0" data-day="1">Day 1 Begins</div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">What is Customer Relationship Management?</h2>
+                    <p>Customer Relationship Management (CRM) is a technology-driven strategy for managing all your company’s interactions with customers and prospects. Think of it as a centralized brain for your business that remembers every customer, every conversation, and every sale.</p>
+                    <ul class="list-disc space-y-2 pt-2">
+                        <li><strong>As a Strategy:</strong> It's a business philosophy that puts the customer at the center of everything you do. The goal is to move from transactional interactions to building long-term, profitable relationships.</li>
+                        <li><strong>As a Technology:</strong> It's a software system that acts as a single source of truth for all customer data. It captures information from every touchpoint—phone calls, emails, website visits, social media—and makes it available to everyone in your organization.</li>
+                        <li><strong>As a Goal:</strong> The ultimate objective is to use this unified view of the customer to improve acquisition, increase retention, and boost satisfaction. A happy, loyal customer is the most valuable asset a business can have.</li>
+                    </ul>
+                </div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">CRM Lifecycle Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"><img src="Images/crm_cycle.png" alt="CRM Lifecycle" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=CRM+Lifecycle';"></div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Importance of CRM in Business</h2>
+                    <p>In today's competitive market, a CRM system is not a luxury; it's essential infrastructure. It acts as the central nervous system for all customer-facing activities, breaking down the information silos that commonly exist between departments.</p>
+                    <ul class="list-disc space-y-2 pt-2">
+                        <li><strong>The 360-Degree Customer View:</strong> Imagine a sales rep being able to see a customer's recent service issues before making a call, or a marketing team knowing a customer's purchase history to send them relevant offers. This is the power of a unified view, enabling more informed, personalized, and effective engagement at every turn.</li>
+                        <li><strong>Streamlining for Success:</strong> A huge amount of time in any business is spent on repetitive administrative tasks. A CRM automates these workflows—logging calls, sending follow-ups, managing approvals—freeing up your employees to focus on what they do best: selling, serving, and innovating.</li>
+                        <li><strong>From Guesswork to Insight:</strong> A CRM transforms raw data into actionable intelligence. With robust analytics and reporting, you can easily identify your most profitable customers, understand which marketing campaigns are working, and forecast future sales with greater accuracy.</li>
+                    </ul>
+                </div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">CRM Benefits Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"><img src="Images/crm_benefits.png" alt="CRM Benefits" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=CRM+Benefits';"></div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Key Features and Benefits</h2>
+                    <p>Siebel CRM stands out as an enterprise-grade platform, renowned for its depth, scalability, and ability to handle the complex processes of large, global organizations.</p>
+                    <ul class="list-disc space-y-2 pt-2">
+                        <li><strong>A Configurable Core (Metadata Architecture):</strong> The most powerful aspect of Siebel is that its behavior is defined by a layer of metadata called the "repository." This means you can change almost anything—from the UI to the data model to the business logic—without touching the underlying compiled code. This provides unparalleled flexibility.</li>
+                        <li><strong>Declarative Automation:</strong> Siebel includes powerful automation engines like Siebel Workflow and Assignment Manager. These tools allow you to model and automate even the most complex business processes using a visual, drag-and-drop interface, drastically reducing the need for expensive and hard-to-maintain custom code.</li>
+                        <li><strong>Modern, Flexible User Interface (Open UI):</strong> The modern Siebel interface is built on standard web technologies like HTML5 and JavaScript. This "Open UI" framework allows you to create fully responsive, mobile-friendly user experiences and customize every aspect of the look and feel to match your corporate branding.</li>
+                    </ul>
+                </div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel Features Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"><img src="Images/siebel_features.png" alt="Siebel Key Features" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Siebel+Features';"></div>
+                </div>
+
+                 <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel CRM Modules</h2>
+                    <p>Siebel's vast functionality is organized into integrated modules. This allows businesses to license and deploy only the parts of the system they need, while ensuring all data is shared seamlessly across the enterprise.</p>
+                    <ul class="list-disc space-y-2 pt-2">
+                        <li><strong>Siebel Sales:</strong> The backbone for any sales organization. It manages the entire sales cycle, from tracking initial leads and qualifying opportunities to generating complex quotes and managing sales forecasts.
+                            <br><em>**Where to see it:** Log in and navigate to the "Opportunities" screen to see the sales pipeline in action.</em></li>
+                        <li><strong>Siebel Service:</strong> A comprehensive suite for customer service operations. It handles everything from logging service requests from multiple channels (phone, email, web) to managing field service technicians, service contracts, and solution knowledge bases.
+                            <br><em>**Where to see it:** Navigate to the "Service Requests" screen to view and manage customer issues.</em></li>
+                        <li><strong>Siebel Marketing:</strong> An automation platform for the marketing department. It allows you to segment your customer base, design multi-stage campaigns, execute them across various channels, and track the responses to calculate campaign ROI.
+                            <br><em>**Where to see it:** Navigate to the "Campaigns" screen to see how marketing initiatives are planned and tracked.</em></li>
+                    </ul>
+                </div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel Modules Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"><img src="Images/siebel_modules.png" alt="Siebel Modules" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Siebel+Modules';"></div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Navigating Siebel CRM</h2>
+                    <p>The Siebel Open UI is structured hierarchically to organize vast amounts of information in an intuitive way. Understanding this structure is fundamental to using the application effectively.</p>
+                    <ul class="list-disc space-y-2 pt-2">
+                        <li><strong>Screens:</strong> The top level of the hierarchy, representing major business functions. These appear as the main tabs across the top of the application (e.g., Accounts, Contacts, Opportunities).
+                            <br><em>**How to validate:** Click on the "Accounts" tab, then the "Opportunities" tab. Notice how the entire content area changes.</em></li>
+                        <li><strong>Views:</strong> Each screen contains multiple views, which are different ways of looking at the data. For example, the "Accounts" screen has a "My Accounts" view (a list) and an "Account Detail" view (a form). You switch between views using the link bar below the main screen tabs.
+                            <br><em>**How to validate:** In the "Accounts" screen, click the "Account List" link, then click on a specific Account's name (hyperlink) to drill down into the "Account Detail" view.</em></li>
+                        <li><strong>Applets:</strong> The building blocks of a view. An applet is a rectangular area that displays data. They come in two main forms: List Applets (like a spreadsheet, showing multiple records) and Form Applets (showing the fields of a single record).
+                            <br><em>**How to validate:** In the "Account Detail" view, notice the form at the top with the account's details (a Form Applet) and the list of contacts at the bottom (a List Applet).</em></li>
+                    </ul>
+                </div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel UI Navigation Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"><img src="Images/siebel_ui_navigation.png" alt="Siebel UI" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Siebel+UI+Navigation';"></div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-assignment-index="14">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Setting Up Users and Roles</h2>
+                    <p>Siebel’s security model is powerful because it separates what a user can *do* (functional access) from what data they can *see* (data access).</p>
+                    <ul class="list-disc space-y-2 pt-2">
+                        <li><strong>Users:</strong> An individual's login record. This is the entry point to the system.
+                            <br><em>**Where to see it:** Navigate to Administration - User > Employees. This view lists all internal users.</em></li>
+                        <li><strong>Responsibilities:</strong> Controls *functional access*. A Responsibility is simply a collection of Views. By assigning a responsibility to a user, you grant them permission to navigate to those views. A user can have multiple responsibilities.
+                            <br><em>**How to validate:** In the Employees view, query for your user ID and check the "Responsibility" field. This determines all the screens and views you are allowed to access.</em></li>
+                        <li><strong>Positions & Organizations:</strong> Controls *data access*. A user is assigned to a Position (e.g., "Sales Representative - West"), which belongs to an Organization. This determines which specific records they see. For example, a user's position ensures they only see "My Opportunities" and not opportunities belonging to other reps.
+                            <br><em>**How to validate:** In the Employees view, check the "Position" and "Organization" fields for your user. This structure drives Siebel's data visibility rules.</em></li>
+                    </ul>
+                </div>
+                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1" data-assignment-index="14">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">User Access Control Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"><img src="Images/siebel_responsibilities.png" alt="Users and Roles" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=User+Access+Control';"></div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="1" data-next-topic-index="15"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 1: Navigation & User Setup</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Login and Explore</h3><ol class="list-decimal list-inside space-y-2"><li>Log into the Siebel application using your trainee credentials.</li><li>Navigate to the 'Accounts' screen and then the 'Contacts' screen.</li><li>Use the Site Map to navigate to 'Administration - User' > 'Employees'.</li><li>Find your employee record and identify the 'Responsibility' assigned to you.</li><li>Log out of the application.</li></ol></div></div>
+                
+            </div>
+        </main>
+        <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
+            <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back</button>
+            <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
+            <a href="Index.html" id="main-menu-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700" style="display: none;">Return to Main Menu</a>
+            <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700">Next</button>
+            <button id="assignment-btn" class="footer-btn px-4 py-2 bg-yellow-500 text-yellow-900 rounded-md font-semibold hover:bg-yellow-600">Assignment</button>
+            <button id="continue-training-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700">Continue Training</button>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageContainer = document.getElementById('page-container');
+            const pages = Array.from(pageContainer.children);
+            const backBtn = document.getElementById('back-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const assignmentBtn = document.getElementById('assignment-btn');
+            const continueTrainingBtn = document.getElementById('continue-training-btn');
+            const pageIndicator = document.getElementById('page-indicator');
+            const mainMenuBtn = document.getElementById('main-menu-btn');
+
+            let currentPageIndex = 0;
+
+            function showPage(index) {
+                if (index < 0 || index >= pages.length) return;
+                
+                pages.forEach((page, i) => {
+                    page.classList.toggle('active', i === index);
+                });
+                currentPageIndex = index;
+                updateUI();
+            }
+
+            function updateUI() {
+                const currentPageElement = pages[currentPageIndex];
+                const totalPages = pages.length;
+                const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
+                const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
+                
+                let footerText = `Page ${currentPageIndex + 1} of ${totalPages}`;
+                 if (pageDuration > 0) {
+                    footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
+                } else if (currentPageElement.dataset.pageType !== 'divider') {
+                     footerText += `<br>Day ${pageDay}`;
+                }
+                pageIndicator.innerHTML = footerText;
+
+                const pageType = currentPageElement.dataset.pageType;
+                const assignmentIndex = currentPageElement.dataset.assignmentIndex;
+                
+                nextBtn.style.display = 'none';
+                assignmentBtn.style.display = 'none';
+                continueTrainingBtn.style.display = 'none';
+                mainMenuBtn.style.display = 'none';
+                backBtn.style.display = 'inline-flex';
+
+                if (pageType === 'assignment') {
+                    continueTrainingBtn.style.display = 'inline-flex';
+                } else { 
+                    if (assignmentIndex) {
+                        assignmentBtn.style.display = 'inline-flex';
+                    } else if (currentPageIndex < pages.length - 1) {
+                        nextBtn.style.display = 'inline-flex';
+                    }
+                }
+                
+                backBtn.disabled = currentPageIndex === 0;
+                 if (currentPageIndex === 0) {
+                    backBtn.style.display = 'none';
+                }
+                 if (currentPageIndex === pages.length - 1) {
+                    nextBtn.style.display = 'none';
+                    assignmentBtn.style.display = 'none';
+                    mainMenuBtn.style.display = 'inline-flex';
+                }
+            }
+
+            nextBtn.addEventListener('click', () => showPage(currentPageIndex + 1));
+            backBtn.addEventListener('click', () => showPage(currentPageIndex - 1));
+
+            assignmentBtn.addEventListener('click', () => {
+                const assignmentIndex = pages[currentPageIndex].dataset.assignmentIndex;
+                if (assignmentIndex) {
+                    showPage(parseInt(assignmentIndex, 10));
+                }
+            });
+
+            continueTrainingBtn.addEventListener('click', () => {
+                const nextTopicIndex = pages[currentPageIndex].dataset.nextTopicIndex;
+                if (nextTopicIndex) {
+                    showPage(parseInt(nextTopicIndex, 10));
+                } else {
+                    showPage(currentPageIndex + 1);
+                }
+            });
+            
+            showPage(0);
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Day 1 • Topic 1 — Foundations & Navigation</title>
+<style>
+  :root{--bg:#ffffff;--accent:#0b66c3;--muted:#5a6772;--card:#f6fbff;--font:"Segoe UI",Roboto,Arial}
+  body{font-family:var(--font);margin:0;background:linear-gradient(180deg,#fbfdff,#ffffff);color:#132033}
+  .container{max-width:1100px;margin:0 auto;padding:18px}
+  .header{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+  .module-title{font-size:20px;color:var(--accent);font-weight:700}
+  .topic-banner{background:#eef6ff;padding:10px;border-radius:8px;border-left:6px solid var(--accent);display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .page{display:none;padding:18px 0;min-height:70vh}
+  .page.active{display:block}
+  h1{margin:0 0 8px;font-size:20px}
+  .lead{color:var(--muted);margin-bottom:12px}
+  .card{background:var(--card);padding:12px;border-radius:8px;border:1px solid #e6eef8;margin:12px 0}
+  .two{display:flex;gap:12px}
+  .col{flex:1}
+  .icon{width:44px;height:44px;border-radius:8px;background:white;border:1px solid #e6eef8;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);margin-right:12px}
+  .image-placeholder{height:320px;border:1px dashed #d7e0ee;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);background:linear-gradient(90deg,#fff,#f7fbff);margin:12px 0}
+  .footer{position:fixed;left:0;right:0;bottom:0;height:80px;background:#fff;border-top:1px solid #e6e9ee;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;box-sizing:border-box}
+  .nav{display:flex;gap:10px;align-items:center}
+  .btn{background:transparent;border:0;color:var(--accent);font-weight:700;padding:8px 12px;cursor:pointer}
+  .btn:disabled{opacity:.45;cursor:default}
+  .meta{color:var(--muted);font-size:13px}
+  .progress-small{font-size:13px;color:var(--muted)}
+  .caption{font-size:13px;color:var(--muted);margin-top:10px}
+  @media (max-width:900px){.two{flex-direction:column}.image-placeholder{height:200px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div>
+      <div class="module-title">Module 1 — Foundations & Navigation</div>
+      <div class="progress-small" id="topicBanner">Topic A — Foundations & Navigation • Total Est. Time: 120 minutes</div>
+    </div>
+    <div style="text-align:right">
+      <div class="meta">Pages 1–20</div>
+      <a class="btn" href="index.html">Return to Agenda</a>
+    </div>
+  </div>
+
+  <div id="pages">
+    <!-- Page 1 -->
+    <section class="page" id="pg-1">
+      <div style="display:flex;align-items:center">
+        <div class="icon">1</div>
+        <div>
+          <h1>Course Overview</h1>
+          <p class="lead">This module explains CRM basics, architecture, modules & navigation you need to start using the training environment effectively.</p>
+        </div>
+      </div>
+      <div class="card">
+        <strong>What you will be able to do after this module</strong>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)">
+          <li>Explain CRM purpose and benefits</li>
+          <li>Describe the high-level architecture and logical layers</li>
+          <li>Navigate the web UI and locate key screens</li>
+        </ul>
+      </div>
+      <div class="caption">Est. Time (this page): 12 mins</div>
+    </section>
+
+    <!-- Page 2 -->
+    <section class="page" id="pg-2">
+      <div style="display:flex;align-items:center">
+        <div class="icon">2</div>
+        <div>
+          <h1>What is Customer Relationship Management?</h1>
+          <p class="lead">CRM is the system that centralizes customer data and processes so teams can sell, service and market consistently.</p>
+        </div>
+      </div>
+      <div class="card two">
+        <div class="col">
+          <h3>Clear concept</h3>
+          <p>It records contacts, interactions, contracts, orders and support cases. That single record avoids multiple disconnected spreadsheets and ad-hoc emails.</p>
+        </div>
+        <div class="col">
+          <h3>Practical example (telecom)</h3>
+          <p>A service agent sees a subscriber's order, billing and past incidents on one screen and resolves the ticket faster.</p>
+        </div>
+      </div>
+      <div class="caption">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 3 -->
+    <section class="page" id="pg-3">
+      <div style="display:flex;align-items:center">
+        <div class="icon">3</div>
+        <div>
+          <h1>Why CRM matters to the business</h1>
+          <p class="lead">CRM increases customer retention, helps create targeted campaigns and improves productivity for agents and salespeople.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Business Impact — Simple reasoning</h3>
+        <p class="lead" style="color:var(--muted)">When customer history is accurate and accessible, decisions are faster and mistakes decrease — this improves customer satisfaction and revenue outcomes.</p>
+      </div>
+      <div class="caption">Est. Time: 8 mins</div>
+    </section>
+
+    <!-- Page 4 -->
+    <section class="page" id="pg-4">
+      <div style="display:flex;align-items:center">
+        <div class="icon">4</div>
+        <div><h1>Key Features and Benefits</h1><p class="lead">Sales pipeline, case handling, marketing lists, workflows, reporting — these are the building blocks for customer operations.</p></div>
+      </div>
+      <div class="card two">
+        <div class="col">
+          <h3>Features</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>Accounts & Contacts</li><li>Opportunities</li><li>Case Management</li><li>Workflows & Business Rules</li></ul>
+        </div>
+        <div class="col">
+          <h3>Benefits</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>Faster resolution times</li><li>Single source of truth</li><li>Automated repetitive tasks</li></ul>
+        </div>
+      </div>
+      <div class="caption">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 5 -->
+    <section class="page" id="pg-5">
+      <div style="display:flex;align-items:center">
+        <div class="icon">5</div>
+        <div><h1>High Level Application Overview</h1><p class="lead">How the application is grouped: screens, views, applets and responsibilities — the building blocks you will interact with.</p></div>
+      </div>
+      <div class="card">
+        <h3>Key concept</h3>
+        <p>Applets are UI fragments, Views group applets, Screens hold Views. Responsibilities control what each user sees.</p>
+      </div>
+      <div class="caption">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 6: Architecture expanded: server + 3-layer -->
+    <section class="page" id="pg-6">
+      <div style="display:flex;align-items:center">
+        <div class="icon">6</div>
+        <div><h1>Architecture — Server View & 3-Layer Logical View</h1><p class="lead">Understand both the physical server components and the logical UI/Business/Data layers.</p></div>
+      </div>
+
+      <div class="two">
+        <div class="col card">
+          <h3>Server Architecture (physical)</h3>
+          <p><strong>Components:</strong> Web Server + SWSE → Siebel Enterprise Server (Object Managers, Workflow Engine, EIM) → Oracle Database. BI Publisher (reporting server) is invoked by the Siebel server when formatted reports are requested.</p>
+          <p><strong>Request flow:</strong> Browser → Web Server (SWSE) → Siebel Web Client → Object Manager → DB. Report generation flows via a Report Server call to BI Publisher for PDF/XLS rendering.</p>
+          <div class="image-placeholder">Image placeholder — Images/siebel_architecture.png<br><small class="caption">Source: crop from D51681 (search "Architecture") or Oracle Bookshelf</small></div>
+        </div>
+
+        <div class="col card">
+          <h3>3-Layer Logical View</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li><strong>UI Layer:</strong> Applets, Views, Screens — user interaction surface.</li>
+            <li><strong>Business Layer:</strong> Business Components, Business Objects, Workflows, Business Services — handles business rules and processing.</li>
+            <li><strong>Data Layer:</strong> DB tables, EIM staging, audit tables — persistent storage.</li>
+          </ul>
+          <p class="lead">Each layer is designed for separation of concerns: UI changes do not require database redesign and vice versa.</p>
+        </div>
+      </div>
+      <div class="caption">Est. Time: 20 mins</div>
+    </section>
+
+    <!-- Page 7 -->
+    <section class="page" id="pg-7">
+      <div style="display:flex;align-items:center">
+        <div class="icon">7</div>
+        <div><h1>Siebel Modules</h1><p class="lead">The system is modular: Sales, Service and Marketing modules are available in the eCommunications vertical with domain-specific screens.</p></div>
+      </div>
+      <div class="card">
+        <h3>Examples of modules</h3>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>Sales: pipeline & opportunity management</li><li>Service: cases, SRs, entitlements</li><li>Marketing: campaigns & lists</li></ul>
+      </div>
+      <div class="caption">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 8 -->
+    <section class="page" id="pg-8">
+      <div style="display:flex;align-items:center">
+        <div class="icon">8</div>
+        <div><h1>eCommunications Vertical — What to expect</h1><p class="lead">This vertical includes subscriber lifecycle, service order, inventory and billing integration. Screens are pre-modeled for telecom scenarios.</p></div>
+      </div>
+      <div class="card">
+        <h3>Real scenario</h3>
+        <p>When provisioning a new service, the order flows through sales → provisioning → activation. Each step updates the same records and triggers notifications / workflows.</p>
+      </div>
+      <div class="caption">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 9 -->
+    <section class="page" id="pg-9">
+      <div style="display:flex;align-items:center">
+        <div class="icon">9</div>
+        <div><h1>Understanding the Data Model (simple)</h1><p class="lead">Business Components map UI to tables; Business Objects group related BCs for screens.</p></div>
+      </div>
+      <div class="card">
+        <h3>Concept</h3>
+        <p>BCs define fields, joins and search specs. Changing a BC controls how data appears in applets without changing database code.</p>
+      </div>
+      <div class="caption">Est. Time: 14 mins</div>
+    </section>
+
+    <!-- Page 10 -->
+    <section class="page" id="pg-10">
+      <div style="display:flex;align-items:center">
+        <div class="icon">10</div>
+        <div><h1>Navigating the Application</h1><p class="lead">Learn the key UI constructs: navigation panel, list applets, form applets, saved searches and favorites.</p></div>
+      </div>
+      <div class="card two">
+        <div class="col">
+          <h3>List vs Form</h3>
+          <p>List applets show many rows. Form applets present a single record. Double-click a row to open details.</p>
+        </div>
+        <div class="col">
+          <h3>Saved Searches</h3>
+          <p>Save frequently used search filters to speed work and ensure consistency across users.</p>
+        </div>
+      </div>
+      <div class="caption">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 11 -->
+    <section class="page" id="pg-11">
+      <div style="display:flex;align-items:center">
+        <div class="icon">11</div>
+        <div><h1>Home Page Overview</h1><p class="lead">The Home page is your daily workspace: KPI tiles, tasks, recent items and quick links.</p></div>
+      </div>
+      <div class="card">
+        <h3>Customize</h3>
+        <p>Personalize by adding tiles and saved searches relevant to your role so you focus on high-priority work.</p>
+      </div>
+      <div class="caption">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 12 -->
+    <section class="page" id="pg-12">
+      <div style="display:flex;align-items:center">
+        <div class="icon">12</div>
+        <div><h1>Screens, Views & Applets — UI Building Blocks</h1><p class="lead">Screens contain Views; Views contain Applets. Applets are list or form controls that show BC data.</p></div>
+      </div>
+      <div class="card">
+        <h3>Why it matters</h3>
+        <p>Understanding this lets you make safe UI changes and know where to apply configuration to affect the desired screen.</p>
+      </div>
+      <div class="caption">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 13 -->
+    <section class="page" id="pg-13">
+      <div style="display:flex;align-items:center">
+        <div class="icon">13</div>
+        <div><h1>User Interface Walkthrough</h1><p class="lead">Where to find New, Save, Attach, Run Report, About Record and bulk actions.</p></div>
+      </div>
+      <div class="card">
+        <h3>Common actions</h3>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>New (create record)</li><li>Save (persist changes)</li><li>About Record (Row ID & metadata)</li><li>Run Report</li></ul>
+      </div>
+      <div class="caption">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 14 -->
+    <section class="page" id="pg-14">
+      <div style="display:flex;align-items:center">
+        <div class="icon">14</div>
+        <div><h1>Setting up Users and Roles</h1><p class="lead">Create user accounts, assign Responsibilities and set Access Groups according to team needs.</p></div>
+      </div>
+      <div class="card">
+        <h3>Admin tasks</h3>
+        <p>Use Administration → Users to create and manage users. Responsibilities determine menu and view visibility. Access Groups control server assignment.</p>
+      </div>
+      <div class="caption">Est. Time: 16 mins</div>
+    </section>
+
+    <!-- Page 15 -->
+    <section class="page" id="pg-15">
+      <div style="display:flex;align-items:center">
+        <div class="icon">15</div>
+        <div><h1>Responsibilities & Access Control</h1><p class="lead">Responsibilities grant functional access; combine with field-level security and data filters for stricter control.</p></div>
+      </div>
+      <div class="card">
+        <h3>Best practice</h3>
+        <p>Keep responsibilities focused on job roles. Avoid monolithic responsibilities that expose too many unrelated screens.</p>
+      </div>
+      <div class="caption">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 16 -->
+    <section class="page" id="pg-16">
+      <div style="display:flex;align-items:center">
+        <div class="icon">16</div>
+        <div><h1>The Typical User Workflow</h1><p class="lead">Login → Open Home → Check queue → Work record → Update → Close — standard flow for agents.</p></div>
+      </div>
+      <div class="card">
+        <h3>Importance</h3>
+        <p>Standardizing this workflow ensures consistent data capture and makes performance measurement meaningful.</p>
+      </div>
+      <div class="caption">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 17 -->
+    <section class="page" id="pg-17">
+      <div style="display:flex;align-items:center">
+        <div class="icon">17</div>
+        <div><h1>Workspaces — Developer Model</h1><p class="lead">Use Dev Workspaces for isolated changes. Deliver to Integration for QA, then to MAIN for production availability.</p></div>
+      </div>
+      <div class="card">
+        <h3>Workflow</h3>
+        <p>Create → Test in Dev → Deliver to Integration → QA → Deliver to MAIN. This minimizes conflicts and supports parallel development.</p>
+      </div>
+      <div class="caption">Est. Time: 14 mins</div>
+    </section>
+
+    <!-- Page 18 -->
+    <section class="page" id="pg-18">
+      <div style="display:flex;align-items:center">
+        <div class="icon">18</div>
+        <div><h1>Web Tools — Configuration in the Browser</h1><p class="lead">Web Tools replaces thick-client tools — edit BCs, BOs, Applets and Workflows from your browser.</p></div>
+      </div>
+      <div class="card">
+        <h3>Key areas</h3>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>Object Explorer</li><li>Workflow Designer</li><li>Workspace management</li></ul>
+      </div>
+      <div class="caption">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 19 — Hands-on quick practice -->
+    <section class="page" id="pg-19">
+      <div style="display:flex;align-items:center">
+        <div class="icon">19</div>
+        <div><h1>Hands-On Practice — Navigating & Exploring</h1><p class="lead">A focused hands-on exercise to consolidate this module.</p></div>
+      </div>
+      <div class="card">
+        <h3>Tasks (short)</h3>
+        <ol style="margin:8px 0 0 18px;color:var(--muted)">
+          <li>Open: <a href="https://siebeltraining.shreejientserv.in/siebel/app/ecommunications/enu" target="_blank">siebeltraining.shreejientserv.in</a> and log in.</li>
+          <li>Search Accounts (Name contains "Test"), open one record and copy Row ID via About Record.</li>
+          <li>Create a Contact under the Account; screenshot the form.</li>
+          <li>Open Web Tools (no edits) and find Contact BC Table property.</li>
+        </ol>
+      </div>
+      <div class="caption">Hands-on Est. Time: 45–60 mins</div>
+    </section>
+
+    <!-- Page 20: Summary -->
+    <section class="page" id="pg-20">
+      <div style="display:flex;align-items:center">
+        <div class="icon">20</div>
+        <div><h1>Module Summary & Next Steps</h1><p class="lead">Key takeaways and what to prepare for Topic 2 (Data Model & UI Basics).</p></div>
+      </div>
+      <div class="card">
+        <h3>Checklist</h3>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>Explain CRM benefits</li><li>Identify UI elements (Applets/Views)</li><li>Locate BCs in Web Tools</li></ul>
+      </div>
+      <div class="caption">Est. Time: 8 mins</div>
+    </section>
+  </div> <!-- pages -->
+
+  <div class="footer">
+    <div class="meta" id="footer-meta">Page 1 of 20 • Est. Time: 12 mins</div>
+    <div class="nav">
+      <button id="backBtn" class="btn">◀ Back</button>
+      <button id="nextBtn" class="btn">Next ▶</button>
+      <a id="returnAgenda" class="btn" href="index.html">Return to Agenda</a>
+    </div>
+    <div class="meta">Module 1</div>
+  </div>
+
+</div>
+
+<script>
+/* pagination for 20 pages + localStorage marking for module completion */
+const total = 20;
+let cur = 0;
+const pages = [];
+for(let i=1;i<=total;i++){ pages.push(document.getElementById('pg-'+i)); }
+const back = document.getElementById('backBtn'), next = document.getElementById('nextBtn');
+const footerMeta = document.getElementById('footer-meta');
+
+function show(idx){
+  if(idx<0||idx>=total) return;
+  pages[cur].classList.remove('active');
+  cur = idx;
+  pages[cur].classList.add('active');
+  footerMeta.innerText = `Page ${cur+1} of ${total} • ${pages[cur].querySelector('.caption') ? pages[cur].querySelector('.caption').innerText : ''}`;
+  back.disabled = cur===0;
+  next.disabled = cur===total-1;
+  // if last page (module complete), store progress
+  if(cur===total-1){ localStorage.setItem('day1_topic1','done'); }
+}
+back.addEventListener('click', ()=> show(cur-1));
+next.addEventListener('click', ()=> show(cur+1));
+document.addEventListener('keydown',(e)=>{ if(e.key==='ArrowRight') next.click(); if(e.key==='ArrowLeft') back.click(); });
+show(0);
+</script>
+</body>
+</html>

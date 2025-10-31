@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siebel Training: Part 1 (Day 1 Fundamentals)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .page { display: none; flex-direction: column; min-height: 520px; }
+        .page.active { display: flex; }
+        .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
+        .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
+        .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+        #agenda-section a { transition: background-color 0.2s ease-in-out; }
+        .page h3 { font-weight: bold; }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
+        <header class="bg-slate-800 p-4 text-white text-center">
+            <h1 class="text-2xl font-bold">Oracle Siebel CRM: A Comprehensive 2-Day Training</h1>
+        </header>
+
+        <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
+            <div id="page-container" class="content-area">
+                
+                <div id="agenda-section" class="page active space-y-8">
+                    </div>
+
+                <div class="page space-y-6" data-page-type="topic" data-duration="10" data-day="1">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Course Overview: Siebel Fundamentals & Configuration</h2>
+                    <p class="text-lg">This intensive 2-day course provides a practical, foundational understanding of the <b>Oracle Siebel CRM platform</b>. We'll focus on the core architecture and declarative configuration model, equipping you with the necessary skills to understand, customize, and manage a Siebel application effectively.</p>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h3 class="font-bold text-lg text-slate-800 mb-2">Training Environment Details:</h3>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong>Application URL:</strong> <code class="bg-slate-200 px-2 py-1 rounded">http://siebel.trainingserver.com/callcenter_enu</code> (Siebel Web Client)</li>
+                            <li><strong>Development Tool:</strong> <strong>Siebel Web Tools</strong> (accessed via a browser).</li>
+                            <li><strong>Trainee Workspace:</strong> Each trainee uses a unique, isolated workspace prefixed <b>DEV\_TRAINEE##\_</b></li>
+                            <li><strong>Login/Password:</strong> <code class="bg-slate-200 px-2 py-1 rounded">TRAINEE##</code> / <code class="bg-slate-200 px-2 py-1 rounded">Welcome123</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="page day-divider" data-page-type="divider" data-duration="0" data-day="1">Day 1 Begins</div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-section="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">What is customer relationship management?</h2>
+                    <p>Customer Relationship Management (CRM) is a business strategy and technology platform focused on managing all interactions with customers and prospects. The core purpose is to maximize the value of every customer relationship.</p>
+                    <h3 class="font-bold mt-4 text-lg">CRM Objectives:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Acquisition:</b> Winning new customers by effective lead management and nurturing sales opportunities. This initial phase focuses on converting prospects into clients.</li>
+                        <li><b>Retention:</b> Keeping existing customers loyal through excellent service and personalized communication. Long-term customer satisfaction is key to business stability.</li>
+                        <li><b>Profitability:</b> Increasing the lifetime value of each customer by understanding their needs and selling them relevant products and services. This ensures that relationships are valuable to the company.</li>
+                    </ul>
+                    <p class="mt-4">Siebel enforces this with a <b>single database</b> to house all customer information, guaranteeing data consistency across all user interactions and communication channels (Web, Call Center, Mobile).</p>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">CRM Lifecycle Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Analogy:</b> The CRM lifecycle is a continuous feedback loop: you acquire a customer, serve them, analyze their needs, and then market new offerings, which leads to repeat business and retention.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Importance of CRM in business</h2>
+                    <p>A CRM system acts as the <b>central nervous system</b> for a customer-centric business. It breaks down information silos to ensure efficient, collaborative customer engagement.</p>
+                    <h3 class="font-bold mt-4 text-lg">Business Value:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Unified View (360-degree):</b> Gives every employee-from sales to service-a complete, real-time history of the customer, preventing customers from having to repeat themselves.</li>
+                        <li><b>Data Consistency:</b> All information resides in a single source, eliminating data silos and ensuring reliable reporting and planning.</li>
+                        <li><b>Process Automation:</b> Automating repetitive administrative tasks (like lead assignment or service ticket routing) frees employees to focus on strategic, high-value tasks, like selling and problem-solving.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">CRM Benefits Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Benefit:</b> Siebel helps managers make better decisions with a <b>real-time view</b> of the entire sales team and organization.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Key features and benefits</h2>
+                    <p>Siebel's platform is designed for enterprise scale, focusing on maximum customization through metadata, not code.</p>
+                    <h3 class="font-bold mt-4 text-lg">Core Technical Advantages:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Declarative Configuration (Metadata):</b> The entire application structure (UI, logic, fields) is defined by <b>metadata</b> in the repository. This means complex logic is implemented by setting properties in <b>Siebel Web Tools</b>, not by writing source code.</li>
+                        <li><b>Cloud Native Architecture:</b> Modern Siebel architecture (IP25 concepts) uses containerized, <b>immutable services</b>. This enables all changes to be versioned, deployed automatically, and supports zero-downtime upgrades.</li>
+                        <li><b>Open UI & Mobile:</b> The interface is built on standard web technologies (HTML5) and supports <b>responsive design</b>, making it intuitive for mobile use and easily customized.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel Features Diagram</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Insight:</b> The architecture prioritizes <b>Automation</b> (fully automated deployment) and <b>Service Orientation</b> (independent, microservices) for agility and modern operations.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel CRM modules</h2>
+                    <p>Siebel functionality is delivered through integrated modules that manage specific business functions, often separated into functional groups like Sales or Service.</p>
+                    <h3 class="font-bold mt-4 text-lg">Key Modules:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Siebel Sales:</b> Used by sales representatives and managers to manage Accounts, sales Opportunities, and Contacts. It includes tools for sales forecasting.
+                            <br><b>Validation:</b> Navigate to the <b>Opportunities</b> screen.</li>
+                        <li><b>Siebel Service:</b> Manages Service Requests, Entitlements, and Contact Center operations, tracking service contracts and customer histories.
+                            <br><b>Validation:</b> Navigate to the <b>Service</b> screen.</li>
+                        <li><b>Partner Relationship Management (PRM):</b> Automates the relationship with channel partners, distributors, and resellers.
+                            <br><b>Validation:</b> Check the Site Map for <b>Partner Programs</b> screens.</li>
+                        <li><b>Order Management:</b> Focuses on the quote-to-cash process, allowing users to create quotes, configure products, and submit orders.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel Application Types (Functional Grouping)</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Application:</b> The specific features available are defined by the <b>Application Object</b> (e.g., `Siebel Call Center` or `Siebel Sales`).
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Navigating Siebel CRM</h2>
+                    <p>The <b>Siebel Web Client</b> UI is structured hierarchically, defined by the <b>UI Layer</b> of the architecture. Understanding this structure is essential for finding and validating data.</p>
+                    <h3 class="font-bold mt-4 text-lg">Navigation Hierarchy:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Screens:</b> The highest level, representing major functional areas (e.g., Accounts, Opportunities). Accessed via the main tabs.</li>
+                        <li><b>Views:</b> Groups of related data within a Screen (e.g., Account List View, Account Detail View). Views are accessed via the <b>Link Bar</b> or <b>View Tabs</b> below the main screen tabs.</li>
+                        <li><b>Applets:</b> The actual containers of data within a View. They display records in two forms: a <b>List Applet</b> (multiple records in a grid) or a <b>Form Applet</b> (a single record in a detailed layout).</li>
+                        <li><b>Drilldown:</b> A <b>hyperlink</b> on a record that quickly takes you to a more detailed view of that specific record.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel UI Navigation Map</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Validation:</b> In the Application, navigate to the <b>Accounts</b> tab (Screen), click the <b>Accounts List</b> link (View), and observe the grid of data (List Applet). Click on any <b>Account Name</b> (Drilldown) to switch to the Account <b>Form Applet</b>.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Setting up users and roles</h2>
+                    <p>Siebel's security model separates <b>functional access</b> (what you can do) from <b>data access</b> (what records you can see) using a multi-layered hierarchy.</p>
+                    <h3 class="font-bold mt-4 text-lg">Functional Access (The Key):</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Responsibilities:</b> A Responsibility is a collection of allowed <b>Views</b>. It determines the functional permissions of a user. The <b>Developer</b> Responsibility is required for configuration access.</li>
+                    </ul>
+                    <h3 class="font-bold mt-4 text-lg">Data Access (The Badge):</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Positions:</b> Every <b>Employee</b> holds one or more <b>Positions</b>. Position determines data ownership.</li>
+                        <li><b>Organizations:</b> Positions belong to an <b>Organization</b> (a Business Unit). Organization-based security limits data visibility across large segments.</li>
+                        <li><b>Position Hierarchy:</b> Defines the reporting lines, enabling managers to see data owned by their direct and indirect reports.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Introduction to Oracle Siebel CRM">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Functional vs. Data Access Control</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Analogy:</b> A <b>Responsibility</b> is your key to the building (access to views), but your <b>Position/Organization</b> is your badge that limits which office doors (records) you can open once inside. These two mechanisms are independent.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="1"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 1: Initial Setup and Navigation</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Familiarize Yourself with the CRM Environment</h3><ol class="list-decimal list-inside space-y-2"><li>Log into the Siebel application using your trainee credentials.</li><li>Navigate to the <b>Accounts</b> screen and the <b>Accounts List</b> view.</li><li>Create a <b>New Record</b> for a fictional company using the Menu or New button. Note the required fields.</li><li>In the same List Applet, use the <b>Query</b> button and type in an Account Name followed by an asterisk (e.g., "ABC") to find your newly created record. Use the <b>Run Query</b> command to execute.</li><li>Click the <b>MVG Select button</b> (the small square button) next to <b>Account Team</b> and add yourself as a team member, ensuring you are marked as the <b>Primary</b> team member.</li></ol></div></div>
+                
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Overview of Siebel tools</h2>
+                    <p>Configuration uses <b>declarative techniques</b> (setting properties) to implement business logic. <b>Siebel Web Tools</b> is the modern IDE used to modify **object definitions** which reside in the Siebel repository.</p>
+                    <h3 class="font-bold mt-4 text-lg">Siebel Tools and the Repository:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Declarative Configuration:</b> The core principle: implementing logic by modifying metadata object properties, <b>not by writing custom code or modifying source files</b>.</li>
+                        <li><b>Object Definitions:</b> These are the metadata records (e.g., Business Component, Field, Applet) that define the Siebel application.</li>
+                        <li><b>Repository:</b> This is the database table where the metadata (object definitions) lives. Modern Siebel versions rely on consuming data directly from the Repository table.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Tools / Runtime Architecture</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Runtime:</b> For modern deployments, <b>Application Object Managers</b> consume object definitions directly from the <b>database repository</b>, making deployment faster and removing the dependency on manually compiled SRF files.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Basic configuration tasks</h2>
+                    <p>The <b>Workspace Model</b> is essential for parallel development, enabling multiple developers to work concurrently on the repository without overwriting each other's changes.</p>
+                    <h3 class="font-bold mt-4 text-lg">Workspace Development (Concurrent Model):</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Sandbox (Developer Workspace):</b> Every developer works in their own personal workspace (e.g., `DEV_TRAINEE##_`). This is a sandbox where configurations are isolated from the main application.</li>
+                        <li><b>Locking:</b> When a developer modifies an object, that specific object instance is locked within their workspace, ensuring <b>exclusive write access</b> and preventing merge conflicts.</li>
+                        <li><b>Submit for Delivery:</b> When development is complete, the workspace status is set to **Submitted for Delivery**.</li>
+                        <li><b>Deliver:</b> An administrator reviews and **Delivers** the changes, merging them into a parent **Integration Workspace** and creating a new object version.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workspace Hierarchy and Flow</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Isolation:</b> Workspaces are hierarchical: **MAIN** $\to$ **Integration** $\to$ **Developer**. Each developer only sees the incremental changes (the **delta**) within their branch.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Creating and managing data models</h2>
+                    <p>The configuration process adheres to the <b>Bottom-Up</b> strategy for execution: start with the <b>Data Layer</b>, move to the <b>Business Layer</b>, and finish with the <b>UI Layer</b>.</p>
+                    <h3 class="font-bold mt-4 text-lg">The Data Layer (Tables/Columns):</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Data Model:</b> Siebel uses a **Party Data Model** (`S_PARTY`) and a structured set of base tables (`S_OPTY`, `S_SRV_REQ`).</li>
+                        <li><b>Custom Fields:</b> Best practice is to reuse existing <b>1:1 Extension Tables</b> (like `S_OPTY_X`) for custom fields. Custom column names must be prefixed with **X\_**.</li>
+                        <li><b>ROW\_ID:</b> This is the fundamental, universally unique **Primary Key (PK)** for every record, maintained automatically by Siebel.</li>
+                    </ul>
+                    <h3 class="font-bold mt-4 text-lg">The Business Layer (BCs/Fields):</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Field Mapping:</b> A <b>Field</b> object in the BC (e.g., `Customer Score`) maps directly to a physical <b>Column</b> in the data layer.</li>
+                        <li><b>Calculated Fields:</b> Fields derived from an expression (e.g., `[Revenue] * 0.1`). These **do not map to a column** and are always read-only.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Data Model Architecture</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Validation:</b> In Siebel Web Tools, use the **Object Explorer (OE)** to view <b>Table</b> $\to$ <b>Column</b> to see the physical layer, and <b>Business Component</b> $\to$ <b>Field</b> to see the logical layer.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Configuring business components and objects</h2>
+                    <p>Configuration uses <b>declarative logic</b> applied directly to BC properties, controlling data behavior.</p>
+                    <h3 class="font-bold mt-4 text-lg">Data Control and Validation:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Search Specification:</b> A permanent `WHERE` clause on the BC that filters the data returned to the application (e.g., only showing records where `STATUS = 'Active'`).</li>
+                        <li><b>Validation:</b> A field property that defines an expression that must be `TRUE` when a record is saved. This prevents bad data and enforces simple business rules.</li>
+                        <li><b>Joins:</b> An object in the BC that brings in fields from a secondary table (the "joined table") based on a foreign key relationship, creating a single virtual record.</li>
+                        <li><b>User Properties:</b> Named arguments added to a BC or Field that implement complex IF/THEN logic (e.g., dynamically making a field read-only based on a status flag) without using code.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">BC Field Join Mapping</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Relationship:</b> The <b>Field</b> object's <b>Join</b> property links it to the Join object, which in turn links to the physical joined table. The field's <b>Column</b> property specifies which column to fetch from that joined table.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="1"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 2: Customizing Business Logic</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Parallel Development: Unique BC/Field Updates (10 Trainees)</h3><p>Log into Siebel Web Tools with your trainee ID (Trainee 01-10) and open your isolated workspace (e.g., DEV_TRAINEE01_).</p><h3 class="font-bold mt-4 text-lg">Task: Implement a Unique Field and BC Property:</h3><div class="text-sm space-y-2">
+                    <p>1. <b>Trainee 01-02 (Opportunity Logic)</b>: Create a Field on <b>Opportunity</b> BC: `X_REGION_ID_T##`. Implement a <b>Validation</b> rule on this field: `[X_REGION_ID_T##] IS NOT NULL`.</p>
+                    <p>2. <b>Trainee 03-04 (Account Logic)</b>: Create a Field on <b>Account</b> BC: `X_TIER_LEVEL_T##`. Implement a <b>Pre Default Value</b> for this field: `"Bronze" + [Login Name]`.</p>
+                    <p>3. <b>Trainee 05-06 (Service Request Logic)</b>: Create a Field on <b>Service Request</b> BC: `X_SLA_DATE_T##`. Implement a <b>BC User Property</b>: <b>BC Read Only Field</b> with Value: `IIF([Status] = 'Closed', 'Y', 'N')` (Requires a Calculated Field: `StatusFlag` with formula: `IIF([Status] = 'Closed', 'Y', 'N')`).</p>
+                    <p>4. <b>Trainee 07-08 (Contact Logic)</b>: Create a Field on <b>Contact</b> BC: `X_VIP_FLAG_T##`. Implement a <b>Validation</b> rule on this field: `IIF([X_VIP_FLAG_T##] = 'Y', [Job Title] IS NOT NULL, 'Y')`.</p>
+                    <p>5. <b>Trainee 09-10 (Product Logic)</b>: Create a Field on <b>Product</b> BC: `X_EOL_DATE_T##`. Implement a BC Property: <b>No Delete</b> = `TRUE`.</p>
+                    <p class="bold mt-4">Compile changes, test the implemented logic in your isolated development environment, and <b>Deliver</b> the workspace changes.</p>
+                </div></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Setting up application parameters</h2>
+                    <p>Application Parameters (System Preferences) are global variables stored directly in the Siebel database. They provide a vital separation between global variables and the static repository metadata.</p>
+                    <h3 class="font-bold mt-4 text-lg">Key Advantages of Parameters:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Dynamic Control:</b> Values can be updated <b>in the Siebel Web Client</b> (Administration - Application > System Preferences) without requiring any compiler or deployment cycle. This is used for quick changes (e.g., switching an external server URL).</li>
+                        <li><b>Profile Attributes:</b> These parameters are often referenced in business logic (Workflows, Scripts) using the function `GetProfileAttr("ParameterName")` to dynamically control application behavior.</li>
+                        <li><b>Environment Separation:</b> They hold values that differ between environments (Dev vs. Prod), making it easier to promote the core application code without manual changes.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Managing system preferences</h2>
+                    <p>System Preferences are cached in memory by the Application Object Manager on the Siebel Server to ensure fast access. This requires a crucial step after any modification.</p>
+                    <h3 class="font-bold mt-4 text-lg">The Cache Management Rule:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Caching:</b> Siebel clients and server components cache the preference values upon login or startup. A change in the database isn't instantly visible to running user sessions.</li>
+                        <li><b>Clearing the Cache:</b> After updating a parameter value in the **System Preferences** view, an administrator <b>must</b> select <b>Menu > Clear Cache</b> from the applet. This action forces all active server components to reload the latest values from the database.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">System Preferences Clear Cache</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Validation:</b> After clicking <b>Clear Cache</b>, a running Workflow that uses the parameter should immediately execute with the new value, confirming the server-side memory refresh.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Creating and managing workflows</h2>
+                    <p>A <b>Workflow Process</b> is a declarative (no-code) way to automate complex, multi-step business logic and integrate different application features.</p>
+                    <h3 class="font-bold mt-4 text-lg">Core Workflow Concepts:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Process Properties:</b> Variables that store data throughout the workflow's execution (e.g., the `Object Id` of the record that triggered the flow).</li>
+                        <li><b>Workflow Steps:</b> The building blocks of the process, including: <b>Start</b>, <b>End</b>, <b>Siebel Operation</b>, <b>Business Service</b>, and <b>Decision Point</b> steps.</li>
+                        <li><b>Business Object (BO) Context:</b> Workflows that perform operations on business components must be assigned a <b>Business Object</b> (e.g., the `Contact` BO) to provide context for the Business Components they manipulate.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workflow Designer Interface</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Building:</b> Steps are dragged from the <b>Palette</b> onto the <b>Workspace</b> and connected using <b>Connectors</b> to define the process sequence.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workflow Step: Siebel Operation</h2>
+                    <p>The <b>Siebel Operation</b> step is essential for direct manipulation of Siebel data (CRUD actions) within a workflow. It operates on a specified Business Component.</p>
+                    <h3 class="font-bold mt-4 text-lg">Configuration Focus:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Operation Types:</b> Supports <b>Insert</b>, <b>Update</b>, <b>Delete</b>, or <b>Query</b>.</li>
+                        <li><b>Query Output:</b> For a <b>Query</b>, the Output Arguments tab is used to map specific <b>BC Fields</b> (e.g., `Account Name`) to <b>Process Properties</b> so the data is accessible in later steps.</li>
+                        <li><b>Update Input:</b> For an <b>Update</b>, the Input Arguments tab defines which fields should be set to which values (literal or process property).</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel Operation Step Properties</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Logic:</b> The step uses the <b>Search Specification</b> in the Input Arguments (if querying) to define the `WHERE` clause for the database retrieval.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workflow Step: Decision Point</h2>
+                    <p>The <b>Decision Point</b> step, represented by a diamond shape, is used to introduce <b>branching logic</b> (IF/THEN/ELSE) into the workflow path.</p>
+                    <h3 class="font-bold mt-4 text-lg">Configuration Details:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Conditional Connectors:</b> Each path leading out of the step (except the default) is a connector that must have a specific condition defined based on a <b>Process Property</b> (the input).</li>
+                        <li><b>Compose Condition Criteria:</b> This dialog box is used to visually build the logical expression (e.g., `[Middle Name] IS NOT NULL`).</li>
+                        <li><b>Default Branch:</b> One connector must remain without any condition defined. This is the <b>default path</b> the workflow will take if all other defined conditions evaluate to false.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Decision Point Step Properties</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Execution:</b> The workflow engine evaluates conditions in a defined order and follows the path of the first condition that evaluates to true. If none are true, it takes the default path.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="1"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 3: The Development Lifecycle</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Manage Local Changes</h3><ol class="list-decimal list-inside space-y-2"><li>Log into <b>Siebel Web Tools</b> and open your isolated workspace (e.g., DEV_TRAINEE01_).</li><li>Navigate to the <b>Project</b> object type in the Object Explorer. Find your assigned project.</li><li>Verify that your project is <b>Checked Out</b> to your local repository. This grants you write access.</li><li>Create a <b>New Field</b> (name it `X_ASSIGN_FLAG_T##`) on the `Opportunity` Business Component.</li><li>Use <b>Menu > Compile</b> (or equivalent command) to create your local deployment file.</li><li><b>Test</b> the change: Launch the application in <b>Inspect</b> mode for your workspace and verify the new field exists in the Opportunity List Applet.</li><li><b>Deliver</b> your workspace changes to the parent Integration Workspace.</li></ol></div></div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Customizing the user interface</h2>
+                    <p>UI customization is the process of modifying the look and feel of the Siebel application by manipulating the relationship between <b>Web Templates</b> and <b>Applets/Views</b>.</p>
+                    <h3 class="font-bold mt-4 text-lg">Web Templates:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>HTML Files:</b> Web Templates are essentially **HTML files** (`.swt`) that define the layout and formatting of Applets and Views. They contain standard HTML tags mixed with special **Siebel Tags** (`<swe:control>`) that act as placeholders for dynamic data.</li>
+                        <li><b>Web Layout Editor:</b> The visual tool used to **map** Applet controls and list columns to the placeholder IDs within the Web Template.</li>
+                        <li><b>Binding:</b> This mapping process creates an `Applet Web Template Item` object in the repository, linking the logical object (Applet, Control) to the physical layout location.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Web Layout Editor Interface</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Action:</b> The editor allows you to drag a <b>Control</b> (which links to a BC Field) from the palette onto a <b>Placeholder</b> on the grid, defining where that field will appear in the running application.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Personalizing user experiences</h2>
+                    <p>Siebel allows users to tailor the interface to their specific needs, often without requiring administrative intervention.</p>
+                    <h3 class="font-bold mt-4 text-lg">User-Driven Customization:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>User Preferences:</b> Users can set individual preferences like their default **startup view**, **time zone**, and **default spell check options** from the application-level **Tools** menu.</li>
+                        <li><b>Customizing List Applets:</b> End-users can permanently change the order of columns, show/hide columns, and set **column widths** in list applets to optimize their working view.</li>
+                        <li><b>Saved Queries:</b> Users can save frequently used search filters for easy recall from the **Saved Queries** drop-down list on any Applet.</li>
+                    </ul>
+                </div>
+
+                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Personalization Example</h2>
+                    <div class="flex-grow flex items-center justify-center"></div>
+                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
+                        <b>Validation:</b> In the Siebel Web Client, go to <b>Tools > User Preferences</b>. The screen that appears allows you to set preferences like the <b>Default View</b> and <b>Time Zone</b>.
+                    </div>
+                </div>
+
+                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="1"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 5: Building a Simple Workflow</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Create a Contact Status Update Workflow</h3><ol class="list-decimal list-inside space-y-2"><li>In Siebel Tools, create a new **Workflow Process** named `TRAINEE##_Update Contact Status` in your project. Set its **Business Object** to `Contact`.</li><li>Add a **Start** step and an **End** step.</li><li>Insert a **Siebel Operation** step named `Query Contact` after Start. Configure it for the `Contact` BC with the **Operation** `Query`.</li><li>Set the **Input Arguments** for `Query Contact`: Map the **Search Spec** to the Process Property **Object Id**. This retrieves the record the workflow is run against.</li><li>Insert another **Siebel Operation** step named `Update Status` after `Query Contact`. Configure it for the `Contact` BC with the **Operation** `Update`.</li><li>Set the **Input Arguments** for `Update Status`: Set the field `Status` to the **Literal Value** `"Active"`.</li><li>Connect the steps, **Validate** the workflow, then **Publish** and **Activate** it via the Siebel Web Client.</li></ol></div></div>
+
+                <div class="page space-y-6" data-page-type="topic" data-duration="15" data-day="1" data-module="Configuring Siebel Applications">
+                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Day 1 Review and Q&A</h2>
+                    <h3 class="font-bold mt-4 text-lg">Key Takeaways for Configuration:</h3>
+                    <ul class="list-disc space-y-3">
+                        <li><b>Architecture:</b> Everything flows through the **Business Component** layer, which abstracts the **Data Layer** from the **UI Layer**.</li>
+                        <li><b>Change Management (IP25):</b> Development occurs in an isolated **Developer Workspace**. Changes are delivered by **Submitting** and **Delivering** to an Integration Workspace.</li>
+                        <li><b>Data Layer:</b> The **ROW\_ID** is the universal Primary Key (PK). Custom columns must use the `X_` prefix.</li>
+                        <li><b>Automation:</b> Workflows use **Steps** and **Process Properties**, and are made live via **Publish and Activate** (as they are not compiled into the SRF).</li>
+                    </ul>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mt-4">
+                        <h3 class="font-bold text-lg text-slate-800">Next Steps: Day 2 Preview</h3>
+                        <p>Tomorrow, we dive deeper into advanced features, including data governance (EIM), declarative automation (Assignment Manager), and service configuration (SLAs).</p>
+                    </div>
+                </div>
+
+                </div>
+        </main>
+        <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
+            <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back</button>
+            <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
+            <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700">Next (Part 2)</button>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageContainer = document.getElementById('page-container');
+            const pages = Array.from(pageContainer.children);
+            const backBtn = document.getElementById('back-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const pageIndicator = document.getElementById('page-indicator');
+
+            let currentPageIndex = 0;
+            const TOTAL_PAGES_LOGICAL = 186; // The requested logical count for the agenda
+            const TOTAL_PAGES_ACTUAL = pages.length; // The current size of the page array
+
+            function navigateToPart(partFileName) {
+                // In a real deployment, this would change the window location.
+                window.location.href = partFileName;
+            }
+
+            function generateAgenda() {
+                // Simplified Agenda generation for cleaner execution
+                const agendaContainer = document.getElementById('agenda-section');
+                agendaContainer.innerHTML = `
+                    <h2 class="text-3xl font-bold text-slate-900 border-b-4 border-slate-300 pb-3">Training Agenda & Index (Part 1 of 3)</h2>
+                    <h3 class="text-xl font-bold text-slate-800 mt-4">Day 1: Siebel Fundamentals & Configuration</h3>
+                    <div class="space-y-2">
+                        <a href="#" data-target-page="1" class="block p-3 bg-slate-50 hover:bg-slate-100 rounded-r-md flex justify-between items-center text-sm"><span>&bull; Course Overview</span><span class="text-slate-500 whitespace-nowrap ml-4">P. 1 (10 mins)</span></a>
+                        <a href="#" data-target-page="3" class="block p-3 bg-slate-50 hover:bg-slate-100 rounded-r-md flex justify-between items-center text-sm"><span>&bull; What is customer relationship management?</span><span class="text-slate-500 whitespace-nowrap ml-4">P. 3 (15 mins)</span></a>
+                        <a href="#" data-target-page="15" class="block p-3 bg-yellow-50 hover:bg-yellow-100 border-l-4 border-yellow-400 rounded-r-md flex justify-between items-center text-sm"><span>&bull; Assignment 1: Initial Setup and Navigation</span><span class="text-slate-500 whitespace-nowrap ml-4">P. 15 (45 mins)</span></a>
+                        <a href="#" data-target-page="18" class="block p-3 bg-slate-50 hover:bg-slate-100 rounded-r-md flex justify-between items-center text-sm"><span>&bull; Basic configuration tasks (Workspaces)</span><span class="text-slate-500 whitespace-nowrap ml-4">P. 18 (15 mins)</span></a>
+                        <a href="#" data-target-page="24" class="block p-3 bg-yellow-50 hover:bg-yellow-100 border-l-4 border-yellow-400 rounded-r-md flex justify-between items-center text-sm"><span>&bull; Assignment 2: Customizing Business Logic</span><span class="text-slate-500 whitespace-nowrap ml-4">P. 24 (45 mins)</span></a>
+                        <a href="#" data-target-page="40" class="block p-3 bg-slate-50 hover:bg-slate-100 rounded-r-md flex justify-between items-center text-sm"><span>&bull; Day 1 Review and Q&A</span><span class="text-slate-500 whitespace-nowrap ml-4">P. 40 (15 mins)</span></a>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <p class="font-bold text-lg">For Day 2 content, please click "Next (Part 2)"</p>
+                        <button id="start-training-btn" class="px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition-colors">Start Training</button>
+                    </div>
+                `;
+                
+                document.querySelectorAll('#agenda-section a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetPage = parseInt(e.currentTarget.dataset.targetPage, 10);
+                        showPage(targetPage);
+                    });
+                });
+                document.getElementById('start-training-btn').addEventListener('click', () => showPage(1));
+            }
+
+
+            function showPage(index) {
+                if (index < 0 || index >= pages.length) return;
+                
+                pages.forEach((page, i) => {
+                    page.style.display = 'none'; 
+                });
+                pages[index].style.display = 'flex'; 
+                
+                currentPageIndex = index;
+                updateUI();
+            }
+
+            function updateUI() {
+                const currentPageElement = pages[currentPageIndex];
+                const pageNumber = currentPageIndex;
+                const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
+                const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
+                
+                let footerText = `Page ${pageNumber} of 95 (Logical: ${TOTAL_PAGES_LOGICAL})`;
+                if(currentPageIndex > 0) {
+                    footerText = `Page ${pageNumber} of 95 (Logical: ${TOTAL_PAGES_LOGICAL})`;
+                    if (pageDuration > 0) {
+                        footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
+                    } else if (currentPageElement.dataset.pageType === 'divider') {
+                        footerText = currentPageElement.textContent;
+                    } else {
+                        footerText += `<br>Day ${pageDay}`;
+                    }
+                } else {
+                    footerText = `Select a topic to begin`;
+                }
+                pageIndicator.innerHTML = footerText;
+
+                // --- Button Logic ---
+                backBtn.disabled = currentPageIndex === 0;
+                nextBtn.textContent = (currentPageIndex === TOTAL_PAGES_ACTUAL - 1) ? 'Go to Part 2' : 'Next';
+                nextBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                
+                if (currentPageIndex === TOTAL_PAGES_ACTUAL - 1) {
+                    // Last page of Part 1, links to Part 2
+                    nextBtn.onclick = () => { navigateToPart('Part2.html#page-42'); };
+                } else {
+                    // Internal navigation
+                    nextBtn.onclick = () => { showPage(currentPageIndex + 1); };
+                }
+                
+                // Back button logic (cannot go back before the agenda)
+                backBtn.onclick = (currentPageIndex === 0) ? null : () => { showPage(currentPageIndex - 1); };
+            }
+
+            generateAgenda();
+            // Initial call to show agenda or page 1
+            showPage(0); 
+        });
+    </script>
+</body>
+</html>

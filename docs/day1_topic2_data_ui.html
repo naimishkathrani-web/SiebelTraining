@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Day 1 • Topic 2 — Data Model & UI Basics</title>
+<style>
+  :root{--accent:#0b66c3;--muted:#55606a;--panel:#f6fbff;--font:"Segoe UI",Roboto,Arial}
+  body{font-family:var(--font);margin:0;background:#fff;color:#122433}
+  .wrap{max-width:1100px;margin:0 auto;padding:18px}
+  .header{display:flex;justify-content:space-between;align-items:center}
+  .title{font-size:20px;color:var(--accent);font-weight:700}
+  .banner{padding:10px;border-left:6px solid #bfe0ff;background:#f3f9ff;border-radius:8px;margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+  .pages{margin-top:14px}
+  .page{display:none;min-height:64vh;padding:14px 0}
+  .page.active{display:block}
+  h1{margin:0 0 8px}
+  .lead{color:var(--muted);margin-bottom:10px}
+  .card{background:var(--panel);padding:12px;border-radius:8px;border:1px solid #e6eef8;margin:10px 0}
+  .image-placeholder{height:280px;border:1px dashed #d7e0ee;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--muted);background:linear-gradient(90deg,#fff,#f7fbff);margin:12px 0}
+  .footer{position:fixed;left:0;right:0;bottom:0;height:80px;background:#fff;border-top:1px solid #e6e9ee;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;box-sizing:border-box}
+  .btn{border:0;background:transparent;color:var(--accent);font-weight:700;padding:8px 12px;cursor:pointer}
+  .meta{color:var(--muted)}
+  @media (max-width:900px){.banner{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div>
+      <div class="title">Module 1 — Topic 2: Data Model & UI Basics</div>
+      <div class="meta">Topic B — Total Est. Time: 90 minutes • Pages 21–35</div>
+    </div>
+    <div><a class="btn" href="index.html">Return to Agenda</a></div>
+  </div>
+
+  <div class="banner">
+    <div><strong>Focus:</strong> How data is modeled and surfaced in the UI — BCs, BOs, Views and Applets.</div>
+    <div class="meta">Estimated time (topic): 90 mins</div>
+  </div>
+
+  <div class="pages">
+    <!-- Page 21 -->
+    <section class="page" id="p21">
+      <h1>Business Components (BC) — Concept</h1>
+      <p class="lead">A Business Component is the logical representation of data that an Applet uses. BCs map to tables and define the fields visible in the UI and search behavior.</p>
+      <div class="card">
+        <h3>Detailed explanation</h3>
+        <p>BC properties include Table, JoinMap, SearchSpec and Field definitions. You can add calculated fields, mapped columns, and set read-only or computed attributes via BC configuration.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 22 -->
+    <section class="page" id="p22">
+      <h1>Business Object (BO) — Grouping BCs</h1>
+      <p class="lead">BOs group related BCs to form a screen or user flow. They determine master-child relationships and navigation within a screen.</p>
+      <div class="card">
+        <h3>Example</h3>
+        <p>Account BO might include Contact BC, Opportunity BC and Service Request BC as related BCs to show linked records on the same screen.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 23 -->
+    <section class="page" id="p23">
+      <h1>Fields, Extension Tables & Safe Customizations</h1>
+      <p class="lead">Use extension tables for custom fields (prefixed with X_) to avoid altering core tables. Map fields in BCs and add them to Applets.</p>
+      <div class="card">
+        <h3>Best practice</h3>
+        <p>Create extension tables for any custom data. This keeps upgrades and patching safe and minimizes conflicts.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 24 -->
+    <section class="page" id="p24">
+      <h1>Views & Applets — Presenting BC data</h1>
+      <p class="lead">An Applet displays BC fields in list or form mode. Views arrange one or more Applets; Screens present Views to users based on responsibility.</p>
+      <div class="card">
+        <h3>Actionable steps</h3>
+        <p>To add a field to a view: add to BC → add field to Applet → save to workspace → deliver to Integration for QA.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 25 -->
+    <section class="page" id="p25">
+      <h1>SearchSpec & Query Behavior</h1>
+      <p class="lead">SearchSpec determines which rows appear in lists. Understand index-friendly filters and avoid expensive server-side computations in search specs.</p>
+      <div class="card">
+        <h3>Why it matters</h3>
+        <p>Efficient searches ensure responsive UI and lower DB load. Use indexed columns where possible and keep SearchSpec simple.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 26 -->
+    <section class="page" id="p26">
+      <h1>Calculated & Derived Fields</h1>
+      <p class="lead">Use calculated fields for UI-level derived data (e.g., FullName) or use Business Services for heavier calculations.</p>
+      <div class="card">
+        <h3>Example</h3>
+        <p>FullName = FirstName + ' ' + LastName can be a calculated field in BC to avoid duplicating logic in the UI.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 8 mins</div>
+    </section>
+
+    <!-- Page 27 -->
+    <section class="page" id="p27">
+      <h1>Applets: List vs Form Behaviors</h1>
+      <p class="lead">List applets support multi-row operations and bulk actions; form applets present detailed fields and granular actions.</p>
+      <div class="card">
+        <h3>Tip</h3>
+        <p>Keep list applet columns lean (key columns) and reserve detailed or rarely-used fields for form applets.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 8 mins</div>
+    </section>
+
+    <!-- Page 28 -->
+    <section class="page" id="p28">
+      <h1>UI Performance Considerations</h1>
+      <p class="lead">Large lists, expensive computed fields and non-indexed search filters slow the UI. Design BCs for efficient queries and apply pagination where needed.</p>
+      <div class="card">
+        <h3>Example</h3>
+        <p>A list with 1000+ records should use server-side pagination and efficient SearchSpecs to avoid long wait times.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 29 -->
+    <section class="page" id="p29">
+      <h1>Delivering UI Changes Safely</h1>
+      <p class="lead">Use Workspaces and small incremental deliveries. Validate in Integration workspace before pushing to MAIN.</p>
+      <div class="card">
+        <h3>Checklist</h3>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>Test in Dev workspace</li><li>Deliver to Integration for QA</li><li>Validate in a staging environment</li></ul>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 12 mins</div>
+    </section>
+
+    <!-- Page 30 -->
+    <section class="page" id="p30">
+      <h1>Where to see it — Web Tools locations</h1>
+      <p class="lead">Object Explorer → Business Component, Business Object, Applet and View nodes contain the objects you will edit.</p>
+      <div class="image-placeholder">Image placeholder — Images/config_data_model.png</div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 8 mins</div>
+    </section>
+
+    <!-- Page 31 -->
+    <section class="page" id="p31">
+      <h1>Practical examples & short case</h1>
+      <p class="lead">Example: Add a "Preferred Contact Channel" field and expose it on the Contact list.</p>
+      <div class="card">
+        <h3>Reasoning</h3>
+        <p>Small changes like this allow call center agents to contact customers in their preferred channel and reduce repeat calls.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 32 -->
+    <section class="page" id="p32">
+      <h1>Validation & Testing Strategy</h1>
+      <p class="lead">Test UI changes with sample data, ensure BC mapping is correct and check for null/edge cases.</p>
+      <div class="card">
+        <h3>Test plan</h3>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>Smoke test in Dev workspace</li><li>Functional test in Integration</li><li>Regression test in MAIN (if available)</li></ul>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 10 mins</div>
+    </section>
+
+    <!-- Page 33 -->
+    <section class="page" id="p33">
+      <h1>Common Data Modeling Mistakes</h1>
+      <p class="lead">Avoid making BCs dependent on heavy computed fields or joining too many tables; keep BCs focused and index-aware.</p>
+      <div class="card">
+        <h3>Troubleshooting</h3>
+        <p>If a list is slow: check SearchSpec, check SQL generated by BC and add indexes where appropriate.</p>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 8 mins</div>
+    </section>
+
+    <!-- Page 34 -->
+    <section class="page" id="p34">
+      <h1>Hands-on hint (optional)</h1>
+      <p class="lead">If you will do the practicals now: prepare to add a field, save to a dev workspace and preview the runtime change.</p>
+      <div class="caption" style="color:var(--muted)">Est. Time: 6 mins</div>
+    </section>
+
+    <!-- Page 35 -->
+    <section class="page" id="p35">
+      <h1>Topic 2 — Summary & Next</h1>
+      <p class="lead">You should now be comfortable locating BCs and Applets, understanding the safe approach for adding fields and exposing changes to the UI.</p>
+      <div class="card">
+        <h3>Key takeaways</h3>
+        <ul style="margin:8px 0 0 18px;color:var(--muted)"><li>BCs map UI to data</li><li>Use extension tables for custom fields</li><li>Test changes in Workspaces</li></ul>
+      </div>
+      <div class="caption" style="color:var(--muted)">Est. Time: 6 mins</div>
+    </section>
+  </div>
+
+  <div class="footer">
+    <div class="meta" id="footer-meta">Page 21 of 35 • Est. Time: 12 mins</div>
+    <div>
+      <button class="btn" id="backBtn">◀ Back</button>
+      <button class="btn" id="nextBtn">Next ▶</button>
+      <a class="btn" href="index.html">Return to Agenda</a>
+    </div>
+    <div class="meta">Module 1 — Topic 2</div>
+  </div>
+</div>
+
+<script>
+/* pagination 21..35 */
+const start = 21, end = 35;
+let cur = start;
+function pageEl(n){ return document.getElementById('p'+n); }
+for(let i=start;i<=end;i++){ if(i!==cur) pageEl(i).classList.remove('active'); }
+function show(n){
+  if(n<start||n>end) return;
+  pageEl(cur).classList.remove('active');
+  cur = n;
+  pageEl(cur).classList.add('active');
+  document.getElementById('footer-meta').innerText = `Page ${cur} of ${end} • ${pageEl(cur).querySelector('.caption') ? pageEl(cur).querySelector('.caption').innerText : ''}`;
+  document.getElementById('backBtn').disabled = cur===start;
+  document.getElementById('nextBtn').disabled = cur===end;
+  if(cur===end){ localStorage.setItem('day1_topic2','done'); document.querySelector('#card2') ? null : null; }
+}
+document.getElementById('backBtn').addEventListener('click', ()=> show(cur-1));
+document.getElementById('nextBtn').addEventListener('click', ()=> show(cur+1));
+document.addEventListener('keydown', (e)=>{ if(e.key==='ArrowLeft') show(cur-1); if(e.key==='ArrowRight') show(cur+1); });
+show(cur);
+</script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Module 1 — Introduction to Siebel CRM (Shreeji EntServ)</title>
+<style>
+  :root{
+    --bg:#ffffff; --muted:#555; --accent:#0b66c3; --panel:#f6f8fb;
+    --font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  body{font-family:var(--font); margin:0; background:var(--bg); color:#111;}
+  .shell{max-width:1100px; margin:0 auto; padding:18px;}
+  .module-header{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 6px; background:linear-gradient(90deg,#f7fbff,#ffffff); border-bottom:1px solid #e6edf6;}
+  .module-title{font-size:18px; color:var(--accent); font-weight:700;}
+  .progress-pill{font-size:13px; color:#fff; background:var(--accent); padding:6px 10px; border-radius:16px;}
+  .page{display:none; padding:18px 6px 120px; box-sizing:border-box; min-height:72vh;}
+  .page.active{display:block;}
+  h1{font-size:20px;margin:0 0 10px;}
+  .lead{color:var(--muted); margin:0 0 12px;}
+  .card{background:var(--panel); padding:14px; border-radius:8px; margin:10px 0; border:1px solid #e8eef8;}
+  .section{margin:12px 0;}
+  .two-col{display:flex;gap:12px;}
+  .col{flex:1;}
+  .icon{width:56px;height:56px;border-radius:8px;background:#fff;border:1px solid #e6eef8;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);margin-right:10px}
+  .row{display:flex;align-items:flex-start;gap:12px}
+  .bullets{margin:8px 0 14px;padding-left:18px}
+  .reason{border-left:4px solid #f2b63b;background:#fff7ea;padding:10px 12px;border-radius:6px;color:#4b2f00}
+  .image-placeholder{width:100%;height:360px;background:linear-gradient(90deg,#fbfdff,#ffffff);border:1px dashed #d7e0ee;display:flex;align-items:center;justify-content:center;color:var(--muted);font-style:italic;border-radius:6px;margin:12px 0}
+  .footer{position:fixed;left:0;right:0;bottom:0;height:84px;background:#fff;border-top:1px solid #e6e9ee;display:flex;align-items:center;justify-content:space-between;padding:10px 18px;box-sizing:border-box}
+  .nav{display:flex;gap:8px;align-items:center}
+  .btn{background:transparent;border:0;color:var(--accent);font-weight:700;padding:8px 12px;border-radius:6px;cursor:pointer;font-size:15px}
+  .btn:disabled{opacity:.45;cursor:default}
+  .meta{font-size:13px;color:var(--muted)}
+  .caption{font-size:13px;color:var(--muted);margin-top:6px}
+  @media (max-width:820px){ .two-col{flex-direction:column} .image-placeholder{height:200px} }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="module-header">
+    <div class="module-title">Module 1 — Introduction to Siebel CRM</div>
+    <div class="progress-pill" id="module-progress">Module 1 • Page 1 of 20</div>
+  </div>
+
+  <!-- Pages container -->
+  <div id="pages">
+    <!-- Page 1: Course Overview -->
+    <section class="page" id="p0">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="icon">1</div>
+        <div style="flex:1">
+          <h1>Course Overview</h1>
+          <p class="lead">What you'll learn in this module: core CRM concepts, how the application is organized, how users work, and the tools used for configuration. This sets the foundation for hands-on work later in the course.</p>
+        </div>
+      </div>
+
+      <div class="card section">
+        <strong>Structure of Module 1</strong>
+        <ul class="bullets">
+          <li>Understand CRM value & concepts</li>
+          <li>Learn how the application organizes screens and data</li>
+          <li>Meet Web Tools and Workspaces at a high level</li>
+          <li>Practice navigating the application in one focused hands-on exercise</li>
+        </ul>
+      </div>
+
+      <div class="card section">
+        <h2>Who should use this module</h2>
+        <p class="lead">Novice administrators, business analysts, and support staff who need a clear, practical introduction to CRM concepts and a safe path to start making configuration changes.</p>
+      </div>
+
+      <div class="caption">Estimated time: 12 minutes</div>
+    </section>
+
+    <!-- Page 2: What is CRM? -->
+    <section class="page" id="p1">
+      <div class="row">
+        <div class="icon">2</div>
+        <div style="flex:1"><h1>What is Customer Relationship Management?</h1>
+        <p class="lead">Customer Relationship Management (CRM) is the practice and system used to capture, manage, and analyze all interactions with customers across sales, service, and marketing.</p></div>
+      </div>
+
+      <div class="section">
+        <h2>Concept — in plain words</h2>
+        <p>CRM stores customer contact details, tracks interactions (calls, emails, orders), manages support cases, and helps sales teams manage opportunities. It centralizes information so any employee can quickly understand a customer's history.</p>
+      </div>
+
+      <div class="section two-col">
+        <div class="col card">
+          <h3>Example (telecom)</h3>
+          <p>A customer calls with a billing issue. The service agent opens the customer record, sees the subscription details, prior complaints, and recent invoices — all in one place. This saves time and improves satisfaction.</p>
+        </div>
+        <div class="col card">
+          <h3>Why it matters (reasoning)</h3>
+          <p class="reason">Without a central system, information is fragmented across spreadsheets and emails. A CRM ensures consistent, auditable customer interactions and faster cross-team collaboration.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Business impact</h2>
+        <ul class="bullets">
+          <li>Shorter case resolution times</li>
+          <li>Better conversion of leads to sales</li>
+          <li>Targeted campaigns increase marketing ROI</li>
+        </ul>
+      </div>
+
+      <div class="caption">Estimated time: 10 minutes</div>
+    </section>
+
+    <!-- Page 3: Importance of CRM -->
+    <section class="page" id="p2">
+      <div class="row">
+        <div class="icon">3</div>
+        <div style="flex:1"><h1>Importance of CRM in Business</h1>
+        <p class="lead">CRM is a strategic asset — it helps businesses scale customer engagement while maintaining consistent service and measurable outcomes.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Detailed explanation</h2>
+        <p>Companies use CRM to standardize customer-facing processes, measure performance, and provide a single source of truth. This matters especially when many teams touch a customer — sales, support, marketing, billing — and decisions must be fast and informed.</p>
+      </div>
+
+      <div class="card section">
+        <h3>Example: Campaign conversion</h3>
+        <p>Marketing runs a promotional campaign targeted by customer segment. With CRM segments and history, the team identifies likely responders and measures conversion, allowing continuous improvement of campaigns.</p>
+      </div>
+
+      <div class="section">
+        <strong>Key takeaway:</strong> CRM transforms customer data into actionable business decisions — increasing revenue and reducing churn.
+      </div>
+
+      <div class="caption">Estimated time: 8 minutes</div>
+    </section>
+
+    <!-- Page 4: Key Features and Benefits -->
+    <section class="page" id="p3">
+      <div class="row">
+        <div class="icon">4</div>
+        <div style="flex:1"><h1>Key Features and Benefits</h1>
+        <p class="lead">Modern CRM provides modules for sales, service and marketing, automated workflows, reporting, and integration capabilities.</p></div>
+      </div>
+
+      <div class="section two-col">
+        <div class="col card">
+          <h3>Main features</h3>
+          <ul class="bullets">
+            <li>Account & contact management</li>
+            <li>Opportunity and pipeline tracking</li>
+            <li>Case and service request management</li>
+            <li>Workflows and business rules</li>
+            <li>Dashboards and scheduled reports</li>
+          </ul>
+        </div>
+        <div class="col card">
+          <h3>Benefits</h3>
+          <ul class="bullets">
+            <li>Improved agent productivity</li>
+            <li>Consistent customer experience</li>
+            <li>Data-driven management decisions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Reasoning</h2>
+        <p class="reason">Automation and centralized data reduce manual errors and ensure repeatable processes. This means less time on routine tasks and more focus on value-added activity.</p>
+      </div>
+
+      <div class="caption">Estimated time: 10 minutes</div>
+    </section>
+
+    <!-- Page 5: Siebel CRM Overview -->
+    <section class="page" id="p4">
+      <div class="row">
+        <div class="icon">5</div>
+        <div style="flex:1"><h1>Siebel CRM — High-level Overview</h1>
+        <p class="lead">This application is designed to manage enterprise customer lifecycles with configurable modules for industry solutions such as eCommunications.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>How the product is organized</h2>
+        <p>The system exposes modules (Sales, Service, Marketing) composed of Views, Applets, Business Components and Business Objects. Administrators configure the UI and logic through the browser-based Web Tools and manage runtime behavior via system preferences and parameters.</p>
+      </div>
+
+      <div class="card section">
+        <h3>Example (vertical)</h3>
+        <p>In the eCommunications vertical, there are specialized screens for subscriber management and service orders. These screens reuse core components but add domain-specific fields and flows.</p>
+      </div>
+
+      <div class="caption">Estimated time: 12 minutes</div>
+    </section>
+
+    <!-- Page 6: Architecture (High Level) -->
+    <section class="page" id="p5">
+      <div class="row">
+        <div class="icon">6</div>
+        <div style="flex:1"><h1>Architecture — High Level</h1>
+        <p class="lead">At a glance, the system separates data storage (database), application logic (server), and presentation (web client). Integration components connect external systems.</p></div>
+      </div>
+
+      <div class="section two-col">
+        <div class="col card">
+          <h3>Components</h3>
+          <ul class="bullets">
+            <li>Database (stores application data)</li>
+            <li>Application servers (object managers, workflow engine)</li>
+            <li>Web server & web client (user interface)</li>
+            <li>Integration layer (EAI / REST / SOAP adapters)</li>
+          </ul>
+        </div>
+        <div class="col card">
+          <h3>Why this design?</h3>
+          <p class="reason">Separation improves scalability: you can scale web servers for many users and scale the database independently for data throughput.</p>
+        </div>
+      </div>
+
+      <div class="image-placeholder" style="margin-top:12px">Image placeholder — Images/siebel_architecture.png</div>
+
+      <div class="caption">Estimated time: 14 minutes</div>
+    </section>
+
+    <!-- Page 7: Siebel CRM Modules -->
+    <section class="page" id="p6">
+      <div class="row">
+        <div class="icon">7</div>
+        <div style="flex:1"><h1>Modules — Sales, Service, Marketing and more</h1>
+        <p class="lead">Each module contains screens specific to a business function. Responsibilities control who sees which modules.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Module examples</h2>
+        <ul class="bullets">
+          <li>Sales: Opportunities, Quotes, Pipeline</li>
+          <li>Service: Cases, Service Requests, SLAs</li>
+          <li>Marketing: Campaigns, Lists, Responses</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Business relevance</h3>
+        <p>Modules let organizations tailor the application to specific business processes and to assign specialist roles that only use the screens they need.</p>
+      </div>
+
+      <div class="caption">Estimated time: 10 minutes</div>
+    </section>
+
+    <!-- Page 8: eCommunications vertical -->
+    <section class="page" id="p7">
+      <div class="row">
+        <div class="icon">8</div>
+        <div style="flex:1"><h1>The eCommunications Vertical</h1>
+        <p class="lead">This vertical adds service order management, subscriber lifecycle, inventory, and billing touchpoints tailored to telecom providers.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Typical screens in eCommunications</h2>
+        <ul class="bullets">
+          <li>Subscriber profile & SIM management</li>
+          <li>Service orders and provisioning status</li>
+          <li>Billing inquiry & dispute tracking</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Example workflow</h3>
+        <p>When a customer orders a new service, the order flows from sales → provisioning → activation. Each step updates records and triggers notifications in the system so teams coordinate efficiently.</p>
+      </div>
+
+      <div class="caption">Estimated time: 12 minutes</div>
+    </section>
+
+    <!-- Page 9: Understanding Data Model (Simple) -->
+    <section class="page" id="p8">
+      <div class="row">
+        <div class="icon">9</div>
+        <div style="flex:1"><h1>Understanding the Data Model — Simple View</h1>
+        <p class="lead">Focus on Business Components (BCs) and how they map to database tables. Think of BCs as the interface between UI and data.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Concept</h2>
+        <p>Each BC exposes fields for an applet. A BC may use one or more tables. Joins and search specs determine which rows appear in a list or form.</p>
+      </div>
+
+      <div class="card section">
+        <h3>Example</h3>
+        <p>The Contact BC maps to the contact table and presents name, phone, email fields to the UI. If you add a custom column to the BC and map it to an extension table, applets can display it without database redesign.</p>
+      </div>
+
+      <div class="caption">Estimated time: 14 minutes</div>
+    </section>
+
+    <!-- Page 10: Navigating Siebel CRM -->
+    <section class="page" id="p9">
+      <div class="row">
+        <div class="icon">10</div>
+        <div style="flex:1"><h1>Navigating the Application</h1>
+        <p class="lead">Quickly find Views, Applets, and use list and form layouts to move between records. Saved searches speed repetitive tasks.</p></div>
+      </div>
+
+      <div class="two-col section">
+        <div class="col card">
+          <h3>Common UI elements</h3>
+          <ul class="bullets">
+            <li>Navigation panel (switch views)</li>
+            <li>List Applet (shows many records)</li>
+            <li>Form Applet (details for one record)</li>
+            <li>Top toolbar for actions and favorites</li>
+          </ul>
+        </div>
+        <div class="col card">
+          <h3>Example</h3>
+          <p>Search for an Account, double-click the list row to open the details, then view related Contacts and Opportunities in the same screen.</p>
+        </div>
+      </div>
+
+      <div class="caption">Estimated time: 12 minutes</div>
+    </section>
+
+    <!-- Page 11: Understanding Home Page -->
+    <section class="page" id="p10">
+      <div class="row">
+        <div class="icon">11</div>
+        <div style="flex:1"><h1>Understanding the Home Page</h1>
+        <p class="lead">The Home page is a customizable dashboard with widgets for tasks, KPIs and recent items — your daily workspace.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>What you find on Home</h2>
+        <ul class="bullets">
+          <li>Notification stream and tasks</li>
+          <li>KPI tiles and charts</li>
+          <li>Quick links and saved searches</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Business value</h3>
+        <p>Home brings the most important info to the agent's attention, improving response times and prioritization.</p>
+      </div>
+
+      <div class="caption">Estimated time: 10 minutes</div>
+    </section>
+
+    <!-- Page 12: Screen, View, Applet -->
+    <section class="page" id="p11">
+      <div class="row">
+        <div class="icon">12</div>
+        <div style="flex:1"><h1>Screen, View, Applet — UI Building Blocks</h1>
+        <p class="lead">Screens group Views; Views contain Applets. Applets are the visible UI elements showing lists or forms.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Detailed explanation</h2>
+        <p>Applets can be list, form, or multi-row. Views determine which applets and toolbars appear together. Screens are the runtime containers presented to responsibilities.</p>
+      </div>
+
+      <div class="section">
+        <h3>Example</h3>
+        <p>An Account Screen might include a list applet showing related contacts and a form applet showing account details; together they allow users to view and act on account information efficiently.</p>
+      </div>
+
+      <div class="caption">Estimated time: 12 minutes</div>
+    </section>
+
+    <!-- Page 13: User Interface Walkthrough -->
+    <section class="page" id="p12">
+      <div class="row">
+        <div class="icon">13</div>
+        <div style="flex:1"><h1>User Interface Walkthrough</h1>
+        <p class="lead">Step through common user tasks and learn where to find actions like New, Save, Attach and Run Report.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Common tasks & locations</h2>
+        <ul class="bullets">
+          <li>Create new records: toolbar 'New' button</li>
+          <li>Search: use the search box or saved searches</li>
+          <li>Run reports: use Run Report action on list or form applets</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Quick tip</h3>
+        <p class="reason">Use Favorites and Saved Searches to reduce repetitive navigation and ensure consistency across agents.</p>
+      </div>
+
+      <div class="caption">Estimated time: 10 minutes</div>
+    </section>
+
+    <!-- Page 14: Setting Up Users and Roles -->
+    <section class="page" id="p13">
+      <div class="row">
+        <div class="icon">14</div>
+        <div style="flex:1"><h1>Setting up Users and Roles</h1>
+        <p class="lead">Users represent people; Responsibilities determine UI access; Access Groups manage server routing and data access.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Admin screens</h2>
+        <p>Administrators create User records and assign a Responsibility. A Responsibility includes a list of Views and a default Home layout. Access Groups determine which server processes a user can use.</p>
+      </div>
+
+      <div class="section">
+        <h3>Example (scenario)</h3>
+        <p>When onboarding a new service agent, create a User, assign a Service Responsibility and ensure the Home page shows the case queue and SLAs relevant to their team.</p>
+      </div>
+
+      <div class="caption">Estimated time: 16 minutes</div>
+    </section>
+
+    <!-- Page 15: Responsibilities and Access Control -->
+    <section class="page" id="p14">
+      <div class="row">
+        <div class="icon">15</div>
+        <div style="flex:1"><h1>Responsibilities & Access Control</h1>
+        <p class="lead">Responsibilities are the primary way access to screens and features is granted. Combine them with data-level security for tighter control.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>How to think about it</h2>
+        <p>Think of Responsibilities as job roles that determine which menus, views and actions a user can see. Access Groups control session behavior and Object Manager selection.</p>
+      </div>
+
+      <div class="section">
+        <h3>Business relevance</h3>
+        <p>Proper responsibility setup avoids exposing sensitive data and reduces user confusion by presenting only necessary screens.</p>
+      </div>
+
+      <div class="caption">Estimated time: 12 minutes</div>
+    </section>
+
+    <!-- Page 16: Typical User Workflow -->
+    <section class="page" id="p15">
+      <div class="row">
+        <div class="icon">16</div>
+        <div style="flex:1"><h1>The Typical User Workflow</h1>
+        <p class="lead">A typical sequence: Login → Open Home → Check queues → Open record → Work case/opportunity → Update and close.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Detailed steps</h2>
+        <ol class="bullets">
+          <li>Login and review task list</li>
+          <li>Pick highest priority item in queue</li>
+          <li>Follow the guided process for resolution or qualification</li>
+          <li>Log the interaction and update the case/opportunity</li>
+        </ol>
+      </div>
+
+      <div class="section">
+        <h3>Reasoning</h3>
+        <p class="reason">Standardizing workflows ensures predictable outcomes and easier measurement of team performance.</p>
+      </div>
+
+      <div class="caption">Estimated time: 10 minutes</div>
+    </section>
+
+    <!-- Page 17: Workspace Model Introduction -->
+    <section class="page" id="p16">
+      <div class="row">
+        <div class="icon">17</div>
+        <div style="flex:1"><h1>Workspaces — Developer Model</h1>
+        <p class="lead">Workspaces let developers and administrators make changes in isolation and then deliver them into the shared environment after testing.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>How it works</h2>
+        <p>Create a Dev Workspace, make UI or object changes there, test, and then deliver to Integration and MAIN. This reduces change collisions and supports parallel work.</p>
+      </div>
+
+      <div class="section">
+        <h3>Example</h3>
+        <p>An administrator creates a new Applet in her Dev Workspace and tests it with sample data. After approval, she delivers to the Integration workspace for QA, then to MAIN for availability to users.</p>
+      </div>
+
+      <div class="caption">Estimated time: 14 minutes</div>
+    </section>
+
+    <!-- Page 18: Web Tools Overview -->
+    <section class="page" id="p17">
+      <div class="row">
+        <div class="icon">18</div>
+        <div style="flex:1"><h1>Web Tools — Configuration in the Browser</h1>
+        <p class="lead">Web Tools is the primary browser-based interface for creating and editing objects (Applets, Views, BCs, BOs, Workflows).</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Key areas in Web Tools</h2>
+        <ul class="bullets">
+          <li>Object Explorer (BCs, BOs, Applets)</li>
+          <li>Workflow Designer</li>
+          <li>Workspace management</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Business value</h3>
+        <p>Web Tools reduces the need for specialized thick-client tools and enables centralized configuration in modern browser environments.</p>
+      </div>
+
+      <div class="caption">Estimated time: 12 minutes</div>
+    </section>
+
+    <!-- Page 19: Hands-On Practice: Navigating and Exploring Siebel -->
+    <section class="page" id="p18">
+      <div class="row">
+        <div class="icon">19</div>
+        <div style="flex:1"><h1>Hands-On Practice — Navigating and Exploring</h1>
+        <p class="lead">This single hands-on exercise consolidates the module: no heavy setup required — just your trainee login and browser.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Objective</h2>
+        <p>Become comfortable moving around the application, identifying Views and Applets, and capturing a few simple artifacts (Row IDs and screenshots).</p>
+      </div>
+
+      <div class="card section">
+        <h3>Tasks</h3>
+        <ol class="bullets">
+          <li>Open the application at: <strong><a href="https://siebeltraining.shreejientserv.in/siebel/app/ecommunications/enu" target="_blank">siebeltraining.shreejientserv.in/siebel/app/ecommunications/enu</a></strong> and log in with your trainee credentials.</li>
+          <li>Navigate to Accounts view, perform a simple search for an account (e.g., name contains "Test"), open one record and note the Row ID (About Record).</li>
+          <li>Open the Contacts related list and create a sample Contact. Capture a screenshot of the Contact form.</li>
+          <li>Open Web Tools at <strong><a href="https://siebeltraining.shreejientserv.in/webtools" target="_blank">siebeltraining.shreejientserv.in/webtools</a></strong>, locate the Contact Business Component and note the Table property (no edits required).</li>
+        </ol>
+      </div>
+
+      <div class="card section">
+        <h3>Deliverable (to instructor)</h3>
+        <p>One-page PDF or email with:</p>
+        <ul class="bullets">
+          <li>Row ID of the Account you opened</li>
+          <li>Screenshot of the Contact form</li>
+          <li>BC table name observed in Web Tools</li>
+        </ul>
+      </div>
+
+      <div class="caption">Estimated time: 45–60 minutes (hands-on)</div>
+    </section>
+
+    <!-- Page 20: Module Summary and Key Takeaways -->
+    <section class="page" id="p19">
+      <div class="row">
+        <div class="icon">20</div>
+        <div style="flex:1"><h1>Module Summary — Key Takeaways</h1>
+        <p class="lead">You now understand core CRM concepts, how the UI is structured, the role of Workspaces and Web Tools, and you completed a short hands-on exploration.</p></div>
+      </div>
+
+      <div class="card section">
+        <h2>Quick checklist</h2>
+        <ul class="bullets">
+          <li>I can explain what CRM does and why it matters</li>
+          <li>I can find Accounts, Contacts, and related lists</li>
+          <li>I can identify BCs in Web Tools</li>
+          <li>I can perform a small hands-on exercise and deliver artifacts</li>
+        </ul>
+      </div>
+
+      <div class="card section">
+        <h3>Next steps</h3>
+        <p>Proceed to Module 2 for configuration fundamentals: Business Components, Business Objects, Views and Applets — where you will learn how to safely add fields and adjust screens.</p>
+      </div>
+
+      <div class="caption">Estimated time: 8 minutes</div>
+    </section>
+
+  </div> <!-- end pages -->
+
+  <!-- footer nav -->
+  <div class="footer">
+    <div class="meta" id="footer-meta">Page 1 of 20 • Est. Time: 12 mins</div>
+    <div class="nav">
+      <button class="btn" id="backBtn">◀ Back</button>
+      <button class="btn" id="nextBtn">Next ▶</button>
+    </div>
+    <div class="meta">Module 1 • Shreeji EntServ</div>
+  </div>
+</div>
+
+<script>
+  // Simple pagination for 20 pages
+  const totalPages = 20;
+  let current = 0;
+  const pages = [];
+  for(let i=0;i<totalPages;i++){ pages.push(document.getElementById('p'+i)); }
+  const backBtn = document.getElementById('backBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const progress = document.getElementById('module-progress');
+  const footerMeta = document.getElementById('footer-meta');
+
+  function show(i){
+    if(i<0 || i>=totalPages) return;
+    pages[current].classList.remove('active');
+    current = i;
+    pages[current].classList.add('active');
+    progress.innerText = `Module 1 • Page ${current+1} of ${totalPages}`;
+    // estimated time pick: read from caption where present
+    const caption = pages[current].querySelector('.caption');
+    const est = caption ? caption.innerText : '';
+    footerMeta.innerText = `Page ${current+1} of ${totalPages} • ${est}`;
+    backBtn.disabled = (current===0);
+    nextBtn.disabled = (current===totalPages-1);
+  }
+
+  backBtn.addEventListener('click', ()=>{ show(current-1); });
+  nextBtn.addEventListener('click', ()=>{ show(current+1); });
+
+  // init
+  show(0);
+</script>
+</body>
+</html>

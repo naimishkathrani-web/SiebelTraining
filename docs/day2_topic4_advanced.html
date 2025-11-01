@@ -1,1485 +1,1485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2 Topic 4 - Advanced Features - Oracle Siebel CRM IP 21.7</title>
-    <link rel="stylesheet" href="css/training.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 2 Topic 4 - Advanced Features - Oracle Siebel CRM</title>
+  <link rel="stylesheet" href="css/training.css">
 </head>
 <body>
-    <div class="container">
-        <header class="topic-header">
-            <div class="page-number">Pages 81-115</div>
-            <h1>📈 Day 2 - Topic 4: Advanced Siebel Features</h1>
-            <div class="time-estimate">⏱️ Estimated Time: 2.5 Hours</div>
-        </header>
-
-        <nav class="page-nav">
-            <a href="index.html" class="nav-btn">🏠 Home</a>
-            <a href="day1_practicals.html" class="nav-btn">← Day 1 Practicals</a>
-            <a href="day2_topic5_reporting.html" class="nav-btn">Topic 5 →</a>
-        </nav>
-
-        <!-- Page 81: Introduction -->
-        <section class="content-section">
-            <div class="page-marker">Page 81</div>
-            <h2>🎯 Module Overview</h2>
-            <p>Welcome to Day 2! Today we explore advanced Siebel CRM features that power enterprise operations. This module covers sophisticated functionality for sales, marketing, service, and integration.</p>
-            
-            <h3>What You'll Learn:</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Sales Excellence</h4>
-                    <ul>
-                        <li>Pipeline Management</li>
-                        <li>Opportunity Tracking</li>
-                        <li>Forecasting & Quotas</li>
-                        <li>Territory Management</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Marketing & Service</h4>
-                    <ul>
-                        <li>Campaign Management</li>
-                        <li>Lead Generation</li>
-                        <li>Service Level Agreements</li>
-                        <li>Entitlement Management</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="two-column">
-                <div>
-                    <h4>Integration</h4>
-                    <ul>
-                        <li>EAI Architecture</li>
-                        <li>Web Services</li>
-                        <li>ERP Integration</li>
-                        <li>Data Synchronization</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Mobile & Modern UI</h4>
-                    <ul>
-                        <li>Siebel Mobile</li>
-                        <li>Open UI Framework</li>
-                        <li>Responsive Design</li>
-                        <li>Offline Capabilities</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Page 82: Sales Pipeline Overview -->
-        <section class="content-section">
-            <div class="page-marker">Page 82</div>
-            <h2>💼 Sales Pipeline Management</h2>
-            
-            <h3>Understanding the Sales Pipeline</h3>
-            <p>The sales pipeline visualizes opportunities from initial contact through closed deals. Siebel provides comprehensive tools to track, analyze, and optimize your sales process.</p>
-            
-            <div class="info-box">
-                <h4>Standard Pipeline Stages:</h4>
-                <ol>
-                    <li><strong>Qualification (10%):</strong> Initial contact, needs assessment</li>
-                    <li><strong>Needs Analysis (25%):</strong> Detailed requirements gathering</li>
-                    <li><strong>Proposal (50%):</strong> Solution presentation, pricing</li>
-                    <li><strong>Negotiation (75%):</strong> Terms discussion, contract review</li>
-                    <li><strong>Closed Won (100%):</strong> Deal finalized</li>
-                    <li><strong>Closed Lost (0%):</strong> Opportunity lost to competitor or no decision</li>
-                </ol>
-            </div>
-
-            <img src="images/sales_pipeline.png" alt="Siebel Sales Pipeline" class="content-image">
-            
-            <h3>Key Pipeline Metrics</h3>
-            <div class="highlight">
-                <p><strong>Velocity:</strong> Average time opportunities spend in each stage</p>
-                <p><strong>Conversion Rate:</strong> Percentage advancing from one stage to next</p>
-                <p><strong>Pipeline Value:</strong> Total weighted value of all open opportunities</p>
-                <p><strong>Win Rate:</strong> Percentage of opportunities closed as won</p>
-            </div>
-        </section>
-
-        <!-- Page 83: Opportunity Management -->
-        <section class="content-section">
-            <div class="page-marker">Page 83</div>
-            <h2>🎯 Opportunity Management</h2>
-            
-            <h3>Creating and Managing Opportunities</h3>
-            <p>Opportunities represent potential sales. Each opportunity tracks products, revenue, timeline, competitors, and probability of success.</p>
-            
-            <h3>Opportunity Fields</h3>
-            <div class="code-block">
-                <strong>Basic Information:</strong><br>
-                • Name: Descriptive title (e.g., "MegaCorp 5G Enterprise Network")<br>
-                • Account: Associated customer account<br>
-                • Contact: Primary decision maker<br>
-                • Owner: Sales representative responsible<br>
-                • Sales Stage: Current position in pipeline<br>
-                • Probability: Likelihood of closing (auto-calculated by stage)<br>
-                • Revenue: Expected deal value<br>
-                • Close Date: Target closing date<br>
-                • Type: New Business, Renewal, Upsell, Cross-sell<br>
-                • Sales Method: Methodology used (e.g., Solution Selling)
-            </div>
-
-            <h3>Best Practices</h3>
-            <div class="warning-box">
-                <strong>⚠️ Common Mistakes:</strong>
-                <ul>
-                    <li>Creating opportunities too early (before qualification)</li>
-                    <li>Not updating close dates regularly</li>
-                    <li>Leaving opportunities in late stages too long</li>
-                    <li>Inflating revenue projections</li>
-                </ul>
-            </div>
-
-            <div class="success-box">
-                <strong>✅ Success Tips:</strong>
-                <ul>
-                    <li>Update opportunities weekly at minimum</li>
-                    <li>Use Activities to track all customer interactions</li>
-                    <li>Document reasons for stage progression</li>
-                    <li>Involve sales managers in large deals early</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Page 84: Products and Revenue -->
-        <section class="content-section">
-            <div class="page-marker">Page 84</div>
-            <h2>📦 Products and Revenue Management</h2>
-            
-            <h3>Adding Products to Opportunities</h3>
-            <p>Opportunities can contain multiple products, each with its own quantity, price, and discount structure.</p>
-            
-            <h3>Product Configuration</h3>
-            <div class="info-box">
-                <p><strong>Product Hierarchy:</strong></p>
-                <ul>
-                    <li><strong>Product Line:</strong> High-level category (e.g., Mobile Services)</li>
-                    <li><strong>Product:</strong> Specific offering (e.g., 5G Business Plan)</li>
-                    <li><strong>Product Defect:</strong> SKU or variant (e.g., 5G-BUS-100GB)</li>
-                </ul>
-            </div>
-
-            <h3>Revenue Calculation</h3>
-            <div class="code-block">
-                <strong>Revenue Formula:</strong><br>
-                List Price × Quantity = Subtotal<br>
-                Subtotal - (Subtotal × Discount %) = Net Amount<br>
-                Net Amount + Tax = Total Revenue<br><br>
-                
-                <strong>Example:</strong><br>
-                Product: 5G Business Plan<br>
-                List Price: $500/month<br>
-                Quantity: 100 lines<br>
-                Subtotal: $50,000/month<br>
-                Discount: 15%<br>
-                Net: $42,500/month<br>
-                Annual Contract: $510,000
-            </div>
-
-            <h3>Revenue Types in eCommunications</h3>
-            <ul>
-                <li><strong>MRC (Monthly Recurring Charges):</strong> Subscription fees</li>
-                <li><strong>NRC (Non-Recurring Charges):</strong> One-time setup fees</li>
-                <li><strong>Usage Charges:</strong> Consumption-based billing</li>
-                <li><strong>Overage Charges:</strong> Exceeding plan limits</li>
-            </ul>
-        </section>
-
-        <!-- Page 85: Sales Forecasting -->
-        <section class="content-section">
-            <div class="page-marker">Page 85</div>
-            <h2>📊 Sales Forecasting</h2>
-            
-            <h3>Forecast Management</h3>
-            <p>Siebel's forecasting engine aggregates opportunity data to predict future revenue. Forecasts roll up through organizational hierarchies and can be adjusted by managers.</p>
-            
-            <img src="images/forecasting.png" alt="Sales Forecasting Dashboard" class="content-image">
-            
-            <h3>Forecast Categories</h3>
-            <div class="highlight">
-                <p><strong>Pipeline:</strong> All open opportunities (weighted by probability)</p>
-                <p><strong>Best Case:</strong> All opportunities you might win</p>
-                <p><strong>Commit:</strong> Opportunities you're confident will close</p>
-                <p><strong>Closed:</strong> Deals already won this period</p>
-            </div>
-
-            <h3>Forecast Submission Process</h3>
-            <ol>
-                <li><strong>Rep Reviews:</strong> Sales rep reviews their opportunities</li>
-                <li><strong>Rep Submits:</strong> Rep submits forecast to manager</li>
-                <li><strong>Manager Adjusts:</strong> Manager can override rep's numbers</li>
-                <li><strong>Manager Submits:</strong> Manager submits to director</li>
-                <li><strong>Rollup Continues:</strong> Process continues up hierarchy</li>
-                <li><strong>Executive Review:</strong> Senior leadership reviews final forecast</li>
-            </ol>
-
-            <div class="info-box">
-                <strong>Forecast Accuracy:</strong> Measured by comparing forecasted vs actual closed revenue. Industry average is 75-85% accuracy. Siebel tracks accuracy metrics to improve future predictions.
-            </div>
-        </section>
-
-        <!-- Page 86: Quota Management -->
-        <section class="content-section">
-            <div class="page-marker">Page 86</div>
-            <h2>🎯 Quota Management</h2>
-            
-            <h3>Setting Sales Quotas</h3>
-            <p>Quotas define revenue targets for sales teams and individuals. Siebel tracks performance against quota in real-time.</p>
-            
-            <h3>Quota Types</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Revenue Quota</h4>
-                    <p>Total dollar amount to be sold</p>
-                    <p><strong>Example:</strong> $2M annually</p>
-                </div>
-                <div>
-                    <h4>Unit Quota</h4>
-                    <p>Number of products/licenses sold</p>
-                    <p><strong>Example:</strong> 500 mobile lines</p>
-                </div>
-            </div>
-
-            <h3>Quota Allocation</h3>
-            <div class="code-block">
-                <strong>Hierarchical Distribution:</strong><br>
-                Company Quota: $100M<br>
-                ├── Region North: $40M<br>
-                │   ├── Territory A: $15M<br>
-                │   │   ├── Rep 1: $5M<br>
-                │   │   ├── Rep 2: $5M<br>
-                │   │   └── Rep 3: $5M<br>
-                │   └── Territory B: $25M<br>
-                └── Region South: $60M
-            </div>
-
-            <h3>Quota Attainment Tracking</h3>
-            <div class="highlight">
-                <p><strong>Attainment %:</strong> (Actual Revenue ÷ Quota) × 100</p>
-                <p><strong>Example:</strong> Rep closed $4.5M against $5M quota = 90% attainment</p>
-            </div>
-
-            <div class="success-box">
-                <strong>Compensation Impact:</strong> Most organizations tie compensation to quota attainment:
-                <ul>
-                    <li>&lt;80%: Base salary only</li>
-                    <li>80-100%: Base + prorated commission</li>
-                    <li>100-120%: Base + full commission</li>
-                    <li>&gt;120%: Base + commission + accelerators</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Page 87: Territory Management -->
-        <section class="content-section">
-            <div class="page-marker">Page 87</div>
-            <h2>🗺️ Territory Management</h2>
-            
-            <h3>Defining Sales Territories</h3>
-            <p>Territories organize customers and prospects for sales coverage. Can be defined by geography, industry, company size, or product line.</p>
-            
-            <h3>Territory Assignment Rules</h3>
-            <div class="info-box">
-                <p><strong>Geographic:</strong> Accounts in specific regions/postal codes</p>
-                <p><strong>Industry Vertical:</strong> Accounts in specific industries (Healthcare, Finance, etc.)</p>
-                <p><strong>Account Size:</strong> Enterprise (>1000 employees), Mid-Market (100-1000), SMB (&lt;100)</p>
-                <p><strong>Product-Based:</strong> Specialists for specific product lines</p>
-                <p><strong>Named Accounts:</strong> Dedicated reps for strategic customers</p>
-            </div>
-
-            <h3>Territory Alignment</h3>
-            <p>Proper territory design ensures:</p>
-            <ul>
-                <li><strong>Balance:</strong> Equal opportunity across territories</li>
-                <li><strong>Coverage:</strong> No accounts left unassigned</li>
-                <li><strong>Clarity:</strong> Clear ownership, no disputes</li>
-                <li><strong>Efficiency:</strong> Minimize travel time and costs</li>
-            </ul>
-
-            <div class="warning-box">
-                <strong>⚠️ Territory Overlap:</strong> When multiple reps can claim the same account, implement clear rules:
-                <ul>
-                    <li>First to create opportunity owns it</li>
-                    <li>Split credit between reps</li>
-                    <li>Manager adjudicates disputes</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Page 88: Marketing Campaigns -->
-        <section class="content-section">
-            <div class="page-marker">Page 88</div>
-            <h2>📢 Marketing Campaign Management</h2>
-            
-            <h3>Campaign Overview</h3>
-            <p>Marketing campaigns are coordinated efforts to promote products/services. Siebel tracks campaigns from planning through execution to ROI analysis.</p>
-            
-            <img src="images/marketing_campaign.png" alt="Marketing Campaign Structure" class="content-image">
-            
-            <h3>Campaign Structure</h3>
-            <div class="code-block">
-                <strong>Campaign Hierarchy:</strong><br>
-                Campaign Program (Year-long initiative)<br>
-                └── Campaign (Specific promotion)<br>
-                    └── Wave (Execution batch)<br>
-                        └── Target List (Recipients)<br>
-                            └── Campaign Contact (Individual)<br>
-            </div>
-
-            <h3>Campaign Types</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Outbound</h4>
-                    <ul>
-                        <li>Email Marketing</li>
-                        <li>Direct Mail</li>
-                        <li>Telemarketing</li>
-                        <li>Events/Webinars</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Inbound</h4>
-                    <ul>
-                        <li>Web Forms</li>
-                        <li>Trade Shows</li>
-                        <li>Partner Referrals</li>
-                        <li>Content Downloads</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Campaign Workflow</h3>
-            <ol>
-                <li><strong>Planning:</strong> Define objectives, budget, timeline</li>
-                <li><strong>Segmentation:</strong> Identify target audience</li>
-                <li><strong>Creative:</strong> Develop messaging and assets</li>
-                <li><strong>Execution:</strong> Send communications</li>
-                <li><strong>Response Tracking:</strong> Monitor opens, clicks, conversions</li>
-                <li><strong>Lead Routing:</strong> Assign leads to sales</li>
-                <li><strong>Analysis:</strong> Calculate ROI and effectiveness</li>
-            </ol>
-        </section>
-
-        <!-- Page 89: Lead Management -->
-        <section class="content-section">
-            <div class="page-marker">Page 89</div>
-            <h2>🎯 Lead Generation and Management</h2>
-            
-            <h3>Lead Lifecycle</h3>
-            <p>Leads represent potential customers who have shown interest but are not yet qualified as sales opportunities.</p>
-            
-            <img src="images/lead_generation.png" alt="Lead Management Process" class="content-image">
-            
-            <h3>Lead Stages</h3>
-            <div class="info-box">
-                <ol>
-                    <li><strong>New:</strong> Lead just created, not yet contacted</li>
-                    <li><strong>Contacted:</strong> Initial outreach attempted</li>
-                    <li><strong>Qualified:</strong> Meets BANT criteria (Budget, Authority, Need, Timeline)</li>
-                    <li><strong>Converted:</strong> Promoted to Account/Contact/Opportunity</li>
-                    <li><strong>Disqualified:</strong> Does not meet criteria</li>
-                    <li><strong>Nurture:</strong> Not ready now, keep warm for future</li>
-                </ol>
-            </div>
-
-            <h3>Lead Scoring</h3>
-            <p>Assign points based on lead characteristics to prioritize follow-up:</p>
-            <div class="code-block">
-                <strong>Demographic Scoring:</strong><br>
-                • Company Size: Enterprise (+30), Mid-Market (+20), SMB (+10)<br>
-                • Industry: Target verticals (+25), Others (+5)<br>
-                • Title: C-Level (+30), VP (+20), Director (+15), Manager (+10)<br><br>
-                
-                <strong>Behavioral Scoring:</strong><br>
-                • Downloaded Whitepaper (+10)<br>
-                • Attended Webinar (+15)<br>
-                • Visited Pricing Page (+25)<br>
-                • Requested Demo (+40)<br>
-                • Multiple Website Visits (+5 each)<br><br>
-                
-                <strong>Hot Lead:</strong> Score > 75<br>
-                <strong>Warm Lead:</strong> Score 50-75<br>
-                <strong>Cold Lead:</strong> Score < 50
-            </div>
-
-            <h3>Lead Assignment</h3>
-            <div class="highlight">
-                <p><strong>Round Robin:</strong> Distribute leads evenly across team</p>
-                <p><strong>Territory-Based:</strong> Route by geography or account rules</p>
-                <p><strong>Skill-Based:</strong> Match lead needs to rep expertise</p>
-                <p><strong>Load Balancing:</strong> Assign to rep with fewest active leads</p>
-            </div>
-        </section>
-
-        <!-- Page 90: Lead Nurturing -->
-        <section class="content-section">
-            <div class="page-marker">Page 90</div>
-            <h2>🌱 Lead Nurturing Programs</h2>
-            
-            <h3>What is Lead Nurturing?</h3>
-            <p>Lead nurturing is the process of developing relationships with leads who aren't ready to buy yet. Automated email sequences keep your company top-of-mind until they're ready.</p>
-            
-            <h3>Nurture Campaign Example: New Mobile Technology</h3>
-            <div class="code-block">
-                <strong>Week 1:</strong> Welcome email + 5G overview whitepaper<br>
-                <strong>Week 2:</strong> Case study - How Company X improved with 5G<br>
-                <strong>Week 3:</strong> Webinar invitation: 5G for Business<br>
-                <strong>Week 4:</strong> ROI Calculator tool<br>
-                <strong>Week 6:</strong> Competitive comparison guide<br>
-                <strong>Week 8:</strong> Limited-time offer or demo invitation<br>
-            </div>
-
-            <h3>Nurture Best Practices</h3>
-            <div class="success-box">
-                <ul>
-                    <li><strong>Provide Value:</strong> Educational content, not sales pitches</li>
-                    <li><strong>Segment Appropriately:</strong> Different content for different industries/roles</li>
-                    <li><strong>Timing Matters:</strong> Space emails appropriately (weekly or bi-weekly)</li>
-                    <li><strong>Track Engagement:</strong> Monitor opens, clicks to identify hot leads</li>
-                    <li><strong>Make Unsubscribe Easy:</strong> Maintain list health and compliance</li>
-                </ul>
-            </div>
-
-            <h3>Re-engagement Triggers</h3>
-            <p>Automatically alert sales when nurture lead takes action:</p>
-            <ul>
-                <li>Opens 3+ emails in one week</li>
-                <li>Clicks on pricing page</li>
-                <li>Downloads multiple resources</li>
-                <li>Revisits website multiple times</li>
-                <li>Changes job title or company</li>
-            </ul>
-        </section>
-
-        <!-- Page 91: Service Operations -->
-        <section class="content-section">
-            <div class="page-marker">Page 91</div>
-            <h2>🛠️ Service Operations Management</h2>
-            
-            <h3>Service Request Lifecycle</h3>
-            <p>Service requests (SRs) are the core of customer service operations. They track issues from initial report through resolution.</p>
-            
-            <img src="images/service_operations.png" alt="Service Operations" class="content-image">
-            
-            <h3>SR Workflow Stages</h3>
-            <div class="info-box">
-                <ol>
-                    <li><strong>Open:</strong> Customer reports issue via phone, email, web, or chat</li>
-                    <li><strong>Assigned:</strong> Routed to appropriate service agent/team</li>
-                    <li><strong>In Progress:</strong> Agent actively working on resolution</li>
-                    <li><strong>Pending Customer:</strong> Waiting for customer information</li>
-                    <li><strong>Pending Vendor:</strong> Escalated to third party</li>
-                    <li><strong>Resolved:</strong> Solution provided, awaiting confirmation</li>
-                    <li><strong>Closed:</strong> Customer confirms resolution</li>
-                </ol>
-            </div>
-
-            <h3>SR Categories for eCommunications</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Technical Issues</h4>
-                    <ul>
-                        <li>No service/outage</li>
-                        <li>Slow data speeds</li>
-                        <li>Dropped calls</li>
-                        <li>Device malfunction</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Account Services</h4>
-                    <ul>
-                        <li>Billing inquiries</li>
-                        <li>Plan changes</li>
-                        <li>Account updates</li>
-                        <li>Payment issues</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Multi-Channel Support</h3>
-            <p>Modern service organizations support customers across multiple channels:</p>
-            <ul>
-                <li><strong>Phone:</strong> Traditional call center with IVR routing</li>
-                <li><strong>Email:</strong> Auto-create SRs from support mailbox</li>
-                <li><strong>Web Self-Service:</strong> Customer portal for creating/tracking SRs</li>
-                <li><strong>Chat:</strong> Real-time messaging with agents</li>
-                <li><strong>Social Media:</strong> Twitter/Facebook integration</li>
-                <li><strong>Mobile App:</strong> Submit issues from smartphone</li>
-            </ul>
-        </section>
-
-        <!-- Page 92: SLA Management -->
-        <section class="content-section">
-            <div class="page-marker">Page 92</div>
-            <h2>⏱️ Service Level Agreement (SLA) Management</h2>
-            
-            <h3>What are SLAs?</h3>
-            <p>SLAs define contractual commitments for service response and resolution times. Siebel automatically tracks SLA compliance and escalates overdue items.</p>
-            
-            <img src="images/slas.png" alt="SLA Management" class="content-image">
-            
-            <h3>SLA Metrics</h3>
-            <div class="code-block">
-                <strong>Response Time SLA:</strong> How quickly agent must respond<br>
-                • Priority 1 (Critical): 15 minutes<br>
-                • Priority 2 (High): 1 hour<br>
-                • Priority 3 (Medium): 4 hours<br>
-                • Priority 4 (Low): 24 hours<br><br>
-                
-                <strong>Resolution Time SLA:</strong> How quickly issue must be resolved<br>
-                • Priority 1: 4 hours<br>
-                • Priority 2: 24 hours<br>
-                • Priority 3: 3 days<br>
-                • Priority 4: 5 days
-            </div>
-
-            <h3>SLA Components</h3>
-            <div class="info-box">
-                <p><strong>Agreement:</strong> High-level contract with customer</p>
-                <p><strong>Objective:</strong> Specific metric to track (response time, resolution time)</p>
-                <p><strong>Target:</strong> Goal value (e.g., 95% within SLA)</p>
-                <p><strong>Threshold:</strong> Acceptable range before penalties</p>
-                <p><strong>Breach:</strong> SLA violation requiring remediation</p>
-            </div>
-
-            <h3>SLA Clock Management</h3>
-            <div class="highlight">
-                <p><strong>Business Hours:</strong> SLA clock runs only during business hours (e.g., 8AM-6PM weekdays)</p>
-                <p><strong>24/7 Support:</strong> Clock runs continuously for critical services</p>
-                <p><strong>Pause Conditions:</strong> Clock stops when waiting for customer response</p>
-                <p><strong>Escalation:</strong> Automated escalation when 75% of SLA time elapsed</p>
-            </div>
-
-            <h3>SLA Reporting</h3>
-            <p>Track SLA performance with metrics:</p>
-            <ul>
-                <li><strong>Compliance %:</strong> (Met SLA ÷ Total SRs) × 100</li>
-                <li><strong>Average Response Time:</strong> Across all priorities</li>
-                <li><strong>Average Resolution Time:</strong> From open to closed</li>
-                <li><strong>Breach Count:</strong> Number of SLA violations</li>
-                <li><strong>At Risk SRs:</strong> Currently open and nearing deadline</li>
-            </ul>
-        </section>
-
-        <!-- Page 93: Entitlements -->
-        <section class="content-section">
-            <div class="page-marker">Page 93</div>
-            <h2>🎫 Entitlement Management</h2>
-            
-            <h3>Understanding Entitlements</h3>
-            <p>Entitlements define what services a customer is eligible to receive based on their contract or product purchase. They govern support levels, warranties, and service coverage.</p>
-            
-            <h3>Entitlement Types</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Time-Based</h4>
-                    <p>Valid for specific duration</p>
-                    <p><strong>Example:</strong> 1-year warranty, 90-day support</p>
-                </div>
-                <div>
-                    <h4>Incident-Based</h4>
-                    <p>Limited number of uses</p>
-                    <p><strong>Example:</strong> 5 support calls included</p>
-                </div>
-            </div>
-
-            <h3>Entitlement Validation</h3>
-            <p>When customer contacts support, Siebel automatically checks:</p>
-            <ol>
-                <li>Is there an active entitlement for this product?</li>
-                <li>Is the entitlement still within valid dates?</li>
-                <li>Are there remaining incidents (if applicable)?</li>
-                <li>Does customer's issue match covered services?</li>
-                <li>Is customer in good standing (payments current)?</li>
-            </ol>
-
-            <div class="warning-box">
-                <strong>⚠️ Out-of-Entitlement:</strong> When customer doesn't have valid coverage:
-                <ul>
-                    <li>Offer paid support incident ($250-$500 per case)</li>
-                    <li>Sell new support contract</li>
-                    <li>Escalate to sales for renewal</li>
-                    <li>Provide basic troubleshooting only</li>
-                </ul>
-            </div>
-
-            <h3>Service Tiers</h3>
-            <div class="code-block">
-                <strong>Basic Support:</strong><br>
-                • Email support only<br>
-                • 5-day response time<br>
-                • Business hours coverage<br>
-                • Knowledge base access<br><br>
-                
-                <strong>Standard Support:</strong><br>
-                • Phone + email support<br>
-                • 24-hour response time<br>
-                • Extended hours coverage<br>
-                • Community forums<br><br>
-                
-                <strong>Premium Support:</strong><br>
-                • 24/7 phone support<br>
-                • 1-hour response for critical<br>
-                • Dedicated support manager<br>
-                • On-site support available<br>
-                • Proactive monitoring
-            </div>
-        </section>
-
-        <!-- Page 94: Field Service -->
-        <section class="content-section">
-            <div class="page-marker">Page 94</div>
-            <h2>🚗 Field Service Management</h2>
-            
-            <h3>Dispatching Technicians</h3>
-            <p>For telecommunications, field service handles installations, repairs, and equipment maintenance. Siebel optimizes technician scheduling and routing.</p>
-            
-            <h3>Service Appointment Workflow</h3>
-            <ol>
-                <li><strong>Request Created:</strong> Customer schedules installation or reports outage</li>
-                <li><strong>Skill Matching:</strong> System identifies qualified technicians</li>
-                <li><strong>Availability Check:</strong> Find open time slots</li>
-                <li><strong>Optimization:</strong> Minimize drive time, group nearby appointments</li>
-                <li><strong>Assignment:</strong> Dispatch to technician mobile device</li>
-                <li><strong>Execution:</strong> Technician arrives, performs work</li>
-                <li><strong>Completion:</strong> Update status, capture signature, close SR</li>
-            </ol>
-
-            <h3>Technician Skills</h3>
-            <p>Match appointments to qualified technicians:</p>
-            <div class="info-box">
-                <ul>
-                    <li><strong>Fiber Installation:</strong> Certified fiber technicians only</li>
-                    <li><strong>Network Troubleshooting:</strong> Senior technicians</li>
-                    <li><strong>Equipment Swap:</strong> Any field tech</li>
-                    <li><strong>Business Installation:</strong> Commercial installation certification</li>
-                </ul>
-            </div>
-
-            <h3>Mobile Field Service</h3>
-            <p>Technicians use mobile devices for:</p>
-            <ul>
-                <li>View daily schedule and navigate to appointments</li>
-                <li>Access customer history and equipment details</li>
-                <li>Update service request status in real-time</li>
-                <li>Capture photos of installations</li>
-                <li>Collect customer signatures</li>
-                <li>Check inventory and order parts</li>
-                <li>Submit timesheets</li>
-            </ul>
-        </section>
-
-        <!-- Page 95: Integration Architecture -->
-        <section class="content-section">
-            <div class="page-marker">Page 95</div>
-            <h2>🔗 Enterprise Application Integration</h2>
-            
-            <div class="note-box">
-                <strong>📌 Training Note:</strong> This section covers integration concepts and architecture. Our training environment is a standalone Siebel system without external ERP/billing systems. Integration content is theoretical to help you understand how Siebel connects with other systems in production environments.
-            </div>
-            
-            <h3>Why Integration Matters</h3>
-            <p>Siebel CRM rarely operates in isolation. Modern enterprises integrate CRM with ERP, billing, provisioning, and other systems to create seamless processes.</p>
-            
-            <img src="images/integration_architecture.png" alt="Integration Architecture" class="content-image">
-            
-            <h3>Common Integration Scenarios</h3>
-            <div class="highlight">
-                <p><strong>Order to Cash:</strong> Opportunity in Siebel → Order in ERP → Invoice in Billing → Payment Collection → Revenue Recognition</p>
-                <p><strong>Service to Provisioning:</strong> Service Request in Siebel → Ticket in OSS → Provision in Network → Update Siebel</p>
-                <p><strong>Marketing to Sales:</strong> Campaign in Marketing Automation → Lead in Siebel → Opportunity → Account in ERP</p>
-            </div>
-
-            <h3>Integration Technologies</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Real-Time</h4>
-                    <ul>
-                        <li>Web Services (SOAP/REST)</li>
-                        <li>Business Services</li>
-                        <li>EAI Siebel Adapter</li>
-                        <li>Oracle Integration Cloud</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Batch</h4>
-                    <ul>
-                        <li>EIM (Data Import/Export)</li>
-                        <li>File-based interfaces</li>
-                        <li>Scheduled workflows</li>
-                        <li>Database links</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Page 96: Web Services -->
-        <section class="content-section">
-            <div class="page-marker">Page 96</div>
-            <h2>🌐 Web Services Integration</h2>
-            
-            <h3>Siebel as a Service Provider</h3>
-            <p>Siebel exposes business logic through web services, allowing external systems to create, query, and update CRM data.</p>
-            
-            <h3>Inbound Web Service Example</h3>
-            <div class="code-block">
-                <strong>Scenario:</strong> External website creates service request<br><br>
-                
-                <strong>SOAP Request:</strong><br>
-                &lt;CreateServiceRequest&gt;<br>
-                  &lt;Account&gt;MegaCorp Industries&lt;/Account&gt;<br>
-                  &lt;Type&gt;Technical Issue&lt;/Type&gt;<br>
-                  &lt;Description&gt;Internet outage&lt;/Description&gt;<br>
-                  &lt;Priority&gt;High&lt;/Priority&gt;<br>
-                &lt;/CreateServiceRequest&gt;<br><br>
-                
-                <strong>Response:</strong><br>
-                &lt;Response&gt;<br>
-                  &lt;SRNumber&gt;SR-2025-12345&lt;/SRNumber&gt;<br>
-                  &lt;Status&gt;Success&lt;/Status&gt;<br>
-                &lt;/Response&gt;
-            </div>
-
-            <h3>Siebel as a Service Consumer</h3>
-            <p>Siebel can call external web services to retrieve data or trigger actions in other systems.</p>
-            
-            <div class="code-block">
-                <strong>Scenario:</strong> Check product availability in ERP<br><br>
-                
-                <strong>Outbound Call from Siebel:</strong><br>
-                Business Service → External Web Service Endpoint<br>
-                Request: Product SKU, Quantity<br>
-                Response: Available (Yes/No), Lead Time, Price<br>
-                Update Opportunity with availability info
-            </div>
-
-            <h3>REST APIs (IP 21.7+)</h3>
-            <p>Modern REST APIs provide simpler integration:</p>
-            <div class="info-box">
-                <p><strong>GET /api/accounts/12345</strong> - Retrieve account details</p>
-                <p><strong>POST /api/opportunities</strong> - Create new opportunity</p>
-                <p><strong>PATCH /api/serviceRequests/SR-789</strong> - Update SR</p>
-                <p><strong>DELETE /api/contacts/98765</strong> - Delete contact</p>
-            </div>
-        </section>
-
-        <!-- Page 97: ERP Integration -->
-        <section class="content-section">
-            <div class="page-marker">Page 97</div>
-            <h2>💼 ERP System Integration</h2>
-            
-            <h3>CRM to ERP Data Flow</h3>
-            <p>Critical data must flow between Siebel CRM and ERP systems like Oracle EBS, SAP, or NetSuite for unified operations.</p>
-            
-            <h3>Key Integration Points</h3>
-            <div class="highlight">
-                <p><strong>Accounts:</strong> Master customer data shared between systems</p>
-                <p><strong>Products:</strong> Catalog synchronized from ERP to CRM</p>
-                <p><strong>Pricing:</strong> Real-time price lookups from ERP</p>
-                <p><strong>Orders:</strong> Opportunities become sales orders in ERP</p>
-                <p><strong>Inventory:</strong> Available-to-promise checks</p>
-                <p><strong>Invoices:</strong> Billing data from ERP visible in CRM</p>
-                <p><strong>Payments:</strong> Account status updates from ERP</p>
-            </div>
-
-            <h3>Bi-Directional Sync</h3>
-            <div class="code-block">
-                <strong>CRM → ERP:</strong><br>
-                • New accounts created by sales<br>
-                • Opportunities converted to quotes<br>
-                • Quotes converted to orders<br>
-                • Service requests requiring billing adjustments<br><br>
-                
-                <strong>ERP → CRM:</strong><br>
-                • Product catalog updates<br>
-                • Pricing changes<br>
-                • Order fulfillment status<br>
-                • Invoice and payment information<br>
-                • Credit hold notifications
-            </div>
-
-            <h3>Data Governance</h3>
-            <div class="warning-box">
-                <strong>⚠️ Master Data Management:</strong>
-                <p>Designate system of record for each data type:</p>
-                <ul>
-                    <li><strong>Accounts:</strong> CRM creates, ERP enriches with financial data</li>
-                    <li><strong>Products:</strong> ERP is master, CRM is read-only</li>
-                    <li><strong>Contacts:</strong> CRM is master</li>
-                    <li><strong>Orders:</strong> CRM initiates, ERP owns after submission</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Page 98: Mobile CRM -->
-        <section class="content-section">
-            <div class="page-marker">Page 98</div>
-            <h2>📱 Siebel Mobile Architecture</h2>
-            
-            <h3>Mobile CRM Overview</h3>
-            <p>Siebel Mobile enables users to access CRM functionality from smartphones and tablets, with online and offline capabilities.</p>
-            
-            <img src="images/siebel_mobile_arch.png" alt="Siebel Mobile Architecture" class="content-image">
-            
-            <h3>Mobile Deployment Options</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Siebel Mobile (Disconnected)</h4>
-                    <p>Full offline capability with local database</p>
-                    <ul>
-                        <li>Download data to device</li>
-                        <li>Work without connectivity</li>
-                        <li>Synchronize when online</li>
-                        <li>Ideal for field service</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Open UI (Connected)</h4>
-                    <p>Browser-based responsive interface</p>
-                    <ul>
-                        <li>Always online</li>
-                        <li>Real-time data</li>
-                        <li>No installation needed</li>
-                        <li>Ideal for office/remote workers</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Mobile Use Cases</h3>
-            <div class="info-box">
-                <p><strong>Sales Reps:</strong> Update opportunities on customer site, check inventory, send quotes</p>
-                <p><strong>Field Technicians:</strong> View appointments, update service requests, capture signatures</p>
-                <p><strong>Executives:</strong> Review dashboards, approve discounts, monitor pipeline</p>
-                <p><strong>Service Agents:</strong> Respond to customer inquiries while away from desk</p>
-            </div>
-
-            <h3>Offline Synchronization</h3>
-            <p>For disconnected mobile:</p>
-            <ol>
-                <li><strong>Download:</strong> User syncs before going offline (daily or as needed)</li>
-                <li><strong>Work Offline:</strong> Create/update records in local database</li>
-                <li><strong>Upload:</strong> When reconnected, changes sent to server</li>
-                <li><strong>Conflict Resolution:</strong> If same record modified online and offline, user resolves</li>
-            </ol>
-        </section>
-
-        <!-- Page 99: Open UI Framework -->
-        <section class="content-section">
-            <div class="page-marker">Page 99</div>
-            <h2>🎨 Open UI Framework</h2>
-            
-            <h3>What is Open UI?</h3>
-            <p>Open UI is Siebel's modern, responsive user interface framework introduced in IP 15. It replaces the legacy ActiveX controls with HTML5, CSS3, and JavaScript.</p>
-            
-            <h3>Open UI Benefits</h3>
-            <div class="success-box">
-                <ul>
-                    <li><strong>Browser Compatibility:</strong> Works in Chrome, Firefox, Safari, Edge - no plugins needed</li>
-                    <li><strong>Responsive Design:</strong> Adapts to desktop, tablet, and phone screen sizes</li>
-                    <li><strong>Modern UX:</strong> Contemporary look and feel</li>
-                    <li><strong>Customizable:</strong> Easier to modify UI with CSS and JavaScript</li>
-                    <li><strong>Better Performance:</strong> Faster page loads and interactions</li>
-                    <li><strong>Accessibility:</strong> Improved support for screen readers and keyboard navigation</li>
-                </ul>
-            </div>
-
-            <h3>Customization Architecture</h3>
-            <div class="code-block">
-                <strong>Presentation Model (PM):</strong> JavaScript logic layer<br>
-                • Controls UI behavior<br>
-                • Handles events<br>
-                • Communicates with server<br><br>
-                
-                <strong>Physical Renderer (PR):</strong> HTML generation<br>
-                • Creates DOM elements<br>
-                • Defines layout<br>
-                • Applies styling<br><br>
-                
-                <strong>Custom Files:</strong><br>
-                • /custom/scripts/ - Custom PM/PR JavaScript<br>
-                • /custom/styles/ - Custom CSS<br>
-                • /custom/images/ - Custom icons and graphics
-            </code>
-
-            <h3>UI Customization Examples</h3>
-            <ul>
-                <li>Change color scheme to match corporate branding</li>
-                <li>Add custom buttons with JavaScript actions</li>
-                <li>Create new applet types (e.g., Kanban board)</li>
-                <li>Integrate third-party JavaScript libraries (charts, maps)</li>
-                <li>Build custom controls for specific data types</li>
-            </ul>
-        </section>
-
-        <!-- Page 100: Integration Best Practices -->
-        <section class="content-section">
-            <div class="page-marker">Page 100</div>
-            <h2>✅ Integration Best Practices</h2>
-            
-            <h3>Design Principles</h3>
-            <div class="highlight">
-                <p><strong>Loose Coupling:</strong> Systems should interact through well-defined interfaces, not direct database access</p>
-                <p><strong>Error Handling:</strong> Gracefully handle timeouts, invalid data, and system unavailability</p>
-                <p><strong>Logging:</strong> Comprehensive audit trail of all integration transactions</p>
-                <p><strong>Monitoring:</strong> Real-time alerts for integration failures</p>
-                <p><strong>Scalability:</strong> Design for growing data volumes and transaction rates</p>
-            </div>
-
-            <h3>Performance Optimization</h3>
-            <div class="info-box">
-                <ul>
-                    <li><strong>Batch vs Real-Time:</strong> Use real-time only when necessary (e.g., pricing). Batch is more efficient for bulk data.</li>
-                    <li><strong>Pagination:</strong> For large datasets, retrieve in chunks (e.g., 1000 records at a time)</li>
-                    <li><strong>Caching:</strong> Cache frequently accessed reference data locally</li>
-                    <li><strong>Asynchronous Processing:</strong> Don't make users wait for slow external calls</li>
-                </ul>
-            </div>
-
-            <h3>Security Considerations</h3>
-            <div class="warning-box">
-                <strong>⚠️ Protect Your Data:</strong>
-                <ul>
-                    <li><strong>Authentication:</strong> Use OAuth 2.0 or API keys, never embed passwords in code</li>
-                    <li><strong>Encryption:</strong> Always use HTTPS/TLS for web service calls</li>
-                    <li><strong>Authorization:</strong> Validate user permissions before exposing data</li>
-                    <li><strong>Input Validation:</strong> Sanitize all incoming data to prevent injection attacks</li>
-                    <li><strong>Rate Limiting:</strong> Prevent abuse with API throttling</li>
-                </ul>
-            </div>
-
-            <h3>Testing Strategy</h3>
-            <ol>
-                <li><strong>Unit Testing:</strong> Test individual integration components in isolation</li>
-                <li><strong>Integration Testing:</strong> Test end-to-end flows between systems</li>
-                <li><strong>Performance Testing:</strong> Verify response times under load</li>
-                <li><strong>Failover Testing:</strong> Ensure graceful degradation when external system unavailable</li>
-                <li><strong>Data Validation:</strong> Confirm data accuracy after transformation</li>
-            </ol>
-        </section>
-
-        <!-- Page 101-115: Additional Advanced Topics -->
-        <section class="content-section">
-            <div class="page-marker">Page 101</div>
-            <h2>🎓 Advanced Configuration Topics</h2>
-            
-            <h3>Workflow Automation</h3>
-            <p>Siebel Workflow automates business processes with visual drag-and-drop design. Common uses include approval routing, notification triggers, and data synchronization.</p>
-            
-            <h3>Workflow Components</h3>
-            <div class="code-block">
-                <strong>Process:</strong> Top-level workflow definition<br>
-                <strong>Steps:</strong> Individual actions (Decision, Task, Business Service)<br>
-                <strong>Connectors:</strong> Logic flow between steps<br>
-                <strong>Siebel Operation:</strong> Create, update, query records<br>
-                <strong>Business Service:</strong> Call custom logic<br>
-                <strong>Wait Step:</strong> Pause for time or event
-            </div>
-
-            <h3>Example: Opportunity Approval Workflow</h3>
-            <ol>
-                <li>Trigger: Sales rep changes opportunity stage to "Proposal"</li>
-                <li>Decision: Is revenue > $50,000?</li>
-                <li>If Yes: Create approval task for sales manager</li>
-                <li>Wait: Until manager approves or rejects</li>
-                <li>If Approved: Move stage to "Negotiation", send email to rep</li>
-                <li>If Rejected: Move back to "Needs Analysis", notify rep with feedback</li>
-            </ol>
-
-            <h3>Runtime Events</h3>
-            <p>Workflows can be triggered by:</p>
-            <ul>
-                <li><strong>Record Created:</strong> New account, opportunity, SR</li>
-                <li><strong>Record Updated:</strong> Field value changes</li>
-                <li><strong>Record Deleted:</strong> Cleanup actions</li>
-                <li><strong>Scheduled:</strong> Daily/weekly/monthly batch processes</li>
-                <li><strong>Manual:</strong> User clicks button to start workflow</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 102</div>
-            <h2>📋 Assignment Rules</h2>
-            
-            <h3>Automated Record Assignment</h3>
-            <p>Assignment Manager automatically routes records to appropriate owners based on configurable rules.</p>
-            
-            <h3>Assignment Criteria</h3>
-            <div class="info-box">
-                <p><strong>Geographic:</strong> Assign based on customer address/zip code</p>
-                <p><strong>Product-Based:</strong> Route to specialists for specific products</p>
-                <p><strong>Skill-Based:</strong> Match to qualified resources</p>
-                <p><strong>Load Balanced:</strong> Distribute evenly across team</p>
-                <p><strong>Round Robin:</strong> Rotate assignments sequentially</p>
-            </div>
-
-            <h3>Assignment Example: Service Requests</h3>
-            <div class="code-block">
-                IF SR Type = "Network Outage" AND Priority = "Critical"<br>
-                  THEN Assign to: Network Operations Team<br>
-                  AND Escalate to: NOC Manager<br><br>
-                
-                IF SR Type = "Billing Question" AND Account Type = "Enterprise"<br>
-                  THEN Assign to: Enterprise Billing Specialist<br><br>
-                
-                IF SR Type = "Technical Support" AND Product = "5G Service"<br>
-                  THEN Assign to: 5G Support Team Member (Round Robin)
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 103</div>
-            <h2>🔐 Advanced Security</h2>
-            
-            <h3>Multi-Layered Security Model</h3>
-            <p>Siebel implements defense-in-depth with multiple security layers working together.</p>
-            
-            <h3>Security Layers</h3>
-            <ol>
-                <li><strong>Authentication:</strong> Verify user identity (LDAP, SSO, Database)</li>
-                <li><strong>Responsibility:</strong> Define what views/functions user can access</li>
-                <li><strong>Access Control:</strong> Row-level security (see only assigned records)</li>
-                <li><strong>Field-Level Security:</strong> Hide/show sensitive fields</li>
-                <li><strong>Audit Trail:</strong> Log all data changes</li>
-            </ol>
-
-            <h3>Visibility Rules</h3>
-            <div class="highlight">
-                <p><strong>Organization:</strong> Users see only records in their organization</p>
-                <p><strong>Position:</strong> Managers see their team's records</p>
-                <p><strong>Personal:</strong> Users see only records they own</p>
-                <p><strong>All:</strong> Unrestricted access (administrators only)</p>
-            </div>
-
-            <h3>Data Privacy Compliance</h3>
-            <div class="warning-box">
-                <strong>⚠️ GDPR & Privacy Regulations:</strong>
-                <ul>
-                    <li>Implement "Right to be Forgotten" workflows</li>
-                    <li>Mask sensitive personal data (SSN, credit cards)</li>
-                    <li>Encrypt data at rest and in transit</li>
-                    <li>Maintain consent records</li>
-                    <li>Enable data export for customer requests</li>
-                    <li>Set retention policies and auto-delete old records</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 104</div>
-            <h2>📊 Analytics and Insights</h2>
-            
-            <h3>Embedded Analytics</h3>
-            <p>Siebel provides built-in analytics dashboards with real-time metrics and charts.</p>
-            
-            <h3>Key Performance Indicators (KPIs)</h3>
-            <div class="two-column">
-                <div>
-                    <h4>Sales KPIs</h4>
-                    <ul>
-                        <li>Pipeline value by stage</li>
-                        <li>Win rate percentage</li>
-                        <li>Average deal size</li>
-                        <li>Sales cycle length</li>
-                        <li>Quota attainment</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Service KPIs</h4>
-                    <ul>
-                        <li>First call resolution</li>
-                        <li>Average handle time</li>
-                        <li>SLA compliance rate</li>
-                        <li>Customer satisfaction</li>
-                        <li>Backlog by priority</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Chart Types</h3>
-            <ul>
-                <li><strong>Bar/Column:</strong> Compare values across categories</li>
-                <li><strong>Line:</strong> Show trends over time</li>
-                <li><strong>Pie:</strong> Display proportional breakdown</li>
-                <li><strong>Gauge:</strong> Show progress toward target</li>
-                <li><strong>Funnel:</strong> Visualize conversion rates</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 105</div>
-            <h2>🔄 Business Process Automation</h2>
-            
-            <h3>End-to-End Process Design</h3>
-            <p>Link multiple workflows and business services to automate complex business processes spanning multiple departments.</p>
-            
-            <h3>Example: New Customer Onboarding</h3>
-            <div class="code-block">
-                <strong>Step 1: Sales (Opportunity Won)</strong><br>
-                • Opportunity marked Closed-Won<br>
-                • Trigger: Create account in ERP<br>
-                • Create customer record in billing system<br><br>
-                
-                <strong>Step 2: Order Management</strong><br>
-                • Convert quote to order<br>
-                • Reserve inventory<br>
-                • Schedule installation<br><br>
-                
-                <strong>Step 3: Fulfillment</strong><br>
-                • Dispatch technician<br>
-                • Provision service<br>
-                • Activate in network<br><br>
-                
-                <strong>Step 4: Customer Success</strong><br>
-                • Send welcome email<br>
-                • Create onboarding tasks<br>
-                • Schedule follow-up call<br>
-                • Assign customer success manager
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 106</div>
-            <h2>💡 Industry-Specific Features</h2>
-            
-            <h3>Communications-Specific Functionality</h3>
-            <p>Siebel eCommunications includes pre-built features for telecom providers.</p>
-            
-            <h3>Catalog Management</h3>
-            <ul>
-                <li><strong>Service Plans:</strong> Voice, data, messaging packages</li>
-                <li><strong>Devices:</strong> Phones, tablets, hotspots</li>
-                <li><strong>Add-ons:</strong> International calling, hotspot data</li>
-                <li><strong>Bundles:</strong> Combined offerings (Triple Play)</li>
-            </ul>
-
-            <h3>Order Capture</h3>
-            <div class="info-box">
-                <p><strong>New Service:</strong> New customer activation</p>
-                <p><strong>Change of Service:</strong> Plan upgrade/downgrade</p>
-                <p><strong>Disconnect:</strong> Service termination</p>
-                <p><strong>Port-In:</strong> Transfer number from another carrier</p>
-                <p><strong>Equipment Upgrade:</strong> New device with contract extension</p>
-            </div>
-
-            <h3>Asset Management</h3>
-            <p>Track physical and logical assets:</p>
-            <ul>
-                <li>Customer premise equipment (modems, routers)</li>
-                <li>Network elements (cell towers, switches)</li>
-                <li>Subscriptions and licenses</li>
-                <li>SIM cards and phone numbers</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 107</div>
-            <h2>🚀 Performance Tuning</h2>
-            
-            <h3>Query Optimization</h3>
-            <p>Slow queries are the #1 performance issue. Follow these guidelines:</p>
-            
-            <div class="success-box">
-                <strong>✅ Best Practices:</strong>
-                <ul>
-                    <li><strong>Use Indexes:</strong> Ensure frequently searched fields have indexes</li>
-                    <li><strong>Limit Results:</strong> Use filters to reduce record count</li>
-                    <li><strong>Avoid Wildcards:</strong> "Smith%" is faster than "%Smith%"</li>
-                    <li><strong>Denormalize When Needed:</strong> Copy critical data to avoid joins</li>
-                    <li><strong>Use Search Specifications:</strong> Pre-filter data at BC level</li>
-                </ul>
-            </div>
-
-            <h3>Caching Strategies</h3>
-            <div class="code-block">
-                <strong>Static LOV Cache:</strong> Cache picklist values<br>
-                <strong>Server Cache:</strong> Cache frequently accessed BCs<br>
-                <strong>Browser Cache:</strong> Cache images, JavaScript, CSS<br>
-                <strong>Named Search Cache:</strong> Cache common queries
-            </div>
-
-            <h3>Database Tuning</h3>
-            <ul>
-                <li>Rebuild indexes regularly</li>
-                <li>Update statistics weekly</li>
-                <li>Archive old data</li>
-                <li>Partition large tables</li>
-                <li>Monitor slow query logs</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 108</div>
-            <h2>🔧 Troubleshooting Advanced Issues</h2>
-            
-            <h3>Common Problems and Solutions</h3>
-            
-            <div class="warning-box">
-                <p><strong>Problem:</strong> Workflow not triggering</p>
-                <p><strong>Solutions:</strong></p>
-                <ul>
-                    <li>Check workflow policy conditions are met</li>
-                    <li>Verify runtime events are enabled</li>
-                    <li>Review workflow policy filter criteria</li>
-                    <li>Check user has permission to execute workflow</li>
-                </ul>
-            </div>
-
-            <div class="warning-box">
-                <p><strong>Problem:</strong> Integration timeout errors</p>
-                <p><strong>Solutions:</strong></p>
-                <ul>
-                    <li>Increase timeout value in business service</li>
-                    <li>Optimize external service performance</li>
-                    <li>Implement asynchronous processing</li>
-                    <li>Add retry logic with exponential backoff</li>
-                </ul>
-            </div>
-
-            <div class="warning-box">
-                <p><strong>Problem:</strong> Mobile sync conflicts</p>
-                <p><strong>Solutions:</strong></p>
-                <ul>
-                    <li>Configure conflict resolution rules (server wins/client wins)</li>
-                    <li>Reduce sync visibility to minimize conflicts</li>
-                    <li>Train users to sync more frequently</li>
-                    <li>Implement optimistic locking</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 109</div>
-            <h2>📈 Scalability and High Availability</h2>
-            
-            <h3>Horizontal Scaling</h3>
-            <p>Add more servers to handle increased load:</p>
-            
-            <div class="info-box">
-                <p><strong>Web Tier:</strong> Multiple web servers behind load balancer</p>
-                <p><strong>Application Tier:</strong> Multiple Siebel servers in enterprise</p>
-                <p><strong>Database Tier:</strong> Oracle RAC for database clustering</p>
-            </div>
-
-            <h3>Load Balancing Strategies</h3>
-            <div class="code-block">
-                <strong>Round Robin:</strong> Distribute requests evenly<br>
-                <strong>Least Connections:</strong> Route to server with fewest active users<br>
-                <strong>Session Affinity:</strong> Keep user on same server (sticky sessions)<br>
-                <strong>Geographic:</strong> Route to nearest data center
-            </div>
-
-            <h3>Disaster Recovery</h3>
-            <ul>
-                <li><strong>Database Backup:</strong> Daily full + hourly incrementals</li>
-                <li><strong>File System Backup:</strong> Repository, custom files</li>
-                <li><strong>Standby Database:</strong> Real-time replication</li>
-                <li><strong>DR Site:</strong> Secondary data center for failover</li>
-                <li><strong>RTO/RPO Targets:</strong> Define acceptable downtime and data loss</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 110</div>
-            <h2>🔒 Advanced Administration</h2>
-            
-            <h3>System Monitoring</h3>
-            <p>Proactive monitoring prevents issues before users are impacted.</p>
-            
-            <h3>Key Metrics to Monitor</h3>
-            <div class="highlight">
-                <p><strong>Server Health:</strong> CPU, memory, disk I/O</p>
-                <p><strong>Application Response:</strong> Page load times, query duration</p>
-                <p><strong>Database Performance:</strong> Connection pool, lock waits</p>
-                <p><strong>Workflow Engine:</strong> Backlog, error rate</p>
-                <p><strong>Integration:</strong> Message queue depth, failure count</p>
-                <p><strong>User Activity:</strong> Concurrent users, session duration</p>
-            </div>
-
-            <h3>Alerting Strategy</h3>
-            <div class="code-block">
-                <strong>Critical Alerts:</strong> Page/call immediately<br>
-                • Database down<br>
-                • All servers unavailable<br>
-                • Data corruption detected<br><br>
-                
-                <strong>Warning Alerts:</strong> Email to team<br>
-                • CPU > 80% for 5 minutes<br>
-                • Disk > 90% full<br>
-                • Integration failures > 10/hour<br><br>
-                
-                <strong>Info Alerts:</strong> Daily summary<br>
-                • Performance trending<br>
-                • Capacity planning metrics
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 111</div>
-            <h2>🌐 Globalization and Localization</h2>
-            
-            <h3>Multi-Language Support</h3>
-            <p>Siebel supports 35+ languages out of the box. Users can switch language preferences without affecting underlying data.</p>
-            
-            <h3>Localization Components</h3>
-            <ul>
-                <li><strong>UI Labels:</strong> Translated screen text and field labels</li>
-                <li><strong>Messages:</strong> Error messages and notifications</li>
-                <li><strong>Date/Time:</strong> Regional format preferences</li>
-                <li><strong>Currency:</strong> Multi-currency support with exchange rates</li>
-                <li><strong>Number Format:</strong> Decimal and thousands separators</li>
-            </ul>
-
-            <h3>Multi-Currency Operations</h3>
-            <div class="code-block">
-                <strong>Base Currency:</strong> USD (Organization default)<br>
-                <strong>Opportunity Currency:</strong> EUR (Customer preference)<br>
-                <strong>Amount in EUR:</strong> €100,000<br>
-                <strong>Exchange Rate:</strong> 1.10<br>
-                <strong>Amount in USD:</strong> $110,000<br>
-            </div>
-
-            <h3>Time Zone Handling</h3>
-            <p>Store all timestamps in UTC, display in user's local time zone:</p>
-            <div class="info-box">
-                <p><strong>Server Time:</strong> 2025-10-31 14:00 UTC</p>
-                <p><strong>US Eastern:</strong> 2025-10-31 10:00 AM EDT</p>
-                <p><strong>India:</strong> 2025-10-31 7:30 PM IST</p>
-                <p><strong>Australia:</strong> 2025-11-01 1:00 AM AEDT</p>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 112</div>
-            <h2>🔄 Upgrade and Migration</h2>
-            
-            <h3>Siebel Upgrade Path</h3>
-            <p>Keep Siebel current with Oracle's Innovation Pack releases (typically annual).</p>
-            
-            <h3>Upgrade Planning</h3>
-            <ol>
-                <li><strong>Review Release Notes:</strong> Understand new features and deprecations</li>
-                <li><strong>Test in Sandbox:</strong> Validate compatibility with customizations</li>
-                <li><strong>Regression Testing:</strong> Test all critical business processes</li>
-                <li><strong>Performance Testing:</strong> Ensure no degradation</li>
-                <li><strong>User Acceptance Testing:</strong> Validate UI changes</li>
-                <li><strong>Training:</strong> Educate users on new features</li>
-                <li><strong>Cutover Planning:</strong> Minimize downtime</li>
-                <li><strong>Rollback Plan:</strong> Be ready to revert if needed</li>
-            </ol>
-
-            <h3>Data Migration</h3>
-            <p>When migrating from legacy systems to Siebel:</p>
-            <div class="warning-box">
-                <strong>⚠️ Migration Checklist:</strong>
-                <ul>
-                    <li>Profile source data quality (completeness, accuracy)</li>
-                    <li>Map source fields to Siebel tables</li>
-                    <li>Cleanse and deduplicate data before migration</li>
-                    <li>Migrate in phases (master data → transactions → history)</li>
-                    <li>Validate migrated data thoroughly</li>
-                    <li>Maintain data lineage for audit</li>
-                    <li>Plan for cutover weekend</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 113</div>
-            <h2>📚 Advanced Topics Summary</h2>
-            
-            <h3>Key Takeaways</h3>
-            <div class="success-box">
-                <p><strong>✅ Sales Automation:</strong> Pipeline, forecasting, and territory management drive revenue growth</p>
-                <p><strong>✅ Marketing Excellence:</strong> Campaigns and lead nurturing generate qualified opportunities</p>
-                <p><strong>✅ Service Operations:</strong> SLAs and entitlements ensure customer satisfaction</p>
-                <p><strong>✅ Integration:</strong> Web services and ERP connectivity create unified systems</p>
-                <p><strong>✅ Mobile Access:</strong> Field teams stay productive anywhere</p>
-                <p><strong>✅ Open UI:</strong> Modern, responsive interface improves user experience</p>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 114</div>
-            <h2>🎯 Practical Exercise Preview</h2>
-            
-            <h3>Day 2 Practicals</h3>
-            <p>In this afternoon's labs, you'll apply these advanced concepts:</p>
-            
-            <div class="highlight">
-                <h4>Lab 1: Sales Process Configuration</h4>
-                <ul>
-                    <li>Create opportunity with products</li>
-                    <li>Configure approval workflow</li>
-                    <li>Generate forecast</li>
-                </ul>
-
-                <h4>Lab 2: Service Operations</h4>
-                <ul>
-                    <li>Configure SLA rules</li>
-                    <li>Set up entitlements</li>
-                    <li>Test assignment rules</li>
-                </ul>
-
-                <h4>Lab 3: Integration Hands-On</h4>
-                <ul>
-                    <li>Call external web service</li>
-                    <li>Configure EIM integration</li>
-                    <li>Test data synchronization</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="page-marker">Page 115</div>
-            <h2>📖 Additional Resources</h2>
-            
-            <h3>Oracle Documentation</h3>
-            <ul>
-                <li><a href="https://docs.oracle.com/en/applications/siebel/" target="_blank" rel="noopener noreferrer">Siebel Documentation Library</a></li>
-                <li>Siebel Bookshelf - Comprehensive guides for all modules</li>
-                <li>Siebel Innovation Pack Release Notes</li>
-                <li>Siebel Developer's Reference</li>
-            </ul>
-
-            <h3>Community Resources</h3>
-            <ul>
-                <li>Oracle Cloud Customer Connect (forums)</li>
-                <li>Siebel Hub (blog and tutorials)</li>
-                <li>Oracle University (training courses)</li>
-                <li>Oracle Support (My Oracle Support)</li>
-            </ul>
-
-            <div class="success-box">
-                <h3>🎉 Congratulations!</h3>
-                <p>You've completed Topic 4: Advanced Siebel Features. You now understand enterprise-grade functionality for sales, service, marketing, and integration.</p>
-                <p><strong>Next:</strong> Topic 5 will cover Reporting and Analytics to help you extract insights from your CRM data.</p>
-            </div>
-        </section>
-
-        <nav class="page-nav">
-            <a href="index.html" class="nav-btn">🏠 Home</a>
-            <a href="day1_practicals.html" class="nav-btn">← Day 1 Practicals</a>
-            <a href="day2_topic5_reporting.html" class="nav-btn">Topic 5 →</a>
-        </nav>
-
-        <footer class="topic-footer">
-            <p>&copy; 2025 Oracle Siebel CRM IP 21.7 Training | Day 2 - Topic 4: Advanced Features</p>
-        </footer>
-    </div>
-
-    <script src="js/navigation.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (window.location.hash) {
-                const element = document.querySelector(window.location.hash);
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    </script>
+  <div class="container">
+    <header class="topic-header">
+      <div class="page-number">Pages 81-115</div>
+      <h1>📈 Day 2 - Topic 4: Advanced Siebel Features</h1>
+      <div class="time-estimate">⏱️ Estimated Time: 2.5 Hours</div>
+    </header>
+
+    <nav class="page-nav">
+      <a href="index.html" class="nav-btn">🏠 Home</a>
+      <a href="day1_practicals.html" class="nav-btn">← Day 1 Practicals</a>
+      <a href="day2_topic5_reporting.html" class="nav-btn">Topic 5 →</a>
+    </nav>
+
+    <!-- Page 81: Introduction -->
+    <section class="content-section">
+      <div class="page-marker">Page 81</div>
+      <h2>🎯 Module Overview</h2>
+      <p>Welcome to Day 2! Today we explore advanced Siebel CRM features that power enterprise operations. This module covers sophisticated functionality for sales, marketing, service, and integration.</p>
+      
+      <h3>What You'll Learn:</h3>
+      <div class="two-column">
+        <div>
+          <h4>Sales Excellence</h4>
+          <ul>
+            <li>Pipeline Management</li>
+            <li>Opportunity Tracking</li>
+            <li>Forecasting & Quotas</li>
+            <li>Territory Management</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Marketing & Service</h4>
+          <ul>
+            <li>Campaign Management</li>
+            <li>Lead Generation</li>
+            <li>Service Level Agreements</li>
+            <li>Entitlement Management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div>
+          <h4>Integration</h4>
+          <ul>
+            <li>EAI Architecture</li>
+            <li>Web Services</li>
+            <li>ERP Integration</li>
+            <li>Data Synchronization</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Mobile & Modern UI</h4>
+          <ul>
+            <li>Siebel Mobile</li>
+            <li>Open UI Framework</li>
+            <li>Responsive Design</li>
+            <li>Offline Capabilities</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 82: Sales Pipeline Overview -->
+    <section class="content-section">
+      <div class="page-marker">Page 82</div>
+      <h2>💼 Sales Pipeline Management</h2>
+      
+      <h3>Understanding the Sales Pipeline</h3>
+      <p>The sales pipeline visualizes opportunities from initial contact through closed deals. Siebel provides comprehensive tools to track, analyze, and optimize your sales process.</p>
+      
+      <div class="info-box">
+        <h4>Standard Pipeline Stages:</h4>
+        <ol>
+          <li><strong>Qualification (10%):</strong> Initial contact, needs assessment</li>
+          <li><strong>Needs Analysis (25%):</strong> Detailed requirements gathering</li>
+          <li><strong>Proposal (50%):</strong> Solution presentation, pricing</li>
+          <li><strong>Negotiation (75%):</strong> Terms discussion, contract review</li>
+          <li><strong>Closed Won (100%):</strong> Deal finalized</li>
+          <li><strong>Closed Lost (0%):</strong> Opportunity lost to competitor or no decision</li>
+        </ol>
+      </div>
+
+      <img src="images/sales_pipeline.png" alt="Siebel Sales Pipeline" class="content-image">
+      
+      <h3>Key Pipeline Metrics</h3>
+      <div class="highlight">
+        <p><strong>Velocity:</strong> Average time opportunities spend in each stage</p>
+        <p><strong>Conversion Rate:</strong> Percentage advancing from one stage to next</p>
+        <p><strong>Pipeline Value:</strong> Total weighted value of all open opportunities</p>
+        <p><strong>Win Rate:</strong> Percentage of opportunities closed as won</p>
+      </div>
+    </section>
+
+    <!-- Page 83: Opportunity Management -->
+    <section class="content-section">
+      <div class="page-marker">Page 83</div>
+      <h2>🎯 Opportunity Management</h2>
+      
+      <h3>Creating and Managing Opportunities</h3>
+      <p>Opportunities represent potential sales. Each opportunity tracks products, revenue, timeline, competitors, and probability of success.</p>
+      
+      <h3>Opportunity Fields</h3>
+      <div class="code-block">
+        <strong>Basic Information:</strong><br>
+        • Name: Descriptive title (e.g., "MegaCorp 5G Enterprise Network")<br>
+        • Account: Associated customer account<br>
+        • Contact: Primary decision maker<br>
+        • Owner: Sales representative responsible<br>
+        • Sales Stage: Current position in pipeline<br>
+        • Probability: Likelihood of closing (auto-calculated by stage)<br>
+        • Revenue: Expected deal value<br>
+        • Close Date: Target closing date<br>
+        • Type: New Business, Renewal, Upsell, Cross-sell<br>
+        • Sales Method: Methodology used (e.g., Solution Selling)
+      </div>
+
+      <h3>Best Practices</h3>
+      <div class="warning-box">
+        <strong>⚠️ Common Mistakes:</strong>
+        <ul>
+          <li>Creating opportunities too early (before qualification)</li>
+          <li>Not updating close dates regularly</li>
+          <li>Leaving opportunities in late stages too long</li>
+          <li>Inflating revenue projections</li>
+        </ul>
+      </div>
+
+      <div class="success-box">
+        <strong>✅ Success Tips:</strong>
+        <ul>
+          <li>Update opportunities weekly at minimum</li>
+          <li>Use Activities to track all customer interactions</li>
+          <li>Document reasons for stage progression</li>
+          <li>Involve sales managers in large deals early</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Page 84: Products and Revenue -->
+    <section class="content-section">
+      <div class="page-marker">Page 84</div>
+      <h2>📦 Products and Revenue Management</h2>
+      
+      <h3>Adding Products to Opportunities</h3>
+      <p>Opportunities can contain multiple products, each with its own quantity, price, and discount structure.</p>
+      
+      <h3>Product Configuration</h3>
+      <div class="info-box">
+        <p><strong>Product Hierarchy:</strong></p>
+        <ul>
+          <li><strong>Product Line:</strong> High-level category (e.g., Mobile Services)</li>
+          <li><strong>Product:</strong> Specific offering (e.g., 5G Business Plan)</li>
+          <li><strong>Product Defect:</strong> SKU or variant (e.g., 5G-BUS-100GB)</li>
+        </ul>
+      </div>
+
+      <h3>Revenue Calculation</h3>
+      <div class="code-block">
+        <strong>Revenue Formula:</strong><br>
+        List Price × Quantity = Subtotal<br>
+        Subtotal - (Subtotal × Discount %) = Net Amount<br>
+        Net Amount + Tax = Total Revenue<br><br>
+        
+        <strong>Example:</strong><br>
+        Product: 5G Business Plan<br>
+        List Price: $500/month<br>
+        Quantity: 100 lines<br>
+        Subtotal: $50,000/month<br>
+        Discount: 15%<br>
+        Net: $42,500/month<br>
+        Annual Contract: $510,000
+      </div>
+
+      <h3>Revenue Types in eCommunications</h3>
+      <ul>
+        <li><strong>MRC (Monthly Recurring Charges):</strong> Subscription fees</li>
+        <li><strong>NRC (Non-Recurring Charges):</strong> One-time setup fees</li>
+        <li><strong>Usage Charges:</strong> Consumption-based billing</li>
+        <li><strong>Overage Charges:</strong> Exceeding plan limits</li>
+      </ul>
+    </section>
+
+    <!-- Page 85: Sales Forecasting -->
+    <section class="content-section">
+      <div class="page-marker">Page 85</div>
+      <h2>📊 Sales Forecasting</h2>
+      
+      <h3>Forecast Management</h3>
+      <p>Siebel's forecasting engine aggregates opportunity data to predict future revenue. Forecasts roll up through organizational hierarchies and can be adjusted by managers.</p>
+      
+      <img src="images/forecasting.png" alt="Sales Forecasting Dashboard" class="content-image">
+      
+      <h3>Forecast Categories</h3>
+      <div class="highlight">
+        <p><strong>Pipeline:</strong> All open opportunities (weighted by probability)</p>
+        <p><strong>Best Case:</strong> All opportunities you might win</p>
+        <p><strong>Commit:</strong> Opportunities you're confident will close</p>
+        <p><strong>Closed:</strong> Deals already won this period</p>
+      </div>
+
+      <h3>Forecast Submission Process</h3>
+      <ol>
+        <li><strong>Rep Reviews:</strong> Sales rep reviews their opportunities</li>
+        <li><strong>Rep Submits:</strong> Rep submits forecast to manager</li>
+        <li><strong>Manager Adjusts:</strong> Manager can override rep's numbers</li>
+        <li><strong>Manager Submits:</strong> Manager submits to director</li>
+        <li><strong>Rollup Continues:</strong> Process continues up hierarchy</li>
+        <li><strong>Executive Review:</strong> Senior leadership reviews final forecast</li>
+      </ol>
+
+      <div class="info-box">
+        <strong>Forecast Accuracy:</strong> Measured by comparing forecasted vs actual closed revenue. Industry average is 75-85% accuracy. Siebel tracks accuracy metrics to improve future predictions.
+      </div>
+    </section>
+
+    <!-- Page 86: Quota Management -->
+    <section class="content-section">
+      <div class="page-marker">Page 86</div>
+      <h2>🎯 Quota Management</h2>
+      
+      <h3>Setting Sales Quotas</h3>
+      <p>Quotas define revenue targets for sales teams and individuals. Siebel tracks performance against quota in real-time.</p>
+      
+      <h3>Quota Types</h3>
+      <div class="two-column">
+        <div>
+          <h4>Revenue Quota</h4>
+          <p>Total dollar amount to be sold</p>
+          <p><strong>Example:</strong> $2M annually</p>
+        </div>
+        <div>
+          <h4>Unit Quota</h4>
+          <p>Number of products/licenses sold</p>
+          <p><strong>Example:</strong> 500 mobile lines</p>
+        </div>
+      </div>
+
+      <h3>Quota Allocation</h3>
+      <div class="code-block">
+        <strong>Hierarchical Distribution:</strong><br>
+        Company Quota: $100M<br>
+        ├── Region North: $40M<br>
+        │  ├── Territory A: $15M<br>
+        │  │  ├── Rep 1: $5M<br>
+        │  │  ├── Rep 2: $5M<br>
+        │  │  └── Rep 3: $5M<br>
+        │  └── Territory B: $25M<br>
+        └── Region South: $60M
+      </div>
+
+      <h3>Quota Attainment Tracking</h3>
+      <div class="highlight">
+        <p><strong>Attainment %:</strong> (Actual Revenue ÷ Quota) × 100</p>
+        <p><strong>Example:</strong> Rep closed $4.5M against $5M quota = 90% attainment</p>
+      </div>
+
+      <div class="success-box">
+        <strong>Compensation Impact:</strong> Most organizations tie compensation to quota attainment:
+        <ul>
+          <li>&lt;80%: Base salary only</li>
+          <li>80-100%: Base + prorated commission</li>
+          <li>100-120%: Base + full commission</li>
+          <li>&gt;120%: Base + commission + accelerators</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Page 87: Territory Management -->
+    <section class="content-section">
+      <div class="page-marker">Page 87</div>
+      <h2>🗺️ Territory Management</h2>
+      
+      <h3>Defining Sales Territories</h3>
+      <p>Territories organize customers and prospects for sales coverage. Can be defined by geography, industry, company size, or product line.</p>
+      
+      <h3>Territory Assignment Rules</h3>
+      <div class="info-box">
+        <p><strong>Geographic:</strong> Accounts in specific regions/postal codes</p>
+        <p><strong>Industry Vertical:</strong> Accounts in specific industries (Healthcare, Finance, etc.)</p>
+        <p><strong>Account Size:</strong> Enterprise (>1000 employees), Mid-Market (100-1000), SMB (&lt;100)</p>
+        <p><strong>Product-Based:</strong> Specialists for specific product lines</p>
+        <p><strong>Named Accounts:</strong> Dedicated reps for strategic customers</p>
+      </div>
+
+      <h3>Territory Alignment</h3>
+      <p>Proper territory design ensures:</p>
+      <ul>
+        <li><strong>Balance:</strong> Equal opportunity across territories</li>
+        <li><strong>Coverage:</strong> No accounts left unassigned</li>
+        <li><strong>Clarity:</strong> Clear ownership, no disputes</li>
+        <li><strong>Efficiency:</strong> Minimize travel time and costs</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>⚠️ Territory Overlap:</strong> When multiple reps can claim the same account, implement clear rules:
+        <ul>
+          <li>First to create opportunity owns it</li>
+          <li>Split credit between reps</li>
+          <li>Manager adjudicates disputes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Page 88: Marketing Campaigns -->
+    <section class="content-section">
+      <div class="page-marker">Page 88</div>
+      <h2>📢 Marketing Campaign Management</h2>
+      
+      <h3>Campaign Overview</h3>
+      <p>Marketing campaigns are coordinated efforts to promote products/services. Siebel tracks campaigns from planning through execution to ROI analysis.</p>
+      
+      <img src="images/marketing_campaign.png" alt="Marketing Campaign Structure" class="content-image">
+      
+      <h3>Campaign Structure</h3>
+      <div class="code-block">
+        <strong>Campaign Hierarchy:</strong><br>
+        Campaign Program (Year-long initiative)<br>
+        └── Campaign (Specific promotion)<br>
+          └── Wave (Execution batch)<br>
+            └── Target List (Recipients)<br>
+              └── Campaign Contact (Individual)<br>
+      </div>
+
+      <h3>Campaign Types</h3>
+      <div class="two-column">
+        <div>
+          <h4>Outbound</h4>
+          <ul>
+            <li>Email Marketing</li>
+            <li>Direct Mail</li>
+            <li>Telemarketing</li>
+            <li>Events/Webinars</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Inbound</h4>
+          <ul>
+            <li>Web Forms</li>
+            <li>Trade Shows</li>
+            <li>Partner Referrals</li>
+            <li>Content Downloads</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Campaign Workflow</h3>
+      <ol>
+        <li><strong>Planning:</strong> Define objectives, budget, timeline</li>
+        <li><strong>Segmentation:</strong> Identify target audience</li>
+        <li><strong>Creative:</strong> Develop messaging and assets</li>
+        <li><strong>Execution:</strong> Send communications</li>
+        <li><strong>Response Tracking:</strong> Monitor opens, clicks, conversions</li>
+        <li><strong>Lead Routing:</strong> Assign leads to sales</li>
+        <li><strong>Analysis:</strong> Calculate ROI and effectiveness</li>
+      </ol>
+    </section>
+
+    <!-- Page 89: Lead Management -->
+    <section class="content-section">
+      <div class="page-marker">Page 89</div>
+      <h2>🎯 Lead Generation and Management</h2>
+      
+      <h3>Lead Lifecycle</h3>
+      <p>Leads represent potential customers who have shown interest but are not yet qualified as sales opportunities.</p>
+      
+      <img src="images/lead_generation.png" alt="Lead Management Process" class="content-image">
+      
+      <h3>Lead Stages</h3>
+      <div class="info-box">
+        <ol>
+          <li><strong>New:</strong> Lead just created, not yet contacted</li>
+          <li><strong>Contacted:</strong> Initial outreach attempted</li>
+          <li><strong>Qualified:</strong> Meets BANT criteria (Budget, Authority, Need, Timeline)</li>
+          <li><strong>Converted:</strong> Promoted to Account/Contact/Opportunity</li>
+          <li><strong>Disqualified:</strong> Does not meet criteria</li>
+          <li><strong>Nurture:</strong> Not ready now, keep warm for future</li>
+        </ol>
+      </div>
+
+      <h3>Lead Scoring</h3>
+      <p>Assign points based on lead characteristics to prioritize follow-up:</p>
+      <div class="code-block">
+        <strong>Demographic Scoring:</strong><br>
+        • Company Size: Enterprise (+30), Mid-Market (+20), SMB (+10)<br>
+        • Industry: Target verticals (+25), Others (+5)<br>
+        • Title: C-Level (+30), VP (+20), Director (+15), Manager (+10)<br><br>
+        
+        <strong>Behavioral Scoring:</strong><br>
+        • Downloaded Whitepaper (+10)<br>
+        • Attended Webinar (+15)<br>
+        • Visited Pricing Page (+25)<br>
+        • Requested Demo (+40)<br>
+        • Multiple Website Visits (+5 each)<br><br>
+        
+        <strong>Hot Lead:</strong> Score > 75<br>
+        <strong>Warm Lead:</strong> Score 50-75<br>
+        <strong>Cold Lead:</strong> Score < 50
+      </div>
+
+      <h3>Lead Assignment</h3>
+      <div class="highlight">
+        <p><strong>Round Robin:</strong> Distribute leads evenly across team</p>
+        <p><strong>Territory-Based:</strong> Route by geography or account rules</p>
+        <p><strong>Skill-Based:</strong> Match lead needs to rep expertise</p>
+        <p><strong>Load Balancing:</strong> Assign to rep with fewest active leads</p>
+      </div>
+    </section>
+
+    <!-- Page 90: Lead Nurturing -->
+    <section class="content-section">
+      <div class="page-marker">Page 90</div>
+      <h2>🌱 Lead Nurturing Programs</h2>
+      
+      <h3>What is Lead Nurturing?</h3>
+      <p>Lead nurturing is the process of developing relationships with leads who aren't ready to buy yet. Automated email sequences keep your company top-of-mind until they're ready.</p>
+      
+      <h3>Nurture Campaign Example: New Mobile Technology</h3>
+      <div class="code-block">
+        <strong>Week 1:</strong> Welcome email + 5G overview whitepaper<br>
+        <strong>Week 2:</strong> Case study - How Company X improved with 5G<br>
+        <strong>Week 3:</strong> Webinar invitation: 5G for Business<br>
+        <strong>Week 4:</strong> ROI Calculator tool<br>
+        <strong>Week 6:</strong> Competitive comparison guide<br>
+        <strong>Week 8:</strong> Limited-time offer or demo invitation<br>
+      </div>
+
+      <h3>Nurture Best Practices</h3>
+      <div class="success-box">
+        <ul>
+          <li><strong>Provide Value:</strong> Educational content, not sales pitches</li>
+          <li><strong>Segment Appropriately:</strong> Different content for different industries/roles</li>
+          <li><strong>Timing Matters:</strong> Space emails appropriately (weekly or bi-weekly)</li>
+          <li><strong>Track Engagement:</strong> Monitor opens, clicks to identify hot leads</li>
+          <li><strong>Make Unsubscribe Easy:</strong> Maintain list health and compliance</li>
+        </ul>
+      </div>
+
+      <h3>Re-engagement Triggers</h3>
+      <p>Automatically alert sales when nurture lead takes action:</p>
+      <ul>
+        <li>Opens 3+ emails in one week</li>
+        <li>Clicks on pricing page</li>
+        <li>Downloads multiple resources</li>
+        <li>Revisits website multiple times</li>
+        <li>Changes job title or company</li>
+      </ul>
+    </section>
+
+    <!-- Page 91: Service Operations -->
+    <section class="content-section">
+      <div class="page-marker">Page 91</div>
+      <h2>🛠️ Service Operations Management</h2>
+      
+      <h3>Service Request Lifecycle</h3>
+      <p>Service requests (SRs) are the core of customer service operations. They track issues from initial report through resolution.</p>
+      
+      <img src="images/service_operations.png" alt="Service Operations" class="content-image">
+      
+      <h3>SR Workflow Stages</h3>
+      <div class="info-box">
+        <ol>
+          <li><strong>Open:</strong> Customer reports issue via phone, email, web, or chat</li>
+          <li><strong>Assigned:</strong> Routed to appropriate service agent/team</li>
+          <li><strong>In Progress:</strong> Agent actively working on resolution</li>
+          <li><strong>Pending Customer:</strong> Waiting for customer information</li>
+          <li><strong>Pending Vendor:</strong> Escalated to third party</li>
+          <li><strong>Resolved:</strong> Solution provided, awaiting confirmation</li>
+          <li><strong>Closed:</strong> Customer confirms resolution</li>
+        </ol>
+      </div>
+
+      <h3>SR Categories for eCommunications</h3>
+      <div class="two-column">
+        <div>
+          <h4>Technical Issues</h4>
+          <ul>
+            <li>No service/outage</li>
+            <li>Slow data speeds</li>
+            <li>Dropped calls</li>
+            <li>Device malfunction</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Account Services</h4>
+          <ul>
+            <li>Billing inquiries</li>
+            <li>Plan changes</li>
+            <li>Account updates</li>
+            <li>Payment issues</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Multi-Channel Support</h3>
+      <p>Modern service organizations support customers across multiple channels:</p>
+      <ul>
+        <li><strong>Phone:</strong> Traditional call center with IVR routing</li>
+        <li><strong>Email:</strong> Auto-create SRs from support mailbox</li>
+        <li><strong>Web Self-Service:</strong> Customer portal for creating/tracking SRs</li>
+        <li><strong>Chat:</strong> Real-time messaging with agents</li>
+        <li><strong>Social Media:</strong> Twitter/Facebook integration</li>
+        <li><strong>Mobile App:</strong> Submit issues from smartphone</li>
+      </ul>
+    </section>
+
+    <!-- Page 92: SLA Management -->
+    <section class="content-section">
+      <div class="page-marker">Page 92</div>
+      <h2>⏱️ Service Level Agreement (SLA) Management</h2>
+      
+      <h3>What are SLAs?</h3>
+      <p>SLAs define contractual commitments for service response and resolution times. Siebel automatically tracks SLA compliance and escalates overdue items.</p>
+      
+      <img src="images/slas.png" alt="SLA Management" class="content-image">
+      
+      <h3>SLA Metrics</h3>
+      <div class="code-block">
+        <strong>Response Time SLA:</strong> How quickly agent must respond<br>
+        • Priority 1 (Critical): 15 minutes<br>
+        • Priority 2 (High): 1 hour<br>
+        • Priority 3 (Medium): 4 hours<br>
+        • Priority 4 (Low): 24 hours<br><br>
+        
+        <strong>Resolution Time SLA:</strong> How quickly issue must be resolved<br>
+        • Priority 1: 4 hours<br>
+        • Priority 2: 24 hours<br>
+        • Priority 3: 3 days<br>
+        • Priority 4: 5 days
+      </div>
+
+      <h3>SLA Components</h3>
+      <div class="info-box">
+        <p><strong>Agreement:</strong> High-level contract with customer</p>
+        <p><strong>Objective:</strong> Specific metric to track (response time, resolution time)</p>
+        <p><strong>Target:</strong> Goal value (e.g., 95% within SLA)</p>
+        <p><strong>Threshold:</strong> Acceptable range before penalties</p>
+        <p><strong>Breach:</strong> SLA violation requiring remediation</p>
+      </div>
+
+      <h3>SLA Clock Management</h3>
+      <div class="highlight">
+        <p><strong>Business Hours:</strong> SLA clock runs only during business hours (e.g., 8AM-6PM weekdays)</p>
+        <p><strong>24/7 Support:</strong> Clock runs continuously for critical services</p>
+        <p><strong>Pause Conditions:</strong> Clock stops when waiting for customer response</p>
+        <p><strong>Escalation:</strong> Automated escalation when 75% of SLA time elapsed</p>
+      </div>
+
+      <h3>SLA Reporting</h3>
+      <p>Track SLA performance with metrics:</p>
+      <ul>
+        <li><strong>Compliance %:</strong> (Met SLA ÷ Total SRs) × 100</li>
+        <li><strong>Average Response Time:</strong> Across all priorities</li>
+        <li><strong>Average Resolution Time:</strong> From open to closed</li>
+        <li><strong>Breach Count:</strong> Number of SLA violations</li>
+        <li><strong>At Risk SRs:</strong> Currently open and nearing deadline</li>
+      </ul>
+    </section>
+
+    <!-- Page 93: Entitlements -->
+    <section class="content-section">
+      <div class="page-marker">Page 93</div>
+      <h2>🎫 Entitlement Management</h2>
+      
+      <h3>Understanding Entitlements</h3>
+      <p>Entitlements define what services a customer is eligible to receive based on their contract or product purchase. They govern support levels, warranties, and service coverage.</p>
+      
+      <h3>Entitlement Types</h3>
+      <div class="two-column">
+        <div>
+          <h4>Time-Based</h4>
+          <p>Valid for specific duration</p>
+          <p><strong>Example:</strong> 1-year warranty, 90-day support</p>
+        </div>
+        <div>
+          <h4>Incident-Based</h4>
+          <p>Limited number of uses</p>
+          <p><strong>Example:</strong> 5 support calls included</p>
+        </div>
+      </div>
+
+      <h3>Entitlement Validation</h3>
+      <p>When customer contacts support, Siebel automatically checks:</p>
+      <ol>
+        <li>Is there an active entitlement for this product?</li>
+        <li>Is the entitlement still within valid dates?</li>
+        <li>Are there remaining incidents (if applicable)?</li>
+        <li>Does customer's issue match covered services?</li>
+        <li>Is customer in good standing (payments current)?</li>
+      </ol>
+
+      <div class="warning-box">
+        <strong>⚠️ Out-of-Entitlement:</strong> When customer doesn't have valid coverage:
+        <ul>
+          <li>Offer paid support incident ($250-$500 per case)</li>
+          <li>Sell new support contract</li>
+          <li>Escalate to sales for renewal</li>
+          <li>Provide basic troubleshooting only</li>
+        </ul>
+      </div>
+
+      <h3>Service Tiers</h3>
+      <div class="code-block">
+        <strong>Basic Support:</strong><br>
+        • Email support only<br>
+        • 5-day response time<br>
+        • Business hours coverage<br>
+        • Knowledge base access<br><br>
+        
+        <strong>Standard Support:</strong><br>
+        • Phone + email support<br>
+        • 24-hour response time<br>
+        • Extended hours coverage<br>
+        • Community forums<br><br>
+        
+        <strong>Premium Support:</strong><br>
+        • 24/7 phone support<br>
+        • 1-hour response for critical<br>
+        • Dedicated support manager<br>
+        • On-site support available<br>
+        • Proactive monitoring
+      </div>
+    </section>
+
+    <!-- Page 94: Field Service -->
+    <section class="content-section">
+      <div class="page-marker">Page 94</div>
+      <h2>🚗 Field Service Management</h2>
+      
+      <h3>Dispatching Technicians</h3>
+      <p>For telecommunications, field service handles installations, repairs, and equipment maintenance. Siebel optimizes technician scheduling and routing.</p>
+      
+      <h3>Service Appointment Workflow</h3>
+      <ol>
+        <li><strong>Request Created:</strong> Customer schedules installation or reports outage</li>
+        <li><strong>Skill Matching:</strong> System identifies qualified technicians</li>
+        <li><strong>Availability Check:</strong> Find open time slots</li>
+        <li><strong>Optimization:</strong> Minimize drive time, group nearby appointments</li>
+        <li><strong>Assignment:</strong> Dispatch to technician mobile device</li>
+        <li><strong>Execution:</strong> Technician arrives, performs work</li>
+        <li><strong>Completion:</strong> Update status, capture signature, close SR</li>
+      </ol>
+
+      <h3>Technician Skills</h3>
+      <p>Match appointments to qualified technicians:</p>
+      <div class="info-box">
+        <ul>
+          <li><strong>Fiber Installation:</strong> Certified fiber technicians only</li>
+          <li><strong>Network Troubleshooting:</strong> Senior technicians</li>
+          <li><strong>Equipment Swap:</strong> Any field tech</li>
+          <li><strong>Business Installation:</strong> Commercial installation certification</li>
+        </ul>
+      </div>
+
+      <h3>Mobile Field Service</h3>
+      <p>Technicians use mobile devices for:</p>
+      <ul>
+        <li>View daily schedule and navigate to appointments</li>
+        <li>Access customer history and equipment details</li>
+        <li>Update service request status in real-time</li>
+        <li>Capture photos of installations</li>
+        <li>Collect customer signatures</li>
+        <li>Check inventory and order parts</li>
+        <li>Submit timesheets</li>
+      </ul>
+    </section>
+
+    <!-- Page 95: Integration Architecture -->
+    <section class="content-section">
+      <div class="page-marker">Page 95</div>
+      <h2>🔗 Enterprise Application Integration</h2>
+      
+      <div class="note-box">
+        <strong>📌 Training Note:</strong> This section covers integration concepts and architecture. Our training environment is a standalone Siebel system without external ERP/billing systems. Integration content is theoretical to help you understand how Siebel connects with other systems in production environments.
+      </div>
+      
+      <h3>Why Integration Matters</h3>
+      <p>Siebel CRM rarely operates in isolation. Modern enterprises integrate CRM with ERP, billing, provisioning, and other systems to create seamless processes.</p>
+      
+      <img src="images/integration_architecture.png" alt="Integration Architecture" class="content-image">
+      
+      <h3>Common Integration Scenarios</h3>
+      <div class="highlight">
+        <p><strong>Order to Cash:</strong> Opportunity in Siebel → Order in ERP → Invoice in Billing → Payment Collection → Revenue Recognition</p>
+        <p><strong>Service to Provisioning:</strong> Service Request in Siebel → Ticket in OSS → Provision in Network → Update Siebel</p>
+        <p><strong>Marketing to Sales:</strong> Campaign in Marketing Automation → Lead in Siebel → Opportunity → Account in ERP</p>
+      </div>
+
+      <h3>Integration Technologies</h3>
+      <div class="two-column">
+        <div>
+          <h4>Real-Time</h4>
+          <ul>
+            <li>Web Services (SOAP/REST)</li>
+            <li>Business Services</li>
+            <li>EAI Siebel Adapter</li>
+            <li>Oracle Integration Cloud</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Batch</h4>
+          <ul>
+            <li>EIM (Data Import/Export)</li>
+            <li>File-based interfaces</li>
+            <li>Scheduled workflows</li>
+            <li>Database links</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Page 96: Web Services -->
+    <section class="content-section">
+      <div class="page-marker">Page 96</div>
+      <h2>🌐 Web Services Integration</h2>
+      
+      <h3>Siebel as a Service Provider</h3>
+      <p>Siebel exposes business logic through web services, allowing external systems to create, query, and update CRM data.</p>
+      
+      <h3>Inbound Web Service Example</h3>
+      <div class="code-block">
+        <strong>Scenario:</strong> External website creates service request<br><br>
+        
+        <strong>SOAP Request:</strong><br>
+        &lt;CreateServiceRequest&gt;<br>
+         &lt;Account&gt;MegaCorp Industries&lt;/Account&gt;<br>
+         &lt;Type&gt;Technical Issue&lt;/Type&gt;<br>
+         &lt;Description&gt;Internet outage&lt;/Description&gt;<br>
+         &lt;Priority&gt;High&lt;/Priority&gt;<br>
+        &lt;/CreateServiceRequest&gt;<br><br>
+        
+        <strong>Response:</strong><br>
+        &lt;Response&gt;<br>
+         &lt;SRNumber&gt;SR-2025-12345&lt;/SRNumber&gt;<br>
+         &lt;Status&gt;Success&lt;/Status&gt;<br>
+        &lt;/Response&gt;
+      </div>
+
+      <h3>Siebel as a Service Consumer</h3>
+      <p>Siebel can call external web services to retrieve data or trigger actions in other systems.</p>
+      
+      <div class="code-block">
+        <strong>Scenario:</strong> Check product availability in ERP<br><br>
+        
+        <strong>Outbound Call from Siebel:</strong><br>
+        Business Service → External Web Service Endpoint<br>
+        Request: Product SKU, Quantity<br>
+        Response: Available (Yes/No), Lead Time, Price<br>
+        Update Opportunity with availability info
+      </div>
+
+      <h3>REST APIs</h3>
+      <p>Modern REST APIs provide simpler integration:</p>
+      <div class="info-box">
+        <p><strong>GET /api/accounts/12345</strong> - Retrieve account details</p>
+        <p><strong>POST /api/opportunities</strong> - Create new opportunity</p>
+        <p><strong>PATCH /api/serviceRequests/SR-789</strong> - Update SR</p>
+        <p><strong>DELETE /api/contacts/98765</strong> - Delete contact</p>
+      </div>
+    </section>
+
+    <!-- Page 97: ERP Integration -->
+    <section class="content-section">
+      <div class="page-marker">Page 97</div>
+      <h2>💼 ERP System Integration</h2>
+      
+      <h3>CRM to ERP Data Flow</h3>
+      <p>Critical data must flow between Siebel CRM and ERP systems like Oracle EBS, SAP, or NetSuite for unified operations.</p>
+      
+      <h3>Key Integration Points</h3>
+      <div class="highlight">
+        <p><strong>Accounts:</strong> Master customer data shared between systems</p>
+        <p><strong>Products:</strong> Catalog synchronized from ERP to CRM</p>
+        <p><strong>Pricing:</strong> Real-time price lookups from ERP</p>
+        <p><strong>Orders:</strong> Opportunities become sales orders in ERP</p>
+        <p><strong>Inventory:</strong> Available-to-promise checks</p>
+        <p><strong>Invoices:</strong> Billing data from ERP visible in CRM</p>
+        <p><strong>Payments:</strong> Account status updates from ERP</p>
+      </div>
+
+      <h3>Bi-Directional Sync</h3>
+      <div class="code-block">
+        <strong>CRM → ERP:</strong><br>
+        • New accounts created by sales<br>
+        • Opportunities converted to quotes<br>
+        • Quotes converted to orders<br>
+        • Service requests requiring billing adjustments<br><br>
+        
+        <strong>ERP → CRM:</strong><br>
+        • Product catalog updates<br>
+        • Pricing changes<br>
+        • Order fulfillment status<br>
+        • Invoice and payment information<br>
+        • Credit hold notifications
+      </div>
+
+      <h3>Data Governance</h3>
+      <div class="warning-box">
+        <strong>⚠️ Master Data Management:</strong>
+        <p>Designate system of record for each data type:</p>
+        <ul>
+          <li><strong>Accounts:</strong> CRM creates, ERP enriches with financial data</li>
+          <li><strong>Products:</strong> ERP is master, CRM is read-only</li>
+          <li><strong>Contacts:</strong> CRM is master</li>
+          <li><strong>Orders:</strong> CRM initiates, ERP owns after submission</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Page 98: Mobile CRM -->
+    <section class="content-section">
+      <div class="page-marker">Page 98</div>
+      <h2>📱 Siebel Mobile Architecture</h2>
+      
+      <h3>Mobile CRM Overview</h3>
+      <p>Siebel Mobile enables users to access CRM functionality from smartphones and tablets, with online and offline capabilities.</p>
+      
+      <img src="images/siebel_mobile_arch.png" alt="Siebel Mobile Architecture" class="content-image">
+      
+      <h3>Mobile Deployment Options</h3>
+      <div class="two-column">
+        <div>
+          <h4>Siebel Mobile (Disconnected)</h4>
+          <p>Full offline capability with local database</p>
+          <ul>
+            <li>Download data to device</li>
+            <li>Work without connectivity</li>
+            <li>Synchronize when online</li>
+            <li>Ideal for field service</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Open UI (Connected)</h4>
+          <p>Browser-based responsive interface</p>
+          <ul>
+            <li>Always online</li>
+            <li>Real-time data</li>
+            <li>No installation needed</li>
+            <li>Ideal for office/remote workers</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Mobile Use Cases</h3>
+      <div class="info-box">
+        <p><strong>Sales Reps:</strong> Update opportunities on customer site, check inventory, send quotes</p>
+        <p><strong>Field Technicians:</strong> View appointments, update service requests, capture signatures</p>
+        <p><strong>Executives:</strong> Review dashboards, approve discounts, monitor pipeline</p>
+        <p><strong>Service Agents:</strong> Respond to customer inquiries while away from desk</p>
+      </div>
+
+      <h3>Offline Synchronization</h3>
+      <p>For disconnected mobile:</p>
+      <ol>
+        <li><strong>Download:</strong> User syncs before going offline (daily or as needed)</li>
+        <li><strong>Work Offline:</strong> Create/update records in local database</li>
+        <li><strong>Upload:</strong> When reconnected, changes sent to server</li>
+        <li><strong>Conflict Resolution:</strong> If same record modified online and offline, user resolves</li>
+      </ol>
+    </section>
+
+    <!-- Page 99: Open UI Framework -->
+    <section class="content-section">
+      <div class="page-marker">Page 99</div>
+      <h2>🎨 Open UI Framework</h2>
+      
+      <h3>What is Open UI?</h3>
+      <p>Open UI is Siebel's modern, responsive user interface framework introduced in IP 15. It replaces the legacy ActiveX controls with HTML5, CSS3, and JavaScript.</p>
+      
+      <h3>Open UI Benefits</h3>
+      <div class="success-box">
+        <ul>
+          <li><strong>Browser Compatibility:</strong> Works in Chrome, Firefox, Safari, Edge - no plugins needed</li>
+          <li><strong>Responsive Design:</strong> Adapts to desktop, tablet, and phone screen sizes</li>
+          <li><strong>Modern UX:</strong> Contemporary look and feel</li>
+          <li><strong>Customizable:</strong> Easier to modify UI with CSS and JavaScript</li>
+          <li><strong>Better Performance:</strong> Faster page loads and interactions</li>
+          <li><strong>Accessibility:</strong> Improved support for screen readers and keyboard navigation</li>
+        </ul>
+      </div>
+
+      <h3>Customization Architecture</h3>
+      <div class="code-block">
+        <strong>Presentation Model (PM):</strong> JavaScript logic layer<br>
+        • Controls UI behavior<br>
+        • Handles events<br>
+        • Communicates with server<br><br>
+        
+        <strong>Physical Renderer (PR):</strong> HTML generation<br>
+        • Creates DOM elements<br>
+        • Defines layout<br>
+        • Applies styling<br><br>
+        
+        <strong>Custom Files:</strong><br>
+        • /custom/scripts/ - Custom PM/PR JavaScript<br>
+        • /custom/styles/ - Custom CSS<br>
+        • /custom/images/ - Custom icons and graphics
+      </code>
+
+      <h3>UI Customization Examples</h3>
+      <ul>
+        <li>Change color scheme to match corporate branding</li>
+        <li>Add custom buttons with JavaScript actions</li>
+        <li>Create new applet types (e.g., Kanban board)</li>
+        <li>Integrate third-party JavaScript libraries (charts, maps)</li>
+        <li>Build custom controls for specific data types</li>
+      </ul>
+    </section>
+
+    <!-- Page 100: Integration Best Practices -->
+    <section class="content-section">
+      <div class="page-marker">Page 100</div>
+      <h2>✅ Integration Best Practices</h2>
+      
+      <h3>Design Principles</h3>
+      <div class="highlight">
+        <p><strong>Loose Coupling:</strong> Systems should interact through well-defined interfaces, not direct database access</p>
+        <p><strong>Error Handling:</strong> Gracefully handle timeouts, invalid data, and system unavailability</p>
+        <p><strong>Logging:</strong> Comprehensive audit trail of all integration transactions</p>
+        <p><strong>Monitoring:</strong> Real-time alerts for integration failures</p>
+        <p><strong>Scalability:</strong> Design for growing data volumes and transaction rates</p>
+      </div>
+
+      <h3>Performance Optimization</h3>
+      <div class="info-box">
+        <ul>
+          <li><strong>Batch vs Real-Time:</strong> Use real-time only when necessary (e.g., pricing). Batch is more efficient for bulk data.</li>
+          <li><strong>Pagination:</strong> For large datasets, retrieve in chunks (e.g., 1000 records at a time)</li>
+          <li><strong>Caching:</strong> Cache frequently accessed reference data locally</li>
+          <li><strong>Asynchronous Processing:</strong> Don't make users wait for slow external calls</li>
+        </ul>
+      </div>
+
+      <h3>Security Considerations</h3>
+      <div class="warning-box">
+        <strong>⚠️ Protect Your Data:</strong>
+        <ul>
+          <li><strong>Authentication:</strong> Use OAuth 2.0 or API keys, never embed passwords in code</li>
+          <li><strong>Encryption:</strong> Always use HTTPS/TLS for web service calls</li>
+          <li><strong>Authorization:</strong> Validate user permissions before exposing data</li>
+          <li><strong>Input Validation:</strong> Sanitize all incoming data to prevent injection attacks</li>
+          <li><strong>Rate Limiting:</strong> Prevent abuse with API throttling</li>
+        </ul>
+      </div>
+
+      <h3>Testing Strategy</h3>
+      <ol>
+        <li><strong>Unit Testing:</strong> Test individual integration components in isolation</li>
+        <li><strong>Integration Testing:</strong> Test end-to-end flows between systems</li>
+        <li><strong>Performance Testing:</strong> Verify response times under load</li>
+        <li><strong>Failover Testing:</strong> Ensure graceful degradation when external system unavailable</li>
+        <li><strong>Data Validation:</strong> Confirm data accuracy after transformation</li>
+      </ol>
+    </section>
+
+    <!-- Page 101-115: Additional Advanced Topics -->
+    <section class="content-section">
+      <div class="page-marker">Page 101</div>
+      <h2>🎓 Advanced Configuration Topics</h2>
+      
+      <h3>Workflow Automation</h3>
+      <p>Siebel Workflow automates business processes with visual drag-and-drop design. Common uses include approval routing, notification triggers, and data synchronization.</p>
+      
+      <h3>Workflow Components</h3>
+      <div class="code-block">
+        <strong>Process:</strong> Top-level workflow definition<br>
+        <strong>Steps:</strong> Individual actions (Decision, Task, Business Service)<br>
+        <strong>Connectors:</strong> Logic flow between steps<br>
+        <strong>Siebel Operation:</strong> Create, update, query records<br>
+        <strong>Business Service:</strong> Call custom logic<br>
+        <strong>Wait Step:</strong> Pause for time or event
+      </div>
+
+      <h3>Example: Opportunity Approval Workflow</h3>
+      <ol>
+        <li>Trigger: Sales rep changes opportunity stage to "Proposal"</li>
+        <li>Decision: Is revenue > $50,000?</li>
+        <li>If Yes: Create approval task for sales manager</li>
+        <li>Wait: Until manager approves or rejects</li>
+        <li>If Approved: Move stage to "Negotiation", send email to rep</li>
+        <li>If Rejected: Move back to "Needs Analysis", notify rep with feedback</li>
+      </ol>
+
+      <h3>Runtime Events</h3>
+      <p>Workflows can be triggered by:</p>
+      <ul>
+        <li><strong>Record Created:</strong> New account, opportunity, SR</li>
+        <li><strong>Record Updated:</strong> Field value changes</li>
+        <li><strong>Record Deleted:</strong> Cleanup actions</li>
+        <li><strong>Scheduled:</strong> Daily/weekly/monthly batch processes</li>
+        <li><strong>Manual:</strong> User clicks button to start workflow</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 102</div>
+      <h2>📋 Assignment Rules</h2>
+      
+      <h3>Automated Record Assignment</h3>
+      <p>Assignment Manager automatically routes records to appropriate owners based on configurable rules.</p>
+      
+      <h3>Assignment Criteria</h3>
+      <div class="info-box">
+        <p><strong>Geographic:</strong> Assign based on customer address/zip code</p>
+        <p><strong>Product-Based:</strong> Route to specialists for specific products</p>
+        <p><strong>Skill-Based:</strong> Match to qualified resources</p>
+        <p><strong>Load Balanced:</strong> Distribute evenly across team</p>
+        <p><strong>Round Robin:</strong> Rotate assignments sequentially</p>
+      </div>
+
+      <h3>Assignment Example: Service Requests</h3>
+      <div class="code-block">
+        IF SR Type = "Network Outage" AND Priority = "Critical"<br>
+         THEN Assign to: Network Operations Team<br>
+         AND Escalate to: NOC Manager<br><br>
+        
+        IF SR Type = "Billing Question" AND Account Type = "Enterprise"<br>
+         THEN Assign to: Enterprise Billing Specialist<br><br>
+        
+        IF SR Type = "Technical Support" AND Product = "5G Service"<br>
+         THEN Assign to: 5G Support Team Member (Round Robin)
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 103</div>
+      <h2>🔐 Advanced Security</h2>
+      
+      <h3>Multi-Layered Security Model</h3>
+      <p>Siebel implements defense-in-depth with multiple security layers working together.</p>
+      
+      <h3>Security Layers</h3>
+      <ol>
+        <li><strong>Authentication:</strong> Verify user identity (LDAP, SSO, Database)</li>
+        <li><strong>Responsibility:</strong> Define what views/functions user can access</li>
+        <li><strong>Access Control:</strong> Row-level security (see only assigned records)</li>
+        <li><strong>Field-Level Security:</strong> Hide/show sensitive fields</li>
+        <li><strong>Audit Trail:</strong> Log all data changes</li>
+      </ol>
+
+      <h3>Visibility Rules</h3>
+      <div class="highlight">
+        <p><strong>Organization:</strong> Users see only records in their organization</p>
+        <p><strong>Position:</strong> Managers see their team's records</p>
+        <p><strong>Personal:</strong> Users see only records they own</p>
+        <p><strong>All:</strong> Unrestricted access (administrators only)</p>
+      </div>
+
+      <h3>Data Privacy Compliance</h3>
+      <div class="warning-box">
+        <strong>⚠️ GDPR & Privacy Regulations:</strong>
+        <ul>
+          <li>Implement "Right to be Forgotten" workflows</li>
+          <li>Mask sensitive personal data (SSN, credit cards)</li>
+          <li>Encrypt data at rest and in transit</li>
+          <li>Maintain consent records</li>
+          <li>Enable data export for customer requests</li>
+          <li>Set retention policies and auto-delete old records</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 104</div>
+      <h2>📊 Analytics and Insights</h2>
+      
+      <h3>Embedded Analytics</h3>
+      <p>Siebel provides built-in analytics dashboards with real-time metrics and charts.</p>
+      
+      <h3>Key Performance Indicators (KPIs)</h3>
+      <div class="two-column">
+        <div>
+          <h4>Sales KPIs</h4>
+          <ul>
+            <li>Pipeline value by stage</li>
+            <li>Win rate percentage</li>
+            <li>Average deal size</li>
+            <li>Sales cycle length</li>
+            <li>Quota attainment</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Service KPIs</h4>
+          <ul>
+            <li>First call resolution</li>
+            <li>Average handle time</li>
+            <li>SLA compliance rate</li>
+            <li>Customer satisfaction</li>
+            <li>Backlog by priority</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Chart Types</h3>
+      <ul>
+        <li><strong>Bar/Column:</strong> Compare values across categories</li>
+        <li><strong>Line:</strong> Show trends over time</li>
+        <li><strong>Pie:</strong> Display proportional breakdown</li>
+        <li><strong>Gauge:</strong> Show progress toward target</li>
+        <li><strong>Funnel:</strong> Visualize conversion rates</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 105</div>
+      <h2>🔄 Business Process Automation</h2>
+      
+      <h3>End-to-End Process Design</h3>
+      <p>Link multiple workflows and business services to automate complex business processes spanning multiple departments.</p>
+      
+      <h3>Example: New Customer Onboarding</h3>
+      <div class="code-block">
+        <strong>Step 1: Sales (Opportunity Won)</strong><br>
+        • Opportunity marked Closed-Won<br>
+        • Trigger: Create account in ERP<br>
+        • Create customer record in billing system<br><br>
+        
+        <strong>Step 2: Order Management</strong><br>
+        • Convert quote to order<br>
+        • Reserve inventory<br>
+        • Schedule installation<br><br>
+        
+        <strong>Step 3: Fulfillment</strong><br>
+        • Dispatch technician<br>
+        • Provision service<br>
+        • Activate in network<br><br>
+        
+        <strong>Step 4: Customer Success</strong><br>
+        • Send welcome email<br>
+        • Create onboarding tasks<br>
+        • Schedule follow-up call<br>
+        • Assign customer success manager
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 106</div>
+      <h2>💡 Industry-Specific Features</h2>
+      
+      <h3>Communications-Specific Functionality</h3>
+      <p>Siebel eCommunications includes pre-built features for telecom providers.</p>
+      
+      <h3>Catalog Management</h3>
+      <ul>
+        <li><strong>Service Plans:</strong> Voice, data, messaging packages</li>
+        <li><strong>Devices:</strong> Phones, tablets, hotspots</li>
+        <li><strong>Add-ons:</strong> International calling, hotspot data</li>
+        <li><strong>Bundles:</strong> Combined offerings (Triple Play)</li>
+      </ul>
+
+      <h3>Order Capture</h3>
+      <div class="info-box">
+        <p><strong>New Service:</strong> New customer activation</p>
+        <p><strong>Change of Service:</strong> Plan upgrade/downgrade</p>
+        <p><strong>Disconnect:</strong> Service termination</p>
+        <p><strong>Port-In:</strong> Transfer number from another carrier</p>
+        <p><strong>Equipment Upgrade:</strong> New device with contract extension</p>
+      </div>
+
+      <h3>Asset Management</h3>
+      <p>Track physical and logical assets:</p>
+      <ul>
+        <li>Customer premise equipment (modems, routers)</li>
+        <li>Network elements (cell towers, switches)</li>
+        <li>Subscriptions and licenses</li>
+        <li>SIM cards and phone numbers</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 107</div>
+      <h2>🚀 Performance Tuning</h2>
+      
+      <h3>Query Optimization</h3>
+      <p>Slow queries are the #1 performance issue. Follow these guidelines:</p>
+      
+      <div class="success-box">
+        <strong>✅ Best Practices:</strong>
+        <ul>
+          <li><strong>Use Indexes:</strong> Ensure frequently searched fields have indexes</li>
+          <li><strong>Limit Results:</strong> Use filters to reduce record count</li>
+          <li><strong>Avoid Wildcards:</strong> "Smith%" is faster than "%Smith%"</li>
+          <li><strong>Denormalize When Needed:</strong> Copy critical data to avoid joins</li>
+          <li><strong>Use Search Specifications:</strong> Pre-filter data at BC level</li>
+        </ul>
+      </div>
+
+      <h3>Caching Strategies</h3>
+      <div class="code-block">
+        <strong>Static LOV Cache:</strong> Cache picklist values<br>
+        <strong>Server Cache:</strong> Cache frequently accessed BCs<br>
+        <strong>Browser Cache:</strong> Cache images, JavaScript, CSS<br>
+        <strong>Named Search Cache:</strong> Cache common queries
+      </div>
+
+      <h3>Database Tuning</h3>
+      <ul>
+        <li>Rebuild indexes regularly</li>
+        <li>Update statistics weekly</li>
+        <li>Archive old data</li>
+        <li>Partition large tables</li>
+        <li>Monitor slow query logs</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 108</div>
+      <h2>🔧 Troubleshooting Advanced Issues</h2>
+      
+      <h3>Common Problems and Solutions</h3>
+      
+      <div class="warning-box">
+        <p><strong>Problem:</strong> Workflow not triggering</p>
+        <p><strong>Solutions:</strong></p>
+        <ul>
+          <li>Check workflow policy conditions are met</li>
+          <li>Verify runtime events are enabled</li>
+          <li>Review workflow policy filter criteria</li>
+          <li>Check user has permission to execute workflow</li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <p><strong>Problem:</strong> Integration timeout errors</p>
+        <p><strong>Solutions:</strong></p>
+        <ul>
+          <li>Increase timeout value in business service</li>
+          <li>Optimize external service performance</li>
+          <li>Implement asynchronous processing</li>
+          <li>Add retry logic with exponential backoff</li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <p><strong>Problem:</strong> Mobile sync conflicts</p>
+        <p><strong>Solutions:</strong></p>
+        <ul>
+          <li>Configure conflict resolution rules (server wins/client wins)</li>
+          <li>Reduce sync visibility to minimize conflicts</li>
+          <li>Train users to sync more frequently</li>
+          <li>Implement optimistic locking</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 109</div>
+      <h2>📈 Scalability and High Availability</h2>
+      
+      <h3>Horizontal Scaling</h3>
+      <p>Add more servers to handle increased load:</p>
+      
+      <div class="info-box">
+        <p><strong>Web Tier:</strong> Multiple web servers behind load balancer</p>
+        <p><strong>Application Tier:</strong> Multiple Siebel servers in enterprise</p>
+        <p><strong>Database Tier:</strong> Oracle RAC for database clustering</p>
+      </div>
+
+      <h3>Load Balancing Strategies</h3>
+      <div class="code-block">
+        <strong>Round Robin:</strong> Distribute requests evenly<br>
+        <strong>Least Connections:</strong> Route to server with fewest active users<br>
+        <strong>Session Affinity:</strong> Keep user on same server (sticky sessions)<br>
+        <strong>Geographic:</strong> Route to nearest data center
+      </div>
+
+      <h3>Disaster Recovery</h3>
+      <ul>
+        <li><strong>Database Backup:</strong> Daily full + hourly incrementals</li>
+        <li><strong>File System Backup:</strong> Repository, custom files</li>
+        <li><strong>Standby Database:</strong> Real-time replication</li>
+        <li><strong>DR Site:</strong> Secondary data center for failover</li>
+        <li><strong>RTO/RPO Targets:</strong> Define acceptable downtime and data loss</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 110</div>
+      <h2>🔒 Advanced Administration</h2>
+      
+      <h3>System Monitoring</h3>
+      <p>Proactive monitoring prevents issues before users are impacted.</p>
+      
+      <h3>Key Metrics to Monitor</h3>
+      <div class="highlight">
+        <p><strong>Server Health:</strong> CPU, memory, disk I/O</p>
+        <p><strong>Application Response:</strong> Page load times, query duration</p>
+        <p><strong>Database Performance:</strong> Connection pool, lock waits</p>
+        <p><strong>Workflow Engine:</strong> Backlog, error rate</p>
+        <p><strong>Integration:</strong> Message queue depth, failure count</p>
+        <p><strong>User Activity:</strong> Concurrent users, session duration</p>
+      </div>
+
+      <h3>Alerting Strategy</h3>
+      <div class="code-block">
+        <strong>Critical Alerts:</strong> Page/call immediately<br>
+        • Database down<br>
+        • All servers unavailable<br>
+        • Data corruption detected<br><br>
+        
+        <strong>Warning Alerts:</strong> Email to team<br>
+        • CPU > 80% for 5 minutes<br>
+        • Disk > 90% full<br>
+        • Integration failures > 10/hour<br><br>
+        
+        <strong>Info Alerts:</strong> Daily summary<br>
+        • Performance trending<br>
+        • Capacity planning metrics
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 111</div>
+      <h2>🌐 Globalization and Localization</h2>
+      
+      <h3>Multi-Language Support</h3>
+      <p>Siebel supports 35+ languages out of the box. Users can switch language preferences without affecting underlying data.</p>
+      
+      <h3>Localization Components</h3>
+      <ul>
+        <li><strong>UI Labels:</strong> Translated screen text and field labels</li>
+        <li><strong>Messages:</strong> Error messages and notifications</li>
+        <li><strong>Date/Time:</strong> Regional format preferences</li>
+        <li><strong>Currency:</strong> Multi-currency support with exchange rates</li>
+        <li><strong>Number Format:</strong> Decimal and thousands separators</li>
+      </ul>
+
+      <h3>Multi-Currency Operations</h3>
+      <div class="code-block">
+        <strong>Base Currency:</strong> USD (Organization default)<br>
+        <strong>Opportunity Currency:</strong> EUR (Customer preference)<br>
+        <strong>Amount in EUR:</strong> €100,000<br>
+        <strong>Exchange Rate:</strong> 1.10<br>
+        <strong>Amount in USD:</strong> $110,000<br>
+      </div>
+
+      <h3>Time Zone Handling</h3>
+      <p>Store all timestamps in UTC, display in user's local time zone:</p>
+      <div class="info-box">
+        <p><strong>Server Time:</strong> 2025-10-31 14:00 UTC</p>
+        <p><strong>US Eastern:</strong> 2025-10-31 10:00 AM EDT</p>
+        <p><strong>India:</strong> 2025-10-31 7:30 PM IST</p>
+        <p><strong>Australia:</strong> 2025-11-01 1:00 AM AEDT</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 112</div>
+      <h2>🔄 Upgrade and Migration</h2>
+      
+      <h3>Siebel Upgrade Path</h3>
+      <p>Keep Siebel current with Oracle's regular updates (typically annual).</p>
+      
+      <h3>Upgrade Planning</h3>
+      <ol>
+        <li><strong>Review Release Notes:</strong> Understand new features and deprecations</li>
+        <li><strong>Test in Sandbox:</strong> Validate compatibility with customizations</li>
+        <li><strong>Regression Testing:</strong> Test all critical business processes</li>
+        <li><strong>Performance Testing:</strong> Ensure no degradation</li>
+        <li><strong>User Acceptance Testing:</strong> Validate UI changes</li>
+        <li><strong>Training:</strong> Educate users on new features</li>
+        <li><strong>Cutover Planning:</strong> Minimize downtime</li>
+        <li><strong>Rollback Plan:</strong> Be ready to revert if needed</li>
+      </ol>
+
+      <h3>Data Migration</h3>
+      <p>When migrating from legacy systems to Siebel:</p>
+      <div class="warning-box">
+        <strong>⚠️ Migration Checklist:</strong>
+        <ul>
+          <li>Profile source data quality (completeness, accuracy)</li>
+          <li>Map source fields to Siebel tables</li>
+          <li>Cleanse and deduplicate data before migration</li>
+          <li>Migrate in phases (master data → transactions → history)</li>
+          <li>Validate migrated data thoroughly</li>
+          <li>Maintain data lineage for audit</li>
+          <li>Plan for cutover weekend</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 113</div>
+      <h2>📚 Advanced Topics Summary</h2>
+      
+      <h3>Key Takeaways</h3>
+      <div class="success-box">
+        <p><strong>✅ Sales Automation:</strong> Pipeline, forecasting, and territory management drive revenue growth</p>
+        <p><strong>✅ Marketing Excellence:</strong> Campaigns and lead nurturing generate qualified opportunities</p>
+        <p><strong>✅ Service Operations:</strong> SLAs and entitlements ensure customer satisfaction</p>
+        <p><strong>✅ Integration:</strong> Web services and ERP connectivity create unified systems</p>
+        <p><strong>✅ Mobile Access:</strong> Field teams stay productive anywhere</p>
+        <p><strong>✅ Open UI:</strong> Modern, responsive interface improves user experience</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 114</div>
+      <h2>🎯 Practical Exercise Preview</h2>
+      
+      <h3>Day 2 Practicals</h3>
+      <p>In this afternoon's labs, you'll apply these advanced concepts:</p>
+      
+      <div class="highlight">
+        <h4>Lab 1: Sales Process Configuration</h4>
+        <ul>
+          <li>Create opportunity with products</li>
+          <li>Configure approval workflow</li>
+          <li>Generate forecast</li>
+        </ul>
+
+        <h4>Lab 2: Service Operations</h4>
+        <ul>
+          <li>Configure SLA rules</li>
+          <li>Set up entitlements</li>
+          <li>Test assignment rules</li>
+        </ul>
+
+        <h4>Lab 3: Integration Hands-On</h4>
+        <ul>
+          <li>Call external web service</li>
+          <li>Configure EIM integration</li>
+          <li>Test data synchronization</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="page-marker">Page 115</div>
+      <h2>📖 Additional Resources</h2>
+      
+      <h3>Oracle Documentation</h3>
+      <ul>
+        <li><a href="https://docs.oracle.com/en/applications/siebel/" target="_blank" rel="noopener noreferrer">Siebel Documentation Library</a></li>
+        <li>Siebel Bookshelf - Comprehensive guides for all modules</li>
+        <li>Siebel Release Notes</li>
+        <li>Siebel Developer's Reference</li>
+      </ul>
+
+      <h3>Community Resources</h3>
+      <ul>
+        <li>Oracle Cloud Customer Connect (forums)</li>
+        <li>Siebel Hub (blog and tutorials)</li>
+        <li>Oracle University (training courses)</li>
+        <li>Oracle Support (My Oracle Support)</li>
+      </ul>
+
+      <div class="success-box">
+        <h3>🎉 Congratulations!</h3>
+        <p>You've completed Topic 4: Advanced Siebel Features. You now understand enterprise-grade functionality for sales, service, marketing, and integration.</p>
+        <p><strong>Next:</strong> Topic 5 will cover Reporting and Analytics to help you extract insights from your CRM data.</p>
+      </div>
+    </section>
+
+    <nav class="page-nav">
+      <a href="index.html" class="nav-btn">🏠 Home</a>
+      <a href="day1_practicals.html" class="nav-btn">← Day 1 Practicals</a>
+      <a href="day2_topic5_reporting.html" class="nav-btn">Topic 5 →</a>
+    </nav>
+
+    <footer class="topic-footer">
+      <p>&copy; 2025 Oracle Siebel CRM Training | Day 2 - Topic 4: Advanced Features</p>
+    </footer>
+  </div>
+
+  <script src="js/navigation.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.location.hash) {
+        const element = document.querySelector(window.location.hash);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
 </body>
 </html>

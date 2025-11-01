@@ -1,283 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siebel Training: 3 - Managing Customer Data</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .page { display: none; flex-direction: column; min-height: 520px; }
-        .page.active { display: flex; }
-        .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
-        .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
-        .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
-        .page h3 { font-weight: bold; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siebel Training: 3 - Managing Customer Data</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .page { display: none; flex-direction: column; min-height: 520px; }
+    .page.active { display: flex; }
+    .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
+    .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
+    .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+    .page h3 { font-weight: bold; }
+  </style>
 </head>
 <body class="bg-slate-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
 
-    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
-        <header class="bg-slate-800 p-4 text-white text-center">
-            <h1 class="text-2xl font-bold">3. Managing Customer Data</h1>
-        </header>
+  <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
+    <header class="bg-slate-800 p-4 text-white text-center">
+      <h1 class="text-2xl font-bold">3. Managing Customer Data</h1>
+    </header>
 
-        <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
-            <div id="page-container" class="content-area">
+    <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
+      <div id="page-container" class="content-area">
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Ensuring data accuracy and completeness</h2>
-                    <p>Maintaining data integrity is crucial. Siebel ensures data quality at the point of entry using powerful declarative rules defined on the <b>Business Component Field</b> object.</p>
-                    <h3 class="font-bold mt-4 text-lg">Key Validation Mechanisms:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Required Flag:</b> Setting the **Required** property on a Field to `TRUE` ensures the user provides a value before the record is saved. The UI shows an asterisk (*) next to the field name.</li>
-                        <li><b>Validation Property:</b> This property contains a logical expression that must evaluate to true when the record is saved. If false, the system prevents the save and displays a customizable error message.</li>
-                        <li><b>Validation Scope:</b> Validation rules can only reference **other fields within the same Business Component record** (e.g., checking if one date is after another date in the same record).</li>
-                        <li><b>Picklists:</b> Using a **bounded** picklist restricts user input to a predefined set of values, ensuring consistency on fields like 'Status' or 'Type'.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Field Validation Rule Example</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/data_validation.png" alt="Data Validation Rule" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Data+Validation+Rule';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Example:</b> A validation rule might be defined on an Opportunity's **Probability** field: `[Probability] >= 0 AND [Probability] <= 100`. If violated, the user receives an error message and the save is aborted.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Ensuring data accuracy and completeness</h2>
+          <p>Maintaining data integrity is crucial. Siebel ensures data quality at the point of entry using powerful declarative rules defined on the <b>Business Component Field</b> object.</p>
+          <h3 class="font-bold mt-4 text-lg">Key Validation Mechanisms:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Required Flag:</b> Setting the **Required** property on a Field to `TRUE` ensures the user provides a value before the record is saved. The UI shows an asterisk (*) next to the field name.</li>
+            <li><b>Validation Property:</b> This property contains a logical expression that must evaluate to true when the record is saved. If false, the system prevents the save and displays a customizable error message.</li>
+            <li><b>Validation Scope:</b> Validation rules can only reference **other fields within the same Business Component record** (e.g., checking if one date is after another date in the same record).</li>
+            <li><b>Picklists:</b> Using a **bounded** picklist restricts user input to a predefined set of values, ensuring consistency on fields like 'Status' or 'Type'.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Field Validation Rule Example</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/data_validation.png" alt="Data Validation Rule" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Data+Validation+Rule';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Example:</b> A validation rule might be defined on an Opportunity's **Probability** field: `[Probability] >= 0 AND [Probability] <= 100`. If violated, the user receives an error message and the save is aborted.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Data cleansing techniques</h2>
-                    <p>While validation prevents bad data from entering, **Data Cleansing** addresses data that is already in the system, primarily focusing on **de-duplication**.</p>
-                    <h3 class="font-bold mt-4 text-lg">De-Duplication Process:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Matching Criteria:</b> Administrators configure rules in Siebel to define what constitutes a duplicate (e.g., two contacts with the same name and phone number).</li>
-                        <li><b>Batch Mode:</b> The cleansing process often runs in **batch mode** (via a Siebel server component) to scan the entire database for potential duplicates against the defined criteria.</li>
-                        <li><b>Review and Merge:</b> When duplicates are found, they are flagged. Users review the records and utilize the **Merge** functionality to combine them into one single **master record**, preserving related historical data (Activities, SRs) from all merged records.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Data Cleansing Process Flow</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/data_quality_flow.png" alt="Data Cleansing Flow" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Data+Cleansing+Flow';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Validation:</b> In the Siebel Web Client, search for a duplicate account or contact. Select the suspect record, click the <b>Menu</b> button in the applet, and select <b>Check for Duplicates</b> to run a real-time check.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Data cleansing techniques</h2>
+          <p>While validation prevents bad data from entering, **Data Cleansing** addresses data that is already in the system, primarily focusing on **de-duplication**.</p>
+          <h3 class="font-bold mt-4 text-lg">De-Duplication Process:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Matching Criteria:</b> Administrators configure rules in Siebel to define what constitutes a duplicate (e.g., two contacts with the same name and phone number).</li>
+            <li><b>Batch Mode:</b> The cleansing process often runs in **batch mode** (via a Siebel server component) to scan the entire database for potential duplicates against the defined criteria.</li>
+            <li><b>Review and Merge:</b> When duplicates are found, they are flagged. Users review the records and utilize the **Merge** functionality to combine them into one single **master record**, preserving related historical data (Activities, SRs) from all merged records.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Data Cleansing Process Flow</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/data_quality_flow.png" alt="Data Cleansing Flow" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Data+Cleansing+Flow';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Validation:</b> In the Siebel Web Client, search for a duplicate account or contact. Select the suspect record, click the <b>Menu</b> button in the applet, and select <b>Check for Duplicates</b> to run a real-time check.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Importing and exporting data</h2>
-                    <p><b>Enterprise Integration Manager (EIM)</b> is the mandatory server component for bulk moving user data into or out of the Siebel application. EIM moves large volumes of data in <b>batch mode</b>.</p>
-                    <h3 class="font-bold mt-4 text-lg">The EIM Data Flow:</h3>
-                    <ol class="list-decimal list-inside space-y-3">
-                        <li><b>Data Staging:</b> External data is loaded into <b>Siebel Interface Tables</b> (e.g., `EIM_ACCOUNT`) using SQL. These tables act as a buffer.</li>
-                        <li><b>EIM Processing:</b> The EIM component processes the staged data, resolving <b>Foreign Keys (FKs)</b> using <b>User Keys</b>, generating <b>ROW\_IDs</b>, and loading the data into <b>Siebel Base Tables</b>.</li>
-                        <li><b>Validation:</b> EIM updates the `IF_ROW_STAT` column in the interface tables with the final status (`IMPORTED`, `FOREIGN_KEY`, etc.).</li>
-                    </ol>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Crucial Rule:</b> You <b>must not use direct SQL</b> to insert or update user data in Siebel Base Tables! This bypasses the generation of <b>ROW\_IDs</b> and the maintenance of <b>Foreign Keys</b>, corrupting data integrity.
-                    </div>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">EIM Architecture</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/eim_architecture.png" alt="EIM Architecture" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=EIM+Architecture';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Validation:</b> In Siebel Tools, check the `EIM Interface Table` report to see how an interface table (e.g., `EIM_ACCOUNT`) maps to one or more core Siebel <b>Base Tables</b> (e.g., `S_ORG_EXT`).
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Importing and exporting data</h2>
+          <p><b>Enterprise Integration Manager (EIM)</b> is the mandatory server component for bulk moving user data into or out of the Siebel application. EIM moves large volumes of data in <b>batch mode</b>.</p>
+          <h3 class="font-bold mt-4 text-lg">The EIM Data Flow:</h3>
+          <ol class="list-decimal list-inside space-y-3">
+            <li><b>Data Staging:</b> External data is loaded into <b>Siebel Interface Tables</b> (e.g., `EIM_ACCOUNT`) using SQL. These tables act as a buffer.</li>
+            <li><b>EIM Processing:</b> The EIM component processes the staged data, resolving <b>Foreign Keys (FKs)</b> using <b>User Keys</b>, generating <b>ROW\_IDs</b>, and loading the data into <b>Siebel Base Tables</b>.</li>
+            <li><b>Validation:</b> EIM updates the `IF_ROW_STAT` column in the interface tables with the final status (`IMPORTED`, `FOREIGN_KEY`, etc.).</li>
+          </ol>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Crucial Rule:</b> You <b>must not use direct SQL</b> to insert or update user data in Siebel Base Tables! This bypasses the generation of <b>ROW\_IDs</b> and the maintenance of <b>Foreign Keys</b>, corrupting data integrity.
+          </div>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">EIM Architecture</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/eim_architecture.png" alt="EIM Architecture" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=EIM+Architecture';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Validation:</b> In Siebel Tools, check the `EIM Interface Table` report to see how an interface table (e.g., `EIM_ACCOUNT`) maps to one or more core Siebel <b>Base Tables</b> (e.g., `S_ORG_EXT`).
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Defining and managing customer segments</h2>
-                    <p><b>Customer Segmentation</b> is the practice of dividing customers into groups based on characteristics like purchase history or demographics, typically within the Marketing module.</p>
-                    <h3 class="font-bold mt-4 text-lg">Segmentation in Practice:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Criteria-Based Lists:</b> Segments are defined using complex search criteria across various BCs (e.g., find all Contacts in the "Finance" industry who bought a "Premium" product).</li>
-                        <li><b>Dynamic Segments:</b> The list of customers belonging to a segment is not fixed; it is **re-evaluated** whenever the segment is used. This ensures campaigns always target the most current audience.</li>
-                        <li><b>Access Control for Master Data:</b> This process uses <b>Catalogs</b> and <b>Categories</b> to organize master data and <b>Access Groups</b> (collections of Positions/Orgs/User Lists) to limit which employees can see specific products.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Master Data Access (Catalogs/Categories)</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/segmentation.png" alt="Segmentation" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Segmentation';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Validation:</b> In the Siebel Web Client, navigate to <b>Administration - Catalog > Catalogs</b>. A Catalog or Category set to **Private** must have explicit access granted via a child <b>Access Group</b>.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Defining and managing customer segments</h2>
+          <p><b>Customer Segmentation</b> is the practice of dividing customers into groups based on characteristics like purchase history or demographics, typically within the Marketing module.</p>
+          <h3 class="font-bold mt-4 text-lg">Segmentation in Practice:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Criteria-Based Lists:</b> Segments are defined using complex search criteria across various BCs (e.g., find all Contacts in the "Finance" industry who bought a "Premium" product).</li>
+            <li><b>Dynamic Segments:</b> The list of customers belonging to a segment is not fixed; it is **re-evaluated** whenever the segment is used. This ensures campaigns always target the most current audience.</li>
+            <li><b>Access Control for Master Data:</b> This process uses <b>Catalogs</b> and <b>Categories</b> to organize master data and <b>Access Groups</b> (collections of Positions/Orgs/User Lists) to limit which employees can see specific products.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Master Data Access (Catalogs/Categories)</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/segmentation.png" alt="Segmentation" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Segmentation';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Validation:</b> In the Siebel Web Client, navigate to <b>Administration - Catalog > Catalogs</b>. A Catalog or Category set to **Private** must have explicit access granted via a child <b>Access Group</b>.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Using segmentation for targeted marketing</h2>
-                    <p>Segmentation is the bridge between market research and campaign execution, enabling **targeted marketing** and reliable ROI measurement.</p>
-                    <h3 class="font-bold mt-4 text-lg">Targeted Campaign Flow:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Audience Selection:</b> Marketers associate a defined **Segment** (or multiple segments) with a **Campaign**.</li>
-                        <li><b>Channel Execution:</b> The campaign is executed across chosen channels (email, SMS, call center list) targeting only the members of the segment.</li>
-                        <li><b>Closed-Loop Analysis:</b> Customer responses are tracked back to the specific campaign and segment that generated them. This closes the loop and allows for accurate calculation of campaign effectiveness.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Targeted Marketing Flow</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/targeted_marketing.png" alt="Targeted Marketing" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Targeted+Marketing';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Validation:</b> Navigate to the <b>Campaigns</b> screen. Drill down on an active campaign and check the **Segments** view to see which target audiences are associated with it.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Using segmentation for targeted marketing</h2>
+          <p>Segmentation is the bridge between market research and campaign execution, enabling **targeted marketing** and reliable ROI measurement.</p>
+          <h3 class="font-bold mt-4 text-lg">Targeted Campaign Flow:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Audience Selection:</b> Marketers associate a defined **Segment** (or multiple segments) with a **Campaign**.</li>
+            <li><b>Channel Execution:</b> The campaign is executed across chosen channels (email, SMS, call center list) targeting only the members of the segment.</li>
+            <li><b>Closed-Loop Analysis:</b> Customer responses are tracked back to the specific campaign and segment that generated them. This closes the loop and allows for accurate calculation of campaign effectiveness.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Targeted Marketing Flow</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/targeted_marketing.png" alt="Targeted Marketing" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Targeted+Marketing';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Validation:</b> Navigate to the <b>Campaigns</b> screen. Drill down on an active campaign and check the **Segments** view to see which target audiences are associated with it.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Contact and account management</h2>
-                    <p><b>Accounts</b> and <b>Contacts</b> form the core of the customer master data. They are specialized **Party Business Components**, which means their data is structured differently in the database to allow for complex and dynamic relationships.</p>
-                    <h3 class="font-bold mt-4 text-lg">The Party Data Model:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>S\_PARTY Base Table:</b> Siebel uses the small, universal **S\_PARTY** table as a central linking mechanism for <b>all party types</b> (Contacts, Accounts, Positions, Organizations).</li>
-                        <li><b>Extension Tables:</b> The actual customer details are stored in specific **Extension Tables** (e.g., `S_ORG_EXT` for Accounts), which are linked back to `S_PARTY` using an **Implicit Join** on the `PAR_ROW_ID` column.</li>
-                        <li><b>Flexibility:</b> This structure makes it easy to model complex relationships (e.g., one Contact working for multiple Accounts).</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Party Business Component Structure</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/party_bc_structure.png" alt="Party BC Structure" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Party+BC+Structure';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Validation:</b> In Siebel Tools, query **Business Component :: Contact**. Note that core fields map to the `S_CONTACT` extension table, linked via an **Implicit Join** on the `PAR_ROW_ID` field.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Contact and account management</h2>
+          <p><b>Accounts</b> and <b>Contacts</b> form the core of the customer master data. They are specialized **Party Business Components**, which means their data is structured differently in the database to allow for complex and dynamic relationships.</p>
+          <h3 class="font-bold mt-4 text-lg">The Party Data Model:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>S\_PARTY Base Table:</b> Siebel uses the small, universal **S\_PARTY** table as a central linking mechanism for <b>all party types</b> (Contacts, Accounts, Positions, Organizations).</li>
+            <li><b>Extension Tables:</b> The actual customer details are stored in specific **Extension Tables** (e.g., `S_ORG_EXT` for Accounts), which are linked back to `S_PARTY` using an **Implicit Join** on the `PAR_ROW_ID` column.</li>
+            <li><b>Flexibility:</b> This structure makes it easy to model complex relationships (e.g., one Contact working for multiple Accounts).</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Party Business Component Structure</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/party_bc_structure.png" alt="Party BC Structure" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=Party+BC+Structure';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Validation:</b> In Siebel Tools, query **Business Component :: Contact**. Note that core fields map to the `S_CONTACT` extension table, linked via an **Implicit Join** on the `PAR_ROW_ID` field.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Creating and managing service requests</h2>
-                    <p><b>Service Requests (SRs)</b> are tracked through a controlled <b>State Model</b> to ensure predictable and consistent handling of customer issues.</p>
-                    <h3 class="font-bold mt-4 text-lg">The State Model:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>States and Transitions:</b> The model defines a set of allowed <b>States</b> (e.g., Open, Pending, Closed) and the permissible <b>Transitions</b> between them.</li>
-                        <li><b>Restrictions:</b> Transitions can be restricted based on <b>who</b> performs the action (e.g., only a Call Center Manager can transition &rarr; Closed) or <b>conditions</b> (e.g., transition &rarr; Pending only if a field technician is assigned).</li>
-                        <li><b>Administration:</b> State Models are configured and deployed in the **Siebel Web Client** (Administration - Application > State Models), meaning changes do **not** require a full application deployment.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Service Request State Transitions</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/service_request_lifecycle.png" alt="SR State Transitions" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=SR+State+Transitions';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Validation:</b> In the Siebel Web Client, navigate to <b>Administration - Application > State Models</b>. Select the Service Request object. In the <b>Transitions</b> view, you can check the <b>Public</b> flag and the <b>Authorized Positions</b> list to see who is allowed to perform each state change.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Creating and managing service requests</h2>
+          <p><b>Service Requests (SRs)</b> are tracked through a controlled <b>State Model</b> to ensure predictable and consistent handling of customer issues.</p>
+          <h3 class="font-bold mt-4 text-lg">The State Model:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>States and Transitions:</b> The model defines a set of allowed <b>States</b> (e.g., Open, Pending, Closed) and the permissible <b>Transitions</b> between them.</li>
+            <li><b>Restrictions:</b> Transitions can be restricted based on <b>who</b> performs the action (e.g., only a Call Center Manager can transition &rarr; Closed) or <b>conditions</b> (e.g., transition &rarr; Pending only if a field technician is assigned).</li>
+            <li><b>Administration:</b> State Models are configured and deployed in the **Siebel Web Client** (Administration - Application > State Models), meaning changes do **not** require a full application deployment.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Service Request State Transitions</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/service_request_lifecycle.png" alt="SR State Transitions" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=SR+State+Transitions';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Validation:</b> In the Siebel Web Client, navigate to <b>Administration - Application > State Models</b>. Select the Service Request object. In the <b>Transitions</b> view, you can check the <b>Public</b> flag and the <b>Authorized Positions</b> list to see who is allowed to perform each state change.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-assignment-index="28">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Handling customer cases and issues</h2>
-                    <p>Siebel provides specialized tools to assist service agents in resolving cases efficiently, going beyond simple SR logging.</p>
-                    <h3 class="font-bold mt-4 text-lg">Resolution Tools:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Solutions/Knowledge Base:</b> A repository of common problems and their documented resolutions. Agents search this <b>knowledge base</b> and attach relevant solutions to the SR.</li>
-                        <li><b>Entitlements:</b> Used to determine the level of service a customer is due based on their <b>Service Contract</b>. This check ensures the customer receives the correct priority and resource allocation.</li>
-                        <li><b>Activities:</b> All actions taken by the agent (calls, emails, follow-up tasks) are logged as **Activities** associated with the SR record, ensuring an auditable history.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2" data-assignment-index="28">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Service Request with Solutions Tab</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/sr_solutions.png" alt="SR with Solutions" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=SR+with+Solutions';"></div>
-                    <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
-                        <b>Validation:</b> Navigate to the <b>Service</b> screen, drill down on an SR, and select the <b>Solutions</b> view tab. You can search the knowledge base for a relevant article to attach to the SR.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-assignment-index="28">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Handling customer cases and issues</h2>
+          <p>Siebel provides specialized tools to assist service agents in resolving cases efficiently, going beyond simple SR logging.</p>
+          <h3 class="font-bold mt-4 text-lg">Resolution Tools:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Solutions/Knowledge Base:</b> A repository of common problems and their documented resolutions. Agents search this <b>knowledge base</b> and attach relevant solutions to the SR.</li>
+            <li><b>Entitlements:</b> Used to determine the level of service a customer is due based on their <b>Service Contract</b>. This check ensures the customer receives the correct priority and resource allocation.</li>
+            <li><b>Activities:</b> All actions taken by the agent (calls, emails, follow-up tasks) are logged as **Activities** associated with the SR record, ensuring an auditable history.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="2" data-assignment-index="28">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-orange-500 pb-2">Service Request with Solutions Tab</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/sr_solutions.png" alt="SR with Solutions" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/fff7ed/c2410c?text=SR+with+Solutions';"></div>
+          <div class="bg-orange-50 p-3 rounded-lg border border-orange-200 text-sm">
+            <b>Validation:</b> Navigate to the <b>Service</b> screen, drill down on an SR, and select the <b>Solutions</b> view tab. You can search the knowledge base for a relevant article to attach to the SR.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="2" data-next-topic-index="29"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 3: Service Management and Data Entry</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Manage a Service Request with Validation</h3><ol class="list-decimal list-inside space-y-2"><li>Navigate to the <b>Service</b> screen and create a new Service Request (SR).</li><li>Set the <b>Priority</b> to a high value (e.g., Critical).</li><li>Set the <b>Status</b> to "Pending".</li><li>Add a new <b>Activity</b> (Call) to the SR, detailing the interaction.</li><li>In the <b>Solutions</b> tab (or check the Site Map for the Solutions screen), attempt to find a predefined article related to "Network Login" and attach it to your SR record.</li><li><b>Validate:</b> Use the Navigation Menu and select <b>About Record</b> to check the <b>ROW\_ID</b> of your SR. This unique key links all related Activities and Solutions in the database.</li></ol></div></div>
+        <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="2" data-next-topic-index="29"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 3: Service Management and Data Entry</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Manage a Service Request with Validation</h3><ol class="list-decimal list-inside space-y-2"><li>Navigate to the <b>Service</b> screen and create a new Service Request (SR).</li><li>Set the <b>Priority</b> to a high value (e.g., Critical).</li><li>Set the <b>Status</b> to "Pending".</li><li>Add a new <b>Activity</b> (Call) to the SR, detailing the interaction.</li><li>In the <b>Solutions</b> tab (or check the Site Map for the Solutions screen), attempt to find a predefined article related to "Network Login" and attach it to your SR record.</li><li><b>Validate:</b> Use the Navigation Menu and select <b>About Record</b> to check the <b>ROW\_ID</b> of your SR. This unique key links all related Activities and Solutions in the database.</li></ol></div></div>
 
-            </div>
-        </main>
-        <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
-            <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back</button>
-            <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
-            <a href="Index.html" id="main-menu-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700" style="display: none;">Return to Main Menu</a>
-            <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700">Next</button>
-            <button id="assignment-btn" class="footer-btn px-4 py-2 bg-yellow-500 text-yellow-900 rounded-md font-semibold hover:bg-yellow-600">Assignment</button>
-            <button id="continue-training-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700">Continue Training</button>
-        </footer>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pageContainer = document.getElementById('page-container');
-            const pages = Array.from(pageContainer.children);
-            const backBtn = document.getElementById('back-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const assignmentBtn = document.getElementById('assignment-btn');
-            const continueTrainingBtn = document.getElementById('continue-training-btn');
-            const pageIndicator = document.getElementById('page-indicator');
-            const mainMenuBtn = document.getElementById('main-menu-btn');
+      </div>
+    </main>
+    <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
+      <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back</button>
+      <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
+      <a href="Index.html" id="main-menu-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700" style="display: none;">Return to Main Menu</a>
+      <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700">Next</button>
+      <button id="assignment-btn" class="footer-btn px-4 py-2 bg-yellow-500 text-yellow-900 rounded-md font-semibold hover:bg-yellow-600">Assignment</button>
+      <button id="continue-training-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700">Continue Training</button>
+    </footer>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageContainer = document.getElementById('page-container');
+      const pages = Array.from(pageContainer.children);
+      const backBtn = document.getElementById('back-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const assignmentBtn = document.getElementById('assignment-btn');
+      const continueTrainingBtn = document.getElementById('continue-training-btn');
+      const pageIndicator = document.getElementById('page-indicator');
+      const mainMenuBtn = document.getElementById('main-menu-btn');
 
-            let currentPageIndex = 0;
+      let currentPageIndex = 0;
 
-            function showPage(index) {
-                if (index < 0 || index >= pages.length) return;
-                
-                pages.forEach((page, i) => {
-                    page.classList.toggle('active', i === index);
-                });
-                currentPageIndex = index;
-                updateUI();
-            }
-
-            function updateUI() {
-                const currentPageElement = pages[currentPageIndex];
-                const totalPages = pages.length;
-                const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
-                const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
-                
-                let footerText = `Page ${currentPageIndex + 1} of ${totalPages}`;
-                 if (pageDuration > 0) {
-                    footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
-                } else if (currentPageElement.dataset.pageType !== 'divider') {
-                     footerText += `<br>Day ${pageDay}`;
-                }
-                pageIndicator.innerHTML = footerText;
-
-                const pageType = currentPageElement.dataset.pageType;
-                const assignmentIndex = currentPageElement.dataset.assignmentIndex;
-                
-                nextBtn.style.display = 'none';
-                assignmentBtn.style.display = 'none';
-                continueTrainingBtn.style.display = 'none';
-                mainMenuBtn.style.display = 'none';
-                backBtn.style.display = 'inline-flex';
-
-                if (pageType === 'assignment') {
-                    continueTrainingBtn.style.display = 'inline-flex';
-                } else { 
-                    if (assignmentIndex) {
-                        assignmentBtn.style.display = 'inline-flex';
-                    } else if (currentPageIndex < pages.length - 1) {
-                        nextBtn.style.display = 'inline-flex';
-                    }
-                }
-                
-                backBtn.disabled = currentPageIndex === 0;
-                 if (currentPageIndex === 0) {
-                    backBtn.style.display = 'none';
-                }
-                 if (currentPageIndex === pages.length - 1) {
-                    nextBtn.style.display = 'none';
-                    assignmentBtn.style.display = 'none';
-                    mainMenuBtn.style.display = 'inline-flex';
-                }
-            }
-
-            nextBtn.addEventListener('click', () => showPage(currentPageIndex + 1));
-            backBtn.addEventListener('click', () => showPage(currentPageIndex - 1));
-
-            assignmentBtn.addEventListener('click', () => {
-                const assignmentIndex = pages[currentPageIndex].dataset.assignmentIndex;
-                if (assignmentIndex) {
-                    showPage(parseInt(assignmentIndex, 10));
-                }
-            });
-
-            continueTrainingBtn.addEventListener('click', () => {
-                const nextTopicIndex = pages[currentPageIndex].dataset.nextTopicIndex;
-                if (nextTopicIndex) {
-                    showPage(parseInt(nextTopicIndex, 10));
-                } else {
-                    showPage(currentPageIndex + 1);
-                }
-            });
-            
-            showPage(0);
+      function showPage(index) {
+        if (index < 0 || index >= pages.length) return;
+        
+        pages.forEach((page, i) => {
+          page.classList.toggle('active', i === index);
         });
-    </script>
+        currentPageIndex = index;
+        updateUI();
+      }
+
+      function updateUI() {
+        const currentPageElement = pages[currentPageIndex];
+        const totalPages = pages.length;
+        const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
+        const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
+        
+        let footerText = `Page ${currentPageIndex + 1} of ${totalPages}`;
+         if (pageDuration > 0) {
+          footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
+        } else if (currentPageElement.dataset.pageType !== 'divider') {
+           footerText += `<br>Day ${pageDay}`;
+        }
+        pageIndicator.innerHTML = footerText;
+
+        const pageType = currentPageElement.dataset.pageType;
+        const assignmentIndex = currentPageElement.dataset.assignmentIndex;
+        
+        nextBtn.style.display = 'none';
+        assignmentBtn.style.display = 'none';
+        continueTrainingBtn.style.display = 'none';
+        mainMenuBtn.style.display = 'none';
+        backBtn.style.display = 'inline-flex';
+
+        if (pageType === 'assignment') {
+          continueTrainingBtn.style.display = 'inline-flex';
+        } else { 
+          if (assignmentIndex) {
+            assignmentBtn.style.display = 'inline-flex';
+          } else if (currentPageIndex < pages.length - 1) {
+            nextBtn.style.display = 'inline-flex';
+          }
+        }
+        
+        backBtn.disabled = currentPageIndex === 0;
+         if (currentPageIndex === 0) {
+          backBtn.style.display = 'none';
+        }
+         if (currentPageIndex === pages.length - 1) {
+          nextBtn.style.display = 'none';
+          assignmentBtn.style.display = 'none';
+          mainMenuBtn.style.display = 'inline-flex';
+        }
+      }
+
+      nextBtn.addEventListener('click', () => showPage(currentPageIndex + 1));
+      backBtn.addEventListener('click', () => showPage(currentPageIndex - 1));
+
+      assignmentBtn.addEventListener('click', () => {
+        const assignmentIndex = pages[currentPageIndex].dataset.assignmentIndex;
+        if (assignmentIndex) {
+          showPage(parseInt(assignmentIndex, 10));
+        }
+      });
+
+      continueTrainingBtn.addEventListener('click', () => {
+        const nextTopicIndex = pages[currentPageIndex].dataset.nextTopicIndex;
+        if (nextTopicIndex) {
+          showPage(parseInt(nextTopicIndex, 10));
+        } else {
+          showPage(currentPageIndex + 1);
+        }
+      });
+      
+      showPage(0);
+    });
+  </script>
 </body>
 </html>
 

@@ -1,281 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siebel Training: Part 3 (Day 2 Reporting & Conclusion)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .page { display: none; flex-direction: column; min-height: 520px; }
-        .page.active { display: flex; }
-        .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
-        .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
-        .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
-        .page h3 { font-weight: bold; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siebel Training: Part 3 (Day 2 Reporting & Conclusion)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .page { display: none; flex-direction: column; min-height: 520px; }
+    .page.active { display: flex; }
+    .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
+    .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
+    .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+    .page h3 { font-weight: bold; }
+  </style>
 </head>
 <body class="bg-slate-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
 
-    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
-        <header class="bg-slate-800 p-4 text-white text-center">
-            <h1 class="text-2xl font-bold">Oracle Siebel CRM: Part 3 of 3 (Reporting & Conclusion)</h1>
-        </header>
+  <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
+    <header class="bg-slate-800 p-4 text-white text-center">
+      <h1 class="text-2xl font-bold">Oracle Siebel CRM: Part 3 of 3 (Reporting & Conclusion)</h1>
+    </header>
 
-        <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
-            <div id="page-container" class="content-area">
+    <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
+      <div id="page-container" class="content-area">
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-module="Reporting and Best Practices" id="page-78">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Creating and customizing reports</h2>
-                    <p>Reporting provides static, printable documentation of business data. Siebel leverages external tools for advanced report generation.</p>
-                    <h3 class="font-bold mt-4 text-lg">Report Types:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Standard Reports:</b> Simple, pre-built reports often accessible from the application toolbar.</li>
-                        <li><b>Oracle BI Publisher:</b> For complex, pixel-perfect reports (e.g., invoices, legal forms), Siebel integrates with **BI Publisher**. Report design templates are created externally and uploaded to the Siebel server.</li>
-                        <li><b>Customization:</b> Customizing a report involves modifying the external template and ensuring the **data mapping** (the query that pulls the data from Siebel) is correctly defined.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-module="Reporting and Best Practices" id="page-78">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Creating and customizing reports</h2>
+          <p>Reporting provides static, printable documentation of business data. Siebel leverages external tools for advanced report generation.</p>
+          <h3 class="font-bold mt-4 text-lg">Report Types:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Standard Reports:</b> Simple, pre-built reports often accessible from the application toolbar.</li>
+            <li><b>Oracle BI Publisher:</b> For complex, pixel-perfect reports (e.g., invoices, legal forms), Siebel integrates with **BI Publisher**. Report design templates are created externally and uploaded to the Siebel server.</li>
+            <li><b>Customization:</b> Customizing a report involves modifying the external template and ensuring the **data mapping** (the query that pulls the data from Siebel) is correctly defined.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-79">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Siebel Reporting Flow</h2>
-                    <div class="flex-grow flex items-center justify-center"></div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
-                        <b>Validation:</b> In the Siebel Web Client, navigate to the <b>Opportunities List</b> view. Click the **Reports** button (icon resembling a sheet of paper with a magnifying glass) on the global toolbar to see available reports.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-79">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Siebel Reporting Flow</h2>
+          <div class="flex-grow flex items-center justify-center"></div>
+          <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
+            <b>Validation:</b> In the Siebel Web Client, navigate to the <b>Opportunities List</b> view. Click the **Reports** button (icon resembling a sheet of paper with a magnifying glass) on the global toolbar to see available reports.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-module="Reporting and Best Practices" id="page-80">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Using dashboards and visualizations</h2>
-                    <p>Analytical capabilities often rely on integrating Siebel data with a sophisticated business intelligence platform like **Oracle Business Intelligence Enterprise Edition (OBIEE)**.</p>
-                    <h3 class="font-bold mt-4 text-lg">Analytical Tools:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Data Warehouse:</b> For historical analysis, Siebel data is typically extracted and loaded into a separate **Data Warehouse**. OBIEE queries this warehouse, not the live transaction database.</li>
-                        <li><b>Interactive Dashboards:</b> OBIEE provides dynamic dashboards with **Key Performance Indicators (KPIs)**, charts, and visualizations that allow drill-down and filtering.</li>
-                        <li><b>Embedding:</b> These analytical dashboards can be embedded directly into the Siebel Web Client UI, providing users with seamless access to both transactional and analytical data.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-module="Reporting and Best Practices" id="page-80">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Using dashboards and visualizations</h2>
+          <p>Analytical capabilities often rely on integrating Siebel data with a sophisticated business intelligence platform like **Oracle Business Intelligence Enterprise Edition (OBIEE)**.</p>
+          <h3 class="font-bold mt-4 text-lg">Analytical Tools:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Data Warehouse:</b> For historical analysis, Siebel data is typically extracted and loaded into a separate **Data Warehouse**. OBIEE queries this warehouse, not the live transaction database.</li>
+            <li><b>Interactive Dashboards:</b> OBIEE provides dynamic dashboards with **Key Performance Indicators (KPIs)**, charts, and visualizations that allow drill-down and filtering.</li>
+            <li><b>Embedding:</b> These analytical dashboards can be embedded directly into the Siebel Web Client UI, providing users with seamless access to both transactional and analytical data.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-81">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">BI Dashboard Example</h2>
-                    <div class="flex-grow flex items-center justify-center"></div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
-                        <b>Validation:</b> Check the Siebel Home Page for any embedded reports or charts showing metrics like "My Revenue Pipeline" or "Total Open Service Requests." These are the visualization components.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-81">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">BI Dashboard Example</h2>
+          <div class="flex-grow flex items-center justify-center"></div>
+          <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
+            <b>Validation:</b> Check the Siebel Home Page for any embedded reports or charts showing metrics like "My Revenue Pipeline" or "Total Open Service Requests." These are the visualization components.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-82">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Key performance indicators for CRM</h2>
-                    <p>Defining the right **Key Performance Indicators (KPIs)** is essential for measuring the effectiveness of business processes and driving continuous improvement.</p>
-                    <h3 class="font-bold mt-4 text-lg">Common CRM KPIs:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Sales KPIs:</b> Include Lead Conversion Rate, Sales Cycle Length, Average Deal Size, and **Quota Attainment** (performance against targets).</li>
-                        <li><b>Service KPIs:</b> Include **First Call Resolution Rate** (percentage of issues solved on the first call), **Average Handle Time**, and Customer Satisfaction Score (CSAT).</li>
-                        <li><b>Implementation:</b> KPIs are implemented as calculated fields on business components or as metrics within an integrated BI platform.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-82">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Key performance indicators for CRM</h2>
+          <p>Defining the right **Key Performance Indicators (KPIs)** is essential for measuring the effectiveness of business processes and driving continuous improvement.</p>
+          <h3 class="font-bold mt-4 text-lg">Common CRM KPIs:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Sales KPIs:</b> Include Lead Conversion Rate, Sales Cycle Length, Average Deal Size, and **Quota Attainment** (performance against targets).</li>
+            <li><b>Service KPIs:</b> Include **First Call Resolution Rate** (percentage of issues solved on the first call), **Average Handle Time**, and Customer Satisfaction Score (CSAT).</li>
+            <li><b>Implementation:</b> KPIs are implemented as calculated fields on business components or as metrics within an integrated BI platform.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-83">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Monitoring and analyzing performance metrics</h2>
-                    <p>Dashboards and reports are the primary tools for consistently monitoring KPIs and analyzing performance metrics.</p>
-                    <h3 class="font-bold mt-4 text-lg">Operational Focus:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Management Dashboards:</b> Provide a high-level overview of key metrics for executives and managers.</li>
-                        <li><b>Operational Reports:</b> Provide detailed, tactical information for front-line employees to manage daily work.</li>
-                        <li><b>Analysis:</b> Analyzing trends over time allows the business to identify areas for improvement and make strategic adjustments.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-83">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Monitoring and analyzing performance metrics</h2>
+          <p>Dashboards and reports are the primary tools for consistently monitoring KPIs and analyzing performance metrics.</p>
+          <h3 class="font-bold mt-4 text-lg">Operational Focus:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Management Dashboards:</b> Provide a high-level overview of key metrics for executives and managers.</li>
+            <li><b>Operational Reports:</b> Provide detailed, tactical information for front-line employees to manage daily work.</li>
+            <li><b>Analysis:</b> Analyzing trends over time allows the business to identify areas for improvement and make strategic adjustments.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-84">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Example CRM KPIs</h2>
-                    <div class="flex-grow flex items-center justify-center"></div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
-                        <b>Insight:</b> Effective monitoring requires choosing KPIs that align precisely with the business strategy and implementing the necessary custom fields (calculated fields) to track the data.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-84">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Example CRM KPIs</h2>
+          <div class="flex-grow flex items-center justify-center"></div>
+          <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
+            <b>Insight:</b> Effective monitoring requires choosing KPIs that align precisely with the business strategy and implementing the necessary custom fields (calculated fields) to track the data.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-module="Reporting and Best Practices" id="page-85">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Ensuring data security in CRM</h2>
-                    <p>Security is enforced through multiple layers, starting before the user even gains access to the application.</p>
-                    <h3 class="font-bold mt-4 text-lg">Security Layers:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Authentication (Who you are):</b> Verifying the user's identity through login credentials. Siebel supports database login, LDAP, and **Single Sign-On (SSO)** via a security adapter.</li>
-                        <li><b>Authorization (What you can see/do):</b>
-                            <ul>
-                                <li><b>Functional (Responsibilities):</b> Controls access to <b>Views</b> (functional areas).</li>
-                                <li><b>Data (Positions/Organizations):</b> Controls access to <b>Records</b> (data subset).</li>
-                            </ul>
-                        </li>
-                        <li><b>Communication Security:</b> Using **HTTPS/TLS** protocols to encrypt data transmitted between the client (browser), Web Server (SWSE), and Siebel Server.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="2" data-module="Reporting and Best Practices" id="page-85">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Ensuring data security in CRM</h2>
+          <p>Security is enforced through multiple layers, starting before the user even gains access to the application.</p>
+          <h3 class="font-bold mt-4 text-lg">Security Layers:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Authentication (Who you are):</b> Verifying the user's identity through login credentials. Siebel supports database login, LDAP, and **Single Sign-On (SSO)** via a security adapter.</li>
+            <li><b>Authorization (What you can see/do):</b>
+              <ul>
+                <li><b>Functional (Responsibilities):</b> Controls access to <b>Views</b> (functional areas).</li>
+                <li><b>Data (Positions/Organizations):</b> Controls access to <b>Records</b> (data subset).</li>
+              </ul>
+            </li>
+            <li><b>Communication Security:</b> Using **HTTPS/TLS** protocols to encrypt data transmitted between the client (browser), Web Server (SWSE), and Siebel Server.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-86">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">CRM Security Layers</h2>
-                    <div class="flex-grow flex items-center justify-center"></div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
-                        <b>Validation:</b> Log in as two different users with different **Responsibilities** (functional access) and note which top-level tabs appear. Then, within the same tab, observe the different records shown (data access).
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-86">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">CRM Security Layers</h2>
+          <div class="flex-grow flex items-center justify-center"></div>
+          <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
+            <b>Validation:</b> Log in as two different users with different **Responsibilities** (functional access) and note which top-level tabs appear. Then, within the same tab, observe the different records shown (data access).
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-87">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Compliance with industry standards and regulations</h2>
-                    <p>Siebel provides specialized features to help organizations adhere to strict data compliance and audit regulations (e.g., SOX, GDPR).</p>
-                    <h3 class="font-bold mt-4 text-lg">Audit and Compliance Tools:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Audit Trail:</b> A critical feature that, when configured, automatically tracks every change made to a sensitive data field. It logs the **old value**, **new value**, **who** changed it, and **when** it was changed, providing a complete history for auditing.</li>
-                        <li><b>Data Masking/Encryption:</b> Siebel supports encryption techniques to protect highly sensitive data fields both when stored in the database (**at rest**) and while being transmitted (**in transit**).</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-87">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Compliance with industry standards and regulations</h2>
+          <p>Siebel provides specialized features to help organizations adhere to strict data compliance and audit regulations (e.g., SOX, GDPR).</p>
+          <h3 class="font-bold mt-4 text-lg">Audit and Compliance Tools:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Audit Trail:</b> A critical feature that, when configured, automatically tracks every change made to a sensitive data field. It logs the **old value**, **new value**, **who** changed it, and **when** it was changed, providing a complete history for auditing.</li>
+            <li><b>Data Masking/Encryption:</b> Siebel supports encryption techniques to protect highly sensitive data fields both when stored in the database (**at rest**) and while being transmitted (**in transit**).</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-88">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Compliance and Audit Trail</h2>
-                    <div class="flex-grow flex items-center justify-center"></div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
-                        <b>Validation:</b> Navigate to **Administration - Audit Trail** screen. Here, you define which Business Components and Fields should be monitored for changes, enabling the audit trail feature.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-88">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Compliance and Audit Trail</h2>
+          <div class="flex-grow flex items-center justify-center"></div>
+          <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
+            <b>Validation:</b> Navigate to **Administration - Audit Trail** screen. Here, you define which Business Components and Fields should be monitored for changes, enabling the audit trail feature.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-89">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Implementing best practices for CRM operations</h2>
-                    <p>Success in CRM is achieved when technology, processes, and people align. Best practices focus on leveraging Siebel's declarative tools to automate and enforce business processes consistently.</p>
-                    <h3 class="font-bold mt-4 text-lg">Operational Focus:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Standardization:</b> Document and define a **standardized process** for every major activity (e.g., a 5-step lead qualification process).</li>
-                        <li><b>Automation & Enforcement:</b> Implement this standardized process using **Workflow Processes** and **State Models** to guide users and ensure compliance every time the activity occurs.</li>
-                        <li><b>User Training & Adoption:</b> Continuous training, a clean UI (Customized Applets/Views), and fast system performance are critical to ensuring users actually use the system.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-89">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Implementing best practices for CRM operations</h2>
+          <p>Success in CRM is achieved when technology, processes, and people align. Best practices focus on leveraging Siebel's declarative tools to automate and enforce business processes consistently.</p>
+          <h3 class="font-bold mt-4 text-lg">Operational Focus:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Standardization:</b> Document and define a **standardized process** for every major activity (e.g., a 5-step lead qualification process).</li>
+            <li><b>Automation & Enforcement:</b> Implement this standardized process using **Workflow Processes** and **State Models** to guide users and ensure compliance every time the activity occurs.</li>
+            <li><b>User Training & Adoption:</b> Continuous training, a clean UI (Customized Applets/Views), and fast system performance are critical to ensuring users actually use the system.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-90">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Operational Best Practices Diagram</h2>
-                    <div class="flex-grow flex items-center justify-center"></div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
-                        <b>Key Insight:</b> Siebel provides the flexibility to encode the "best" way of doing business directly into the application's configuration, preventing deviations from the established process.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-90">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Operational Best Practices Diagram</h2>
+          <div class="flex-grow flex items-center justify-center"></div>
+          <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
+            <b>Key Insight:</b> Siebel provides the flexibility to encode the "best" way of doing business directly into the application's configuration, preventing deviations from the established process.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-91">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Common issues and solutions</h2>
-                    <p>Troubleshooting in a Siebel enterprise is systematic, often involving the analysis of logs generated by the server components.</p>
-                    <h3 class="font-bold mt-4 text-lg">Troubleshooting Toolkit:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>Server Management:</b> The **Administration - Server Management** screen provides the status of all Siebel Servers and running **Server Components** (like the Object Manager).</li>
-                        <li><b>Log File Analysis:</b> For component errors, administrators increase the **Log Level** for the component (from 0:Fatal to 5:Diagnostic) to gather detailed diagnostic information in the server log files.</li>
-                        <li><b>Component Restarts:</b> Changes to certain **Server Parameters** (like a database connection string) may only take effect **At Server Re-Start** or **At Component Re-Start**.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-91">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Common issues and solutions</h2>
+          <p>Troubleshooting in a Siebel enterprise is systematic, often involving the analysis of logs generated by the server components.</p>
+          <h3 class="font-bold mt-4 text-lg">Troubleshooting Toolkit:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>Server Management:</b> The **Administration - Server Management** screen provides the status of all Siebel Servers and running **Server Components** (like the Object Manager).</li>
+            <li><b>Log File Analysis:</b> For component errors, administrators increase the **Log Level** for the component (from 0:Fatal to 5:Diagnostic) to gather detailed diagnostic information in the server log files.</li>
+            <li><b>Component Restarts:</b> Changes to certain **Server Parameters** (like a database connection string) may only take effect **At Server Re-Start** or **At Component Re-Start**.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-92">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Server Management & Logging</h2>
-                    <div class="flex-grow flex items-center justify-center"></div>
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
-                        <b>Validation:</b> Navigate to **Administration - Server Management > Components**. Select the **Workflow Monitor Agent** component and check its parameters to adjust the logging level for troubleshooting.
-                    </div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-92">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Server Management & Logging</h2>
+          <div class="flex-grow flex items-center justify-center"></div>
+          <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm">
+            <b>Validation:</b> Navigate to **Administration - Server Management > Components**. Select the **Workflow Monitor Agent** component and check its parameters to adjust the logging level for troubleshooting.
+          </div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-93">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Accessing Oracle support resources</h2>
-                    <p>For official documentation, patches, and expert help, organizations rely on Oracle's dedicated support platforms.</p>
-                    <h3 class="font-bold mt-4 text-lg">Support Channels:</h3>
-                    <ul class="list-disc space-y-3">
-                        <li><b>My Oracle Support (MOS):</b> The central website for technical assistance, hosting the knowledge base, patches, and the Service Request (SR) submission tool.</li>
-                        <li><b>Siebel Bookshelf:</b> The official, comprehensive documentation set for all Siebel modules and customization techniques. This is essential for all consultants and developers.</li>
-                        <li><b>Oracle University:</b> Provides certified training courses for continued professional development on the Siebel platform.</li>
-                    </ul>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="5" data-day="2" data-module="Reporting and Best Practices" id="page-93">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">Accessing Oracle support resources</h2>
+          <p>For official documentation, patches, and expert help, organizations rely on Oracle's dedicated support platforms.</p>
+          <h3 class="font-bold mt-4 text-lg">Support Channels:</h3>
+          <ul class="list-disc space-y-3">
+            <li><b>My Oracle Support (MOS):</b> The central website for technical assistance, hosting the knowledge base, patches, and the Service Request (SR) submission tool.</li>
+            <li><b>Siebel Bookshelf:</b> The official, comprehensive documentation set for all Siebel modules and customization techniques. This is essential for all consultants and developers.</li>
+            <li><b>Oracle University:</b> Provides certified training courses for continued professional development on the Siebel platform.</li>
+          </ul>
+        </div>
 
-                <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="2" id="page-94"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 5: Course Conclusion & Review</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Final Review and Validation</h3><ol class="list-decimal list-inside space-y-2"><li><b>Configuration Check:</b> Log into Siebel Tools. Select your **Opportunity** BC. Verify that the validation rule for **Revenue** (Assignment 4) is still active.</li><li><b>EIM Role:</b> Explain, in your own words, the difference between **Base Tables** and **Interface Tables** and why direct SQL inserts are forbidden for **Base Tables**.</li><li><b>Automation Tools:</b> Name one scenario where you would use an **Asynchronous Workflow Policy** and one scenario where you would use a **Synchronous Run-Time Event**.</li><li><b>Deployment:</b> Briefly explain the sequence of **Submit** and **Deliver** a Workspace in modern Siebel.</li></ol></div></div>
+        <div class="page space-y-4" data-page-type="assignment" data-duration="45" data-day="2" id="page-94"><h2 class="text-2xl font-bold text-slate-900 border-b-2 border-yellow-500 pb-2">Assignment 5: Course Conclusion & Review</h2><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Task: Final Review and Validation</h3><ol class="list-decimal list-inside space-y-2"><li><b>Configuration Check:</b> Log into Siebel Tools. Select your **Opportunity** BC. Verify that the validation rule for **Revenue** (Assignment 4) is still active.</li><li><b>EIM Role:</b> Explain, in your own words, the difference between **Base Tables** and **Interface Tables** and why direct SQL inserts are forbidden for **Base Tables**.</li><li><b>Automation Tools:</b> Name one scenario where you would use an **Asynchronous Workflow Policy** and one scenario where you would use a **Synchronous Run-Time Event**.</li><li><b>Deployment:</b> Briefly explain the sequence of **Submit** and **Deliver** a Workspace in modern Siebel.</li></ol></div></div>
 
-                <div class="page space-y-6" data-page-type="topic" data-duration="15" data-day="2" id="page-95">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">End of Training & Q&A</h2>
-                    <div class="bg-green-50 p-6 rounded-lg border border-green-200 mt-6 text-center">
-                        <h3 class="font-bold text-2xl">Congratulations!</h3>
-                        <p class="mt-2 text-lg">You have completed the Oracle Siebel CRM training course.</p>
-                        <p class="mt-4">We will now have a final Q&A session covering all topics from configuration to business process automation.</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
-            <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back (Part 2)</button>
-            <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
-            <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700" disabled>End of Course</button>
-        </footer>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pageContainer = document.getElementById('page-container');
-            const pages = Array.from(pageContainer.children);
-            const backBtn = document.getElementById('back-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const pageIndicator = document.getElementById('page-indicator');
+        <div class="page space-y-6" data-page-type="topic" data-duration="15" data-day="2" id="page-95">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-green-500 pb-2">End of Training & Q&A</h2>
+          <div class="bg-green-50 p-6 rounded-lg border border-green-200 mt-6 text-center">
+            <h3 class="font-bold text-2xl">Congratulations!</h3>
+            <p class="mt-2 text-lg">You have completed the Oracle Siebel CRM training course.</p>
+            <p class="mt-4">We will now have a final Q&A session covering all topics from configuration to business process automation.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
+      <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back (Part 2)</button>
+      <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
+      <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700" disabled>End of Course</button>
+    </footer>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageContainer = document.getElementById('page-container');
+      const pages = Array.from(pageContainer.children);
+      const backBtn = document.getElementById('back-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const pageIndicator = document.getElementById('page-indicator');
 
-            const PAGE_OFFSET = 77; // Content starts at logical page 78 (array index 0)
-            const TOTAL_PAGES_LOGICAL = 186; 
+      const PAGE_OFFSET = 77; // Content starts at logical page 78 (array index 0)
+      const TOTAL_PAGES_LOGICAL = 186; 
 
-            function navigateToPart(partFileName) {
-                window.location.href = partFileName;
-            }
+      function navigateToPart(partFileName) {
+        window.location.href = partFileName;
+      }
 
-            function showPage(arrayIndex) {
-                if (arrayIndex < 0 || arrayIndex >= pages.length) return;
-                
-                pages.forEach((page, i) => {
-                    page.style.display = 'none'; 
-                });
-                pages[arrayIndex].style.display = 'flex'; 
-                
-                currentPageIndex = arrayIndex;
-                updateUI();
-            }
-
-            function updateUI() {
-                const currentPageElement = pages[currentPageIndex];
-                const pageNumber = currentPageIndex + PAGE_OFFSET;
-                const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
-                const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
-                
-                let footerText = `Page ${pageNumber} of ${TOTAL_PAGES_LOGICAL}`;
-                if(pageDuration > 0) {
-                    footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
-                } else if (currentPageElement.dataset.pageType === 'divider') {
-                    footerText = currentPageElement.textContent;
-                } else {
-                    footerText += `<br>Day ${pageDay}`;
-                }
-                pageIndicator.innerHTML = footerText;
-
-                // --- Button Logic ---
-                backBtn.disabled = currentPageIndex === 0;
-                nextBtn.disabled = currentPageIndex === pages.length - 1;
-
-                backBtn.textContent = (pageNumber === PAGE_OFFSET) ? 'Back to Part 2' : `Back (P. ${pageNumber - 1})`;
-                nextBtn.textContent = (currentPageIndex === pages.length - 1) ? 'Course Complete' : `Next (P. ${pageNumber + 1})`;
-                
-                // External Back link (always Part2.html)
-                backBtn.onclick = (pageNumber === PAGE_OFFSET) ? () => { navigateToPart('Part2.html#page-77'); } : () => { showPage(currentPageIndex - 1); };
-                
-                // End of File
-                nextBtn.onclick = (currentPageIndex === pages.length - 1) ? null : () => { showPage(currentPageIndex + 1); };
-            }
-
-            // --- INITIAL LOAD ---
-            let initialPageIndex = 0;
-            const hash = window.location.hash.substring(1);
-            if (hash && hash.startsWith('page-')) {
-                const requestedPage = parseInt(hash.substring(5));
-                if (!isNaN(requestedPage)) {
-                    initialPageIndex = requestedPage - PAGE_OFFSET;
-                    if (initialPageIndex < 0 || initialPageIndex >= pages.length) {
-                        initialPageIndex = 0; // Default to start if hash is invalid for this file
-                    }
-                }
-            }
-            showPage(initialPageIndex); 
+      function showPage(arrayIndex) {
+        if (arrayIndex < 0 || arrayIndex >= pages.length) return;
+        
+        pages.forEach((page, i) => {
+          page.style.display = 'none'; 
         });
-    </script>
+        pages[arrayIndex].style.display = 'flex'; 
+        
+        currentPageIndex = arrayIndex;
+        updateUI();
+      }
+
+      function updateUI() {
+        const currentPageElement = pages[currentPageIndex];
+        const pageNumber = currentPageIndex + PAGE_OFFSET;
+        const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
+        const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
+        
+        let footerText = `Page ${pageNumber} of ${TOTAL_PAGES_LOGICAL}`;
+        if(pageDuration > 0) {
+          footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
+        } else if (currentPageElement.dataset.pageType === 'divider') {
+          footerText = currentPageElement.textContent;
+        } else {
+          footerText += `<br>Day ${pageDay}`;
+        }
+        pageIndicator.innerHTML = footerText;
+
+        // --- Button Logic ---
+        backBtn.disabled = currentPageIndex === 0;
+        nextBtn.disabled = currentPageIndex === pages.length - 1;
+
+        backBtn.textContent = (pageNumber === PAGE_OFFSET) ? 'Back to Part 2' : `Back (P. ${pageNumber - 1})`;
+        nextBtn.textContent = (currentPageIndex === pages.length - 1) ? 'Course Complete' : `Next (P. ${pageNumber + 1})`;
+        
+        // External Back link (always Part2.html)
+        backBtn.onclick = (pageNumber === PAGE_OFFSET) ? () => { navigateToPart('Part2.html#page-77'); } : () => { showPage(currentPageIndex - 1); };
+        
+        // End of File
+        nextBtn.onclick = (currentPageIndex === pages.length - 1) ? null : () => { showPage(currentPageIndex + 1); };
+      }
+
+      // --- INITIAL LOAD ---
+      let initialPageIndex = 0;
+      const hash = window.location.hash.substring(1);
+      if (hash && hash.startsWith('page-')) {
+        const requestedPage = parseInt(hash.substring(5));
+        if (!isNaN(requestedPage)) {
+          initialPageIndex = requestedPage - PAGE_OFFSET;
+          if (initialPageIndex < 0 || initialPageIndex >= pages.length) {
+            initialPageIndex = 0; // Default to start if hash is invalid for this file
+          }
+        }
+      }
+      showPage(initialPageIndex); 
+    });
+  </script>
 </body>
 </html>

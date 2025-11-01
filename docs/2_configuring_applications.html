@@ -1,299 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siebel Training: 2 - Configuring Applications</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .page { display: none; flex-direction: column; min-height: 520px; }
-        .page.active { display: flex; }
-        .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
-        .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
-        .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
-        .page h3 { font-weight: bold; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siebel Training: 2 - Configuring Applications</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .page { display: none; flex-direction: column; min-height: 520px; }
+    .page.active { display: flex; }
+    .footer-btn { display: inline-flex; align-items: center; justify-content: center; }
+    .content-area ul { list-style-position: outside; margin-left: 1.5rem; }
+    .day-divider { text-align: center; font-size: 2.5rem; font-weight: bold; color: #1e3a8a; padding: 2rem; background-color: #f1f5f9; border-top: 2px solid #93c5fd; border-bottom: 2px solid #93c5fd; }
+    .page h3 { font-weight: bold; }
+  </style>
 </head>
 <body class="bg-slate-100 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
 
-    <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
-        <header class="bg-slate-800 p-4 text-white text-center">
-            <h1 class="text-2xl font-bold">2. Configuring Siebel Applications</h1>
-        </header>
+  <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden">
+    <header class="bg-slate-800 p-4 text-white text-center">
+      <h1 class="text-2xl font-bold">2. Configuring Siebel Applications</h1>
+    </header>
 
-        <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
-            <div id="page-container" class="content-area">
+    <main class="p-6 sm:p-8 lg:p-10 text-slate-700">
+      <div id="page-container" class="content-area">
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="20" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Overview of Siebel Tools and Workspaces</h2>
-                    <p>The Workspace model is the cornerstone of modern Siebel development (IP25+). It provides a safe, isolated, and auditable environment for developers to make repository changes without impacting the mainline application or interfering with each other. This enables a true parallel development methodology, managed entirely through the browser-based Siebel Web Tools.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>MAIN Workspace:</strong> This is the top-level, read-only workspace. Think of it as the master, production-ready version of your repository. No development ever happens directly in MAIN.</li>
-                        <li><strong>Integration Workspace:</strong> This is a child workspace created from MAIN. It acts as a central branch for a major release or project. This is the level where changes from multiple developers are consolidated and tested together.</li>
-                        <li><strong>Developer Workspace:</strong> This is a child of an Integration Workspace. It's the personal sandbox where an individual developer performs all their configuration tasks. Changes made here are completely isolated until they are submitted and delivered.
-                            <br><em>**Where to see it:** In Siebel Web Tools, the Workspace dashboard is the first thing you see, showing the hierarchy and allowing you to create or open your workspaces.</em></li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workspace Hierarchy Diagram</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/workspace_hierarchy.png" alt="Workspace Hierarchy" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Workspace+Hierarchy';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="20" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Overview of Siebel Tools and Workspaces</h2>
+          <p>The Workspace model is the cornerstone of modern Siebel development (IP25+). It provides a safe, isolated, and auditable environment for developers to make repository changes without impacting the mainline application or interfering with each other. This enables a true parallel development methodology, managed entirely through the browser-based Siebel Web Tools.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>MAIN Workspace:</strong> This is the top-level, read-only workspace. Think of it as the master, production-ready version of your repository. No development ever happens directly in MAIN.</li>
+            <li><strong>Integration Workspace:</strong> This is a child workspace created from MAIN. It acts as a central branch for a major release or project. This is the level where changes from multiple developers are consolidated and tested together.</li>
+            <li><strong>Developer Workspace:</strong> This is a child of an Integration Workspace. It's the personal sandbox where an individual developer performs all their configuration tasks. Changes made here are completely isolated until they are submitted and delivered.
+              <br><em>**Where to see it:** In Siebel Web Tools, the Workspace dashboard is the first thing you see, showing the hierarchy and allowing you to create or open your workspaces.</em></li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workspace Hierarchy Diagram</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/workspace_hierarchy.png" alt="Workspace Hierarchy" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Workspace+Hierarchy';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="20" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Basic configuration tasks</h2>
-                    <p>The workspace lifecycle enforces a structured and auditable process for promoting changes from a developer's sandbox to the mainline repository.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>Open & Lock:</strong> A developer opens their workspace and then finds and locks the specific objects they need to modify (e.g., an Applet, a Business Component). Locking is crucial as it prevents another developer from editing the exact same object in a different workspace, thus preventing conflicts.</li>
-                        <li><strong>Checkpoint:</strong> Think of this as a "save point." Periodically, a developer 'Checkpoints' their workspace, which creates a new version of their changes. This allows them to revert to a previous state if a configuration goes wrong.</li>
-                        <li><strong>Submit for Delivery:</strong> When the developer has finished and tested their changes, they submit their workspace for review. This action signals that the work is complete and ready for integration.</li>
-                        <li><strong>Deliver:</strong> A release manager or administrator reviews the submitted workspace and, if approved, 'Delivers' it. Delivery is the process of merging the changes from the developer workspace into its parent Integration Workspace.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Development Lifecycle Diagram</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/workspace_lifecycle.png" alt="Workspace Lifecycle" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Development+Lifecycle';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="20" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Basic configuration tasks</h2>
+          <p>The workspace lifecycle enforces a structured and auditable process for promoting changes from a developer's sandbox to the mainline repository.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>Open & Lock:</strong> A developer opens their workspace and then finds and locks the specific objects they need to modify (e.g., an Applet, a Business Component). Locking is crucial as it prevents another developer from editing the exact same object in a different workspace, thus preventing conflicts.</li>
+            <li><strong>Checkpoint:</strong> Think of this as a "save point." Periodically, a developer 'Checkpoints' their workspace, which creates a new version of their changes. This allows them to revert to a previous state if a configuration goes wrong.</li>
+            <li><strong>Submit for Delivery:</strong> When the developer has finished and tested their changes, they submit their workspace for review. This action signals that the work is complete and ready for integration.</li>
+            <li><strong>Deliver:</strong> A release manager or administrator reviews the submitted workspace and, if approved, 'Delivers' it. Delivery is the process of merging the changes from the developer workspace into its parent Integration Workspace.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Development Lifecycle Diagram</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/workspace_lifecycle.png" alt="Workspace Lifecycle" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Development+Lifecycle';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="20" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Creating and managing data models</h2>
-                    <p>The Siebel Data Model is the definition of how business information is structured and stored. It is a three-tiered logical model that is mapped to a physical database implementation, providing a crucial layer of abstraction.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>Data Layer (Physical):</strong> This consists of Table and Column objects. These objects directly represent the physical schema of your database (e.g., the `S_OPTY` table and its columns like `OPTY_NAME`, `REVN_AMT`). You configure this layer in Siebel Tools.</li>
-                        <li><strong>Business Layer (Logical):</strong> This layer consists of Business Components (BCs). A BC provides a logical, business-centric representation of data. It can combine columns from multiple tables using joins and links to create a "virtual" record that makes sense to the business, like an "Opportunity."</li>
-                        <li><strong>UI Layer (Presentation):</strong> This layer consists of Applets and Views. These objects take the data exposed by the Business Components and present it to the end-user in a graphical format, such as a list or a form.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Data Model Architecture</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/data_model_layers.png" alt="Data Model Layers" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Data+Model+Layers';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="20" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Creating and managing data models</h2>
+          <p>The Siebel Data Model is the definition of how business information is structured and stored. It is a three-tiered logical model that is mapped to a physical database implementation, providing a crucial layer of abstraction.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>Data Layer (Physical):</strong> This consists of Table and Column objects. These objects directly represent the physical schema of your database (e.g., the `S_OPTY` table and its columns like `OPTY_NAME`, `REVN_AMT`). You configure this layer in Siebel Tools.</li>
+            <li><strong>Business Layer (Logical):</strong> This layer consists of Business Components (BCs). A BC provides a logical, business-centric representation of data. It can combine columns from multiple tables using joins and links to create a "virtual" record that makes sense to the business, like an "Opportunity."</li>
+            <li><strong>UI Layer (Presentation):</strong> This layer consists of Applets and Views. These objects take the data exposed by the Business Components and present it to the end-user in a graphical format, such as a list or a form.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Data Model Architecture</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/data_model_layers.png" alt="Data Model Layers" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Data+Model+Layers';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Configuring business components and objects</h2>
-                    <p>Business Components (BCs) are the workhorses of the Siebel application. They define the data structure and business logic for entities. Business Objects (BOs) group related BCs to establish context for a view.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>Fields:</strong> Represent individual data points (e.g., 'Name', 'Status'). Every field is mapped to a specific column in a database table.</li>
-                        <li><strong>Joins:</strong> A powerful feature used to bring in data from a related "lookup" table into a single BC. For example, a join on the Opportunity BC can pull in the Account Name from the Account table. This creates a flattened, denormalized view that is easy for the UI to display.</li>
-                        <li><strong>Links:</strong> These define the master-detail (parent-child) relationships between different Business Components within a Business Object. For example, a link defines how Siebel finds all the `Contacts` related to a specific `Account`.</li>
-                        <li><strong>Properties:</strong> BCs and their fields have hundreds of properties that declaratively control behavior, such as 'Read Only', 'Required', and 'Validation' expressions, minimizing the need for scripts.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Business Component Mapping</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/business_component_mapping.png" alt="Business Component Mapping" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=BC+Mapping';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Configuring business components and objects</h2>
+          <p>Business Components (BCs) are the workhorses of the Siebel application. They define the data structure and business logic for entities. Business Objects (BOs) group related BCs to establish context for a view.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>Fields:</strong> Represent individual data points (e.g., 'Name', 'Status'). Every field is mapped to a specific column in a database table.</li>
+            <li><strong>Joins:</strong> A powerful feature used to bring in data from a related "lookup" table into a single BC. For example, a join on the Opportunity BC can pull in the Account Name from the Account table. This creates a flattened, denormalized view that is easy for the UI to display.</li>
+            <li><strong>Links:</strong> These define the master-detail (parent-child) relationships between different Business Components within a Business Object. For example, a link defines how Siebel finds all the `Contacts` related to a specific `Account`.</li>
+            <li><strong>Properties:</strong> BCs and their fields have hundreds of properties that declaratively control behavior, such as 'Read Only', 'Required', and 'Validation' expressions, minimizing the need for scripts.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Business Component Mapping</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/business_component_mapping.png" alt="Business Component Mapping" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=BC+Mapping';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Setting up application parameters</h2>
-                    <p>Application Parameters, known as System Preferences in the UI, are a simple and powerful way to control application behavior without making repository changes. They act as global constants that can be referenced throughout the application.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>What they are:</strong> They are simple name-value pairs stored in the Siebel database. For example, you could have a parameter named `SessionTimeout` with a value of `30`.</li>
-                        <li><strong>Why they are used:</strong> They are perfect for storing values that might change between environments (like URLs for an external system) or for controlling features. A developer can write code that checks `TheApplication().GetProfileAttr("MyFeatureEnabled")` and if the value is `Y`, the feature is active.</li>
-                        <li><strong>How to manage them:</strong> They are managed in the live application via the `Administration - Application > System Preferences` view. This means you can change behavior on the fly without having to compile and deploy a new version of the repository.</li>
-                    </ul>
-                </div>
-                 <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">System Preferences UI</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/system_preferences.png" alt="System Preferences UI" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=System+Preferences+UI';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Setting up application parameters</h2>
+          <p>Application Parameters, known as System Preferences in the UI, are a simple and powerful way to control application behavior without making repository changes. They act as global constants that can be referenced throughout the application.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>What they are:</strong> They are simple name-value pairs stored in the Siebel database. For example, you could have a parameter named `SessionTimeout` with a value of `30`.</li>
+            <li><strong>Why they are used:</strong> They are perfect for storing values that might change between environments (like URLs for an external system) or for controlling features. A developer can write code that checks `TheApplication().GetProfileAttr("MyFeatureEnabled")` and if the value is `Y`, the feature is active.</li>
+            <li><strong>How to manage them:</strong> They are managed in the live application via the `Administration - Application > System Preferences` view. This means you can change behavior on the fly without having to compile and deploy a new version of the repository.</li>
+          </ul>
+        </div>
+         <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">System Preferences UI</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/system_preferences.png" alt="System Preferences UI" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=System+Preferences+UI';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Managing system preferences</h2>
-                    <p>Effectively managing system preferences is key to maintaining a flexible and configurable application. Best practices involve careful planning and documentation.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>Adopt Naming Conventions:</strong> As the number of preferences grows, a clear naming convention is vital. Prefixing names can help group related preferences (e.g., `MyModule.Setting1`, `MyModule.Setting2`).</li>
-                        <li><strong>Mind the Cache:</strong> For performance, the Siebel server caches system preferences in memory. When you change a value in the UI, it doesn't take effect immediately for all users. An administrator must navigate to the `Administration - Application > System Preferences` view and select `Clear Cache` from the applet menu. This forces all servers to reload the latest values.</li>
-                        <li><strong>Migrate Your Changes:</strong> System Preferences are considered administrative data, not repository objects. This means they are not part of a workspace. To move them from a development environment to a test or production environment, you must include them in an Application Deployment Manager (ADM) package.</li>
-                    </ul>
-                </div>
-                 <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Clear Cache Functionality</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/clear_cache.png" alt="Clear Cache" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Clear+Cache';"></div>
-                </div>
-                
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Creating and managing workflows</h2>
-                    <p>Siebel Workflow is a powerful automation engine that allows you to model and execute complex, multi-step business processes using a visual, drag-and-drop interface.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>Process Designer:</strong> The graphical interface in Siebel Web Tools where you build your workflows. You drag different step types from a palette onto a canvas and connect them to define the process flow.
-                            <br><em>**Where to see it:** In Web Tools, navigate to the `Workflow Process` object type in the Object Explorer.</em></li>
-                        <li><strong>Process Properties:</strong> These are the variables of your workflow. They hold data that can be passed from one step to another, allowing you to work with information as it moves through the process.</li>
-                        <li><strong>Key Step Types:</strong>
-                            <ul>
-                                <li><strong>Siebel Operation:</strong> Allows you to query, insert, update, or delete records in a Business Component.</li>
-                                <li><strong>Decision Point:</strong> A diamond-shaped step that allows you to create branching logic (if/then/else) based on the value of a process property.</li>
-                                <li><strong>Business Service:</strong> A step that can call custom code or pre-built Siebel services to perform complex logic that goes beyond simple data operations.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workflow Designer</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/workflow_designer.png" alt="Workflow Designer" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Workflow+Designer';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Managing system preferences</h2>
+          <p>Effectively managing system preferences is key to maintaining a flexible and configurable application. Best practices involve careful planning and documentation.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>Adopt Naming Conventions:</strong> As the number of preferences grows, a clear naming convention is vital. Prefixing names can help group related preferences (e.g., `MyModule.Setting1`, `MyModule.Setting2`).</li>
+            <li><strong>Mind the Cache:</strong> For performance, the Siebel server caches system preferences in memory. When you change a value in the UI, it doesn't take effect immediately for all users. An administrator must navigate to the `Administration - Application > System Preferences` view and select `Clear Cache` from the applet menu. This forces all servers to reload the latest values.</li>
+            <li><strong>Migrate Your Changes:</strong> System Preferences are considered administrative data, not repository objects. This means they are not part of a workspace. To move them from a development environment to a test or production environment, you must include them in an Application Deployment Manager (ADM) package.</li>
+          </ul>
+        </div>
+         <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Clear Cache Functionality</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/clear_cache.png" alt="Clear Cache" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Clear+Cache';"></div>
+        </div>
+        
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Creating and managing workflows</h2>
+          <p>Siebel Workflow is a powerful automation engine that allows you to model and execute complex, multi-step business processes using a visual, drag-and-drop interface.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>Process Designer:</strong> The graphical interface in Siebel Web Tools where you build your workflows. You drag different step types from a palette onto a canvas and connect them to define the process flow.
+              <br><em>**Where to see it:** In Web Tools, navigate to the `Workflow Process` object type in the Object Explorer.</em></li>
+            <li><strong>Process Properties:</strong> These are the variables of your workflow. They hold data that can be passed from one step to another, allowing you to work with information as it moves through the process.</li>
+            <li><strong>Key Step Types:</strong>
+              <ul>
+                <li><strong>Siebel Operation:</strong> Allows you to query, insert, update, or delete records in a Business Component.</li>
+                <li><strong>Decision Point:</strong> A diamond-shaped step that allows you to create branching logic (if/then/else) based on the value of a process property.</li>
+                <li><strong>Business Service:</strong> A step that can call custom code or pre-built Siebel services to perform complex logic that goes beyond simple data operations.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Workflow Designer</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/workflow_designer.png" alt="Workflow Designer" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Workflow+Designer';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Automating CRM processes</h2>
-                    <p>Siebel provides a suite of declarative (no-code) automation tools. Choosing the right tool for the job is a key architectural decision.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>Workflow Processes:</strong> The most versatile tool. Best for orchestrating multi-step, long-running, or complex business processes that may involve branching, looping, and calls to external systems. Example: A multi-stage approval process for a large quote.</li>
-                        <li><strong>Assignment Manager:</strong> A highly specialized engine designed for one purpose: routing business data (like leads or service requests) to the right people or teams. It uses a sophisticated rules engine to evaluate criteria like territory, skills, or workload.
-                            <br><em>**Where to see it:** Navigate to `Administration - Assignment` to view and define assignment rules.</em></li>
-                        <li><strong>State Models:</strong> The simplest automation tool, used to manage the lifecycle of an object. It defines the valid states (e.g., 'Open', 'Pending', 'Closed' for a Service Request) and enforces which transitions between states are allowed.
-                            <br><em>**Where to see it:** Navigate to `Administration - Application > State Models`.</em></li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel Automation Tools</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/automation_tools.png" alt="Automation Tools" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Automation+Tools';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Automating CRM processes</h2>
+          <p>Siebel provides a suite of declarative (no-code) automation tools. Choosing the right tool for the job is a key architectural decision.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>Workflow Processes:</strong> The most versatile tool. Best for orchestrating multi-step, long-running, or complex business processes that may involve branching, looping, and calls to external systems. Example: A multi-stage approval process for a large quote.</li>
+            <li><strong>Assignment Manager:</strong> A highly specialized engine designed for one purpose: routing business data (like leads or service requests) to the right people or teams. It uses a sophisticated rules engine to evaluate criteria like territory, skills, or workload.
+              <br><em>**Where to see it:** Navigate to `Administration - Assignment` to view and define assignment rules.</em></li>
+            <li><strong>State Models:</strong> The simplest automation tool, used to manage the lifecycle of an object. It defines the valid states (e.g., 'Open', 'Pending', 'Closed' for a Service Request) and enforces which transitions between states are allowed.
+              <br><em>**Where to see it:** Navigate to `Administration - Application > State Models`.</em></li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Siebel Automation Tools</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/automation_tools.png" alt="Automation Tools" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Automation+Tools';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Customizing the user interface</h2>
-                    <p>The Siebel UI is configured by modifying Applet and View objects. The Web Layout Editor in Siebel Web Tools is the primary interface for visually designing the user experience.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>Web Templates:</strong> These are the foundational HTML files that define the structure and layout of applets and views. They contain special Siebel tags (`<swe:control>`, `<swe:applet>`) that act as placeholders where the Siebel Web Engine will render controls and applets.</li>
-                        <li><strong>Web Layout Editor:</strong> This is a visual "drag-and-drop" tool in Web Tools. It shows the placeholders from the web template and allows you to map repository objects to them. You can drag controls (representing BC fields) onto the applet grid or drag entire applets onto the view layout.</li>
-                        <li><strong>Applet-to-BC Mapping:</strong> Each applet is tied to a single Business Component. The controls you place on the applet are then mapped to specific fields on that BC. This three-way link (Template Placeholder -> Applet Control -> BC Field) is what makes the data appear on the screen.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Web Layout Editor</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/web_layout_editor.png" alt="Web Layout Editor" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Web+Layout+Editor';"></div>
-                </div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="15" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Customizing the user interface</h2>
+          <p>The Siebel UI is configured by modifying Applet and View objects. The Web Layout Editor in Siebel Web Tools is the primary interface for visually designing the user experience.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>Web Templates:</strong> These are the foundational HTML files that define the structure and layout of applets and views. They contain special Siebel tags (`<swe:control>`, `<swe:applet>`) that act as placeholders where the Siebel Web Engine will render controls and applets.</li>
+            <li><strong>Web Layout Editor:</strong> This is a visual "drag-and-drop" tool in Web Tools. It shows the placeholders from the web template and allows you to map repository objects to them. You can drag controls (representing BC fields) onto the applet grid or drag entire applets onto the view layout.</li>
+            <li><strong>Applet-to-BC Mapping:</strong> Each applet is tied to a single Business Component. The controls you place on the applet are then mapped to specific fields on that BC. This three-way link (Template Placeholder -> Applet Control -> BC Field) is what makes the data appear on the screen.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Web Layout Editor</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/web_layout_editor.png" alt="Web Layout Editor" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Web+Layout+Editor';"></div>
+        </div>
 
-                <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-assignment-index="34">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Personalizing user experiences</h2>
-                    <p>Siebel allows for a high degree of personalization to tailor the user experience to individual needs without requiring code changes.</p>
-                    <ul class="list-disc space-y-2 pt-2">
-                        <li><strong>User Preferences:</strong> End-users have control over their own experience. They can set personal preferences like their default startup view, time zone, and, most commonly, choose which columns to display in list applets and in what order.
-                            <br><em>**How to validate:** In any list applet, right-click the column header and choose "Columns Displayed" to change your personal layout.</em></li>
-                        <li><strong>Personalization Rules:</strong> Administrators can create more powerful, rule-based personalization. These rules can dynamically show, hide, or format applets and controls based on user attributes like their role, location, or language. This ensures the UI is always relevant to the user's context.</li>
-                        <li><strong>Saved Queries:</strong> A simple but powerful feature. Users can save frequently used search criteria as a named query. This allows them to quickly access specific subsets of data with a single click from the "Saved Queries" dropdown in any applet.</li>
-                    </ul>
-                </div>
-                <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1" data-assignment-index="34">
-                    <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Personalization Example</h2>
-                    <div class="flex-grow flex items-center justify-center"><img src="Images/personalization.png" alt="Personalization" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Personalization';"></div>
-                </div>
-                
-                <div class="page space-y-4" data-page-type="assignment" data-duration="135" data-day="1" data-next-topic-index="35"><div class="flex justify-between items-start border-b-2 border-yellow-500 pb-2"><h2 class="text-2xl font-bold text-slate-900">Assignment 2: Workspace Configuration & UI Change</h2></div><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Instructions for All Trainees:</h3><p>Log into Siebel Web Tools with your user ID. Create a new developer workspace named `TRAINEE##_DEV` (e.g., `TRAINEE01_DEV`). Open your workspace and complete the task assigned to your Trainee Number below. Once finished, Checkpoint, Submit, and Deliver your workspace. Finally, log into the Siebel Application to test your changes.</p><h3 class="text-xl font-semibold text-slate-800 mt-4">Individual Tasks:</h3><div class="text-sm space-y-2">
-                    <p><strong>Trainee 01:</strong> In the 'Account' BC, add a new field 'Account Tier'. Expose this field on the 'Account List Applet'.</p>
-                    <p><strong>Trainee 02:</strong> In the 'Account' BC, add a new field 'Customer Since' (Type: DTYPE_DATE). Expose it on the 'Account Form Applet'.</p>
-                    <p><strong>Trainee 03:</strong> In the 'Contact' BC, add a new field 'Loyalty ID'. Expose this field on the 'Contact List Applet'.</p>
-                    <p><strong>Trainee 04:</strong> In the 'Contact' BC, add a new field 'Communication Preference' (make it a static picklist). Expose it on the 'Contact Form Applet'.</p>
-                    <p><strong>Trainee 05:</strong> In the 'Opportunity' BC, add a new field 'Project Code'. Expose this field on the 'Opportunity List Applet'.</p>
-                    <p><strong>Trainee 06:</strong> In the 'Opportunity' BC, add a new field 'Technical Lead'. Expose it on the 'Opportunity Form Applet'.</p>
-                    <p><strong>Trainee 07:</strong> In the 'Service Request' BC, add a new field 'Related SR'. Expose it on the 'Service Request List Applet'.</p>
-                    <p><strong>Trainee 08:</strong> In the 'Service Request' BC, add a new field 'Root Cause Category' (make it a static picklist). Expose it on the 'Service Request Detail Applet'.</p>
-                    <p><strong>Trainee 09:</strong> In the 'Action' (Activity) BC, add a new field 'Follow-up Date'. Expose it on the 'Activity List Applet'.</p>
-                    <p><strong>Trainee 10:</strong> In the 'Action' (Activity) BC, add a new field 'Internal Notes'. Expose it on the 'Activity Form Applet'.</p>
-                </div></div></div>
+        <div class="page space-y-4" data-page-type="topic" data-duration="10" data-day="1" data-assignment-index="34">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Personalizing user experiences</h2>
+          <p>Siebel allows for a high degree of personalization to tailor the user experience to individual needs without requiring code changes.</p>
+          <ul class="list-disc space-y-2 pt-2">
+            <li><strong>User Preferences:</strong> End-users have control over their own experience. They can set personal preferences like their default startup view, time zone, and, most commonly, choose which columns to display in list applets and in what order.
+              <br><em>**How to validate:** In any list applet, right-click the column header and choose "Columns Displayed" to change your personal layout.</em></li>
+            <li><strong>Personalization Rules:</strong> Administrators can create more powerful, rule-based personalization. These rules can dynamically show, hide, or format applets and controls based on user attributes like their role, location, or language. This ensures the UI is always relevant to the user's context.</li>
+            <li><strong>Saved Queries:</strong> A simple but powerful feature. Users can save frequently used search criteria as a named query. This allows them to quickly access specific subsets of data with a single click from the "Saved Queries" dropdown in any applet.</li>
+          </ul>
+        </div>
+        <div class="page space-y-4" data-page-type="image" data-duration="5" data-day="1" data-assignment-index="34">
+          <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-blue-500 pb-2">Personalization Example</h2>
+          <div class="flex-grow flex items-center justify-center"><img src="Images/personalization.png" alt="Personalization" class="max-w-full h-auto rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e0f2fe/0c4a6e?text=Personalization';"></div>
+        </div>
+        
+        <div class="page space-y-4" data-page-type="assignment" data-duration="135" data-day="1" data-next-topic-index="35"><div class="flex justify-between items-start border-b-2 border-yellow-500 pb-2"><h2 class="text-2xl font-bold text-slate-900">Assignment 2: Workspace Configuration & UI Change</h2></div><div class="space-y-4 bg-yellow-50 p-4 rounded-lg"><h3 class="text-xl font-semibold text-slate-800">Instructions for All Trainees:</h3><p>Log into Siebel Web Tools with your user ID. Create a new developer workspace named `TRAINEE##_DEV` (e.g., `TRAINEE01_DEV`). Open your workspace and complete the task assigned to your Trainee Number below. Once finished, Checkpoint, Submit, and Deliver your workspace. Finally, log into the Siebel Application to test your changes.</p><h3 class="text-xl font-semibold text-slate-800 mt-4">Individual Tasks:</h3><div class="text-sm space-y-2">
+          <p><strong>Trainee 01:</strong> In the 'Account' BC, add a new field 'Account Tier'. Expose this field on the 'Account List Applet'.</p>
+          <p><strong>Trainee 02:</strong> In the 'Account' BC, add a new field 'Customer Since' (Type: DTYPE_DATE). Expose it on the 'Account Form Applet'.</p>
+          <p><strong>Trainee 03:</strong> In the 'Contact' BC, add a new field 'Loyalty ID'. Expose this field on the 'Contact List Applet'.</p>
+          <p><strong>Trainee 04:</strong> In the 'Contact' BC, add a new field 'Communication Preference' (make it a static picklist). Expose it on the 'Contact Form Applet'.</p>
+          <p><strong>Trainee 05:</strong> In the 'Opportunity' BC, add a new field 'Project Code'. Expose this field on the 'Opportunity List Applet'.</p>
+          <p><strong>Trainee 06:</strong> In the 'Opportunity' BC, add a new field 'Technical Lead'. Expose it on the 'Opportunity Form Applet'.</p>
+          <p><strong>Trainee 07:</strong> In the 'Service Request' BC, add a new field 'Related SR'. Expose it on the 'Service Request List Applet'.</p>
+          <p><strong>Trainee 08:</strong> In the 'Service Request' BC, add a new field 'Root Cause Category' (make it a static picklist). Expose it on the 'Service Request Detail Applet'.</p>
+          <p><strong>Trainee 09:</strong> In the 'Action' (Activity) BC, add a new field 'Follow-up Date'. Expose it on the 'Activity List Applet'.</p>
+          <p><strong>Trainee 10:</strong> In the 'Action' (Activity) BC, add a new field 'Internal Notes'. Expose it on the 'Activity Form Applet'.</p>
+        </div></div></div>
 
-            </div>
-        </main>
-        <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
-            <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back</button>
-            <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
-            <a href="Index.html" id="main-menu-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700" style="display: none;">Return to Main Menu</a>
-            <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700">Next</button>
-            <button id="assignment-btn" class="footer-btn px-4 py-2 bg-yellow-500 text-yellow-900 rounded-md font-semibold hover:bg-yellow-600">Assignment</button>
-            <button id="continue-training-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700">Continue Training</button>
-        </footer>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const pageContainer = document.getElementById('page-container');
-            const pages = Array.from(pageContainer.children);
-            const backBtn = document.getElementById('back-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const assignmentBtn = document.getElementById('assignment-btn');
-            const continueTrainingBtn = document.getElementById('continue-training-btn');
-            const pageIndicator = document.getElementById('page-indicator');
-            const mainMenuBtn = document.getElementById('main-menu-btn');
+      </div>
+    </main>
+    <footer class="bg-slate-50 border-t border-slate-200 p-4 flex items-center justify-between">
+      <button id="back-btn" class="footer-btn px-4 py-2 bg-slate-300 text-slate-700 rounded-md font-semibold hover:bg-slate-400 disabled:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400">Back</button>
+      <div id="page-indicator" class="text-sm font-medium text-slate-600 text-center"></div>
+      <a href="Index.html" id="main-menu-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700" style="display: none;">Return to Main Menu</a>
+      <button id="next-btn" class="footer-btn px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700">Next</button>
+      <button id="assignment-btn" class="footer-btn px-4 py-2 bg-yellow-500 text-yellow-900 rounded-md font-semibold hover:bg-yellow-600">Assignment</button>
+      <button id="continue-training-btn" class="footer-btn px-4 py-2 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700">Continue Training</button>
+    </footer>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageContainer = document.getElementById('page-container');
+      const pages = Array.from(pageContainer.children);
+      const backBtn = document.getElementById('back-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const assignmentBtn = document.getElementById('assignment-btn');
+      const continueTrainingBtn = document.getElementById('continue-training-btn');
+      const pageIndicator = document.getElementById('page-indicator');
+      const mainMenuBtn = document.getElementById('main-menu-btn');
 
-            let currentPageIndex = 0;
+      let currentPageIndex = 0;
 
-            function showPage(index) {
-                if (index < 0 || index >= pages.length) return;
-                
-                pages.forEach((page, i) => {
-                    page.classList.toggle('active', i === index);
-                });
-                currentPageIndex = index;
-                updateUI();
-            }
-
-            function updateUI() {
-                const currentPageElement = pages[currentPageIndex];
-                const totalPages = pages.length;
-                const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
-                const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
-                
-                let footerText = `Page ${currentPageIndex + 1} of ${totalPages}`;
-                 if (pageDuration > 0) {
-                    footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
-                } else if (currentPageElement.dataset.pageType !== 'divider') {
-                     footerText += `<br>Day ${pageDay}`;
-                }
-                pageIndicator.innerHTML = footerText;
-
-                const pageType = currentPageElement.dataset.pageType;
-                const assignmentIndex = currentPageElement.dataset.assignmentIndex;
-                
-                nextBtn.style.display = 'none';
-                assignmentBtn.style.display = 'none';
-                continueTrainingBtn.style.display = 'none';
-                mainMenuBtn.style.display = 'none';
-                backBtn.style.display = 'inline-flex';
-
-                if (pageType === 'assignment') {
-                    continueTrainingBtn.style.display = 'inline-flex';
-                } else { 
-                    if (assignmentIndex) {
-                        assignmentBtn.style.display = 'inline-flex';
-                    } else if (currentPageIndex < pages.length - 1) {
-                        nextBtn.style.display = 'inline-flex';
-                    }
-                }
-                
-                backBtn.disabled = currentPageIndex === 0;
-                 if (currentPageIndex === 0) {
-                    backBtn.style.display = 'none';
-                }
-                 if (currentPageIndex === pages.length - 1) {
-                    nextBtn.style.display = 'none';
-                    assignmentBtn.style.display = 'none';
-                    mainMenuBtn.style.display = 'inline-flex';
-                }
-            }
-
-            nextBtn.addEventListener('click', () => showPage(currentPageIndex + 1));
-            backBtn.addEventListener('click', () => showPage(currentPageIndex - 1));
-
-            assignmentBtn.addEventListener('click', () => {
-                const assignmentIndex = pages[currentPageIndex].dataset.assignmentIndex;
-                if (assignmentIndex) {
-                    showPage(parseInt(assignmentIndex, 10));
-                }
-            });
-
-            continueTrainingBtn.addEventListener('click', () => {
-                const nextTopicIndex = pages[currentPageIndex].dataset.nextTopicIndex;
-                if (nextTopicIndex) {
-                    showPage(parseInt(nextTopicIndex, 10));
-                } else {
-                    showPage(currentPageIndex + 1);
-                }
-            });
-            
-            showPage(0);
+      function showPage(index) {
+        if (index < 0 || index >= pages.length) return;
+        
+        pages.forEach((page, i) => {
+          page.classList.toggle('active', i === index);
         });
-    </script>
+        currentPageIndex = index;
+        updateUI();
+      }
+
+      function updateUI() {
+        const currentPageElement = pages[currentPageIndex];
+        const totalPages = pages.length;
+        const pageDuration = parseInt(currentPageElement.dataset.duration || 0, 10);
+        const pageDay = parseInt(currentPageElement.dataset.day || 1, 10);
+        
+        let footerText = `Page ${currentPageIndex + 1} of ${totalPages}`;
+         if (pageDuration > 0) {
+          footerText += `<br>Day ${pageDay} - Est. Time: ${pageDuration} Minutes`;
+        } else if (currentPageElement.dataset.pageType !== 'divider') {
+           footerText += `<br>Day ${pageDay}`;
+        }
+        pageIndicator.innerHTML = footerText;
+
+        const pageType = currentPageElement.dataset.pageType;
+        const assignmentIndex = currentPageElement.dataset.assignmentIndex;
+        
+        nextBtn.style.display = 'none';
+        assignmentBtn.style.display = 'none';
+        continueTrainingBtn.style.display = 'none';
+        mainMenuBtn.style.display = 'none';
+        backBtn.style.display = 'inline-flex';
+
+        if (pageType === 'assignment') {
+          continueTrainingBtn.style.display = 'inline-flex';
+        } else { 
+          if (assignmentIndex) {
+            assignmentBtn.style.display = 'inline-flex';
+          } else if (currentPageIndex < pages.length - 1) {
+            nextBtn.style.display = 'inline-flex';
+          }
+        }
+        
+        backBtn.disabled = currentPageIndex === 0;
+         if (currentPageIndex === 0) {
+          backBtn.style.display = 'none';
+        }
+         if (currentPageIndex === pages.length - 1) {
+          nextBtn.style.display = 'none';
+          assignmentBtn.style.display = 'none';
+          mainMenuBtn.style.display = 'inline-flex';
+        }
+      }
+
+      nextBtn.addEventListener('click', () => showPage(currentPageIndex + 1));
+      backBtn.addEventListener('click', () => showPage(currentPageIndex - 1));
+
+      assignmentBtn.addEventListener('click', () => {
+        const assignmentIndex = pages[currentPageIndex].dataset.assignmentIndex;
+        if (assignmentIndex) {
+          showPage(parseInt(assignmentIndex, 10));
+        }
+      });
+
+      continueTrainingBtn.addEventListener('click', () => {
+        const nextTopicIndex = pages[currentPageIndex].dataset.nextTopicIndex;
+        if (nextTopicIndex) {
+          showPage(parseInt(nextTopicIndex, 10));
+        } else {
+          showPage(currentPageIndex + 1);
+        }
+      });
+      
+      showPage(0);
+    });
+  </script>
 </body>
 </html>
 

@@ -1,573 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1 Topic 2 - Configuring Siebel Applications</title>
-    <link rel="stylesheet" href="css/training.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 1 Topic 2 - Configuring Siebel Applications</title>
+  <link rel="stylesheet" href="css/training.css">
 </head>
 <body data-module-id="day1_topic2">
-    <div class="container-narrow">
-        <!-- Header -->
-        <div class="header">
-            <div>
-                <h1 class="header-title">Configuring Siebel Applications</h1>
-                <div class="header-subtitle">Day 1 • Topic 2 • Estimated Time: 2 hours</div>
-            </div>
-            <div class="header-actions">
-                <a href="index.html" class="btn btn-ghost">← Back to Home</a>
-            </div>
+  <div class="container-narrow">
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <h1 class="header-title">Configuring Siebel Applications</h1>
+        <div class="header-subtitle">Day 1 • Topic 2 • Estimated Time: 2 hours</div>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-ghost">← Back to Home</a>
+      </div>
+    </div>
+
+    <div class="banner banner-info">
+      <div>
+        <strong>Learning Objectives:</strong> Master Siebel configuration tools, understand workspace development, configure business components and objects, create workflows, and customize the UI.
+      </div>
+      <div class="meta">Pages 26-55</div>
+    </div>
+
+    <!-- Page Content Container -->
+    <div class="content">
+      <!-- Page 26: Introduction to Configuration -->
+      <div class="page-content active" id="page-26">
+        <h2>Welcome to Siebel Configuration</h2>
+        <p class="lead">
+          This module transforms you from a Siebel user into a Siebel configurator. You'll learn to modify and extend Siebel's functionality without writing code.
+        </p>
+
+        <div class="card card-highlight">
+          <h3>What You'll Learn</h3>
+          <ul class="checklist">
+            <li>Overview of Siebel Tools and Web Tools</li>
+            <li>Understanding the workspace development model (modern)</li>
+            <li>Creating and managing data models</li>
+            <li>Configuring business components and business objects</li>
+            <li>Setting up application parameters and system preferences</li>
+            <li>Creating and managing workflows</li>
+            <li>Customizing the user interface</li>
+            <li>Personalizing user experiences</li>
+          </ul>
+        </div>
+
+        <div class="banner banner-warning">
+          <div>
+            <strong>⚠️ Important:</strong> Configuration changes affect all users. In production environments, always test changes in a development environment first and follow your organization's change management procedures.
+          </div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 5 minutes</span>
+        </div>
+      </div>
+
+      <!-- Page 27: Siebel Tools vs Web Tools -->
+      <div class="page-content" id="page-27" style="display: none;">
+        <h2>Siebel Tools vs. Web Tools</h2>
+        <p class="lead">
+          Historically, Siebel configuration required Siebel Tools - a Windows desktop application. With modern, Oracle introduced Web Tools, bringing configuration to the browser.
+        </p>
+
+        <h3>Siebel Tools (Legacy)</h3>
+        <div class="card">
+          <h4>Windows Desktop Application</h4>
+          <p><strong>Pros:</strong></p>
+          <ul>
+            <li>Full access to all repository objects</li>
+            <li>Advanced search and filter capabilities</li>
+            <li>Direct database connection for complex operations</li>
+          </ul>
+          <p><strong>Cons:</strong></p>
+          <ul>
+            <li>Windows-only (no Mac or Linux support)</li>
+            <li>Requires local installation and setup</li>
+            <li>No workspace support (single-user locking model)</li>
+          </ul>
+          <p class="mt-md">
+            <strong>When to use:</strong> Advanced scenarios, bulk operations, or if you're on a pre-IP17 version
+          </p>
+        </div>
+
+        <h3>Siebel Web Tools (Modern - modern)</h3>
+        <div class="card card-highlight">
+          <h4>Browser-Based Configuration</h4>
+          <p><strong>Pros:</strong></p>
+          <ul>
+            <li><strong>Workspace support:</strong> Multiple developers can work simultaneously</li>
+            <li><strong>Browser-based:</strong> Access from any device, any OS</li>
+            <li><strong>Versioning:</strong> Built-in checkpointing and rollback</li>
+            <li><strong>Change tracking:</strong> Audit trail of all modifications</li>
+            <li><strong>Easier learning curve:</strong> Familiar web UI</li>
+          </ul>
+          <p><strong>Current limitations:</strong></p>
+          <ul>
+            <li>Some advanced objects still require Siebel Tools</li>
+            <li>Bulk operations are more limited</li>
+          </ul>
+          <p class="mt-md">
+            <strong>When to use:</strong> All routine configuration work on modern systems (which includes your Siebel CRM training environment)
+          </p>
+        </div>
+
+        <div class="banner banner-success">
+          <div>
+            <strong>🎯 For This Training:</strong> We'll focus exclusively on Web Tools since you're working on Siebel CRM, which fully supports the modern workspace model.
+          </div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/tools_runtime_architecture.png" alt="Tools Architecture">
+          <div class="image-caption">Web Tools integrate directly with the Siebel repository through workspaces</div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 8 minutes</span>
+        </div>
+      </div>
+
+      <!-- Page 28: Understanding Workspaces -->
+      <div class="page-content" id="page-28" style="display: none;">
+        <h2>The Workspace Development Model</h2>
+        <p class="lead">
+          Workspaces are the foundation of modern Siebel development. They enable parallel development, versioning, and safe experimentation.
+        </p>
+
+        <h3>What is a Workspace?</h3>
+        <div class="card">
+          <p>
+            A workspace is an isolated copy of the Siebel repository where you can make changes without affecting other developers or the production system.
+          </p>
+          <p><strong>Think of it like:</strong></p>
+          <ul>
+            <li>Git branches (if you're familiar with version control)</li>
+            <li>A personal sandbox where you can experiment</li>
+            <li>A staging area before changes go live</li>
+          </ul>
+        </div>
+
+        <h3>Workspace Hierarchy</h3>
+        <div class="card card-highlight">
+          <h4>1. MAIN Workspace</h4>
+          <p>
+            The top-level, read-only workspace representing your production repository. No one makes changes directly in MAIN.
+          </p>
+        </div>
+
+        <div class="card card-highlight">
+          <h4>2. Integration Workspace</h4>
+          <p>
+            A child of MAIN, created for a major release or project. This is where changes from multiple developers are consolidated and tested together.
+          </p>
+          <p><strong>Example names:</strong> <code>Release_2024Q1</code>, <code>MobileApp_Project</code></p>
+        </div>
+
+        <div class="card card-highlight">
+          <h4>3. Developer Workspace</h4>
+          <p>
+            A child of an Integration Workspace. This is YOUR personal workspace where you perform all configuration work.
+          </p>
+          <p><strong>Example names:</strong> <code>JSmith_ServiceRequest_Enhancement</code></p>
+        </div>
+
+        <div class="image-container">
+          <img src="images/workspace_hierarchy.png" alt="Workspace Hierarchy">
+          <div class="image-caption">Three-tier workspace structure enables parallel development</div>
         </div>
 
         <div class="banner banner-info">
-            <div>
-                <strong>Learning Objectives:</strong> Master Siebel configuration tools, understand workspace development, configure business components and objects, create workflows, and customize the UI.
-            </div>
-            <div class="meta">Pages 26-55</div>
+          <div>
+            <strong>🔑 Key Concept:</strong> Changes flow upward: Developer Workspace → Integration Workspace → MAIN. This ensures testing at each level before production deployment.
+          </div>
         </div>
 
-        <!-- Page Content Container -->
-        <div class="content">
-            <!-- Page 26: Introduction to Configuration -->
-            <div class="page-content active" id="page-26">
-                <h2>Welcome to Siebel Configuration</h2>
-                <p class="lead">
-                    This module transforms you from a Siebel user into a Siebel configurator. You'll learn to modify and extend Siebel's functionality without writing code.
-                </p>
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 10 minutes</span>
+        </div>
+      </div>
 
-                <div class="card card-highlight">
-                    <h3>What You'll Learn</h3>
-                    <ul class="checklist">
-                        <li>Overview of Siebel Tools and Web Tools</li>
-                        <li>Understanding the workspace development model (IP 17+)</li>
-                        <li>Creating and managing data models</li>
-                        <li>Configuring business components and business objects</li>
-                        <li>Setting up application parameters and system preferences</li>
-                        <li>Creating and managing workflows</li>
-                        <li>Customizing the user interface</li>
-                        <li>Personalizing user experiences</li>
-                    </ul>
-                </div>
+      <!-- Page 29: Workspace Lifecycle -->
+      <div class="page-content" id="page-29" style="display: none;">
+        <h2>Workspace Lifecycle Operations</h2>
+        <p class="lead">
+          Understanding the workspace lifecycle is critical for effective collaboration and change management.
+        </p>
 
-                <div class="banner banner-warning">
-                    <div>
-                        <strong>⚠️ Important:</strong> Configuration changes affect all users. In production environments, always test changes in a development environment first and follow your organization's change management procedures.
-                    </div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 5 minutes</span>
-                </div>
-            </div>
-
-            <!-- Page 27: Siebel Tools vs Web Tools -->
-            <div class="page-content" id="page-27" style="display: none;">
-                <h2>Siebel Tools vs. Web Tools</h2>
-                <p class="lead">
-                    Historically, Siebel configuration required Siebel Tools - a Windows desktop application. With IP 17+, Oracle introduced Web Tools, bringing configuration to the browser.
-                </p>
-
-                <h3>Siebel Tools (Legacy)</h3>
-                <div class="card">
-                    <h4>Windows Desktop Application</h4>
-                    <p><strong>Pros:</strong></p>
-                    <ul>
-                        <li>Full access to all repository objects</li>
-                        <li>Advanced search and filter capabilities</li>
-                        <li>Direct database connection for complex operations</li>
-                    </ul>
-                    <p><strong>Cons:</strong></p>
-                    <ul>
-                        <li>Windows-only (no Mac or Linux support)</li>
-                        <li>Requires local installation and setup</li>
-                        <li>No workspace support (single-user locking model)</li>
-                    </ul>
-                    <p class="mt-md">
-                        <strong>When to use:</strong> Advanced scenarios, bulk operations, or if you're on a pre-IP17 version
-                    </p>
-                </div>
-
-                <h3>Siebel Web Tools (Modern - IP 17+)</h3>
-                <div class="card card-highlight">
-                    <h4>Browser-Based Configuration</h4>
-                    <p><strong>Pros:</strong></p>
-                    <ul>
-                        <li><strong>Workspace support:</strong> Multiple developers can work simultaneously</li>
-                        <li><strong>Browser-based:</strong> Access from any device, any OS</li>
-                        <li><strong>Versioning:</strong> Built-in checkpointing and rollback</li>
-                        <li><strong>Change tracking:</strong> Audit trail of all modifications</li>
-                        <li><strong>Easier learning curve:</strong> Familiar web UI</li>
-                    </ul>
-                    <p><strong>Current limitations:</strong></p>
-                    <ul>
-                        <li>Some advanced objects still require Siebel Tools</li>
-                        <li>Bulk operations are more limited</li>
-                    </ul>
-                    <p class="mt-md">
-                        <strong>When to use:</strong> All routine configuration work on IP 17+ systems (which includes your IP 21.7 training environment)
-                    </p>
-                </div>
-
-                <div class="banner banner-success">
-                    <div>
-                        <strong>🎯 For This Training:</strong> We'll focus exclusively on Web Tools since you're working on IP 21.7, which fully supports the modern workspace model.
-                    </div>
-                </div>
-
-                <div class="image-container">
-                    <img src="images/tools_runtime_architecture.png" alt="Tools Architecture">
-                    <div class="image-caption">Web Tools integrate directly with the Siebel repository through workspaces</div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 8 minutes</span>
-                </div>
-            </div>
-
-            <!-- Page 28: Understanding Workspaces -->
-            <div class="page-content" id="page-28" style="display: none;">
-                <h2>The Workspace Development Model</h2>
-                <p class="lead">
-                    Workspaces are the foundation of modern Siebel development. They enable parallel development, versioning, and safe experimentation.
-                </p>
-
-                <h3>What is a Workspace?</h3>
-                <div class="card">
-                    <p>
-                        A workspace is an isolated copy of the Siebel repository where you can make changes without affecting other developers or the production system.
-                    </p>
-                    <p><strong>Think of it like:</strong></p>
-                    <ul>
-                        <li>Git branches (if you're familiar with version control)</li>
-                        <li>A personal sandbox where you can experiment</li>
-                        <li>A staging area before changes go live</li>
-                    </ul>
-                </div>
-
-                <h3>Workspace Hierarchy</h3>
-                <div class="card card-highlight">
-                    <h4>1. MAIN Workspace</h4>
-                    <p>
-                        The top-level, read-only workspace representing your production repository. No one makes changes directly in MAIN.
-                    </p>
-                </div>
-
-                <div class="card card-highlight">
-                    <h4>2. Integration Workspace</h4>
-                    <p>
-                        A child of MAIN, created for a major release or project. This is where changes from multiple developers are consolidated and tested together.
-                    </p>
-                    <p><strong>Example names:</strong> <code>Release_2024Q1</code>, <code>MobileApp_Project</code></p>
-                </div>
-
-                <div class="card card-highlight">
-                    <h4>3. Developer Workspace</h4>
-                    <p>
-                        A child of an Integration Workspace. This is YOUR personal workspace where you perform all configuration work.
-                    </p>
-                    <p><strong>Example names:</strong> <code>JSmith_ServiceRequest_Enhancement</code></p>
-                </div>
-
-                <div class="image-container">
-                    <img src="images/workspace_hierarchy.png" alt="Workspace Hierarchy">
-                    <div class="image-caption">Three-tier workspace structure enables parallel development</div>
-                </div>
-
-                <div class="banner banner-info">
-                    <div>
-                        <strong>🔑 Key Concept:</strong> Changes flow upward: Developer Workspace → Integration Workspace → MAIN. This ensures testing at each level before production deployment.
-                    </div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 10 minutes</span>
-                </div>
-            </div>
-
-            <!-- Page 29: Workspace Lifecycle -->
-            <div class="page-content" id="page-29" style="display: none;">
-                <h2>Workspace Lifecycle Operations</h2>
-                <p class="lead">
-                    Understanding the workspace lifecycle is critical for effective collaboration and change management.
-                </p>
-
-                <h3>Creating a Workspace</h3>
-                <div class="card">
-                    <ol>
-                        <li>Log into Web Tools</li>
-                        <li>Click <strong>Workspace → Create Workspace</strong></li>
-                        <li>Select a parent (usually an Integration Workspace)</li>
-                        <li>Enter a descriptive name (include your name and purpose)</li>
-                        <li>Add a description explaining what you'll be working on</li>
-                        <li>Click <strong>Create</strong></li>
-                    </ol>
-                </div>
-
-                <h3>Opening a Workspace</h3>
-                <div class="card">
-                    <p>Before making any changes, you must "open" your workspace:</p>
-                    <ol>
-                        <li>Click <strong>Workspace → Open Workspace</strong></li>
-                        <li>Select your workspace from the list</li>
-                        <li>Click <strong>Open</strong></li>
-                    </ol>
-                    <p class="mt-md">
-                        <strong>Status bar indicator:</strong> The workspace name appears at the top of Web Tools when a workspace is open.
-                    </p>
-                </div>
-
-                <h3>Locking Objects</h3>
-                <div class="card">
-                    <p>Before editing an object, you must lock it:</p>
-                    <ol>
-                        <li>Find the object you want to modify (e.g., a Business Component)</li>
-                        <li>Right-click and select <strong>Lock</strong></li>
-                        <li>The object is now yours – no one else can modify it in another workspace</li>
-                    </ol>
-                    <p class="mt-md">
-                        <strong>Locked indicator:</strong> Locked objects show a padlock icon
-                    </p>
-                </div>
-
-                <h3>Checkpointing</h3>
-                <div class="card card-highlight">
-                    <p>
-                        A checkpoint is like a "save point" for your workspace. It creates a snapshot of your current changes.
-                    </p>
-                    <p><strong>Why checkpoint?</strong></p>
-                    <ul>
-                        <li>Create restore points before risky changes</li>
-                        <li>Document progress milestones</li>
-                        <li>Enable rollback if something goes wrong</li>
-                    </ul>
-                    <p><strong>How to checkpoint:</strong></p>
-                    <ol>
-                        <li>Click <strong>Workspace → Checkpoint</strong></li>
-                        <li>Enter a descriptive comment</li>
-                        <li>Click <strong>OK</strong></li>
-                    </ol>
-                </div>
-
-                <div class="image-container">
-                    <img src="images/workspace_lifecycle.png" alt="Workspace Lifecycle">
-                    <div class="image-caption">Complete workspace lifecycle from creation to delivery</div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 10 minutes</span>
-                </div>
-            </div>
-
-            <!-- Page 30: Submit and Deliver -->
-            <div class="page-content" id="page-30" style="display: none;">
-                <h2>Submitting and Delivering Changes</h2>
-                <p class="lead">
-                    When your configuration work is complete and tested, you'll submit it for review and delivery to the next level.
-                </p>
-
-                <h3>Submitting for Delivery</h3>
-                <div class="card">
-                    <p>
-                        <strong>Submit</strong> signals that your work is complete and ready for integration.
-                    </p>
-                    <ol>
-                        <li>Ensure all changes are tested</li>
-                        <li>Click <strong>Workspace → Submit for Delivery</strong></li>
-                        <li>Enter completion notes describing what you changed and why</li>
-                        <li>Click <strong>Submit</strong></li>
-                    </ol>
-                    <p class="mt-md">
-                        <strong>Status change:</strong> Your workspace status changes to "Submitted" and is locked for further edits.
-                    </p>
-                </div>
-
-                <h3>Delivering Changes</h3>
-                <div class="card">
-                    <p>
-                        <strong>Deliver</strong> is performed by a release manager or administrator. It merges changes from your workspace into the parent workspace.
-                    </p>
-                    <ol>
-                        <li>Review the submitted workspace and its changes</li>
-                        <li>Resolve any conflicts with other delivered changes</li>
-                        <li>Click <strong>Workspace → Deliver</strong></li>
-                        <li>Confirm the delivery</li>
-                    </ol>
-                    <p class="mt-md">
-                        <strong>Result:</strong> Changes are now in the Integration Workspace and can be tested with other developers' changes.
-                    </p>
-                </div>
-
-                <div class="banner banner-warning">
-                    <div>
-                        <strong>⚠️ Important:</strong> Once delivered, a workspace cannot be reopened. If you need to make more changes, create a new workspace.
-                    </div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 7 minutes</span>
-                </div>
-            </div>
-
-            <!-- Continue with pages 31-55 covering Data Models, Business Components, Workflows, UI Customization -->
-            <!-- I'll add key pages for these sections -->
-
-            <!-- Page 31: Data Model Basics -->
-            <div class="page-content" id="page-31" style="display: none;">
-                <h2>Understanding Siebel's Data Model</h2>
-                <p class="lead">
-                    The data model is the foundation of your Siebel application. It defines how information is structured, stored, and related.
-                </p>
-
-                <h3>Core Data Model Objects</h3>
-
-                <div class="card">
-                    <h4>1. Tables</h4>
-                    <p>
-                        Physical database tables that store data. Siebel table names typically start with <code>S_</code>
-                    </p>
-                    <p><strong>Examples:</strong></p>
-                    <ul>
-                        <li><code>S_ORG_EXT</code> - Organization/Account data</li>
-                        <li><code>S_CONTACT</code> - Contact information</li>
-                        <li><code>S_SRV_REQ</code> - Service Request records</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h4>2. Columns</h4>
-                    <p>
-                        Fields within a table. Column naming conventions:
-                    </p>
-                    <ul>
-                        <li><code>ROW_ID</code> - Primary key (unique identifier)</li>
-                        <li><code>NAME</code> - Common descriptor field</li>
-                        <li><code>PAR_ROW_ID</code> - Foreign key to parent record</li>
-                        <li><code>X_*</code> - Custom extension columns</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h4>3. Indexes</h4>
-                    <p>
-                        Database indexes improve query performance. Siebel automatically creates indexes for:
-                    </p>
-                    <ul>
-                        <li>Primary keys (ROW_ID)</li>
-                        <li>Foreign keys (PAR_ROW_ID, etc.)</li>
-                        <li>Frequently searched columns</li>
-                    </ul>
-                </div>
-
-                <div class="image-container">
-                    <img src="images/data_model_layers.png" alt="Data Model Layers">
-                    <div class="image-caption">Siebel's layered data model from physical tables to business objects</div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 8 minutes</span>
-                </div>
-            </div>
-
-            <!-- Continuing with more configuration pages... -->
-            <!-- For space, I'll jump to key topics -->
-
-            <!-- Page 40: Business Components -->
-            <div class="page-content" id="page-40" style="display: none;">
-                <h2>Configuring Business Components</h2>
-                <p class="lead">
-                    Business Components (BCs) are the heart of Siebel's data layer. They map database tables to logical business entities that users interact with.
-                </p>
-
-                <h3>What is a Business Component?</h3>
-                <div class="card">
-                    <p>
-                        A BC is a metadata definition that:
-                    </p>
-                    <ul>
-                        <li>Maps to one primary table (base table)</li>
-                        <li>Can join to additional tables for calculated fields</li>
-                        <li>Defines which fields are visible and editable</li>
-                        <li>Contains validation rules and calculated values</li>
-                        <li>Controls search behavior</li>
-                    </ul>
-                </div>
-
-                <h3>Key BC Properties</h3>
-                <div class="card">
-                    <h4>Table</h4>
-                    <p>The primary database table this BC represents</p>
-                    <p><strong>Example:</strong> The "Account" BC maps to table <code>S_ORG_EXT</code></p>
-                </div>
-
-                <div class="card">
-                    <h4>Search Specification</h4>
-                    <p>SQL WHERE clause that filters which records are visible</p>
-                    <p><strong>Example:</strong> <code>[Status] <> 'Inactive'</code> hides inactive records</p>
-                </div>
-
-                <div class="card">
-                    <h4>Sort Specification</h4>
-                    <p>Default sort order for query results</p>
-                    <p><strong>Example:</strong> <code>[Name] ASC</code> sorts alphabetically by name</p>
-                </div>
-
-                <div class="image-container">
-                    <img src="images/business_component_mapping.png" alt="Business Component Mapping">
-                    <div class="image-caption">How Business Components map tables to logical entities</div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 9 minutes</span>
-                </div>
-            </div>
-
-            <!-- Page 45: Workflows -->
-            <div class="page-content" id="page-45" style="display: none;">
-                <h2>Creating and Managing Workflows</h2>
-                <p class="lead">
-                    Workflow Process Manager allows you to automate business processes using a visual drag-and-drop designer.
-                </p>
-
-                <h3>When to Use Workflows</h3>
-                <div class="card">
-                    <ul>
-                        <li><strong>Multi-step processes:</strong> Approval workflows, escalations</li>
-                        <li><strong>Data integration:</strong> Send/receive data from external systems</li>
-                        <li><strong>Complex business logic:</strong> Branching decisions based on multiple criteria</li>
-                        <li><strong>Scheduled tasks:</strong> Batch operations that run automatically</li>
-                    </ul>
-                </div>
-
-                <h3>Workflow Components</h3>
-                <div class="card card-highlight">
-                    <h4>Process</h4>
-                    <p>The top-level workflow definition containing all steps and logic</p>
-                </div>
-
-                <div class="card card-highlight">
-                    <h4>Steps</h4>
-                    <p>Individual actions within the workflow:</p>
-                    <ul>
-                        <li><strong>Business Service:</strong> Call a Siebel or custom service</li>
-                        <li><strong>Decision Point:</strong> Branch based on conditions</li>
-                        <li><strong>Sub-Process:</strong> Call another workflow</li>
-                        <li><strong>Wait:</strong> Pause until a condition is met</li>
-                    </ul>
-                </div>
-
-                <div class="image-container">
-                    <img src="images/workflow_designer.png" alt="Workflow Designer">
-                    <div class="image-caption">Visual workflow designer with drag-and-drop steps</div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 10 minutes</span>
-                </div>
-            </div>
-
-            <!-- Page 50: UI Customization -->
-            <div class="page-content" id="page-50" style="display: none;">
-                <h2>Customizing the User Interface</h2>
-                <p class="lead">
-                    Siebel's UI is highly customizable. You can add fields, rearrange layouts, and create entirely new screens.
-                </p>
-
-                <h3>UI Object Hierarchy</h3>
-                <div class="card">
-                    <h4>Application → Screen → View → Applet → Control</h4>
-                    <p>Each level builds on the previous:</p>
-                    <ul>
-                        <li><strong>Application:</strong> Top-level container (e.g., "Call Center")</li>
-                        <li><strong>Screen:</strong> Navigation grouping (e.g., "Service Requests")</li>
-                        <li><strong>View:</strong> Complete page layout</li>
-                        <li><strong>Applet:</strong> UI component showing BC data</li>
-                        <li><strong>Control:</strong> Individual field or button</li>
-                    </ul>
-                </div>
-
-                <div class="image-container">
-                    <img src="images/web_layout_editor.png" alt="Web Layout Editor">
-                    <div class="image-caption">Web Tools' visual layout editor for applets</div>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Estimated reading time: 8 minutes</span>
-                </div>
-            </div>
-
-            <!-- Final Summary Page -->
-            <div class="page-content" id="page-55" style="display: none;">
-                <h2>Module Summary: Configuring Siebel Applications</h2>
-                <p class="lead">
-                    Excellent work! You now understand how to configure Siebel using the modern workspace model.
-                </p>
-
-                <div class="card card-highlight">
-                    <h3>✅ What You've Mastered</h3>
-                    <ul class="checklist">
-                        <li>Differences between Siebel Tools and Web Tools</li>
-                        <li>Workspace development model and lifecycle</li>
-                        <li>Creating, opening, and managing workspaces</li>
-                        <li>Locking, checkpointing, submitting, and delivering changes</li>
-                        <li>Understanding Siebel's data model architecture</li>
-                        <li>Configuring Business Components and Business Objects</li>
-                        <li>Creating workflows to automate processes</li>
-                        <li>Customizing the user interface</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>📚 Coming Next</h3>
-                    <p>In <strong>Topic 3: Managing Customer Data</strong>, you'll learn:</p>
-                    <ul>
-                        <li>Data quality and validation techniques</li>
-                        <li>Import/export processes (EIM)</li>
-                        <li>Customer segmentation strategies</li>
-                        <li>Contact and account management best practices</li>
-                        <li>Service request handling</li>
-                    </ul>
-                </div>
-
-                <div class="text-center mt-lg">
-                    <a href="day1_topic3_data_management.html" class="btn btn-primary" style="font-size: 16px; padding: 14px 28px;">
-                        Continue to Topic 3: Managing Customer Data →
-                    </a>
-                </div>
-
-                <div class="meta mt-lg">
-                    <span class="meta-time">Module completion time: ~2 hours</span>
-                </div>
-            </div>
-
+        <h3>Creating a Workspace</h3>
+        <div class="card">
+          <ol>
+            <li>Log into Web Tools</li>
+            <li>Click <strong>Workspace → Create Workspace</strong></li>
+            <li>Select a parent (usually an Integration Workspace)</li>
+            <li>Enter a descriptive name (include your name and purpose)</li>
+            <li>Add a description explaining what you'll be working on</li>
+            <li>Click <strong>Create</strong></li>
+          </ol>
         </div>
 
-        <!-- Footer Navigation -->
-        <div class="footer-nav">
-            <div class="footer-info">
-                <div class="footer-page-number">
-                    <span class="page-number-display">Page 26 of 55</span>
-                </div>
-                <div class="footer-time">
-                    <span class="meta-time">Est. 2 hours total</span>
-                </div>
-            </div>
-            <div class="footer-nav-buttons">
-                <button class="btn btn-secondary btn-prev" disabled>← Previous</button>
-                <button class="btn btn-primary btn-next">Next →</button>
-                <button class="btn btn-primary" id="mark-complete-btn" style="display: none; background: var(--success);">
-                    ✓ Mark Complete
-                </button>
-            </div>
+        <h3>Opening a Workspace</h3>
+        <div class="card">
+          <p>Before making any changes, you must "open" your workspace:</p>
+          <ol>
+            <li>Click <strong>Workspace → Open Workspace</strong></li>
+            <li>Select your workspace from the list</li>
+            <li>Click <strong>Open</strong></li>
+          </ol>
+          <p class="mt-md">
+            <strong>Status bar indicator:</strong> The workspace name appears at the top of Web Tools when a workspace is open.
+          </p>
         </div>
+
+        <h3>Locking Objects</h3>
+        <div class="card">
+          <p>Before editing an object, you must lock it:</p>
+          <ol>
+            <li>Find the object you want to modify (e.g., a Business Component)</li>
+            <li>Right-click and select <strong>Lock</strong></li>
+            <li>The object is now yours – no one else can modify it in another workspace</li>
+          </ol>
+          <p class="mt-md">
+            <strong>Locked indicator:</strong> Locked objects show a padlock icon
+          </p>
+        </div>
+
+        <h3>Checkpointing</h3>
+        <div class="card card-highlight">
+          <p>
+            A checkpoint is like a "save point" for your workspace. It creates a snapshot of your current changes.
+          </p>
+          <p><strong>Why checkpoint?</strong></p>
+          <ul>
+            <li>Create restore points before risky changes</li>
+            <li>Document progress milestones</li>
+            <li>Enable rollback if something goes wrong</li>
+          </ul>
+          <p><strong>How to checkpoint:</strong></p>
+          <ol>
+            <li>Click <strong>Workspace → Checkpoint</strong></li>
+            <li>Enter a descriptive comment</li>
+            <li>Click <strong>OK</strong></li>
+          </ol>
+        </div>
+
+        <div class="image-container">
+          <img src="images/workspace_lifecycle.png" alt="Workspace Lifecycle">
+          <div class="image-caption">Complete workspace lifecycle from creation to delivery</div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 10 minutes</span>
+        </div>
+      </div>
+
+      <!-- Page 30: Submit and Deliver -->
+      <div class="page-content" id="page-30" style="display: none;">
+        <h2>Submitting and Delivering Changes</h2>
+        <p class="lead">
+          When your configuration work is complete and tested, you'll submit it for review and delivery to the next level.
+        </p>
+
+        <h3>Submitting for Delivery</h3>
+        <div class="card">
+          <p>
+            <strong>Submit</strong> signals that your work is complete and ready for integration.
+          </p>
+          <ol>
+            <li>Ensure all changes are tested</li>
+            <li>Click <strong>Workspace → Submit for Delivery</strong></li>
+            <li>Enter completion notes describing what you changed and why</li>
+            <li>Click <strong>Submit</strong></li>
+          </ol>
+          <p class="mt-md">
+            <strong>Status change:</strong> Your workspace status changes to "Submitted" and is locked for further edits.
+          </p>
+        </div>
+
+        <h3>Delivering Changes</h3>
+        <div class="card">
+          <p>
+            <strong>Deliver</strong> is performed by a release manager or administrator. It merges changes from your workspace into the parent workspace.
+          </p>
+          <ol>
+            <li>Review the submitted workspace and its changes</li>
+            <li>Resolve any conflicts with other delivered changes</li>
+            <li>Click <strong>Workspace → Deliver</strong></li>
+            <li>Confirm the delivery</li>
+          </ol>
+          <p class="mt-md">
+            <strong>Result:</strong> Changes are now in the Integration Workspace and can be tested with other developers' changes.
+          </p>
+        </div>
+
+        <div class="banner banner-warning">
+          <div>
+            <strong>⚠️ Important:</strong> Once delivered, a workspace cannot be reopened. If you need to make more changes, create a new workspace.
+          </div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 7 minutes</span>
+        </div>
+      </div>
+
+      <!-- Continue with pages 31-55 covering Data Models, Business Components, Workflows, UI Customization -->
+      <!-- I'll add key pages for these sections -->
+
+      <!-- Page 31: Data Model Basics -->
+      <div class="page-content" id="page-31" style="display: none;">
+        <h2>Understanding Siebel's Data Model</h2>
+        <p class="lead">
+          The data model is the foundation of your Siebel application. It defines how information is structured, stored, and related.
+        </p>
+
+        <h3>Core Data Model Objects</h3>
+
+        <div class="card">
+          <h4>1. Tables</h4>
+          <p>
+            Physical database tables that store data. Siebel table names typically start with <code>S_</code>
+          </p>
+          <p><strong>Examples:</strong></p>
+          <ul>
+            <li><code>S_ORG_EXT</code> - Organization/Account data</li>
+            <li><code>S_CONTACT</code> - Contact information</li>
+            <li><code>S_SRV_REQ</code> - Service Request records</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>2. Columns</h4>
+          <p>
+            Fields within a table. Column naming conventions:
+          </p>
+          <ul>
+            <li><code>ROW_ID</code> - Primary key (unique identifier)</li>
+            <li><code>NAME</code> - Common descriptor field</li>
+            <li><code>PAR_ROW_ID</code> - Foreign key to parent record</li>
+            <li><code>X_*</code> - Custom extension columns</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>3. Indexes</h4>
+          <p>
+            Database indexes improve query performance. Siebel automatically creates indexes for:
+          </p>
+          <ul>
+            <li>Primary keys (ROW_ID)</li>
+            <li>Foreign keys (PAR_ROW_ID, etc.)</li>
+            <li>Frequently searched columns</li>
+          </ul>
+        </div>
+
+        <div class="image-container">
+          <img src="images/data_model_layers.png" alt="Data Model Layers">
+          <div class="image-caption">Siebel's layered data model from physical tables to business objects</div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 8 minutes</span>
+        </div>
+      </div>
+
+      <!-- Continuing with more configuration pages... -->
+      <!-- For space, I'll jump to key topics -->
+
+      <!-- Page 40: Business Components -->
+      <div class="page-content" id="page-40" style="display: none;">
+        <h2>Configuring Business Components</h2>
+        <p class="lead">
+          Business Components (BCs) are the heart of Siebel's data layer. They map database tables to logical business entities that users interact with.
+        </p>
+
+        <h3>What is a Business Component?</h3>
+        <div class="card">
+          <p>
+            A BC is a metadata definition that:
+          </p>
+          <ul>
+            <li>Maps to one primary table (base table)</li>
+            <li>Can join to additional tables for calculated fields</li>
+            <li>Defines which fields are visible and editable</li>
+            <li>Contains validation rules and calculated values</li>
+            <li>Controls search behavior</li>
+          </ul>
+        </div>
+
+        <h3>Key BC Properties</h3>
+        <div class="card">
+          <h4>Table</h4>
+          <p>The primary database table this BC represents</p>
+          <p><strong>Example:</strong> The "Account" BC maps to table <code>S_ORG_EXT</code></p>
+        </div>
+
+        <div class="card">
+          <h4>Search Specification</h4>
+          <p>SQL WHERE clause that filters which records are visible</p>
+          <p><strong>Example:</strong> <code>[Status] <> 'Inactive'</code> hides inactive records</p>
+        </div>
+
+        <div class="card">
+          <h4>Sort Specification</h4>
+          <p>Default sort order for query results</p>
+          <p><strong>Example:</strong> <code>[Name] ASC</code> sorts alphabetically by name</p>
+        </div>
+
+        <div class="image-container">
+          <img src="images/business_component_mapping.png" alt="Business Component Mapping">
+          <div class="image-caption">How Business Components map tables to logical entities</div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 9 minutes</span>
+        </div>
+      </div>
+
+      <!-- Page 45: Workflows -->
+      <div class="page-content" id="page-45" style="display: none;">
+        <h2>Creating and Managing Workflows</h2>
+        <p class="lead">
+          Workflow Process Manager allows you to automate business processes using a visual drag-and-drop designer.
+        </p>
+
+        <h3>When to Use Workflows</h3>
+        <div class="card">
+          <ul>
+            <li><strong>Multi-step processes:</strong> Approval workflows, escalations</li>
+            <li><strong>Data integration:</strong> Send/receive data from external systems</li>
+            <li><strong>Complex business logic:</strong> Branching decisions based on multiple criteria</li>
+            <li><strong>Scheduled tasks:</strong> Batch operations that run automatically</li>
+          </ul>
+        </div>
+
+        <h3>Workflow Components</h3>
+        <div class="card card-highlight">
+          <h4>Process</h4>
+          <p>The top-level workflow definition containing all steps and logic</p>
+        </div>
+
+        <div class="card card-highlight">
+          <h4>Steps</h4>
+          <p>Individual actions within the workflow:</p>
+          <ul>
+            <li><strong>Business Service:</strong> Call a Siebel or custom service</li>
+            <li><strong>Decision Point:</strong> Branch based on conditions</li>
+            <li><strong>Sub-Process:</strong> Call another workflow</li>
+            <li><strong>Wait:</strong> Pause until a condition is met</li>
+          </ul>
+        </div>
+
+        <div class="image-container">
+          <img src="images/workflow_designer.png" alt="Workflow Designer">
+          <div class="image-caption">Visual workflow designer with drag-and-drop steps</div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 10 minutes</span>
+        </div>
+      </div>
+
+      <!-- Page 50: UI Customization -->
+      <div class="page-content" id="page-50" style="display: none;">
+        <h2>Customizing the User Interface</h2>
+        <p class="lead">
+          Siebel's UI is highly customizable. You can add fields, rearrange layouts, and create entirely new screens.
+        </p>
+
+        <h3>UI Object Hierarchy</h3>
+        <div class="card">
+          <h4>Application → Screen → View → Applet → Control</h4>
+          <p>Each level builds on the previous:</p>
+          <ul>
+            <li><strong>Application:</strong> Top-level container (e.g., "Call Center")</li>
+            <li><strong>Screen:</strong> Navigation grouping (e.g., "Service Requests")</li>
+            <li><strong>View:</strong> Complete page layout</li>
+            <li><strong>Applet:</strong> UI component showing BC data</li>
+            <li><strong>Control:</strong> Individual field or button</li>
+          </ul>
+        </div>
+
+        <div class="image-container">
+          <img src="images/web_layout_editor.png" alt="Web Layout Editor">
+          <div class="image-caption">Web Tools' visual layout editor for applets</div>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Estimated reading time: 8 minutes</span>
+        </div>
+      </div>
+
+      <!-- Final Summary Page -->
+      <div class="page-content" id="page-55" style="display: none;">
+        <h2>Module Summary: Configuring Siebel Applications</h2>
+        <p class="lead">
+          Excellent work! You now understand how to configure Siebel using the modern workspace model.
+        </p>
+
+        <div class="card card-highlight">
+          <h3>✅ What You've Mastered</h3>
+          <ul class="checklist">
+            <li>Differences between Siebel Tools and Web Tools</li>
+            <li>Workspace development model and lifecycle</li>
+            <li>Creating, opening, and managing workspaces</li>
+            <li>Locking, checkpointing, submitting, and delivering changes</li>
+            <li>Understanding Siebel's data model architecture</li>
+            <li>Configuring Business Components and Business Objects</li>
+            <li>Creating workflows to automate processes</li>
+            <li>Customizing the user interface</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📚 Coming Next</h3>
+          <p>In <strong>Topic 3: Managing Customer Data</strong>, you'll learn:</p>
+          <ul>
+            <li>Data quality and validation techniques</li>
+            <li>Import/export processes (EIM)</li>
+            <li>Customer segmentation strategies</li>
+            <li>Contact and account management best practices</li>
+            <li>Service request handling</li>
+          </ul>
+        </div>
+
+        <div class="text-center mt-lg">
+          <a href="day1_topic3_data_management.html" class="btn btn-primary" style="font-size: 16px; padding: 14px 28px;">
+            Continue to Topic 3: Managing Customer Data →
+          </a>
+        </div>
+
+        <div class="meta mt-lg">
+          <span class="meta-time">Module completion time: ~2 hours</span>
+        </div>
+      </div>
+
     </div>
 
-    <script src="js/navigation.js"></script>
-    <script>
-        // Initialize page navigation for this module (30 pages total: 26-55)
-        PageNavigator.init(26, 55);
-        
-        // Show first page of this module
-        PageNavigator.showPage(26);
-    </script>
+    <!-- Footer Navigation -->
+    <div class="footer-nav">
+      <div class="footer-info">
+        <div class="footer-page-number">
+          <span class="page-number-display">Page 26 of 55</span>
+        </div>
+        <div class="footer-time">
+          <span class="meta-time">Est. 2 hours total</span>
+        </div>
+      </div>
+      <div class="footer-nav-buttons">
+        <button class="btn btn-secondary btn-prev" disabled>← Previous</button>
+        <button class="btn btn-primary btn-next">Next →</button>
+        <button class="btn btn-primary" id="mark-complete-btn" style="display: none; background: var(--success);">
+          ✓ Mark Complete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/navigation.js"></script>
+  <script>
+    // Initialize page navigation for this module (30 pages total: 26-55)
+    PageNavigator.init(26, 55);
+    
+    // Show first page of this module
+    PageNavigator.showPage(26);
+  </script>
 </body>
 </html>

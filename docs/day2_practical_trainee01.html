@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAINEE01 - Day 2 Practicals</title>
+    <link rel="stylesheet" href="css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="trainee-badge">👤 TRAINEE01</div>
+        
+        <header class="topic-header">
+            <h1>Day 2 Practical Assignment - TRAINEE01</h1>
+            <div class="time-estimate">⏱️ Total Duration: 3 Hours</div>
+        </header>
+
+        <nav class="page-nav">
+            <a href="day2_practicals.html" class="nav-btn">← Back to Practicals</a>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+        </nav>
+
+        <section class="content-section">
+            <h2>📊 Lab 1: Create Opportunity Pipeline Report (60 minutes)</h2>
+            <h3>Your Assignment: Email Services Pipeline Analysis</h3>
+            
+            <div class="assignment-step">
+                <h4>Step 1: Create Custom Report</h4>
+                <ol>
+                    <li>Navigate to: Reports → Sales Reports</li>
+                    <li>Click <strong>New Report</strong></li>
+                    <li>Name: <code>TRAINEE01_Email_Services_Pipeline</code></li>
+                    <li>Data Source: Opportunity BC</li>
+                    <li>Add columns: Opportunity Name, Sales Stage, Revenue, Close Date, Owner</li>
+                    <li>Filter: Product contains "Email" AND Status = "Open"</li>
+                    <li>Group By: Sales Stage</li>
+                    <li>Add calculation: SUM(Revenue) per stage</li>
+                    <li>Sort: Sales Stage (custom order: Qualification, Needs Analysis, Proposal, Negotiation)</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 2: Add Chart Visualization</h4>
+                <ol>
+                    <li>Add funnel chart showing pipeline stages</li>
+                    <li>X-axis: Sales Stage</li>
+                    <li>Y-axis: Total Revenue</li>
+                    <li>Color code: Green for Negotiation, Blue for Proposal, Yellow for earlier stages</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 3: Test and Export</h4>
+                <ol>
+                    <li>Run report with sample data</li>
+                    <li>Export to Excel</li>
+                    <li>Create pivot table in Excel to analyze by Owner</li>
+                    <li>Screenshot results</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🎯 Lab 2: Configure Sales Dashboard (60 minutes)</h2>
+            <h3>Your Assignment: Email Support Performance Dashboard</h3>
+            
+            <div class="assignment-step">
+                <h4>Dashboard Components</h4>
+                <ul>
+                    <li><strong>KPI Tile 1:</strong> Total Open Email SRs (count)</li>
+                    <li><strong>KPI Tile 2:</strong> Average Resolution Time (hours)</li>
+                    <li><strong>Chart 1:</strong> Email SRs by Priority (bar chart)</li>
+                    <li><strong>Chart 2:</strong> SLA Compliance % (gauge chart - target 95%)</li>
+                    <li><strong>List:</strong> Top 5 At-Risk SRs (close to SLA breach)</li>
+                </ul>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Implementation Steps</h4>
+                <ol>
+                    <li>Navigate to: Administration → Analytics → Dashboards</li>
+                    <li>Create new dashboard: <code>TRAINEE01_Email_Support_Dashboard</code></li>
+                    <li>Add KPI applets (configure calculations)</li>
+                    <li>Add chart applets (configure data sources and formatting)</li>
+                    <li>Add list applet (configure filters for at-risk SRs)</li>
+                    <li>Set auto-refresh: 5 minutes</li>
+                    <li>Test all components display correctly</li>
+                    <li>Screenshot completed dashboard</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⏰ Lab 3: Schedule Report Delivery (30 minutes)</h2>
+            <h3>Your Assignment: Weekly Email Performance Report</h3>
+            
+            <div class="assignment-step">
+                <h4>Configuration</h4>
+                <ol>
+                    <li>Open your pipeline report from Lab 1</li>
+                    <li>Click <strong>Schedule</strong></li>
+                    <li>Frequency: Weekly, every Monday at 8:00 AM</li>
+                    <li>Output Format: PDF</li>
+                    <li>Recipients: Your email address</li>
+                    <li>Subject: "Weekly Email Services Pipeline - Week of [Date]"</li>
+                    <li>Message body: "Attached is the weekly pipeline report for email services opportunities."</li>
+                    <li>Save schedule</li>
+                    <li>Test: Run now to verify email delivery</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📝 Lab 4: Advanced Workflow Configuration (30 minutes)</h2>
+            <h3>Your Assignment: Email SR Auto-Assignment</h3>
+            
+            <div class="assignment-step">
+                <h4>Workflow Logic</h4>
+                <p>Create workflow to auto-assign email SRs based on priority:</p>
+                <ul>
+                    <li>IF Priority = "High" → Assign to Senior Email Support team (round robin)</li>
+                    <li>IF Priority = "Medium" → Assign to Standard Email Support team</li>
+                    <li>IF Priority = "Low" → Add to general queue</li>
+                    <li>Send email notification to assigned agent</li>
+                </ul>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Implementation</h4>
+                <ol>
+                    <li>Open Siebel Tools or Web Tools</li>
+                    <li>Navigate to: Workflow Processes</li>
+                    <li>Create new process: <code>TRAINEE01_Email_SR_Assignment</code></li>
+                    <li>Add Decision step: Check Priority field</li>
+                    <li>Add Siebel Operation steps: Update SR Owner</li>
+                    <li>Add Business Service step: Send email notification</li>
+                    <li>Connect steps with connectors</li>
+                    <li>Test workflow with sample SRs</li>
+                    <li>Document workflow logic and verify completion</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📤 Submission Checklist</h2>
+            <div class="highlight">
+                <h3>Deliverables:</h3>
+                <ol>
+                    <li>✅ Pipeline report Excel export</li>
+                    <li>✅ Dashboard screenshot</li>
+                    <li>✅ Scheduled report confirmation email</li>
+                    <li>✅ Workflow process diagram screenshot</li>
+                    <li>✅ Test results documentation</li>
+                </ol>
+                <p>Organize in folder: <code>TRAINEE01_Day2_Practicals</code></p>
+            </div>
+        </section>
+
+        <nav class="page-nav">
+            <a href="day2_practicals.html" class="nav-btn">← Back to Practicals</a>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+        </nav>
+    </div>
+    <script src="js/navigation.js"></script>
+</body>
+</html>

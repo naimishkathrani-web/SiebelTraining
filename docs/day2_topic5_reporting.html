@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2 Topic 5 - Reporting & Analytics - Oracle Siebel CRM IP 21.7</title>
+    <link rel="stylesheet" href="css/training.css">
+</head>
+<body>
+    <div class="container">
+        <header class="topic-header">
+            <div class="page-number">Pages 116-145</div>
+            <h1>📊 Day 2 - Topic 5: Reporting & Analytics</h1>
+            <div class="time-estimate">⏱️ Estimated Time: 2 Hours</div>
+        </header>
+
+        <nav class="page-nav">
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+            <a href="day2_topic4_advanced.html" class="nav-btn">← Topic 4</a>
+            <a href="day2_practicals.html" class="nav-btn">Practicals →</a>
+        </nav>
+
+        <!-- Page 116: Introduction -->
+        <section class="content-section">
+            <div class="page-marker">Page 116</div>
+            <h2>📈 Module Overview</h2>
+            <p>Data is only valuable when you can extract insights. Siebel provides comprehensive reporting and analytics capabilities to transform your CRM data into actionable business intelligence.</p>
+            
+            <h3>What You'll Learn:</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Reporting Tools</h4>
+                    <ul>
+                        <li>Standard Reports</li>
+                        <li>Custom Report Creation</li>
+                        <li>BI Publisher Integration</li>
+                        <li>Export Capabilities</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Analytics & Dashboards</h4>
+                    <ul>
+                        <li>Real-time Dashboards</li>
+                        <li>KPI Configuration</li>
+                        <li>Performance Metrics</li>
+                        <li>Visualization Options</li>
+                    </ul>
+                </div>
+            </div>
+
+            <img src="images/reporting.png" alt="Siebel Reporting Overview" class="content-image">
+        </section>
+
+        <!-- Page 117: Reporting Architecture -->
+        <section class="content-section">
+            <div class="page-marker">Page 117</div>
+            <h2>🏗️ Siebel Reporting Architecture</h2>
+            
+            <h3>Reporting Components</h3>
+            <div class="code-block">
+                <strong>Presentation Layer:</strong><br>
+                • Report Viewer (HTML, PDF, Excel)<br>
+                • Dashboards and Charts<br>
+                • Email Delivery<br><br>
+                
+                <strong>Logic Layer:</strong><br>
+                • Report Definitions<br>
+                • Query Builder<br>
+                • Calculation Engine<br>
+                • Scheduling Service<br><br>
+                
+                <strong>Data Layer:</strong><br>
+                • Siebel Database<br>
+                • Analytics Database (optional)<br>
+                • External Data Sources<br>
+            </div>
+
+            <h3>Report Types</h3>
+            <div class="info-box">
+                <p><strong>List Reports:</strong> Tabular data exports (Accounts, Opportunities, SRs)</p>
+                <p><strong>Summary Reports:</strong> Grouped data with totals and subtotals</p>
+                <p><strong>Cross-Tab Reports:</strong> Pivot table style with rows and columns</p>
+                <p><strong>Chart Reports:</strong> Visual representations (bar, line, pie)</p>
+                <p><strong>Dashboard Reports:</strong> Multiple charts on single page</p>
+                <p><strong>Form Reports:</strong> Detail view of single record (e.g., invoice)</p>
+            </div>
+        </section>
+
+        <!-- Page 118: Standard Reports -->
+        <section class="content-section">
+            <div class="page-marker">Page 118</div>
+            <h2>📋 Standard Reports</h2>
+            
+            <h3>Out-of-the-Box Reports</h3>
+            <p>Siebel eCommunications includes 200+ pre-built reports ready to use immediately.</p>
+            
+            <h3>Sales Reports</h3>
+            <ul>
+                <li><strong>Pipeline Report:</strong> Opportunities by stage and sales rep</li>
+                <li><strong>Forecast Report:</strong> Revenue forecast by period</li>
+                <li><strong>Win/Loss Analysis:</strong> Closed opportunities with reasons</li>
+                <li><strong>Activity Report:</strong> Sales activities by rep and account</li>
+                <li><strong>Quota Attainment:</strong> Performance vs. targets</li>
+            </ul>
+
+            <h3>Service Reports</h3>
+            <ul>
+                <li><strong>Open SR Report:</strong> All open service requests by priority</li>
+                <li><strong>SLA Compliance:</strong> SLA met vs. breached</li>
+                <li><strong>Resolution Time:</strong> Average time to resolve by category</li>
+                <li><strong>Agent Performance:</strong> SRs handled per agent</li>
+                <li><strong>Customer Satisfaction:</strong> Survey results and CSAT scores</li>
+            </ul>
+
+            <h3>Marketing Reports</h3>
+            <ul>
+                <li><strong>Campaign Performance:</strong> Responses, leads, ROI</li>
+                <li><strong>Lead Source Analysis:</strong> Lead volume by source</li>
+                <li><strong>Conversion Funnel:</strong> Lead to opportunity to customer</li>
+                <li><strong>Email Analytics:</strong> Open rates, click rates, unsubscribes</li>
+            </ul>
+
+            <div class="success-box">
+                <strong>💡 Tip:</strong> Start with standard reports and customize them rather than building from scratch. Saves time and follows best practices.
+            </div>
+        </section>
+
+        <!-- Page 119: Running Reports -->
+        <section class="content-section">
+            <div class="page-marker">Page 119</div>
+            <h2>▶️ Running Reports</h2>
+            
+            <h3>How to Run a Report</h3>
+            <ol>
+                <li>Navigate to: Site Map → Reports → [Report Category]</li>
+                <li>Select desired report from list</li>
+                <li>Click <strong>Run Report</strong> button</li>
+                <li>Set parameters (date range, filters, grouping)</li>
+                <li>Choose output format (HTML, PDF, Excel, CSV)</li>
+                <li>Click <strong>OK</strong> to generate</li>
+                <li>View results in browser or download file</li>
+            </ol>
+
+            <h3>Report Parameters</h3>
+            <div class="code-block">
+                <strong>Common Parameters:</strong><br>
+                • Date Range: Last Month, This Quarter, Custom dates<br>
+                • Owner: Specific user or All users<br>
+                • Status: Active, Closed, All<br>
+                • Organization: Filter by business unit<br>
+                • Product: Filter by product line<br>
+                • Custom Filters: Account type, revenue range, etc.
+            </div>
+
+            <h3>Output Formats</h3>
+            <div class="two-column">
+                <div>
+                    <h4>HTML</h4>
+                    <p>Interactive viewing in browser</p>
+                    <p>✅ Sortable columns, clickable links</p>
+                </div>
+                <div>
+                    <h4>PDF</h4>
+                    <p>Formatted document for printing</p>
+                    <p>✅ Professional appearance, secure</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h4>Excel</h4>
+                    <p>Spreadsheet for further analysis</p>
+                    <p>✅ Pivot tables, formulas, charts</p>
+                </div>
+                <div>
+                    <h4>CSV</h4>
+                    <p>Raw data for imports</p>
+                    <p>✅ Lightweight, universal compatibility</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 120: Creating Custom Reports -->
+        <section class="content-section">
+            <div class="page-marker">Page 120</div>
+            <h2>🔨 Creating Custom Reports</h2>
+            
+            <h3>Report Builder Interface</h3>
+            <p>Siebel's Report Builder provides a wizard-driven interface for creating custom reports without coding.</p>
+            
+            <h3>Report Creation Steps</h3>
+            <ol>
+                <li><strong>Select Data Source:</strong> Choose Business Component (e.g., Account, Opportunity)</li>
+                <li><strong>Choose Fields:</strong> Select columns to include in report</li>
+                <li><strong>Add Calculations:</strong> Sum, Count, Average, Min, Max</li>
+                <li><strong>Set Grouping:</strong> Group by owner, region, product, etc.</li>
+                <li><strong>Define Sorting:</strong> Order results by field(s)</li>
+                <li><strong>Apply Filters:</strong> Limit records (e.g., Status = Active)</li>
+                <li><strong>Format Layout:</strong> Headers, footers, fonts, colors</li>
+                <li><strong>Save and Test:</strong> Name report and run sample</li>
+            </ol>
+
+            <h3>Example: Monthly Sales by Rep</h3>
+            <div class="code-block">
+                <strong>Data Source:</strong> Opportunity BC<br>
+                <strong>Fields:</strong> Owner, Opportunity Name, Revenue, Close Date<br>
+                <strong>Filter:</strong> Status = "Closed Won" AND Close Date = This Month<br>
+                <strong>Group By:</strong> Owner<br>
+                <strong>Calculations:</strong> SUM(Revenue), COUNT(Opportunities)<br>
+                <strong>Sort:</strong> Owner ascending<br>
+                <strong>Output:</strong><br>
+                Rep Name | Opportunities | Total Revenue<br>
+                Smith, John | 15 | $450,000<br>
+                Jones, Mary | 12 | $380,000<br>
+                ...
+            </div>
+        </section>
+
+        <!-- Page 121: Advanced Reporting -->
+        <section class="content-section">
+            <div class="page-marker">Page 121</div>
+            <h2>🎓 Advanced Reporting Techniques</h2>
+            
+            <h3>Calculated Fields</h3>
+            <p>Create custom calculations within reports:</p>
+            
+            <div class="info-box">
+                <p><strong>Average Deal Size:</strong> SUM(Revenue) / COUNT(Opportunities)</p>
+                <p><strong>Win Rate:</strong> (COUNT(Closed Won) / COUNT(All Opportunities)) × 100</p>
+                <p><strong>Days to Close:</strong> Close Date - Created Date</p>
+                <p><strong>Weighted Pipeline:</strong> Revenue × Probability</p>
+                <p><strong>Growth %:</strong> ((This Period - Last Period) / Last Period) × 100</p>
+            </div>
+
+            <h3>Cross-Object Reporting</h3>
+            <p>Pull data from related objects in single report:</p>
+            <div class="code-block">
+                <strong>Opportunity Report with Account Data:</strong><br>
+                Opportunity.Name<br>
+                Opportunity.Revenue<br>
+                Account.Name<br>
+                Account.Industry<br>
+                Account.Annual Revenue<br>
+                Primary Contact.Full Name<br>
+                Primary Contact.Email
+            </div>
+
+            <h3>Sub-Reports</h3>
+            <p>Embed detail reports within summary reports:</p>
+            <ul>
+                <li><strong>Parent:</strong> Accounts grouped by industry</li>
+                <li><strong>Child:</strong> For each account, show all opportunities</li>
+                <li><strong>Benefit:</strong> Comprehensive view in single report</li>
+            </ul>
+        </section>
+
+        <!-- Page 122: BI Publisher Integration -->
+        <section class="content-section">
+            <div class="page-marker">Page 122</div>
+            <h2>📰 Oracle BI Publisher</h2>
+            
+            <div class="note-box">
+                <strong>📌 Training Note:</strong> BI Publisher is included with your Siebel installation and runs within the Siebel environment. No external integration needed - it's a built-in reporting component.
+            </div>
+            
+            <h3>What is BI Publisher?</h3>
+            <p>Oracle BI Publisher is an enterprise reporting tool embedded in Siebel for pixel-perfect formatted reports, complex layouts, and advanced features.</p>
+            
+            <h3>BI Publisher Advantages</h3>
+            <div class="success-box">
+                <ul>
+                    <li><strong>Professional Formatting:</strong> Create polished reports with logos, headers, watermarks</li>
+                    <li><strong>Template-Based:</strong> Use Word/Excel templates for layout</li>
+                    <li><strong>Multi-Format Output:</strong> Generate PDF, Excel, Word, RTF, HTML from single template</li>
+                    <li><strong>Bursting:</strong> Generate personalized reports for multiple recipients</li>
+                    <li><strong>Scheduling:</strong> Automate report delivery</li>
+                    <li><strong>Localization:</strong> Multi-language report generation</li>
+                </ul>
+            </div>
+
+            <h3>Common BI Publisher Reports</h3>
+            <ul>
+                <li><strong>Invoices:</strong> Formatted customer invoices with company branding</li>
+                <li><strong>Quotes:</strong> Professional sales quotes with terms and conditions</li>
+                <li><strong>Statements:</strong> Account statements with transaction detail</li>
+                <li><strong>Letters:</strong> Form letters with mail merge</li>
+                <li><strong>Regulatory Reports:</strong> Compliance reports with specific formatting</li>
+            </ul>
+
+            <img src="images/bi_publisher.png" alt="BI Publisher Sample" class="content-image">
+        </section>
+
+        <!-- Page 123: Dashboards -->
+        <section class="content-section">
+            <div class="page-marker">Page 123</div>
+            <h2>📊 Interactive Dashboards</h2>
+            
+            <h3>Dashboard Overview</h3>
+            <p>Dashboards provide at-a-glance views of key metrics with interactive charts and tables. Users can drill down for details.</p>
+            
+            <img src="images/dashboards.png" alt="Siebel Dashboard" class="content-image">
+            
+            <h3>Dashboard Components</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Chart Applets</h4>
+                    <ul>
+                        <li>Bar/Column Charts</li>
+                        <li>Line/Area Charts</li>
+                        <li>Pie/Donut Charts</li>
+                        <li>Gauge Charts</li>
+                        <li>Funnel Charts</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Data Applets</h4>
+                    <ul>
+                        <li>List Applets</li>
+                        <li>Form Applets</li>
+                        <li>KPI Tiles</li>
+                        <li>Summary Tables</li>
+                        <li>Trend Indicators</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Dashboard Examples</h3>
+            <div class="info-box">
+                <p><strong>Sales Manager Dashboard:</strong></p>
+                <ul>
+                    <li>Pipeline value by stage (funnel chart)</li>
+                    <li>Forecast vs. quota (gauge chart)</li>
+                    <li>Top 10 opportunities (list)</li>
+                    <li>Win rate trend (line chart)</li>
+                    <li>Activities this week (KPI tile)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Service Manager Dashboard:</strong></p>
+                <ul>
+                    <li>Open SRs by priority (bar chart)</li>
+                    <li>SLA compliance % (gauge)</li>
+                    <li>SRs at risk (list)</li>
+                    <li>Resolution time trend (line chart)</li>
+                    <li>Customer satisfaction (KPI tile)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Page 124: KPI Configuration -->
+        <section class="content-section">
+            <div class="page-marker">Page 124</div>
+            <h2>🎯 Key Performance Indicators (KPIs)</h2>
+            
+            <h3>What are KPIs?</h3>
+            <p>KPIs are measurable values that demonstrate how effectively an organization is achieving business objectives. Siebel tracks and displays KPIs in real-time.</p>
+            
+            <img src="images/kpis.png" alt="KPI Dashboard" class="content-image">
+            
+            <h3>Common CRM KPIs</h3>
+            <div class="code-block">
+                <strong>Sales KPIs:</strong><br>
+                • Pipeline Value: $12.5M<br>
+                • Quota Attainment: 95%<br>
+                • Win Rate: 28%<br>
+                • Average Deal Size: $45,000<br>
+                • Sales Cycle: 45 days<br><br>
+                
+                <strong>Service KPIs:</strong><br>
+                • Open SRs: 245<br>
+                • SLA Compliance: 92%<br>
+                • First Call Resolution: 67%<br>
+                • Avg Resolution Time: 2.3 days<br>
+                • CSAT Score: 4.2/5<br><br>
+                
+                <strong>Marketing KPIs:</strong><br>
+                • Marketing Qualified Leads: 1,250<br>
+                • Lead Conversion Rate: 18%<br>
+                • Campaign ROI: 340%<br>
+                • Cost per Lead: $45<br>
+                • Email Open Rate: 23%
+            </div>
+
+            <h3>KPI Thresholds</h3>
+            <p>Set targets and color-code performance:</p>
+            <div class="highlight">
+                <p>🟢 <strong>Green:</strong> Above target (Good performance)</p>
+                <p>🟡 <strong>Yellow:</strong> Near target (Warning - attention needed)</p>
+                <p>🔴 <strong>Red:</strong> Below target (Critical - immediate action required)</p>
+            </div>
+
+            <h3>Configuring KPIs</h3>
+            <ol>
+                <li>Define metric to track (e.g., Quota Attainment)</li>
+                <li>Set calculation method (e.g., Revenue ÷ Quota × 100)</li>
+                <li>Define thresholds (Green: >100%, Yellow: 80-100%, Red: <80%)</li>
+                <li>Set refresh frequency (Real-time, Hourly, Daily)</li>
+                <li>Add to dashboards and home pages</li>
+            </ol>
+        </section>
+
+        <!-- Page 125: Real-Time Analytics -->
+        <section class="content-section">
+            <div class="page-marker">Page 125</div>
+            <h2>⚡ Real-Time Analytics</h2>
+            
+            <h3>Live Data Updates</h3>
+            <p>Real-time analytics display current data without manual refresh, critical for contact centers and sales floors.</p>
+            
+            <h3>Real-Time Use Cases</h3>
+            <div class="info-box">
+                <p><strong>Contact Center Wallboards:</strong> Live display of call queue, wait times, agents available</p>
+                <p><strong>Sales Leaderboards:</strong> Current day/week/month rankings update as deals close</p>
+                <p><strong>Service Metrics:</strong> Open SRs, SLAs at risk, backlog by priority</p>
+                <p><strong>Campaign Tracking:</strong> Email open rates, clicks, conversions as they happen</p>
+            </div>
+
+            <h3>Implementation</h3>
+            <div class="code-block">
+                <strong>Auto-Refresh Configuration:</strong><br>
+                • Interval: 30 seconds, 1 minute, 5 minutes<br>
+                • Trigger: Time-based or event-based<br>
+                • Scope: Full page or specific applet<br>
+                • Performance: Balance freshness vs. server load
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Performance Consideration:</strong> Real-time dashboards with many users can impact database performance. Use caching and optimize queries.
+            </div>
+        </section>
+
+        <!-- Page 126: Data Visualization -->
+        <section class="content-section">
+            <div class="page-marker">Page 126</div>
+            <h2>📉 Data Visualization Best Practices</h2>
+            
+            <h3>Choosing the Right Chart Type</h3>
+            
+            <div class="highlight">
+                <p><strong>Bar/Column Charts:</strong> Compare values across categories</p>
+                <p><em>Example:</em> Revenue by product line, SRs by priority</p>
+            </div>
+
+            <div class="highlight">
+                <p><strong>Line Charts:</strong> Show trends over time</p>
+                <p><em>Example:</em> Quarterly revenue growth, daily SR volume</p>
+            </div>
+
+            <div class="highlight">
+                <p><strong>Pie Charts:</strong> Show proportional breakdown (use sparingly)</p>
+                <p><em>Example:</em> Market share by competitor, SRs by type</p>
+            </div>
+
+            <div class="highlight">
+                <p><strong>Funnel Charts:</strong> Visualize conversion process</p>
+                <p><em>Example:</em> Sales pipeline stages, lead conversion funnel</p>
+            </div>
+
+            <div class="highlight">
+                <p><strong>Gauge Charts:</strong> Show progress toward goal</p>
+                <p><em>Example:</em> Quota attainment, SLA compliance %</p>
+            </div>
+
+            <h3>Visualization Guidelines</h3>
+            <div class="success-box">
+                <ul>
+                    <li><strong>Keep It Simple:</strong> Avoid cluttered charts with too many data points</li>
+                    <li><strong>Use Color Purposefully:</strong> Green = good, Red = bad, consistent meanings</li>
+                    <li><strong>Label Clearly:</strong> Axis labels, legends, data point values</li>
+                    <li><strong>Choose Appropriate Scale:</strong> Start Y-axis at zero for fair comparison</li>
+                    <li><strong>Limit Pie Slices:</strong> Maximum 5-7 slices, combine others into "Other"</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Page 127: Scheduled Reports -->
+        <section class="content-section">
+            <div class="page-marker">Page 127</div>
+            <h2>⏰ Scheduling and Distribution</h2>
+            
+            <h3>Automated Report Delivery</h3>
+            <p>Schedule reports to run automatically and email results to recipients. No manual intervention required.</p>
+            
+            <h3>Schedule Configuration</h3>
+            <ol>
+                <li>Open report definition</li>
+                <li>Click <strong>Schedule</strong> button</li>
+                <li>Set frequency:
+                    <ul>
+                        <li>Daily (weekdays only or every day)</li>
+                        <li>Weekly (specify days: Mon, Wed, Fri)</li>
+                        <li>Monthly (1st, 15th, or last day)</li>
+                        <li>Quarterly</li>
+                    </ul>
+                </li>
+                <li>Set time: 7:00 AM (before business hours)</li>
+                <li>Choose output format: PDF, Excel</li>
+                <li>Add recipients: email addresses or distribution lists</li>
+                <li>Set subject line and message</li>
+                <li>Save schedule</li>
+            </ol>
+
+            <h3>Common Scheduled Reports</h3>
+            <div class="code-block">
+                <strong>Daily:</strong> Open SRs by priority → Service managers<br>
+                <strong>Weekly:</strong> Sales activity summary → Sales VPs<br>
+                <strong>Monthly:</strong> Revenue by product → Finance team<br>
+                <strong>Quarterly:</strong> Customer satisfaction → Executive team
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Best Practice:</strong> Include date range in subject line<br>
+                <em>Example:</em> "Weekly Sales Report - Oct 25-31, 2025"
+            </div>
+        </section>
+
+        <!-- Page 128: Report Security -->
+        <section class="content-section">
+            <div class="page-marker">Page 128</div>
+            <h2>🔒 Report Security and Access Control</h2>
+            
+            <h3>Data Security in Reports</h3>
+            <p>Reports respect Siebel's security model. Users only see data they have permission to access.</p>
+            
+            <h3>Security Layers</h3>
+            <div class="info-box">
+                <ol>
+                    <li><strong>Report Visibility:</strong> Which reports appear in user's menu</li>
+                    <li><strong>Data Visibility:</strong> Which records user can see in report</li>
+                    <li><strong>Field Visibility:</strong> Which columns are displayed</li>
+                    <li><strong>Report Execution:</strong> Who can run vs. schedule vs. modify reports</li>
+                </ol>
+            </div>
+
+            <h3>Access Control Examples</h3>
+            <div class="code-block">
+                <strong>Sales Rep:</strong><br>
+                • Sees: Own opportunities only<br>
+                • Cannot see: Colleague opportunities or manager overrides<br><br>
+                
+                <strong>Sales Manager:</strong><br>
+                • Sees: Own team's opportunities<br>
+                • Cannot see: Other teams' opportunities<br><br>
+                
+                <strong>Sales VP:</strong><br>
+                • Sees: All opportunities in region<br>
+                • Cannot see: Other regions without permission
+            </div>
+
+            <h3>Sensitive Data Protection</h3>
+            <div class="warning-box">
+                <strong>⚠️ Protect Confidential Information:</strong>
+                <ul>
+                    <li>Mask credit card numbers (show last 4 digits only)</li>
+                    <li>Redact social security numbers</li>
+                    <li>Hide salary and compensation data</li>
+                    <li>Restrict access to financial reports</li>
+                    <li>Audit report execution (who ran what, when)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Page 129: Data Export -->
+        <section class="content-section">
+            <div class="page-marker">Page 129</div>
+            <h2>📤 Data Export Capabilities</h2>
+            
+            <h3>Export Options</h3>
+            <p>Users can export data from any list applet for offline analysis or data migration.</p>
+            
+            <h3>Export Methods</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Quick Export</h4>
+                    <p>Right-click list → Export → Excel/CSV</p>
+                    <p>✅ Fast, simple, current view</p>
+                    <p>❌ Limited to displayed columns</p>
+                </div>
+                <div>
+                    <h4>Advanced Export</h4>
+                    <p>File → Export → Choose columns</p>
+                    <p>✅ Select specific fields</p>
+                    <p>✅ Include hidden columns</p>
+                </div>
+            </div>
+
+            <h3>Excel Export Features</h3>
+            <ul>
+                <li><strong>Formatted Output:</strong> Headers, column widths preserved</li>
+                <li><strong>Data Types:</strong> Dates, numbers, text maintained</li>
+                <li><strong>Formulas:</strong> Can add calculations in Excel</li>
+                <li><strong>Pivot Tables:</strong> Create custom analysis</li>
+                <li><strong>Charts:</strong> Visualize exported data</li>
+            </ul>
+
+            <h3>CSV Export Benefits</h3>
+            <div class="highlight">
+                <p><strong>Lightweight:</strong> Smaller file size than Excel</p>
+                <p><strong>Universal:</strong> Opens in any spreadsheet program</p>
+                <p><strong>Import Ready:</strong> Clean format for re-importing</p>
+                <p><strong>Database Compatible:</strong> Easy to load into SQL databases</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Export Limits:</strong> Administrators can set maximum records per export (e.g., 10,000) to prevent performance issues and data leakage.
+            </div>
+        </section>
+
+        <!-- Page 130: Performance Monitoring -->
+        <section class="content-section">
+            <div class="page-marker">Page 130</div>
+            <h2>⚡ Report Performance Optimization</h2>
+            
+            <h3>Slow Report Issues</h3>
+            <p>Complex reports with large datasets can take minutes to run. Optimization is critical for user satisfaction.</p>
+            
+            <h3>Performance Bottlenecks</h3>
+            <div class="warning-box">
+                <ul>
+                    <li><strong>Large Data Volume:</strong> Millions of records</li>
+                    <li><strong>Complex Joins:</strong> Multiple related tables</li>
+                    <li><strong>Missing Indexes:</strong> Slow search fields</li>
+                    <li><strong>Calculations:</strong> Heavy processing in report</li>
+                    <li><strong>Concurrent Users:</strong> Many reports running simultaneously</li>
+                </ul>
+            </div>
+
+            <h3>Optimization Techniques</h3>
+            <div class="success-box">
+                <ol>
+                    <li><strong>Add Indexes:</strong> Index frequently queried fields</li>
+                    <li><strong>Limit Date Range:</strong> Default to last 90 days instead of all time</li>
+                    <li><strong>Use Parameters:</strong> Let users filter to relevant subset</li>
+                    <li><strong>Pre-Aggregate Data:</strong> Create summary tables for dashboards</li>
+                    <li><strong>Schedule Heavy Reports:</strong> Run overnight instead of on-demand</li>
+                    <li><strong>Cache Results:</strong> Reuse recent report output</li>
+                    <li><strong>Pagination:</strong> Display 100 rows at a time, not 10,000</li>
+                </ol>
+            </div>
+
+            <h3>Performance Targets</h3>
+            <div class="code-block">
+                <strong>Excellent:</strong> < 3 seconds<br>
+                <strong>Acceptable:</strong> 3-10 seconds<br>
+                <strong>Slow:</strong> 10-30 seconds (needs optimization)<br>
+                <strong>Very Slow:</strong> > 30 seconds (requires immediate attention)
+            </div>
+        </section>
+
+        <!-- Page 131-145: Additional Reporting Topics -->
+        <section class="content-section">
+            <div class="page-marker">Page 131</div>
+            <h2>📊 Analytics Database (Optional)</h2>
+            
+            <h3>Separate Analytics Environment</h3>
+            <p>Large enterprises often implement a separate analytics database to offload reporting from the production Siebel database.</p>
+            
+            <h3>Benefits of Analytics DB</h3>
+            <div class="success-box">
+                <ul>
+                    <li><strong>Performance:</strong> Reports don't slow down operational system</li>
+                    <li><strong>Historical Data:</strong> Keep years of data for trending</li>
+                    <li><strong>Complex Queries:</strong> Run heavy analytics without impact</li>
+                    <li><strong>Data Warehouse Integration:</strong> Combine CRM with ERP, finance, etc.</li>
+                    <li><strong>BI Tools:</strong> Connect Tableau, Power BI, MicroStrategy</li>
+                </ul>
+            </div>
+
+            <h3>Data Synchronization</h3>
+            <div class="code-block">
+                <strong>ETL Process:</strong><br>
+                Extract: Pull data from Siebel (nightly)<br>
+                Transform: Clean, aggregate, denormalize<br>
+                Load: Insert into analytics database<br><br>
+                
+                <strong>Typical Schedule:</strong><br>
+                • Incremental: Every hour (recent changes)<br>
+                • Full Refresh: Nightly (complete dataset)<br>
+                • Historical: Weekly (archive old data)
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 132</div>
+            <h2>🎨 Report Customization</h2>
+            
+            <h3>Branding and Styling</h3>
+            <p>Customize report appearance to match corporate identity.</p>
+            
+            <h3>Customization Options</h3>
+            <ul>
+                <li><strong>Company Logo:</strong> Add header logo to all reports</li>
+                <li><strong>Color Scheme:</strong> Match corporate colors</li>
+                <li><strong>Fonts:</strong> Use company standard fonts</li>
+                <li><strong>Headers/Footers:</strong> Add company info, page numbers, dates</li>
+                <li><strong>Watermarks:</strong> "Confidential", "Draft", etc.</li>
+            </ul>
+
+            <h3>Template Example (BI Publisher)</h3>
+            <div class="code-block">
+                <strong>Header:</strong><br>
+                [Company Logo]  |  SALES OPPORTUNITY REPORT<br>
+                Run Date: {CurrentDate}  |  Page {PageNumber}<br><br>
+                
+                <strong>Body:</strong><br>
+                [Report Data Table]<br><br>
+                
+                <strong>Footer:</strong><br>
+                Confidential - For Internal Use Only<br>
+                © 2025 YourCompany Inc.
+            </div>
+
+            <h3>Conditional Formatting</h3>
+            <div class="highlight">
+                <p><strong>Highlight Rules:</strong></p>
+                <ul>
+                    <li>Revenue > $100K: Bold, blue font</li>
+                    <li>Probability < 25%: Red background</li>
+                    <li>Close Date overdue: Yellow highlight</li>
+                    <li>Status = "Closed Won": Green checkmark icon</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 133</div>
+            <h2>📈 Trend Analysis</h2>
+            
+            <h3>Historical Trending</h3>
+            <p>Compare current performance against historical data to identify patterns and anomalies.</p>
+            
+            <h3>Trend Report Examples</h3>
+            <div class="info-box">
+                <p><strong>Revenue Trend:</strong> Monthly revenue for last 12 months</p>
+                <p><strong>Pipeline Trend:</strong> Pipeline value at end of each quarter</p>
+                <p><strong>SR Volume Trend:</strong> Daily SR creation count for last 90 days</p>
+                <p><strong>Win Rate Trend:</strong> Quarterly win rate percentage</p>
+            </div>
+
+            <h3>Year-over-Year Comparison</h3>
+            <div class="code-block">
+                <strong>Q1 2025 vs Q1 2024:</strong><br>
+                Revenue:      $12.5M vs $10.2M  (+23%)<br>
+                Deals Closed:  145 vs 132      (+10%)<br>
+                Win Rate:      32% vs 28%      (+4 pts)<br>
+                Avg Deal Size: $86K vs $77K    (+12%)
+            </div>
+
+            <h3>Identifying Trends</h3>
+            <div class="success-box">
+                <p><strong>✅ Positive Trends:</strong> Growing pipeline, improving win rates, faster resolution times</p>
+                <p><strong>⚠️ Negative Trends:</strong> Declining revenue, longer sales cycles, increasing SLA breaches</p>
+                <p><strong>📊 Seasonality:</strong> Expected patterns (Q4 spike, summer slowdown)</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 134</div>
+            <h2>🔍 Drill-Down Analysis</h2>
+            
+            <h3>Interactive Drill-Down</h3>
+            <p>Click summary data to see underlying details. Essential for investigating issues and opportunities.</p>
+            
+            <h3>Drill-Down Levels</h3>
+            <div class="code-block">
+                <strong>Level 1:</strong> Total Company Revenue: $50M<br>
+                  ↓ (Click to drill down)<br>
+                <strong>Level 2:</strong> By Region: North $20M, South $18M, West $12M<br>
+                  ↓ (Click South)<br>
+                <strong>Level 3:</strong> By Rep in South: Smith $6M, Jones $5M, Brown $4M...<br>
+                  ↓ (Click Smith)<br>
+                <strong>Level 4:</strong> Individual Opportunities for Smith
+            </div>
+
+            <h3>Common Drill-Down Paths</h3>
+            <ul>
+                <li><strong>Geographic:</strong> Company → Region → Territory → Rep → Account</li>
+                <li><strong>Product:</strong> Total → Product Line → Product → SKU → Customer</li>
+                <li><strong>Time:</strong> Year → Quarter → Month → Week → Day</li>
+                <li><strong>Organizational:</strong> Company → Division → Department → Team → Individual</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>💡 Use Case:</strong> Executive sees revenue down in South region. Drills to see it's concentrated in Florida territory. Drills further to identify rep turnover caused the dip. Takes corrective action (hire, reassign accounts).
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 135</div>
+            <h2>📋 Report Governance</h2>
+            
+            <h3>Managing Report Sprawl</h3>
+            <p>Without governance, organizations end up with hundreds of redundant, outdated reports that confuse users.</p>
+            
+            <h3>Best Practices</h3>
+            <div class="success-box">
+                <ul>
+                    <li><strong>Naming Standards:</strong> Clear, consistent names (e.g., "SLS_Pipeline_ByRep_Monthly")</li>
+                    <li><strong>Categorization:</strong> Organize into folders (Sales, Service, Marketing, Executive)</li>
+                    <li><strong>Ownership:</strong> Assign owner responsible for maintenance</li>
+                    <li><strong>Documentation:</strong> Describe purpose, data source, refresh frequency</li>
+                    <li><strong>Version Control:</strong> Track changes, maintain change log</li>
+                    <li><strong>Retirement:</strong> Archive unused reports annually</li>
+                </ul>
+            </div>
+
+            <h3>Report Catalog</h3>
+            <p>Maintain central catalog documenting all reports:</p>
+            <div class="code-block">
+                Report Name: Monthly Sales Pipeline<br>
+                Category: Sales / Management<br>
+                Owner: Sales Operations Manager<br>
+                Purpose: Track pipeline health and forecast accuracy<br>
+                Data Source: Opportunity BC<br>
+                Refresh: Real-time<br>
+                Recipients: Sales VPs, Directors<br>
+                Schedule: None (on-demand)<br>
+                Last Modified: 2025-09-15<br>
+                Usage: 45 runs/month
+            </code>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 136</div>
+            <h2>🎓 Advanced Analytics</h2>
+            
+            <h3>Predictive Analytics</h3>
+            <p>Use historical data and machine learning to predict future outcomes.</p>
+            
+            <h3>Predictive Use Cases</h3>
+            <div class="info-box">
+                <p><strong>Lead Scoring:</strong> Predict which leads are most likely to convert</p>
+                <p><strong>Churn Prediction:</strong> Identify customers at risk of canceling</p>
+                <p><strong>Upsell Opportunities:</strong> Recommend next best product for customer</p>
+                <p><strong>Forecast Accuracy:</strong> Improve revenue predictions with AI</p>
+                <p><strong>Service Demand:</strong> Predict SR volume for staffing</p>
+            </div>
+
+            <h3>Integration with Oracle Analytics Cloud</h3>
+            <div class="code-block">
+                <strong>Architecture:</strong><br>
+                Siebel CRM → Data Lake → Analytics Cloud → ML Models<br>
+                                                ↓<br>
+                                        Predictions back to Siebel
+            </code>
+
+            <h3>Example: Opportunity Score</h3>
+            <div class="highlight">
+                <p>ML model analyzes historical won/lost opportunities to score new opportunities:</p>
+                <p><strong>High Score (80-100):</strong> Strong engagement, right timing, good fit</p>
+                <p><strong>Medium Score (50-79):</strong> Some positive signals, needs nurturing</p>
+                <p><strong>Low Score (0-49):</strong> Weak indicators, low probability</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 137</div>
+            <h2>📊 Industry-Specific Analytics</h2>
+            
+            <h3>Telecommunications KPIs</h3>
+            <p>eCommunications vertical includes telco-specific metrics.</p>
+            
+            <h3>Subscriber Metrics</h3>
+            <ul>
+                <li><strong>Total Subscribers:</strong> Active customer count</li>
+                <li><strong>Net Adds:</strong> New activations - Cancellations</li>
+                <li><strong>Churn Rate:</strong> % of customers who cancel per month</li>
+                <li><strong>ARPU:</strong> Average Revenue Per User per month</li>
+                <li><strong>Lifetime Value:</strong> Predicted total revenue from customer</li>
+            </ul>
+
+            <h3>Network Performance</h3>
+            <ul>
+                <li><strong>Network Availability:</strong> Uptime percentage (target: 99.9%)</li>
+                <li><strong>Outage Count:</strong> Number of service disruptions</li>
+                <li><strong>MTTR:</strong> Mean Time To Repair (average outage duration)</li>
+                <li><strong>Coverage Map:</strong> Geographic service availability</li>
+            </ul>
+
+            <h3>Service Quality</h3>
+            <div class="code-block">
+                <strong>Call Quality Metrics:</strong><br>
+                • Dropped Call Rate: 0.5%<br>
+                • Call Setup Success: 99.2%<br>
+                • Voice Quality (MOS): 4.1/5.0<br><br>
+                
+                <strong>Data Performance:</strong><br>
+                • Avg Download Speed: 85 Mbps<br>
+                • Avg Upload Speed: 35 Mbps<br>
+                • Latency: 22ms<br>
+                • Packet Loss: 0.2%
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 138</div>
+            <h2>🔒 Data Privacy and Compliance</h2>
+            
+            <h3>Regulatory Requirements</h3>
+            <p>Reports containing personal data must comply with privacy regulations.</p>
+            
+            <h3>GDPR Compliance</h3>
+            <div class="warning-box">
+                <ul>
+                    <li><strong>Data Minimization:</strong> Only export necessary fields</li>
+                    <li><strong>Retention:</strong> Don't store exported reports longer than needed</li>
+                    <li><strong>Anonymization:</strong> Mask PII when possible</li>
+                    <li><strong>Consent:</strong> Verify customer consent for data processing</li>
+                    <li><strong>Audit Trail:</strong> Log who accessed what personal data</li>
+                    <li><strong>Right to Erasure:</strong> Reports must reflect deleted customer data</li>
+                </ul>
+            </div>
+
+            <h3>Data Masking Example</h3>
+            <div class="code-block">
+                <strong>Full Data (Admin only):</strong><br>
+                Name: John Smith<br>
+                Email: john.smith@email.com<br>
+                Phone: (555) 123-4567<br>
+                SSN: 123-45-6789<br>
+                Credit Card: 4532-1234-5678-9012<br><br>
+                
+                <strong>Masked Data (Standard user):</strong><br>
+                Name: John S****<br>
+                Email: j***@email.com<br>
+                Phone: (555) ***-**67<br>
+                SSN: ***-**-6789<br>
+                Credit Card: ****-****-****-9012
+            </div>
+
+            <h3>Compliance Reporting</h3>
+            <p>Generate reports for regulatory compliance:</p>
+            <ul>
+                <li>Data access audit (who viewed customer records)</li>
+                <li>Consent status report</li>
+                <li>Data retention compliance</li>
+                <li>Breach notification logs</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 139</div>
+            <h2>🎯 Report ROI and Adoption</h2>
+            
+            <h3>Measuring Report Value</h3>
+            <p>Track report usage to understand which reports provide value and which to retire.</p>
+            
+            <h3>Usage Metrics</h3>
+            <div class="info-box">
+                <p><strong>Run Frequency:</strong> How often report is executed</p>
+                <p><strong>Unique Users:</strong> Number of distinct users running report</p>
+                <p><strong>Avg Execution Time:</strong> Performance indicator</p>
+                <p><strong>Export Rate:</strong> % of runs that are exported (high = valuable)</p>
+                <p><strong>Dashboard Placement:</strong> Featured on home pages?</p>
+            </div>
+
+            <h3>Adoption Strategies</h3>
+            <div class="success-box">
+                <ul>
+                    <li><strong>Training:</strong> Show users how to run and interpret reports</li>
+                    <li><strong>Templates:</strong> Provide pre-built reports for common needs</li>
+                    <li><strong>Self-Service:</strong> Empower users to create own reports</li>
+                    <li><strong>Mobile Access:</strong> Enable reports on smartphones/tablets</li>
+                    <li><strong>Alerts:</strong> Push critical metrics to users proactively</li>
+                    <li><strong>Gamification:</strong> Leaderboards for sales teams</li>
+                </ul>
+            </div>
+
+            <h3>Report Retirement Criteria</h3>
+            <div class="code-block">
+                <strong>Candidates for Retirement:</strong><br>
+                • No runs in last 90 days<br>
+                • < 3 unique users<br>
+                • Owner left company<br>
+                • Duplicate of another report<br>
+                • Data source no longer exists<br>
+                • Regulatory requirement expired
+            </code>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 140</div>
+            <h2>📱 Mobile Reporting</h2>
+            
+            <h3>Reports on Mobile Devices</h3>
+            <p>Modern CRM users need access to reports on smartphones and tablets while traveling or away from desk.</p>
+            
+            <h3>Mobile-Optimized Design</h3>
+            <div class="success-box">
+                <ul>
+                    <li><strong>Responsive Layout:</strong> Adapts to screen size</li>
+                    <li><strong>Touch-Friendly:</strong> Large buttons, easy navigation</li>
+                    <li><strong>Simplified Views:</strong> Key metrics only, not cluttered</li>
+                    <li><strong>Offline Capable:</strong> Download reports for offline viewing</li>
+                    <li><strong>Fast Loading:</strong> Minimize data transfer</li>
+                </ul>
+            </div>
+
+            <h3>Mobile Dashboard Example</h3>
+            <div class="highlight">
+                <p><strong>Sales Manager Mobile View:</strong></p>
+                <ul>
+                    <li>Today's Activities: 5 (tap to see details)</li>
+                    <li>Open Opportunities: $2.4M</li>
+                    <li>Pipeline This Quarter: $8.1M</li>
+                    <li>Team Quota Attainment: 87%</li>
+                    <li>[Chart: Revenue Trend - Last 30 Days]</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Best Practice:</strong> Design mobile-first. Create concise mobile dashboards, then expand for desktop rather than trying to shrink desktop reports to mobile.
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 141</div>
+            <h2>🔧 Troubleshooting Reports</h2>
+            
+            <h3>Common Report Issues</h3>
+            
+            <div class="warning-box">
+                <p><strong>Problem:</strong> Report shows no data</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Check user has access to underlying records</li>
+                    <li>Verify filter criteria isn't too restrictive</li>
+                    <li>Confirm data exists for selected date range</li>
+                    <li>Review visibility rules and team assignments</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>Problem:</strong> Numbers don't match expectations</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Verify report definition (correct fields, calculations)</li>
+                    <li>Check for timezone issues with date/time fields</li>
+                    <li>Confirm currency conversion if multi-currency</li>
+                    <li>Review filter logic (AND vs OR conditions)</li>
+                    <li>Ensure latest data has synced (refresh analytics DB)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>Problem:</strong> Report times out or errors</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                    <li>Add date filter to limit records</li>
+                    <li>Optimize query (add indexes, simplify joins)</li>
+                    <li>Increase timeout setting</li>
+                    <li>Schedule during off-hours instead of real-time</li>
+                    <li>Break into smaller sub-reports</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 142</div>
+            <h2>✅ Reporting Best Practices Summary</h2>
+            
+            <h3>Design Principles</h3>
+            <div class="success-box">
+                <ol>
+                    <li><strong>Know Your Audience:</strong> Executive summary vs analyst detail</li>
+                    <li><strong>Start with Questions:</strong> What decisions will this report support?</li>
+                    <li><strong>Keep It Simple:</strong> One primary message per report</li>
+                    <li><strong>Use Visuals:</strong> Charts communicate faster than tables</li>
+                    <li><strong>Provide Context:</strong> Include comparisons, targets, trends</li>
+                    <li><strong>Enable Action:</strong> Reports should drive decisions</li>
+                    <li><strong>Test Thoroughly:</strong> Validate accuracy before distribution</li>
+                </ol>
+            </div>
+
+            <h3>Performance Guidelines</h3>
+            <div class="info-box">
+                <ul>
+                    <li>Target report runtime: < 5 seconds for interactive, < 30 seconds for batch</li>
+                    <li>Limit row count: 1,000 rows for screen, 10,000 for export</li>
+                    <li>Index search fields used in filters</li>
+                    <li>Cache frequently accessed data</li>
+                    <li>Use analytics database for heavy reporting</li>
+                </ul>
+            </div>
+
+            <h3>Security Reminders</h3>
+            <div class="warning-box">
+                <ul>
+                    <li>Apply row-level security (users see only their data)</li>
+                    <li>Mask sensitive fields (SSN, credit cards)</li>
+                    <li>Audit report execution</li>
+                    <li>Encrypt emailed reports</li>
+                    <li>Set appropriate export limits</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 143</div>
+            <h2>🚀 Future of Siebel Reporting</h2>
+            
+            <h3>Emerging Trends</h3>
+            <p>Oracle continues to enhance Siebel analytics with modern capabilities.</p>
+            
+            <h3>AI-Powered Insights</h3>
+            <div class="highlight">
+                <p><strong>Natural Language Queries:</strong> "Show me open opportunities in California over $50K"</p>
+                <p><strong>Anomaly Detection:</strong> Automatic alerts when metrics deviate from normal patterns</p>
+                <p><strong>Smart Recommendations:</strong> "Your win rate dropped 5% in Q2. Drill down to see why."</p>
+                <p><strong>Predictive Alerts:</strong> "This opportunity is at risk of slipping based on similar patterns"</p>
+            </div>
+
+            <h3>Enhanced Visualization</h3>
+            <ul>
+                <li><strong>Interactive Maps:</strong> Geographic heat maps of sales, service, customers</li>
+                <li><strong>Network Diagrams:</strong> Relationship visualization (accounts, contacts, influencers)</li>
+                <li><strong>Sankey Diagrams:</strong> Flow visualization (lead sources to conversions)</li>
+                <li><strong>Real-Time Collaboration:</strong> Shared dashboards with team annotations</li>
+            </ul>
+
+            <h3>Cloud Analytics Integration</h3>
+            <div class="info-box">
+                <p>Deeper integration with Oracle Analytics Cloud (OAC) provides:</p>
+                <ul>
+                    <li>Advanced data science capabilities</li>
+                    <li>Augmented analytics (AI-driven insights)</li>
+                    <li>Data storytelling and presentations</li>
+                    <li>Mobile-first design</li>
+                    <li>Collaboration features</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 144</div>
+            <h2>📖 Additional Resources</h2>
+            
+            <h3>Oracle Documentation</h3>
+            <ul>
+                <li>Siebel Analytics Guide</li>
+                <li>BI Publisher Administrator's Guide</li>
+                <li>Siebel Reports Administration Guide</li>
+                <li>Oracle Analytics Cloud documentation</li>
+            </ul>
+
+            <h3>Training and Certification</h3>
+            <ul>
+                <li>Oracle University: Siebel Analytics courses</li>
+                <li>BI Publisher training</li>
+                <li>Data visualization best practices</li>
+                <li>SQL query optimization</li>
+            </ul>
+
+            <h3>Community Resources</h3>
+            <ul>
+                <li>Oracle Cloud Customer Connect forums</li>
+                <li>Siebel Hub blog</li>
+                <li>Data visualization galleries (inspiration)</li>
+                <li>Industry benchmarking reports</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>💡 Pro Tip:</strong> Join the Siebel Reporting & Analytics community group for templates, tips, and peer support.
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="page-marker">Page 145</div>
+            <h2>🎉 Reporting Module Complete!</h2>
+            
+            <h3>Key Takeaways</h3>
+            <div class="success-box">
+                <ul>
+                    <li>✅ <strong>Standard Reports:</strong> Leverage 200+ out-of-box reports</li>
+                    <li>✅ <strong>Custom Reports:</strong> Build tailored reports for unique needs</li>
+                    <li>✅ <strong>Dashboards:</strong> Real-time KPIs and visualizations</li>
+                    <li>✅ <strong>BI Publisher:</strong> Professional formatted documents</li>
+                    <li>✅ <strong>Scheduling:</strong> Automate report delivery</li>
+                    <li>✅ <strong>Security:</strong> Protect sensitive data</li>
+                    <li>✅ <strong>Performance:</strong> Optimize for speed</li>
+                    <li>✅ <strong>Mobile:</strong> Access insights anywhere</li>
+                </ul>
+            </div>
+
+            <h3>What's Next?</h3>
+            <p>You've completed all Day 2 theory modules. This afternoon, you'll apply these concepts in hands-on practical exercises:</p>
+            
+            <div class="highlight">
+                <h4>Day 2 Practicals Preview:</h4>
+                <ul>
+                    <li><strong>Lab 1:</strong> Create custom sales report with grouping and calculations</li>
+                    <li><strong>Lab 2:</strong> Build interactive dashboard with multiple chart types</li>
+                    <li><strong>Lab 3:</strong> Configure scheduled report delivery</li>
+                    <li><strong>Lab 4:</strong> Generate BI Publisher invoice template</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>🌟 Congratulations!</h3>
+                <p>You've completed the Oracle Siebel CRM IP 21.7 theoretical training. You now have comprehensive knowledge of:</p>
+                <ul>
+                    <li>CRM fundamentals and Siebel architecture</li>
+                    <li>Configuration and customization</li>
+                    <li>Data management and quality</li>
+                    <li>Advanced sales, service, and marketing features</li>
+                    <li>Integration and mobile capabilities</li>
+                    <li>Reporting and analytics</li>
+                </ul>
+                <p><strong>Continue to Day 2 Practicals to apply your knowledge!</strong></p>
+            </div>
+        </section>
+
+        <nav class="page-nav">
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+            <a href="day2_topic4_advanced.html" class="nav-btn">← Topic 4</a>
+            <a href="day2_practicals.html" class="nav-btn">Practicals →</a>
+        </nav>
+
+        <footer class="topic-footer">
+            <p>&copy; 2025 Oracle Siebel CRM IP 21.7 Training | Day 2 - Topic 5: Reporting & Analytics</p>
+        </footer>
+    </div>
+
+    <script src="js/navigation.js"></script>
+</body>
+</html>

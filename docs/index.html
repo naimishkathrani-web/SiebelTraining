@@ -1,165 +1,526 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Siebel CRM + BI Publisher — 2-Day Training — Index</title>
-<style>
-  :root{
-    --bg:#f7fbff; --card:#ffffff; --muted:#546070; --accent:#0b66c3;
-    --accent2:#f28b20; --success:#179943; --glass:rgba(255,255,255,0.85);
-    --font: "Segoe UI", Roboto, Arial, sans-serif;
-  }
-  body{font-family:var(--font); margin:0; background:linear-gradient(180deg,#f3f7fb,#ffffff); color:#152238;}
-  .wrap{max-width:1200px;margin:18px auto;padding:18px;}
-  header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px;background:var(--glass);border-radius:8px;box-shadow:0 6px 18px rgba(10,20,40,.04);}
-  .title{font-size:20px;font-weight:700;color:var(--accent);}
-  .subtitle{font-size:13px;color:var(--muted)}
-  .progress-bar{height:14px;background:#e9eef6;border-radius:10px;overflow:hidden;margin-top:8px}
-  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#4aa0ff);width:0%;transition:width .6s}
-  .summary{display:flex;gap:18px;align-items:center}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-  .card{background:var(--card);padding:14px;border-radius:8px;box-shadow:0 6px 18px rgba(10,20,40,.04);border-left:6px solid #eef3fb}
-  .card h3{margin:0;font-size:16px;color:#123b6d}
-  .meta{font-size:13px;color:var(--muted);margin-top:6px}
-  .btn{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
-  .small{font-size:13px;color:var(--muted)}
-  footer{margin-top:20px;padding:10px 0;text-align:center;color:var(--muted);font-size:13px}
-  @media (max-width:980px){ .cards{grid-template-columns:repeat(1,1fr)} .summary{flex-direction:column;align-items:flex-start} }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Siebel IP 21.7 Training - 2-Day Course</title>
+    <link rel="stylesheet" href="css/training.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #0b66c3, #4a9eff);
+            color: white;
+            padding: 48px 24px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            box-shadow: 0 12px 32px rgba(11, 102, 195, 0.2);
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 24px;
+        }
+        
+        .hero-details {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+        
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .hero-stat-label {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .module-card {
+            background: white;
+            border: 2px solid #e6eef8;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #0b66c3, #4a9eff);
+        }
+        
+        .module-card:hover {
+            border-color: #0b66c3;
+            box-shadow: 0 12px 32px rgba(11, 102, 195, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        .module-card.practical::before {
+            background: linear-gradient(180deg, #0d9488, #14b8a6);
+        }
+        
+        .module-badge {
+            display: inline-block;
+            background: #eef6ff;
+            color: #0b66c3;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .module-badge.practical {
+            background: #f0fdfa;
+            color: #0d9488;
+        }
+        
+        .module-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            color: #132033;
+        }
+        
+        .module-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: #8b95a1;
+            margin-bottom: 12px;
+        }
+        
+        .module-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .module-description {
+            font-size: 14px;
+            color: #5a6772;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .module-progress {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e6eef8;
+        }
+        
+        .module-progress-label {
+            font-size: 12px;
+            color: #8b95a1;
+            margin-bottom: 6px;
+        }
+        
+        .training-info {
+            background: #f8fafb;
+            padding: 24px;
+            border-radius: 12px;
+            border: 2px solid #e6eef8;
+            margin: 32px 0;
+        }
+        
+        .training-info h3 {
+            margin-top: 0;
+            color: #0b66c3;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        
+        .info-item {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: #eef6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .info-content h4 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            color: #132033;
+        }
+        
+        .info-content p {
+            margin: 0;
+            font-size: 13px;
+            color: #5a6772;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .status-not-started {
+            background: #f1f5f9;
+            color: #64748b;
+        }
+        
+        .status-in-progress {
+            background: #fef3c7;
+            color: #b45309;
+        }
+        
+        .status-completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+        
+        .quick-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-details {
+                gap: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="wrap">
-
-  <header>
-    <div>
-      <div class="title">Siebel CRM + BI Publisher — 2-Day Training</div>
-      <div class="subtitle">Hosted at <strong>siebeltraining.shreejientserv.in</strong> — Modern Web Tools & Workspaces, eCommunications vertical</div>
-      <div style="margin-top:8px">
-        <div class="small">Overall progress</div>
-        <div class="progress-bar" aria-hidden="true">
-          <div id="progressFill" class="progress-fill"></div>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-title">Oracle Siebel IP 21.7 Training</div>
+            <div class="hero-subtitle">Comprehensive 2-Day Course: From Foundations to Advanced Configuration</div>
+            
+            <div class="hero-details">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">2 Days</div>
+                    <div class="hero-stat-label">16 Hours Total</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">5 Topics</div>
+                    <div class="hero-stat-label">Comprehensive Coverage</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">6 Labs</div>
+                    <div class="hero-stat-label">Hands-On Practice</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">~200 Pages</div>
+                    <div class="hero-stat-label">In-Depth Content</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 24px;">
+                <div style="font-size: 13px; opacity: 0.9; margin-bottom: 8px;">Overall Progress</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overall-progress" style="width: 0%;"></div>
+                </div>
+                <div style="font-size: 12px; opacity: 0.85; margin-top: 6px;">
+                    <span class="progress-text">0%</span> Complete
+                </div>
+            </div>
         </div>
-      </div>
+
+        <!-- Training Environment Information -->
+        <div class="training-info">
+            <h3>🎯 Training Environment Access</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon">🌐</div>
+                    <div class="info-content">
+                        <h4>Siebel Application</h4>
+                        <p><code>https://siebeltraining.shreejientserv.in/siebel/app/ecommunications/enu</code></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🔧</div>
+                    <div class="info-content">
+                        <h4>Siebel Web Tools</h4>
+                        <p><code>https://siebeltraining.shreejientserv.in/siebel/app/webtools/enu</code></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">👤</div>
+                    <div class="info-content">
+                        <h4>Login Credentials</h4>
+                        <p>Username: <code>TRAINEE01-10</code> / Password: <code>Welcome123</code></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📦</div>
+                    <div class="info-content">
+                        <h4>Siebel Version</h4>
+                        <p>IP 21.7 (Innovation Pack 2021) - Modern Web Tools & Workspaces</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <a href="https://docs.oracle.com/en/applications/siebel/" target="_blank" class="btn btn-secondary">📚 Oracle Siebel Docs</a>
+            <a href="https://www.oracle.com/in/education/training/siebel/" target="_blank" class="btn btn-secondary">🎓 Oracle Training</a>
+            <a href="https://support.oracle.com/" target="_blank" class="btn btn-secondary">🆘 My Oracle Support</a>
+        </div>
+
+        <!-- Day 1 Section -->
+        <h2 style="margin-top: 48px; margin-bottom: 24px; color: #0b66c3;">📅 Day 1: Foundations, Configuration & Data Management</h2>
+        <p class="lead">Day 1 focuses on understanding CRM fundamentals, Siebel architecture, configuration tools, and data management practices. You'll complete 3 theoretical topics and hands-on practicals.</p>
+
+        <div class="modules-grid">
+            <!-- Day 1 Topic 1 -->
+            <div class="module-card" data-module-id="day1_topic1">
+                <div class="module-badge">Day 1 • Topic 1</div>
+                <h3 class="module-title">Introduction to Oracle Siebel CRM</h3>
+                <div class="module-meta">
+                    <div class="module-meta-item">
+                        <span>⏱</span>
+                        <span>~2 hours theory</span>
+                    </div>
+                    <div class="module-meta-item">
+                        <span>📄</span>
+                        <span>25 pages</span>
+                    </div>
+                </div>
+                <div class="module-description">
+                    Learn the fundamentals of Customer Relationship Management, explore Siebel's key features and benefits, understand the architecture, navigate the UI, and set up users and roles.
+                </div>
+                <div class="module-progress">
+                    <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day1_topic1">Not Started</span></div>
+                </div>
+                <a href="day1_topic1_intro_crm.html" class="btn btn-primary" style="margin-top: 16px;">Start Topic →</a>
+            </div>
+
+            <!-- Day 1 Topic 2 -->
+            <div class="module-card" data-module-id="day1_topic2">
+                <div class="module-badge">Day 1 • Topic 2</div>
+                <h3 class="module-title">Configuring Siebel Applications</h3>
+                <div class="module-meta">
+                    <div class="module-meta-item">
+                        <span>⏱</span>
+                        <span>~2 hours theory</span>
+                    </div>
+                    <div class="module-meta-item">
+                        <span>📄</span>
+                        <span>30 pages</span>
+                    </div>
+                </div>
+                <div class="module-description">
+                    Master Siebel Tools and Web Tools, understand workspace lifecycle, configure business components and objects, create workflows, and customize the user interface.
+                </div>
+                <div class="module-progress">
+                    <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day1_topic2">Not Started</span></div>
+                </div>
+                <a href="day1_topic2_configuring.html" class="btn btn-primary" style="margin-top: 16px;">Start Topic →</a>
+            </div>
+
+            <!-- Day 1 Topic 3 -->
+            <div class="module-card" data-module-id="day1_topic3">
+                <div class="module-badge">Day 1 • Topic 3</div>
+                <h3 class="module-title">Managing Customer Data</h3>
+                <div class="module-meta">
+                    <div class="module-meta-item">
+                        <span>⏱</span>
+                        <span>~1.5 hours theory</span>
+                    </div>
+                    <div class="module-meta-item">
+                        <span>📄</span>
+                        <span>25 pages</span>
+                    </div>
+                </div>
+                <div class="module-description">
+                    Ensure data quality through validation, cleansing, and de-duplication. Learn import/export techniques, customer segmentation, contact management, and service request handling.
+                </div>
+                <div class="module-progress">
+                    <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day1_topic3">Not Started</span></div>
+                </div>
+                <a href="day1_topic3_data_management.html" class="btn btn-primary" style="margin-top: 16px;">Start Topic →</a>
+            </div>
+
+            <!-- Day 1 Practicals -->
+            <div class="module-card practical" data-module-id="day1_practicals">
+                <div class="module-badge practical">Day 1 • Practicals</div>
+                <h3 class="module-title">Hands-On Labs & Assignments</h3>
+                <div class="module-meta">
+                    <div class="module-meta-item">
+                        <span>⏱</span>
+                        <span>~3 hours hands-on</span>
+                    </div>
+                    <div class="module-meta-item">
+                        <span>📄</span>
+                        <span>20 pages</span>
+                    </div>
+                </div>
+                <div class="module-description">
+                    Apply your knowledge through 3 guided labs: UI exploration, workspace configuration, and data import/validation. Each trainee has unique assignments.
+                </div>
+                <div class="module-progress">
+                    <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day1_practicals">Not Started</span></div>
+                </div>
+                <a href="day1_practicals.html" class="btn btn-primary" style="margin-top: 16px; background: #0d9488;">Start Labs →</a>
+            </div>
+        </div>
+
+        <!-- Day 2 Section -->
+        <h2 style="margin-top: 48px; margin-bottom: 24px; color: #0b66c3;">📅 Day 2: Advanced Features, Optimization & Reporting</h2>
+        <p class="lead">Day 2 dives into advanced Siebel capabilities including sales automation, marketing campaigns, integrations, reporting, and best practices for production environments.</p>
+
+        <div class="modules-grid">
+            <!-- Day 2 Topic 1 -->
+            <div class="module-card" data-module-id="day2_topic1">
+                <div class="module-badge">Day 2 • Topic 4</div>
+                <h3 class="module-title">Advanced Features and Optimization</h3>
+                <div class="module-meta">
+                    <div class="module-meta-item">
+                        <span>⏱</span>
+                        <span>~2.5 hours theory</span>
+                    </div>
+                    <div class="module-meta-item">
+                        <span>📄</span>
+                        <span>35 pages</span>
+                    </div>
+                </div>
+                <div class="module-description">
+                    Explore sales pipeline management, forecasting, marketing campaigns, lead nurturing, SLA configuration, ERP integration, and mobile CRM capabilities.
+                </div>
+                <div class="module-progress">
+                    <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day2_topic1">Not Started</span></div>
+                </div>
+                <a href="day2_topic4_advanced.html" class="btn btn-primary" style="margin-top: 16px;">Start Topic →</a>
+            </div>
+
+            <!-- Day 2 Topic 2 -->
+            <div class="module-card" data-module-id="day2_topic2">
+                <div class="module-badge">Day 2 • Topic 5</div>
+                <h3 class="module-title">Reporting and Best Practices</h3>
+                <div class="module-meta">
+                    <div class="module-meta-item">
+                        <span>⏱</span>
+                        <span>~2.5 hours theory</span>
+                    </div>
+                    <div class="module-meta-item">
+                        <span>📄</span>
+                        <span>30 pages</span>
+                    </div>
+                </div>
+                <div class="module-description">
+                    Master reporting and analytics, create dashboards, monitor KPIs, implement security and compliance measures, and learn troubleshooting best practices.
+                </div>
+                <div class="module-progress">
+                    <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day2_topic2">Not Started</span></div>
+                </div>
+                <a href="day2_topic5_reporting.html" class="btn btn-primary" style="margin-top: 16px;">Start Topic →</a>
+            </div>
+
+            <!-- Day 2 Practicals -->
+            <div class="module-card practical" data-module-id="day2_practicals">
+                <div class="module-badge practical">Day 2 • Practicals</div>
+                <h3 class="module-title">Advanced Labs & Final Project</h3>
+                <div class="module-meta">
+                    <div class="module-meta-item">
+                        <span>⏱</span>
+                        <span>~3 hours hands-on</span>
+                    </div>
+                    <div class="module-meta-item">
+                        <span>📄</span>
+                        <span>25 pages</span>
+                    </div>
+                </div>
+                <div class="module-description">
+                    Complete advanced labs covering workflow automation, report creation, and integration configuration. Demonstrate your mastery through a comprehensive final project.
+                </div>
+                <div class="module-progress">
+                    <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day2_practicals">Not Started</span></div>
+                </div>
+                <a href="day2_practicals.html" class="btn btn-primary" style="margin-top: 16px; background: #0d9488;">Start Labs →</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 2px solid #e6eef8; text-align: center; color: #8b95a1;">
+            <p style="margin-bottom: 8px;">
+                <strong>Oracle Siebel IP 21.7 Training Material</strong>
+            </p>
+            <p style="font-size: 13px; margin-bottom: 16px;">
+                Developed for comprehensive hands-on learning • Updated October 2025
+            </p>
+            <p style="font-size: 12px;">
+                For questions or support, contact your training administrator
+            </p>
+        </div>
     </div>
-    <div style="text-align:right">
-      <div class="small">Total</div>
-      <div style="font-weight:700;font-size:18px">16 hours • ~186 pages</div>
-      <a id="startBtn" class="btn" href="day1_topic1_foundations.html">Start Training</a>
-    </div>
-  </header>
 
-  <section style="margin-top:18px;background:transparent">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div style="flex:1">
-        <h2 style="margin:0;color:#123b6d">Course Agenda</h2>
-        <div class="small" style="margin-top:6px;color:var(--muted)">Click any topic to open that module. Completed modules are saved in your browser (progress stored locally).</div>
-      </div>
-      <div style="min-width:240px;text-align:right">
-        <div class="small">Summary</div>
-        <div style="font-weight:700">5 Topics • 2 Practicals</div>
-      </div>
-    </div>
-
-    <div class="cards">
-      <!-- Day 1 Topic 1 -->
-      <div class="card" id="card1">
-        <h3>Day 1 • Topic 1 — Foundations & Navigation</h3>
-        <div class="meta">Pages 1–20 • ⏱ 2h</div>
-        <p class="small" style="margin-top:8px">Core CRM concepts, high-level server & 3-layer architecture, modules and eCommunications vertical.</p>
-        <a class="btn" href="day1_topic1_foundations.html" data-module="day1_topic1">Open Module</a>
-      </div>
-
-      <!-- Day 1 Topic 2 -->
-      <div class="card" id="card2">
-        <h3>Day 1 • Topic 2 — Data Model & UI Basics</h3>
-        <div class="meta">Pages 21–35 • ⏱ 1.5h</div>
-        <p class="small" style="margin-top:8px">Business Components, Business Objects, Views, Applets and navigation patterns for power users.</p>
-        <a class="btn" href="day1_topic2_data_ui.html" data-module="day1_topic2">Open Module</a>
-      </div>
-
-      <!-- Day 1 Topic 3 -->
-      <div class="card" id="card3">
-        <h3>Day 1 • Topic 3 — Users, Workspaces & Web Tools</h3>
-        <div class="meta">Pages 36–50 • ⏱ 1h</div>
-        <p class="small" style="margin-top:8px">User setup, responsibilities, workspaces lifecycle and Web Tools overview for configuration.</p>
-        <a class="btn" href="day1_topic3_users_workspaces.html" data-module="day1_topic3">Open Module</a>
-      </div>
-
-      <!-- Day 1 Practicals -->
-      <div class="card" id="card4" style="border-left:6px solid #dff5e5">
-        <h3>Day 1 • Practicals — Guided Labs</h3>
-        <div class="meta">Pages 51–60 • ⏱ 3h</div>
-        <p class="small" style="margin-top:8px">Three hands-on labs: exploration, configuration (Dev Workspace), import & dedupe + report run.</p>
-        <a class="btn" href="day1_practicals.html" data-module="day1_practicals">Open Practical</a>
-      </div>
-
-      <!-- Day 2 Topic 1 (preview) -->
-      <div class="card" id="card5" style="border-left:6px solid #ffeed6">
-        <h3>Day 2 • Topic 4 — Advanced Features & Optimization</h3>
-        <div class="meta">Pages 61–85 • ⏱ 2.5h</div>
-        <p class="small" style="margin-top:8px">Sales pipeline management, forecasting, campaign management, SLA configuration and integration overview.</p>
-        <a class="btn" href="day2_topic1_advanced_features.html" data-module="day2_topic1">Open Module</a>
-      </div>
-
-      <!-- Day 2 Topic 2 (preview) -->
-      <div class="card" id="card6" style="border-left:6px solid #f0e7ff">
-        <h3>Day 2 • Topic 5 — Reporting & Best Practices</h3>
-        <div class="meta">Pages 86–115 • ⏱ 2.5h</div>
-        <p class="small" style="margin-top:8px">BI Publisher fundamentals, report design, dashboards, KPIs, security and best practices.</p>
-        <a class="btn" href="day2_topic2_reporting_bestpractices.html" data-module="day2_topic2">Open Module</a>
-      </div>
-
-      <!-- Day 2 Practicals (preview) -->
-      <div class="card" id="card7" style="border-left:6px solid #f7f0ff">
-        <h3>Day 2 • Practicals — Reporting Labs</h3>
-        <div class="meta">Pages 116–125 • ⏱ 3h</div>
-        <p class="small" style="margin-top:8px">Report building, data model creation, template design, scheduling and delivery.</p>
-        <a class="btn" href="day2_practicals.html" data-module="day2_practicals">Open Practical</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div class="small">Links: <a href="https://www.oracle.com/in/education/training/siebel/" target="_blank">Oracle Siebel Training</a> • <a href="https://www.oracle.com/in/education/" target="_blank">Oracle Education</a> • <a href="https://mylearn.oracle.com/" target="_blank">MyLearn</a> • <a href="https://support.oracle.com/" target="_blank">My Oracle Support</a></div>
-      <div class="small">Tip: Use the Start Training button to jump to Topic 1.</div>
-    </div>
-  </footer>
-</div>
-
-<script>
-/* Progress tracking: modules completed are stored in localStorage by module key */
-const MODULE_KEYS = [
-  'day1_topic1','day1_topic2','day1_topic3','day1_practicals',
-  'day2_topic1','day2_topic2','day2_practicals'
-];
-
-function calcProgress(){
-  let completed = MODULE_KEYS.reduce((sum,key)=> sum + (localStorage.getItem(key)=='done'?1:0), 0);
-  return Math.round((completed / MODULE_KEYS.length) * 100);
-}
-function updateUI(){
-  const pct = calcProgress();
-  const fill = document.getElementById('progressFill');
-  fill.style.width = pct + '%';
-  // mark cards completed
-  MODULE_KEYS.forEach((k,i)=>{
-    if(localStorage.getItem(k)=='done'){
-      const card = document.getElementById('card'+(i+1));
-      if(card){ card.style.opacity = '0.9'; card.style.borderLeft = '6px solid var(--success)'; card.querySelector('h3').innerHTML += ' ✓'; }
-    }
-  });
-}
-updateUI();
-
-/* open module click handlers also mark small UI highlight by on-click (but completion should be set on the module page last page) */
-document.querySelectorAll('.card a.btn').forEach(a=>{
-  a.addEventListener('click', (e)=>{
-    // navigation will occur naturally; do a small local highlight
-    a.innerText = 'Opening...';
-  });
-});
-</script>
+    <script src="js/navigation.js"></script>
+    <script>
+        // Update module status badges
+        document.addEventListener('DOMContentLoaded', function() {
+            const modules = ['day1_topic1', 'day1_topic2', 'day1_topic3', 'day1_practicals', 'day2_topic1', 'day2_topic2', 'day2_practicals'];
+            
+            modules.forEach(moduleId => {
+                const status = ProgressTracker.getStatus(moduleId);
+                const badge = document.getElementById('status-' + moduleId);
+                if (badge) {
+                    badge.className = 'status-badge status-' + status;
+                    badge.textContent = status.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

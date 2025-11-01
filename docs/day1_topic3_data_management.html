@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1 Topic 3 - Managing Customer Data</title>
+    <link rel="stylesheet" href="css/training.css">
+</head>
+<body data-module-id="day1_topic3">
+    <div class="container-narrow">
+        <!-- Header -->
+        <div class="header">
+            <div>
+                <h1 class="header-title">Managing Customer Data</h1>
+                <div class="header-subtitle">Day 1 • Topic 3 • Estimated Time: 1.5 hours</div>
+            </div>
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-ghost">← Back to Home</a>
+            </div>
+        </div>
+
+        <div class="banner banner-info">
+            <div>
+                <strong>Learning Objectives:</strong> Ensure data quality, master import/export techniques, implement customer segmentation, and manage contacts, accounts, and service requests effectively.
+            </div>
+            <div class="meta">Pages 56-80</div>
+        </div>
+
+        <!-- Page Content Container -->
+        <div class="content">
+            <!-- Page 56: Introduction -->
+            <div class="page-content active" id="page-56">
+                <h2>Data is Your Most Valuable Asset</h2>
+                <p class="lead">
+                    In CRM, data quality directly impacts business success. Poor data leads to missed opportunities, frustrated customers, and wasted resources. This module teaches you how to maintain high-quality customer data.
+                </p>
+
+                <div class="card card-highlight">
+                    <h3>Module Topics</h3>
+                    <ul class="checklist">
+                        <li>Ensuring data accuracy and completeness through validation</li>
+                        <li>Data cleansing and de-duplication techniques</li>
+                        <li>Importing and exporting data using EIM</li>
+                        <li>Defining and managing customer segments</li>
+                        <li>Using segmentation for targeted marketing</li>
+                        <li>Contact and account management best practices</li>
+                        <li>Creating and managing service requests</li>
+                        <li>Handling customer cases and issues</li>
+                    </ul>
+                </div>
+
+                <div class="banner banner-warning">
+                    <div>
+                        <strong>📊 Industry Stat:</strong> Studies show that poor data quality costs organizations an average of $15 million per year in lost revenue and operational inefficiency.
+                    </div>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 4 minutes</span>
+                </div>
+            </div>
+
+            <!-- Page 57: Data Accuracy and Completeness -->
+            <div class="page-content" id="page-57" style="display: none;">
+                <h2>Ensuring Data Accuracy and Completeness</h2>
+                <p class="lead">
+                    Prevention is better than cure. Siebel provides multiple mechanisms to enforce data quality at the point of entry.
+                </p>
+
+                <h3>Validation Mechanisms</h3>
+
+                <div class="card">
+                    <h4>1. Required Fields</h4>
+                    <p>
+                        Setting the "Required" property on a Business Component field ensures users must provide a value before saving.
+                    </p>
+                    <p><strong>Configuration:</strong></p>
+                    <ul>
+                        <li>Open the Business Component in Web Tools</li>
+                        <li>Navigate to the Field definition</li>
+                        <li>Set <code>Required = TRUE</code></li>
+                    </ul>
+                    <p><strong>User Experience:</strong> Required fields show an asterisk (*) and block save if empty</p>
+                </div>
+
+                <div class="card">
+                    <h4>2. Validation Rules</h4>
+                    <p>
+                        The "Validation" property contains a logical expression that must evaluate to TRUE for the record to save.
+                    </p>
+                    <p><strong>Example validation rules:</strong></p>
+                    <pre><code>// Ensure probability is 0-100
+[Probability] >= 0 AND [Probability] <= 100
+
+// Ensure close date is in future
+[Close Date] > Today()
+
+// Ensure email format is valid
+[Email] LIKE '%@%.%'</code></pre>
+                </div>
+
+                <div class="card">
+                    <h4>3. Pick Lists (Bounded)</h4>
+                    <p>
+                        Bounded pick lists restrict user input to predefined values, eliminating free-text variations.
+                    </p>
+                    <p><strong>Example:</strong> Status field limited to: New | In Progress | Resolved | Closed</p>
+                    <p><strong>Benefit:</strong> Ensures consistency for reporting and automation</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/data_validation.png" alt="Data Validation">
+                    <div class="image-caption">Validation rules prevent bad data from entering the system</div>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 10 minutes</span>
+                </div>
+            </div>
+
+            <!-- Page 58: Data Cleansing -->
+            <div class="page-content" id="page-58" style="display: none;">
+                <h2>Data Cleansing Techniques</h2>
+                <p class="lead">
+                    While validation prevents new bad data, cleansing addresses data that's already in the system. The primary focus is de-duplication.
+                </p>
+
+                <h3>The Duplicate Problem</h3>
+                <div class="card">
+                    <p><strong>Why duplicates occur:</strong></p>
+                    <ul>
+                        <li>Multiple users creating the same account independently</li>
+                        <li>Slight name variations (IBM vs. IBM Corporation)</li>
+                        <li>Data imports from different sources</li>
+                        <li>Typos and data entry errors</li>
+                    </ul>
+                    <p><strong>Impact of duplicates:</strong></p>
+                    <ul>
+                        <li>Incomplete customer view (data scattered across records)</li>
+                        <li>Inefficient operations (duplicate marketing emails)</li>
+                        <li>Poor reporting accuracy</li>
+                        <li>Customer frustration (multiple account numbers)</li>
+                    </ul>
+                </div>
+
+                <h3>Siebel's De-duplication Process</h3>
+                <div class="card card-highlight">
+                    <h4>Step 1: Define Matching Criteria</h4>
+                    <p>
+                        Configure rules that identify potential duplicates. Rules can match on:
+                    </p>
+                    <ul>
+                        <li>Exact match: Names are identical</li>
+                        <li>Phonetic match: Names sound similar (Smith vs. Smyth)</li>
+                        <li>Fuzzy match: Names are close but not exact</li>
+                        <li>Combination: Match on name + ZIP code, or name + phone</li>
+                    </ul>
+                </div>
+
+                <div class="card card-highlight">
+                    <h4>Step 2: Run De-duplication Job</h4>
+                    <p>
+                        Siebel's Dedupe Manager runs as a batch process, scanning records against your criteria.
+                    </p>
+                </div>
+
+                <div class="card card-highlight">
+                    <h4>Step 3: Review Matches</h4>
+                    <p>
+                        Potential duplicates are flagged for human review. Users compare side-by-side and decide if they're truly duplicates.
+                    </p>
+                </div>
+
+                <div class="card card-highlight">
+                    <h4>Step 4: Merge Records</h4>
+                    <p>
+                        Confirmed duplicates are merged into a single "master" record. Siebel:
+                    </p>
+                    <ul>
+                        <li>Combines data from both records (choosing best values)</li>
+                        <li>Reassigns all related records (activities, opportunities, etc.) to the master</li>
+                        <li>Marks duplicate records as merged/inactive</li>
+                        <li>Maintains audit trail of the merge</li>
+                    </ul>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/data_quality_flow.png" alt="Data Quality Flow">
+                    <div class="image-caption">End-to-end data quality process: validate → cleanse → monitor</div>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 12 minutes</span>
+                </div>
+            </div>
+
+            <!-- Page 59: Importing and Exporting Data -->
+            <div class="page-content" id="page-59" style="display: none;">
+                <h2>Importing and Exporting Data with EIM</h2>
+                <p class="lead">
+                    Enterprise Integration Manager (EIM) is Siebel's powerful batch tool for moving large volumes of data in and out of the system.
+                </p>
+
+                <h3>When to Use EIM</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Initial data load:</strong> Migrating from a legacy system</li>
+                        <li><strong>Bulk updates:</strong> Changing thousands of records at once</li>
+                        <li><strong>Regular imports:</strong> Daily feeds from external systems</li>
+                        <li><strong>Data extracts:</strong> Exporting for reporting or archival</li>
+                    </ul>
+                    <p class="mt-md">
+                        <strong>Scale:</strong> EIM can handle millions of records in a single run, far beyond what's practical through the UI or web services.
+                    </p>
+                </div>
+
+                <h3>EIM Architecture</h3>
+                <div class="card">
+                    <h4>Interface Tables</h4>
+                    <p>
+                        Staging tables where you load your data before EIM processes it. Names follow pattern: <code>EIM_*</code>
+                    </p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li><code>EIM_ACCOUNT</code> - Stage account data</li>
+                        <li><code>EIM_CONTACT</code> - Stage contact data</li>
+                        <li><code>EIM_SR</code> - Stage service request data</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>EIM Process Flow</h4>
+                    <ol>
+                        <li><strong>Prepare data:</strong> Format your data to match interface table structure</li>
+                        <li><strong>Load interface tables:</strong> Use SQL loader or database tools to insert data</li>
+                        <li><strong>Configure EIM:</strong> Create a .IFB configuration file defining the import/export parameters</li>
+                        <li><strong>Run EIM:</strong> Execute the EIM utility from command line</li>
+                        <li><strong>Review results:</strong> Check logs for errors, validate data in Siebel</li>
+                    </ol>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/eim_architecture.png" alt="EIM Architecture">
+                    <div class="image-caption">EIM processes data through staging tables into Siebel base tables</div>
+                </div>
+
+                <div class="banner banner-info">
+                    <div>
+                        <strong>💡 Best Practice:</strong> Always test EIM imports on a copy of production data first. Errors can corrupt data and are difficult to roll back.
+                    </div>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 10 minutes</span>
+                </div>
+            </div>
+
+            <!-- Page 60: Customer Segmentation -->
+            <div class="page-content" id="page-60" style="display: none;">
+                <h2>Defining and Managing Customer Segments</h2>
+                <p class="lead">
+                    Segmentation divides your customer base into groups with similar characteristics, enabling targeted marketing and personalized service.
+                </p>
+
+                <h3>Why Segment Customers?</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>Targeted marketing:</strong> Send relevant offers to the right people</li>
+                        <li><strong>Personalized service:</strong> Tailor interactions based on customer value</li>
+                        <li><strong>Resource optimization:</strong> Focus efforts on high-value segments</li>
+                        <li><strong>Improved conversion:</strong> Messaging that resonates increases response rates</li>
+                    </ul>
+                </div>
+
+                <h3>Common Segmentation Criteria</h3>
+                <div class="card card-highlight">
+                    <h4>Demographic Segmentation</h4>
+                    <ul>
+                        <li>Industry (telecommunications, healthcare, finance)</li>
+                        <li>Company size (SMB, Mid-Market, Enterprise)</li>
+                        <li>Geographic location</li>
+                    </ul>
+                </div>
+
+                <div class="card card-highlight">
+                    <h4>Behavioral Segmentation</h4>
+                    <ul>
+                        <li>Purchase history (frequency, recency, value)</li>
+                        <li>Product usage patterns</li>
+                        <li>Service request volume (high-touch vs. low-touch)</li>
+                        <li>Channel preference (email, phone, self-service)</li>
+                    </ul>
+                </div>
+
+                <div class="card card-highlight">
+                    <h4>Value-Based Segmentation</h4>
+                    <ul>
+                        <li>Customer Lifetime Value (CLV)</li>
+                        <li>Revenue contribution</li>
+                        <li>Profitability</li>
+                        <li>Growth potential</li>
+                    </ul>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/segmentation.png" alt="Customer Segmentation">
+                    <div class="image-caption">Multi-dimensional segmentation enables precise targeting</div>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 9 minutes</span>
+                </div>
+            </div>
+
+            <!-- Page 65: Creating Segments in Siebel -->
+            <div class="page-content" id="page-65" style="display: none;">
+                <h2>Creating Segments in Siebel</h2>
+                <p class="lead">
+                    Siebel's Marketing module provides powerful tools for defining dynamic segments that automatically update as customer data changes.
+                </p>
+
+                <h3>Segment Types</h3>
+                <div class="card">
+                    <h4>Static Segments</h4>
+                    <p>
+                        A fixed list of customers. Members don't change unless manually added/removed.
+                    </p>
+                    <p><strong>Use when:</strong> One-time campaign to a specific list</p>
+                </div>
+
+                <div class="card">
+                    <h4>Dynamic Segments</h4>
+                    <p>
+                        Defined by criteria (rules). Membership is recalculated each time the segment is used.
+                    </p>
+                    <p><strong>Example criteria:</strong></p>
+                    <pre><code>[Account Revenue] > 1000000 AND
+[Industry] = 'Telecommunications' AND
+[Num Service Requests Last Year] < 5</code></pre>
+                    <p><strong>Use when:</strong> Ongoing campaigns where target audience evolves</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/targeted_marketing.png" alt="Targeted Marketing">
+                    <div class="image-caption">Segments enable precision targeting for higher campaign ROI</div>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 8 minutes</span>
+                </div>
+            </div>
+
+            <!-- Page 70: Contact and Account Management -->
+            <div class="page-content" id="page-70" style="display: none;">
+                <h2>Contact and Account Management Best Practices</h2>
+                <p class="lead">
+                    Accounts and Contacts are the foundation of your CRM data. Proper management ensures data integrity and usability.
+                </p>
+
+                <h3>Account vs. Contact</h3>
+                <div class="card">
+                    <h4>Account (Organization)</h4>
+                    <p>
+                        Represents a company or organization you do business with.
+                    </p>
+                    <p><strong>Key fields:</strong></p>
+                    <ul>
+                        <li>Account Name</li>
+                        <li>Industry</li>
+                        <li>Revenue</li>
+                        <li>Number of Employees</li>
+                        <li>Primary Address</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Contact (Person)</h4>
+                    <p>
+                        Represents an individual person associated with an Account.
+                    </p>
+                    <p><strong>Key fields:</strong></p>
+                    <ul>
+                        <li>First Name, Last Name</li>
+                        <li>Job Title</li>
+                        <li>Email, Phone</li>
+                        <li>Parent Account (which company they work for)</li>
+                    </ul>
+                </div>
+
+                <h3>Best Practices</h3>
+                <div class="card card-highlight">
+                    <ol>
+                        <li><strong>One Account per company:</strong> Avoid duplicates by searching before creating</li>
+                        <li><strong>Complete critical fields:</strong> Ensure phone, email, and address are populated</li>
+                        <li><strong>Maintain relationships:</strong> Always link Contacts to their Account</li>
+                        <li><strong>Use naming conventions:</strong> Standardize how company names are entered</li>
+                        <li><strong>Regular data reviews:</strong> Quarterly audits to identify and fix issues</li>
+                    </ol>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 7 minutes</span>
+                </div>
+            </div>
+
+            <!-- Page 75: Service Request Management -->
+            <div class="page-content" id="page-75" style="display: none;">
+                <h2>Creating and Managing Service Requests</h2>
+                <p class="lead">
+                    Service Requests (SRs) are how customers report problems and ask for help. Efficient SR management is critical to customer satisfaction.
+                </p>
+
+                <h3>SR Lifecycle</h3>
+                <div class="card">
+                    <ol>
+                        <li><strong>Creation:</strong> Customer contacts support via phone, email, chat, or self-service portal</li>
+                        <li><strong>Assignment:</strong> Siebel routes the SR to the appropriate team/agent based on rules</li>
+                        <li><strong>Diagnosis:</strong> Agent investigates the issue, potentially escalating to specialists</li>
+                        <li><strong>Resolution:</strong> Agent fixes the problem or provides a solution</li>
+                        <li><strong>Closure:</strong> Customer confirms satisfaction, SR is marked resolved</li>
+                    </ol>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/service_request_lifecycle.png" alt="Service Request Lifecycle">
+                    <div class="image-caption">Complete SR lifecycle from creation to closure</div>
+                </div>
+
+                <h3>Key SR Fields</h3>
+                <div class="card">
+                    <ul>
+                        <li><strong>SR Number:</strong> Unique identifier (auto-generated)</li>
+                        <li><strong>Status:</strong> Open, In Progress, Pending Customer, Resolved, Closed</li>
+                        <li><strong>Priority:</strong> Critical, High, Medium, Low</li>
+                        <li><strong>Category/Type:</strong> Classifies the problem (Billing, Technical, etc.)</li>
+                        <li><strong>Owner:</strong> Agent currently responsible</li>
+                        <li><strong>Description:</strong> Detailed problem statement</li>
+                        <li><strong>Resolution:</strong> How the issue was resolved</li>
+                    </ul>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Estimated reading time: 9 minutes</span>
+                </div>
+            </div>
+
+            <!-- Final Summary -->
+            <div class="page-content" id="page-80" style="display: none;">
+                <h2>Module Summary: Managing Customer Data</h2>
+                <p class="lead">
+                    Congratulations! You've completed the data management module. You now understand how to maintain high-quality customer data in Siebel.
+                </p>
+
+                <div class="card card-highlight">
+                    <h3>✅ Key Skills Acquired</h3>
+                    <ul class="checklist">
+                        <li>Implementing data validation to ensure accuracy</li>
+                        <li>Using de-duplication to cleanse existing data</li>
+                        <li>Importing and exporting data with EIM</li>
+                        <li>Creating customer segments for targeted marketing</li>
+                        <li>Managing accounts and contacts effectively</li>
+                        <li>Handling service requests through their full lifecycle</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Ready for Hands-On Practice</h3>
+                    <p>
+                        You've now completed all three theoretical topics for Day 1. It's time to apply what you've learned in the practicals!
+                    </p>
+                    <p><strong>Day 1 Practicals include:</strong></p>
+                    <ul>
+                        <li><strong>Lab 1:</strong> UI Exploration and Navigation</li>
+                        <li><strong>Lab 2:</strong> Workspace Configuration Exercise</li>
+                        <li><strong>Lab 3:</strong> Data Import and Validation</li>
+                    </ul>
+                </div>
+
+                <div class="banner banner-success">
+                    <div>
+                        <strong>🎓 Day 1 Theory Complete!</strong> After the practicals, you'll have a solid foundation in Siebel fundamentals, configuration, and data management.
+                    </div>
+                </div>
+
+                <div class="text-center mt-lg">
+                    <a href="day1_practicals.html" class="btn btn-primary" style="font-size: 16px; padding: 14px 28px; background: var(--secondary-teal);">
+                        Start Day 1 Practicals →
+                    </a>
+                </div>
+
+                <div class="meta mt-lg">
+                    <span class="meta-time">Module completion time: ~1.5 hours</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="footer-nav">
+            <div class="footer-info">
+                <div class="footer-page-number">
+                    <span class="page-number-display">Page 56 of 80</span>
+                </div>
+                <div class="footer-time">
+                    <span class="meta-time">Est. 1.5 hours total</span>
+                </div>
+            </div>
+            <div class="footer-nav-buttons">
+                <button class="btn btn-secondary btn-prev" disabled>← Previous</button>
+                <button class="btn btn-primary btn-next">Next →</button>
+                <button class="btn btn-primary" id="mark-complete-btn" style="display: none; background: var(--success);">
+                    ✓ Mark Complete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navigation.js"></script>
+    <script>
+        // Initialize page navigation for this module (25 pages total: 56-80)
+        PageNavigator.init(56, 80);
+        
+        // Show first page of this module
+        PageNavigator.showPage(56);
+    </script>
+</body>
+</html>

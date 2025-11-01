@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAINEE02 - Day 2 Practicals</title>
+    <link rel="stylesheet" href="css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="trainee-badge">👤 TRAINEE02</div>
+        
+        <header class="topic-header">
+            <h1>Day 2 Practical Assignment - TRAINEE02</h1>
+            <div class="time-estimate">⏱️ Total Duration: 3 Hours</div>
+        </header>
+
+        <nav class="page-nav">
+            <a href="day2_practicals.html" class="nav-btn">← Back to Practicals</a>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+        </nav>
+
+        <section class="content-section">
+            <h2>📊 Lab 1: Billing Dispute Analysis Report (60 minutes)</h2>
+            <h3>Your Assignment: Corporate Billing Trends</h3>
+            
+            <div class="assignment-step">
+                <h4>Report Configuration</h4>
+                <ul>
+                    <li><strong>Name:</strong> TRAINEE02_Billing_Dispute_Analysis</li>
+                    <li><strong>Data Source:</strong> Service Request BC (Billing Disputes)</li>
+                    <li><strong>Columns:</strong> SR Number, Account, Dispute Amount, Reason, Status, Created Date</li>
+                    <li><strong>Filter:</strong> Type = "Billing Dispute" AND Created Date = Last 90 Days</li>
+                    <li><strong>Group By:</strong> Dispute Reason</li>
+                    <li><strong>Calculations:</strong> COUNT(SRs), SUM(Dispute Amount), AVG(Resolution Days)</li>
+                    <li><strong>Chart:</strong> Pie chart showing dispute distribution by reason</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🎯 Lab 2: Finance Dashboard (60 minutes)</h2>
+            <h3>Your Assignment: Billing Operations Dashboard</h3>
+            
+            <div class="assignment-step">
+                <h4>Dashboard Components</h4>
+                <ul>
+                    <li><strong>KPI 1:</strong> Total Dispute Amount (sum, current month)</li>
+                    <li><strong>KPI 2:</strong> Average Resolution Time (days)</li>
+                    <li><strong>Chart 1:</strong> Disputes by Account Type (bar chart)</li>
+                    <li><strong>Chart 2:</strong> Monthly Dispute Trend (line chart, last 6 months)</li>
+                    <li><strong>List:</strong> Top 10 Accounts by Dispute Amount</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>⏰ Lab 3: Automated Monthly Report (30 minutes)</h2>
+            <ul>
+                <li><strong>Schedule:</strong> Monthly, 1st day at 7 AM</li>
+                <li><strong>Format:</strong> Excel with summary tab</li>
+                <li><strong>Recipients:</strong> Finance team distribution list</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>📝 Lab 4: Billing Escalation Workflow (30 minutes)</h2>
+            <p>Create workflow: IF Dispute Amount > $10,000 THEN Escalate to Finance Manager + Send alert</p>
+        </section>
+
+        <nav class="page-nav">
+            <a href="day2_practicals.html" class="nav-btn">← Back to Practicals</a>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+        </nav>
+    </div>
+    <script src="js/navigation.js"></script>
+</body>
+</html>

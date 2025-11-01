@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAINEE01 - Day 1 Practicals</title>
+    <link rel="stylesheet" href="css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="trainee-badge">👤 TRAINEE01</div>
+        
+        <header class="topic-header">
+            <h1>Day 1 Practical Assignment - TRAINEE01</h1>
+            <div class="time-estimate">⏱️ Total Duration: 3 Hours</div>
+        </header>
+
+        <nav class="page-nav">
+            <a href="day1_practicals.html" class="nav-btn">← Back to Practicals</a>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+        </nav>
+
+        <!-- Lab 1: Navigation and User Management -->
+        <section class="content-section">
+            <h2>🔬 Lab 1: Navigation and User Management (45 minutes)</h2>
+            
+            <h3>Your Assignment: Create Email Support Representative</h3>
+            
+            <div class="assignment-step">
+                <h4>Step 1: Login and Navigate (5 minutes)</h4>
+                <ol>
+                    <li>Open: <a href="https://siebeltraining.shreejientserv.in/siebel/app/ecommunications/enu" target="_blank">Siebel Application</a></li>
+                    <li>Login with credentials: <code>TRAINEE01</code> / <code>Welcome123</code></li>
+                    <li>Navigate to: Site Map → Administration - User → Employees</li>
+                    <li>Familiarize yourself with the employee list view</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 2: Create New Employee (10 minutes)</h4>
+                <ol>
+                    <li>Click <strong>New</strong> button</li>
+                    <li>Fill in the following details:
+                        <ul>
+                            <li><strong>Last Name:</strong> Rodriguez</li>
+                            <li><strong>First Name:</strong> Maria</li>
+                            <li><strong>Login Name:</strong> MRODRIGUEZ_T01</li>
+                            <li><strong>Email:</strong> maria.rodriguez@ecommunications.com</li>
+                            <li><strong>Status:</strong> Active</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Save</strong></li>
+                    <li>Review the employee record to confirm all fields are saved correctly</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 3: Create Position (10 minutes)</h4>
+                <ol>
+                    <li>Navigate to: Administration - User → Positions</li>
+                    <li>Click <strong>New</strong></li>
+                    <li>Enter details:
+                        <ul>
+                            <li><strong>Name:</strong> Email Support Representative - T01</li>
+                            <li><strong>Type:</strong> Employee</li>
+                            <li><strong>Organization:</strong> Service Organization</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Save</strong></li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 4: Assign Responsibilities (15 minutes)</h4>
+                <ol>
+                    <li>In the Position record, go to <strong>Responsibilities</strong> view</li>
+                    <li>Click <strong>Add</strong> and select:
+                        <ul>
+                            <li>Service Representative</li>
+                            <li>Self Service User</li>
+                        </ul>
+                    </li>
+                    <li>Navigate back to Employee: Maria Rodriguez</li>
+                    <li>In <strong>Positions</strong> applet, click <strong>Add</strong></li>
+                    <li>Select: Email Support Representative - T01</li>
+                    <li>Set as <strong>Primary Position</strong></li>
+                    <li>Save and verify the assignment is complete</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 5: Verify Access (5 minutes)</h4>
+                <ol>
+                    <li>Note the employee's Row ID for your reference</li>
+                    <li>Verify responsibilities are correctly assigned</li>
+                    <li>Review that the employee can access Service views</li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Lab 1 Complete!</strong>
+                <p>You've successfully created an employee, position, and assigned responsibilities for email support operations.</p>
+            </div>
+        </section>
+
+        <!-- Lab 2: Configuring Business Components -->
+        <section class="content-section">
+            <h2>⚙️ Lab 2: Configuring Business Components (75 minutes)</h2>
+            
+            <h3>Your Assignment: Email Issue Tracking System</h3>
+            
+            <div class="assignment-step">
+                <h4>Step 1: Create Workspace (10 minutes)</h4>
+                <ol>
+                    <li>Open: <a href="https://siebeltraining.shreejientserv.in/webtools/enu" target="_blank">Siebel Web Tools</a></li>
+                    <li>Login with: <code>TRAINEE01</code> / <code>Welcome123</code></li>
+                    <li>Click: Administration → Workspace Administration</li>
+                    <li>Create new workspace:
+                        <ul>
+                            <li><strong>Name:</strong> WS_TRAINEE01_EmailTracking</li>
+                            <li><strong>Description:</strong> Email issue tracking customization</li>
+                            <li><strong>Type:</strong> Developer</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Save</strong> and <strong>Lock</strong> the workspace</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 2: Create Business Component (20 minutes)</h4>
+                <ol>
+                    <li>Navigate to: Object Explorer → Business Component</li>
+                    <li>Click <strong>New</strong> and configure:
+                        <ul>
+                            <li><strong>Name:</strong> Email Issue</li>
+                            <li><strong>Table:</strong> S_SRV_REQ (Service Request table)</li>
+                            <li><strong>Class:</strong> CSSBCBase</li>
+                            <li><strong>Project:</strong> eCommunications Project</li>
+                        </ul>
+                    </li>
+                    <li>Add the following fields:
+                        <ul>
+                            <li><strong>Field Name:</strong> Email Subject | <strong>Type:</strong> Text | <strong>Length:</strong> 255</li>
+                            <li><strong>Field Name:</strong> Email Priority | <strong>Type:</strong> Picklist | <strong>Picklist:</strong> EMAIL_PRIORITY_CODE</li>
+                            <li><strong>Field Name:</strong> Response SLA Hours | <strong>Type:</strong> Number | <strong>Length:</strong> 10</li>
+                            <li><strong>Field Name:</strong> Customer Email | <strong>Type:</strong> Text | <strong>Length:</strong> 100</li>
+                        </ul>
+                    </li>
+                    <li>Save the Business Component</li>
+                    <li>Review and verify </li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 3: Create Business Object (15 minutes)</h4>
+                <ol>
+                    <li>Navigate to: Object Explorer → Business Object</li>
+                    <li>Create new:
+                        <ul>
+                            <li><strong>Name:</strong> Email Issue BO</li>
+                            <li><strong>Primary BC:</strong> Email Issue</li>
+                        </ul>
+                    </li>
+                    <li>Add child components:
+                        <ul>
+                            <li>Action</li>
+                            <li>Activity</li>
+                        </ul>
+                    </li>
+                    <li>Save and verify completion</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 4: Create Applet (15 minutes)</h4>
+                <ol>
+                    <li>Navigate to: Object Explorer → Applet</li>
+                    <li>Create form applet:
+                        <ul>
+                            <li><strong>Name:</strong> Email Issue Form Applet</li>
+                            <li><strong>Type:</strong> Form</li>
+                            <li><strong>BC:</strong> Email Issue</li>
+                        </ul>
+                    </li>
+                    <li>Add controls for all 4 custom fields</li>
+                    <li>Set layout and sequence numbers</li>
+                    <li>Save configuration</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 5: Test and Checkpoint (15 minutes)</h4>
+                <ol>
+                    <li>Create checkpoint: <code>CHECKPOINT_01_BC_Created</code></li>
+                    <li>Activate repository changes</li>
+                    <li>Test in runtime application</li>
+                    <li>Create test record with sample data</li>
+                    <li>Review and verify </li>
+                    <li>Submit workspace to MAIN</li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Lab 2 Deliverables:</strong>
+                <ul>
+                    <li>Verified </li>
+                    <li>Verified </li>
+                    <li>Verified </li>
+                    <li>Workspace name and checkpoint ID</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Lab 3: Managing Customer Data -->
+        <section class="content-section">
+            <h2>📊 Lab 3: Managing Customer Data (60 minutes)</h2>
+            
+            <h3>Your Assignment: Email Customer Data Import</h3>
+            
+            <div class="assignment-step">
+                <h4>Step 1: Prepare Data File (10 minutes)</h4>
+                <ol>
+                    <li>Create CSV file: <code>trainee01_email_customers.csv</code></li>
+                    <li>Add columns: Account Name, Email Address, Phone Number, Industry, Status</li>
+                    <li>Add 10 sample records for email service customers:
+                        <pre>
+Account Name,Email Address,Phone Number,Industry,Status
+TechMail Solutions,contact@techmail.com,555-0101,Technology,Active
+GlobalEmail Corp,info@globalemail.com,555-0102,Communications,Active
+EmailFirst Inc,support@emailfirst.com,555-0103,Software,Active
+...</pre>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 2: Configure EIM Import (20 minutes)</h4>
+                <ol>
+                    <li>Navigate to: Administration - Data → EIM Administration</li>
+                    <li>Create new import configuration:
+                        <ul>
+                            <li><strong>Name:</strong> TRAINEE01_Email_Account_Import</li>
+                            <li><strong>Table:</strong> EIM_ACCOUNT</li>
+                            <li><strong>Mode:</strong> Import</li>
+                        </ul>
+                    </li>
+                    <li>Map CSV columns to EIM fields</li>
+                    <li>Set batch size: 100</li>
+                    <li>Enable validation mode first</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 3: Execute Import (15 minutes)</h4>
+                <ol>
+                    <li>Load CSV file to EIM interface table</li>
+                    <li>Run validation - review any errors</li>
+                    <li>Correct data issues if needed</li>
+                    <li>Execute import in INSERT mode</li>
+                    <li>Monitor import progress</li>
+                    <li>Review import log for success/failure counts</li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 4: Data Validation (10 minutes)</h4>
+                <ol>
+                    <li>Navigate to Accounts view in application</li>
+                    <li>Search for imported accounts</li>
+                    <li>Verify all fields populated correctly</li>
+                    <li>Check for any duplicate records</li>
+                    <li>Review and verify </li>
+                </ol>
+            </div>
+
+            <div class="assignment-step">
+                <h4>Step 5: Create Service Request (5 minutes)</h4>
+                <ol>
+                    <li>Open one of the imported accounts</li>
+                    <li>Create new Service Request using your Email Issue BC</li>
+                    <li>Fill in:
+                        <ul>
+                            <li><strong>Email Subject:</strong> Email delivery failure</li>
+                            <li><strong>Email Priority:</strong> High</li>
+                            <li><strong>Response SLA Hours:</strong> 4</li>
+                            <li><strong>Customer Email:</strong> contact@techmail.com</li>
+                        </ul>
+                    </li>
+                    <li>Save and verify completion</li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <strong>✅ Lab 3 Deliverables:</strong>
+                <ul>
+                    <li>CSV file with sample data</li>
+                    <li>Verified </li>
+                    <li>EIM import log excerpt showing success</li>
+                    <li>Verified </li>
+                    <li>Verified </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="content-section">
+            <h2>📝 Submission Checklist</h2>
+            <div class="highlight">
+                <h3>Before you finish:</h3>
+                <ol>
+                    <li>✅ All Lab 1 screenshots captured</li>
+                    <li>✅ Workspace submitted with checkpoint</li>
+                    <li>✅ EIM import completed successfully</li>
+                    <li>✅ All deliverables organized in folder: <code>TRAINEE01_Day1_Practicals</code></li>
+                    <li>✅ Submit folder to instructor</li>
+                </ol>
+            </div>
+            
+            <div class="success-box">
+                <strong>🎉 Congratulations!</strong> You've completed Day 1 practicals for TRAINEE01.
+                <br>Review your work and be ready to discuss your implementation tomorrow.
+            </div>
+        </section>
+
+        <nav class="page-nav">
+            <a href="day1_practicals.html" class="nav-btn">← Back to Practicals</a>
+            <a href="index.html" class="nav-btn">🏠 Home</a>
+        </nav>
+    </div>
+    <script src="js/navigation.js"></script>
+</body>
+</html>

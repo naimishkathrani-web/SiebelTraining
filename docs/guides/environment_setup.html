@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environment Setup Guide • Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Environment Setup Guide</div>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="../index.html">← Back to Home</a>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Environment Setup Guide</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="topic-main-title">🔧 Environment Setup Guide</h1>
+
+      <div class="card">
+        <p>This guide helps you verify access and prepare your workstation for the 2-day Siebel training. It includes telecom-specific context (Vodacom Africa) and quick troubleshooting tips.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="subtopic-title">1) Access the Training Environment</h2>
+        <div class="card card-white">
+          <ul>
+            <li>Siebel Application: <code>https://siebeltraining.shreejientserv.in/siebel/app/ecommunications/enu</code></li>
+            <li>Siebel Web Tools: <code>https://siebeltraining.shreejientserv.in/siebel/app/webtools/enu</code></li>
+            <li>Login: Username <code>TRAINEE01</code> to <code>TRAINEE10</code> / Password <code>Welcome123</code></li>
+          </ul>
+        </div>
+        <!-- IMAGE: Siebel login page with URL bar visible -->
+        <!-- IMAGE: Web Tools login page with URL bar visible -->
+      </div>
+
+      <div class="content-section">
+        <h2 class="subtopic-title">2) Browser Setup & Tips</h2>
+        <div class="card">
+          <ul class="checklist">
+            <li>Use a modern browser (Chrome/Edge latest). Disable aggressive ad/script blockers for the training domain.</li>
+            <li>Open Siebel App and Web Tools in separate tabs; pin them for quick access.</li>
+            <li>Enable pop-ups for the training domain if you see blocked dialogs.</li>
+          </ul>
+        </div>
+        <!-- IMAGE: Browser settings showing pop-up exception for training domain -->
+      </div>
+
+      <div class="content-section">
+        <h2 class="subtopic-title">3) Validate Access & Roles</h2>
+        <div class="card">
+          <ol>
+            <li>Log in as <code>TRAINEE0X</code> in Siebel Application.
+              <!-- IMAGE: Successful login landing screen -->
+            </li>
+            <li>Open Site Map → Service Requests → confirm you can see the list view.
+              <!-- IMAGE: Service Request List View -->
+            </li>
+            <li>Open Accounts → confirm ability to view Account List and drill down to details.
+              <!-- IMAGE: Account List View with drilldown -->
+            </li>
+            <li>Open Web Tools → confirm you can load the Workspaces screen.
+              <!-- IMAGE: Web Tools Workspaces screen -->
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="subtopic-title">4) Telecom (Vodacom) Context Validation</h2>
+        <div class="card card-highlight">
+          <p>We will reference telecom scenarios during labs: prepaid/postpaid customers, service activation, and network issue management. Ensure you can navigate to Service Requests and Accounts to follow along.</p>
+        </div>
+        <!-- IMAGE: Example telecom SR with fields (Category=Network, Area=Coverage) -->
+      </div>
+
+      <div class="content-section">
+        <h2 class="subtopic-title">5) Troubleshooting</h2>
+        <div class="card">
+          <h4>Common Issues & Fixes</h4>
+          <ul>
+            <li><strong>Cannot reach URLs:</strong> Verify corporate proxy/VPN rules. Try another network if possible.</li>
+            <li><strong>Login fails:</strong> Check username (<code>TRAINEE01</code>..), case-sensitive password (<code>Welcome123</code>), and keyboard layout.</li>
+            <li><strong>Blank page or errors:</strong> Hard refresh (Ctrl+F5); clear cache for the site; disable extensions temporarily.</li>
+            <li><strong>Web Tools slow or not loading:</strong> Close extra tabs, wait 30–60s; try a fresh browser session or Incognito window.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="subtopic-title">6) Validation Checklist</h2>
+        <div class="card card-white">
+          <ul class="checklist">
+            <li>I can log in to Siebel Application</li>
+            <li>I can open Service Requests and Accounts views</li>
+            <li>I can log in to Web Tools and see Workspaces</li>
+            <li>Pop-ups allowed; no blockers preventing core actions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="page-navigation">
+        <a href="../index.html#prerequisites" class="nav-btn nav-btn-prev"><span class="arrow">←</span><span>Prerequisites</span></a>
+        <div class="nav-center">Environment readiness complete</div>
+        <a href="../topic1/index.html" class="nav-btn nav-btn-next"><span>Start Topic 1</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.875rem;">
+      <p>© 2025 Oracle Siebel CRM Training | Vodacom Telecom Context</p>
+    </footer>
+  </div>
+</body>
+</html>

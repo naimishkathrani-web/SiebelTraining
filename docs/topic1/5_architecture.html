@@ -141,6 +141,44 @@ WHERE S_ORG_EXT.INTEGRATION_ID = '...'</code></pre>
                 </div>
             </div>
 
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Telecom Integrations Landscape (Vodacom)</h2>
+                <div class="card card-white">
+                    <ul>
+                        <li><strong>Billing (e.g., Oracle/3rd party):</strong> Balance checks, invoice queries, payments, dunning</li>
+                        <li><strong>Provisioning/Network:</strong> SIM activation, plan changes, network trouble tickets</li>
+                        <li><strong>Identity/KYC:</strong> SIM registration, ID verification for swaps and postpaid</li>
+                        <li><strong>Mobile Money:</strong> Top-ups, bundle purchases, refunds</li>
+                        <li><strong>Messaging:</strong> SMS/Email for notifications and campaign outreach</li>
+                    </ul>
+                </div>
+                <!-- IMAGE: Integration landscape diagram placeholder -->
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Mermaid: Order-to-Activation (Sequence)</h2>
+                <div class="card card-white">
+<pre class="mermaid">
+sequenceDiagram
+  participant Agent
+  participant Siebel
+  participant Billing
+  participant Provisioning
+  participant Network
+
+  Agent->>Siebel: Submit Order (Plan change)
+  Siebel->>Billing: Credit/Bill Check
+  Billing-->>Siebel: OK
+  Siebel->>Provisioning: Provision Request
+  Provisioning->>Network: Activate/Update
+  Network-->>Provisioning: Status OK
+  Provisioning-->>Siebel: Completed
+  Siebel-->>Agent: Order Fulfilled
+  Siebel->>Agent: Notify Customer (SMS/Email)
+</pre>
+                </div>
+            </div>
+
             <div class="meta mt-lg">
                 <span class="meta-time">Estimated reading time: 15 minutes</span>
             </div>
@@ -164,5 +202,7 @@ WHERE S_ORG_EXT.INTEGRATION_ID = '...'</code></pre>
             <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
 </body>
 </html>

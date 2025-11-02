@@ -165,6 +165,58 @@
                 </div>
             </div>
 
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Telecom Role-Based Journeys (Vodacom)</h2>
+                <div class="card card-white">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem;">
+                        <div>
+                            <h4 style="margin-top:0;">Care Agent</h4>
+                            <ul>
+                                <li>Search Account → Verify ID → Open SR</li>
+                                <li>Follow guided script → Check Knowledge</li>
+                                <li>Escalate if SLA risk → Notify customer</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="margin-top:0;">Back-office</h4>
+                            <ul>
+                                <li>Review escalated SRs → Root cause</li>
+                                <li>Coordinate with Network/Billing</li>
+                                <li>Close SR with resolution summary</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="margin-top:0;">Field Technician</h4>
+                            <ul>
+                                <li>Receive work order → On-site fix</li>
+                                <li>Capture photos/notes → Close job</li>
+                                <li>Update asset status → Trigger follow-up</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Mermaid: Care Agent Journey</h2>
+                <div class="card card-white">
+<pre class="mermaid">
+journey
+  title SR Handling for Coverage Complaint
+  section Identify
+    Search Account: 3: Agent
+    Verify Identity: 3: Agent
+  section Resolve
+    Create SR + Set SLA: 3: Agent
+    Check Outage: 2: Agent
+    Escalate to Network: 2: Agent
+  section Close & Retain
+    Communicate Resolution: 3: Agent
+    Offer Coverage-aware Bundle: 2: Agent
+</pre>
+                </div>
+            </div>
+
             <div class="card card-highlight mt-lg">
                 <h3 style="margin-top: 0;">🎯 Congratulations!</h3>
                 <p>You've completed Topic 1: Introduction to Siebel CRM. You now understand:</p>
@@ -200,5 +252,7 @@
             <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
 </body>
 </html>

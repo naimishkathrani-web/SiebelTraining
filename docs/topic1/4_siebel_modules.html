@@ -120,6 +120,45 @@
                 </div>
             </div>
 
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Telecom Context: How Modules Work Together (Vodacom)</h2>
+                <div class="card card-white">
+                    <ul>
+                        <li><strong>Marketing</strong> targets segments (e.g., rural prepaid data users) → leads flow to <strong>Sales</strong> for high-value prospects</li>
+                        <li><strong>Sales</strong> converts opportunities to <strong>Orders</strong> using product catalog and pricing</li>
+                        <li><strong>Order Management</strong> integrates with <strong>Provisioning</strong> to activate services/SIMs</li>
+                        <li><strong>Service</strong> handles SRs for coverage, billing queries, SIM swap, etc., with SLA-driven workflows</li>
+                        <li><strong>Analytics</strong> closes the loop with churn detection, ARPU insights, and offer performance</li>
+                    </ul>
+                </div>
+
+                <div class="card mt-md">
+                    <h4 style="margin-top:0;">Why This Matters (Vodacom)</h4>
+                    <ul class="checklist">
+                        <li>Consistent hand-offs reduce dropped steps across Marketing → Sales → Service</li>
+                        <li>Provisioning and Billing integrations ensure orders are fulfilled and charged correctly</li>
+                        <li>SLA-driven SRs improve NPS for network-related complaints</li>
+                        <li>Next-best-action boosts retention for high-risk prepaid segments</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Mermaid: End-to-End eComm Journey</h2>
+                <div class="card card-white">
+<pre class="mermaid">
+flowchart LR
+  A[Marketing\nSegment/Offer] --> B[Sales\nLead→Opp→Quote]
+  B --> C[Order Mgmt\nSubmit Order]
+  C --> D[Provisioning\nActivate SIM/Service]
+  D --> E[Billing\nCharge/Balance]
+  E --> F[Service\nSR if issue]
+  F --> G[Analytics\nChurn risk + NBA]
+  G --> A
+</pre>
+                </div>
+            </div>
+
             <div class="card mt-lg" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-left: 4px solid var(--primary-blue);">
                 <p><strong>📌 Note for This Training:</strong> We're working in the eCommunications vertical, which primarily uses the <strong>Service module</strong> for managing customer support requests related to telecommunications services (internet, mobile, TV packages, etc.).</p>
             </div>
@@ -147,5 +186,7 @@
             <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
 </body>
 </html>

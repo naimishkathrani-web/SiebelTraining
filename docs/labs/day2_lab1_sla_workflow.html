@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 4: SLA & Workflow Trace - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_practicals">
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Vodacom/Africa Context | Lab 4</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Labs</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Lab 4: SLA & Workflow Trace</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">⏱️ Lab 4: Trace SLA Timers and Explore Workflow</h1>
+      <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
+
+      <div class="card card-highlight">
+        <h3>Goal</h3>
+        <p>Trace an SR through SLA-related status changes and explore a relevant workflow definition in Web Tools (read-only).</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Prerequisites</h2>
+        <ul>
+          <li>Login: TRAINEE01–10 / Welcome123</li>
+          <li>Access to SR screens; Web Tools access (view only is fine)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Steps</h2>
+        <ol>
+          <li>Create or open an SR (use Lab 1 SR if available).</li>
+          <li>Review SLA/Entitlement fields on SR (e.g., Response Due, Resolve Due) if visible.</li>
+          <li>Change Status to In Progress → Pending External → In Progress → Closed to simulate lifecycle.</li>
+          <li>In Web Tools: open Object Explorer → Workflow Process → locate a support-related workflow (e.g., "SR Auto Assign" or similar).</li>
+          <li>Open workflow; review Start/End, decision points, and sub-process calls. Do not edit.</li>
+        </ol>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Mermaid: SLA Escalation Flow (Concept)</h2>
+        <div class="card card-white">
+<pre class="mermaid">
+flowchart TD
+  A[SR Created] --> B{Response Timer}
+  B -- On-time --> C[In Progress]
+  B -- Breach --> X[Escalate Level 1]
+  C --> D{Resolve Timer}
+  D -- On-time --> E[Closed]
+  D -- Breach --> Y[Escalate Level 2]
+</pre>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Validation</h2>
+        <ul class="checklist">
+          <li>Observed or noted SLA fields (if present)</li>
+          <li>Workflow opened in Web Tools and key steps identified</li>
+          <li>Status transitions executed in proper order</li>
+        </ul>
+      </div>
+
+      <div class="page-navigation">
+        <a href="index.html" class="nav-btn nav-btn-prev"><span class="arrow">←</span><span>Back to Labs</span></a>
+        <div class="nav-center">Lab 4 of 6</div>
+        <a href="day2_lab2_reporting_dashboard.html" class="nav-btn nav-btn-next"><span>Next: Lab 5</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Labs</p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>if(window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
+</body>
+</html>

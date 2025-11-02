@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 5: Reporting & Dashboard - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_practicals">
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Vodacom/Africa Context | Lab 5</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Labs</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Lab 5: Reporting & Dashboard</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">📊 Lab 5: Run a Report and Pin a KPI</h1>
+      <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
+
+      <div class="card card-highlight">
+        <h3>Goal</h3>
+        <p>Generate a standard report from a list view, create a saved query, and pin a KPI tile to the Home page.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Prerequisites</h2>
+        <ul>
+          <li>Login: TRAINEE01–10 / Welcome123</li>
+          <li>Access to a list view with "Run Report" capability</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Steps</h2>
+        <ol>
+          <li>Open Service Requests → All Service Requests (or Accounts list).</li>
+          <li>Apply filters (e.g., Status = Closed last 7 days) and save as a Saved Query.</li>
+          <li>Click Run Report → choose a standard report (e.g., SR Summary) → export PDF.</li>
+          <li>Go to Home → Personalize → add KPI tile related to SRs (e.g., "My Open SRs").</li>
+          <li>Arrange tile order and save.</li>
+        </ol>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Mermaid: Data to Insight</h2>
+        <div class="card card-white">
+<pre class="mermaid">
+flowchart LR
+  A[List View Data] --> B[Saved Query]
+  B --> C[Run Report → PDF]
+  B --> D[Home KPI Tile]
+</pre>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Validation</h2>
+        <ul class="checklist">
+          <li>Saved Query exists and returns results</li>
+          <li>Report downloaded successfully (PDF)</li>
+          <li>KPI tile appears on Home page</li>
+        </ul>
+      </div>
+
+      <div class="page-navigation">
+        <a href="day2_lab1_sla_workflow.html" class="nav-btn nav-btn-prev"><span class="arrow">←</span><span>Back: Lab 4</span></a>
+        <div class="nav-center">Lab 5 of 6</div>
+        <a href="day2_lab3_final_project.html" class="nav-btn nav-btn-next"><span>Next: Lab 6</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Labs</p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>if(window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 6: Mini Project - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_practicals">
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Vodacom/Africa Context | Lab 6</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Labs</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Lab 6: Mini Project</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">🧩 Lab 6: End-to-End Mini Project</h1>
+      <div class="topic-progress"><span>Estimated time: 20–30 minutes</span></div>
+
+      <div class="card card-highlight">
+        <h3>Goal</h3>
+        <p>Bring together SR handling, segmentation & offer, and order activation into a concise, end-to-end mini project.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Scenario</h2>
+        <p>A prepaid subscriber reported coverage issues last week. After resolution, retention offers are tested, and upon acceptance, a data bundle is activated.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Steps</h2>
+        <ol>
+          <li>Locate last week’s coverage SR (from Lab 1) and confirm Status = Closed; add a follow-up Activity "Retention call".</li>
+          <li>Use Saved Query to find similar prepaid customers (Lab 2 approach). Document the query criteria.</li>
+          <li>Compose an offer note (SMS text) in the Account/Contact notes. Paste the text.</li>
+          <li>Create an Order for a small data bundle (Lab 3 approach). Progress status to Complete.</li>
+          <li>Optionally, run a report for SRs closed last 7 days (Lab 5) and attach PDF to the Account as an Attachment.</li>
+        </ol>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Mermaid: Mini Project Flow</h2>
+        <div class="card card-white">
+<pre class="mermaid">
+flowchart LR
+  A[Closed SR] --> B[Retention Activity]
+  B --> C[Segment Similar Customers]
+  C --> D[Offer SMS]
+  D --> E[Order Bundle]
+  E --> F[Activation Complete]
+  F --> G[Optional Report]
+</pre>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Deliverables</h2>
+        <ul>
+          <li>Screenshot of SR details (Row ID visible)</li>
+          <li>Saved Query name and criteria</li>
+          <li>Offer SMS text</li>
+          <li>Order # and final Status</li>
+          <li>Optional: report filename attached to Account</li>
+        </ul>
+      </div>
+
+      <div class="page-navigation">
+        <a href="day2_lab2_reporting_dashboard.html" class="nav-btn nav-btn-prev"><span class="arrow">←</span><span>Back: Lab 5</span></a>
+        <div class="nav-center">Lab 6 of 6</div>
+        <a href="index.html" class="nav-btn nav-btn-next"><span>All Labs</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Labs</p>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>if(window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
+</body>
+</html>

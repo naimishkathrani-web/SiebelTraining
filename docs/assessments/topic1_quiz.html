@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 1 Quiz - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+  <style>
+    .quiz-item { margin-bottom: 16px; }
+    .quiz-item h4 { margin: 0 0 8px; }
+    .quiz-options label { display: block; margin-bottom: 6px; }
+    .quiz-result { padding: 12px; border-radius: 8px; margin-top: 12px; display:none; }
+    .quiz-result.pass { background: #dcfce7; color: #166534; }
+    .quiz-result.fail { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Topic 1 Quiz</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Assessments</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Topic 1 Quiz</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">📚 Topic 1 Quiz</h1>
+      <p class="lead">Answer 6 questions. Passing score: 4/6.</p>
+
+      <form id="quizForm">
+        <div class="quiz-item card card-white">
+          <h4>1) CRM is best described as:</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a"> A database for storing contacts</label>
+            <label><input type="radio" name="q1" value="b"> A business strategy enabled by technology</label>
+            <label><input type="radio" name="q1" value="c"> Only a call center application</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>2) Which is NOT a Siebel differentiator?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a"> Strong industry-specific models</label>
+            <label><input type="radio" name="q2" value="b"> Ability to scale to thousands of users</label>
+            <label><input type="radio" name="q2" value="c"> Requires custom code for every process</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>3) In eCommunications, which module primarily handles customer issues?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q3" value="a"> Sales</label>
+            <label><input type="radio" name="q3" value="b"> Service</label>
+            <label><input type="radio" name="q3" value="c"> Marketing</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>4) The Object Manager belongs to which tier?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q4" value="a"> Presentation</label>
+            <label><input type="radio" name="q4" value="b"> Data</label>
+            <label><input type="radio" name="q4" value="c"> Application</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>5) Which is true about Views and Applets?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q5" value="a"> Views contain Applets</label>
+            <label><input type="radio" name="q5" value="b"> Applets contain Views</label>
+            <label><input type="radio" name="q5" value="c"> They are the same</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>6) A typical telecom churn intervention via CRM includes:</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q6" value="a"> Random discounts with no targeting</label>
+            <label><input type="radio" name="q6" value="b"> Proactive offers to at-risk segments</label>
+            <label><input type="radio" name="q6" value="c"> Manual spreadsheets shared weekly</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="index.html" class="btn btn-secondary" style="margin-left: 8px;">Assessments</a>
+      </form>
+
+      <div id="result" class="quiz-result"></div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Assessments</p>
+    </footer>
+  </div>
+
+  <script>
+    const answers = { q1:'b', q2:'c', q3:'b', q4:'c', q5:'a', q6:'b' };
+    document.getElementById('quizForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      let score = 0, total = 6;
+      Object.keys(answers).forEach(k=>{
+        const sel = document.querySelector(`input[name="${k}"]:checked`);
+        if(sel && sel.value === answers[k]) score++;
+      });
+      const res = document.getElementById('result');
+      res.style.display = 'block';
+      const passed = score >= 4;
+      res.className = 'quiz-result ' + (passed ? 'pass' : 'fail');
+      res.textContent = `Score: ${score}/${total} — ` + (passed ? 'Pass ✅' : 'Try again ❌');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 2 Quiz - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+  <style>
+    .quiz-item { margin-bottom: 16px; }
+    .quiz-item h4 { margin: 0 0 8px; }
+    .quiz-options label { display: block; margin-bottom: 6px; }
+    .quiz-result { padding: 12px; border-radius: 8px; margin-top: 12px; display:none; }
+    .quiz-result.pass { background: #dcfce7; color: #166534; }
+    .quiz-result.fail { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Day 2 Quiz</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Assessments</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Day 2 Quiz</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">📈 Day 2 Quiz</h1>
+      <p class="lead">Answer 6 questions. Passing score: 4/6.</p>
+
+      <form id="quizForm">
+        <div class="quiz-item card card-white">
+          <h4>1) An SLA breach typically triggers:</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a"> Automatic data export</label>
+            <label><input type="radio" name="q1" value="b"> Escalation according to policy</label>
+            <label><input type="radio" name="q1" value="c"> User logout</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>2) Which best describes a Siebel Workflow?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a"> A visual process automation with steps and decisions</label>
+            <label><input type="radio" name="q2" value="b"> A report template</label>
+            <label><input type="radio" name="q2" value="c"> A database index</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>3) The "Run Report" feature most commonly outputs:</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q3" value="a"> CSV only</label>
+            <label><input type="radio" name="q3" value="b"> PDF or other formats via BI Publisher</label>
+            <label><input type="radio" name="q3" value="c"> JSON</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>4) A KPI tile on the Home page is:</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q4" value="a"> A workflow step</label>
+            <label><input type="radio" name="q4" value="b"> A visualization of a saved metric or query</label>
+            <label><input type="radio" name="q4" value="c"> A user login control</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>5) In telecom activation, which sequence is reasonable?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q5" value="a"> Activate → Bill Check → Submit Order</label>
+            <label><input type="radio" name="q5" value="b"> Submit Order → Bill Check → Provision → Activate</label>
+            <label><input type="radio" name="q5" value="c"> Provision → Activate → Submit Order</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>6) The primary benefit of Saved Queries is:</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q6" value="a"> Faster repeatable filtering</label>
+            <label><input type="radio" name="q6" value="b"> Data backup</label>
+            <label><input type="radio" name="q6" value="c"> User authentication</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="index.html" class="btn btn-secondary" style="margin-left: 8px;">Assessments</a>
+      </form>
+
+      <div id="result" class="quiz-result"></div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Assessments</p>
+    </footer>
+  </div>
+
+  <script>
+    const answers = { q1:'b', q2:'a', q3:'b', q4:'b', q5:'b', q6:'a' };
+    document.getElementById('quizForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      let score = 0, total = 6;
+      Object.keys(answers).forEach(k=>{
+        const sel = document.querySelector(`input[name="${k}"]:checked`);
+        if(sel && sel.value === answers[k]) score++;
+      });
+      const res = document.getElementById('result');
+      res.style.display = 'block';
+      const passed = score >= 4;
+      res.className = 'quiz-result ' + (passed ? 'pass' : 'fail');
+      res.textContent = `Score: ${score}/${total} — ` + (passed ? 'Pass ✅' : 'Try again ❌');
+    });
+  </script>
+</body>
+</html>

@@ -119,6 +119,72 @@
             </div>
 
             <div class="content-section">
+                <h2 class="sub3-topic-title">Vodacom/Africa Telecom Lens</h2>
+                <div class="card card-white">
+                    <ul>
+                        <li><strong>Market reality:</strong> High prepaid share, multi-SIM customers, and mobile money prevalence</li>
+                        <li><strong>Operational challenge:</strong> Diverse geographies (urban vs rural) with different network experiences</li>
+                        <li><strong>Process need:</strong> Standardized SR handling, SLA tracking, and proactive retention outreach</li>
+                        <li><strong>Data opportunity:</strong> Segmentation by usage, ARPU, location, and product mix to tailor offers</li>
+                    </ul>
+                </div>
+                <!-- IMAGE: Vodacom market infographic placeholder -->
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Churn Drivers and Interventions (Telecom)</h2>
+                <div class="card">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem;">
+                        <div>
+                            <h4 style="margin:0; color:#b91c1c;">Typical Drivers</h4>
+                            <ul>
+                                <li>Network quality issues (coverage, speed)</li>
+                                <li>Pricing perception vs competitors</li>
+                                <li>Poor SR experience or long resolution times</li>
+                                <li>Product mismatch (bundle doesn’t fit usage)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="margin:0; color:#0b66c3;">CRM-led Interventions</h4>
+                            <ul class="checklist">
+                                <li>Proactive outreach to at-risk segments</li>
+                                <li>Dynamic offers (coverage-aware bundles)</li>
+                                <li>Guided SR workflows with SLA escalations</li>
+                                <li>Next-best-action based on behavioral data</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="margin:0; color:#15803d;">KPIs to Track</h4>
+                            <ul>
+                                <li>Monthly churn rate (prepaid vs postpaid)</li>
+                                <li>FCR, AHT, SLA compliance, backlog age</li>
+                                <li>Offer acceptance and 30/60/90-day retention</li>
+                                <li>NPS/CSAT and SR re-open rate</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Mermaid: Retention Flow</h2>
+                <div class="card card-white">
+<pre class="mermaid">
+flowchart LR
+  A[Detect At-Risk Segment\nLow usage + recent SR] --> B{Contact Channel}
+  B -->|SMS| C[Personalized bundle offer]
+  B -->|Agent| D[Outbound call + empathy script]
+  C --> E{Accepted?}
+  D --> E
+  E -->|Yes| F[Activate offer + set follow-up]
+  E -->|No| G[Log reason + alternate action]
+  F --> H[Monitor 30-day retention KPIs]
+  G --> H
+</pre>
+                </div>
+            </div>
+
+            <div class="content-section">
                 <h2 class="sub3-topic-title">The Competitive Imperative</h2>
                 
                 <p>Modern customers expect:</p>
@@ -162,5 +228,7 @@
             <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
 </body>
 </html>

@@ -142,6 +142,62 @@
             </div>
 
             <div class="content-section">
+                <h2 class="sub3-topic-title">Feature-to-Scenario Map (Telecom)</h2>
+                <div class="card card-white">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem;">
+                        <div>
+                            <h4 style="margin-top:0;">Service Requests (SR) + SLAs</h4>
+                            <ul>
+                                <li>Outage ticketing with mass SR linkage</li>
+                                <li>Auto-escalation for VIP business accounts</li>
+                                <li>Re-open prevention via QA scripts</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="margin-top:0;">Order Mgmt & Provisioning</h4>
+                            <ul>
+                                <li>Prepaid bundle purchases (mobile money)</li>
+                                <li>Postpaid plan change with add-ons</li>
+                                <li>SIM swap with KYC verification</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="margin-top:0;">Segmentation & Offers</h4>
+                            <ul>
+                                <li>Coverage-aware offers by location</li>
+                                <li>Churn risk scoring for proactive calls</li>
+                                <li>Next-best-action on agent desktop</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="margin-top:0;">Integration (Billing/Network)</h4>
+                            <ul>
+                                <li>Balance checks and recharge history</li>
+                                <li>Network trouble tickets status sync</li>
+                                <li>Usage analytics for ARPU insights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Mermaid: Service Activation Flow</h2>
+                <div class="card card-white">
+<pre class="mermaid">
+flowchart TD
+  A[Order Captured\nSiebel OM] --> B{KYC Verified?}
+  B -- No --> X[Hold Order\nRequest documents]
+  B -- Yes --> C[Bill Check\nCredit/Balance]
+  C -->|Pass| D[Provisioning Request\nNetwork]
+  C -->|Fail| Y[Notify Customer\nPayment options]
+  D --> E[Activation Complete]
+  E --> F[Notify Customer\nSMS/Email]
+</pre>
+                </div>
+            </div>
+
+            <div class="content-section">
                 <h2 class="sub3-topic-title">Why Organizations Choose Siebel</h2>
                 
                 <div class="card card-highlight">
@@ -180,5 +236,7 @@
             <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
 </body>
 </html>

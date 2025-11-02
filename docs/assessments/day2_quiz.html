@@ -104,6 +104,8 @@
 
   <script>
     const answers = { q1:'b', q2:'a', q3:'b', q4:'b', q5:'b', q6:'a' };
+    const storageKey = 'siebel_training_day2_quiz';
+    
     document.getElementById('quizForm').addEventListener('submit', function(e){
       e.preventDefault();
       let score = 0, total = 6;
@@ -116,6 +118,22 @@
       const passed = score >= 4;
       res.className = 'quiz-result ' + (passed ? 'pass' : 'fail');
       res.textContent = `Score: ${score}/${total} — ` + (passed ? 'Pass ✅' : 'Try again ❌');
+      
+      // Store completion
+      if(passed){
+        localStorage.setItem(storageKey, 'completed');
+      }
+    });
+    
+    // Display previous completion if exists
+    window.addEventListener('DOMContentLoaded', function(){
+      const completed = localStorage.getItem(storageKey);
+      if(completed === 'completed'){
+        const res = document.getElementById('result');
+        res.style.display = 'block';
+        res.className = 'quiz-result pass';
+        res.innerHTML = '✅ <strong>Completed Previously</strong> — You passed this quiz. Retake if you wish.';
+      }
     });
   </script>
 </body>

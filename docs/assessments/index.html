@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assessments - Oracle Siebel CRM Training</title>
   <link rel="stylesheet" href="../css/training.css">
+  <style>
+    .quiz-status { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; margin-left: 8px; }
+    .quiz-status.completed { background: #dcfce7; color: #15803d; }
+    .quiz-status.not-started { background: #f1f5f9; color: #64748b; }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -28,12 +33,12 @@
       <div class="subtopic-nav-grid">
         <a class="subtopic-nav-card" href="topic1_quiz.html">
           <div class="nav-card-icon">📚</div>
-          <h3 class="nav-card-title">Topic 1 Quiz</h3>
+          <h3 class="nav-card-title">Topic 1 Quiz <span class="quiz-status not-started" id="topic1-status">Not Started</span></h3>
           <p class="nav-card-desc">CRM basics, Siebel features, modules, architecture, and navigation.</p>
         </a>
         <a class="subtopic-nav-card" href="day2_quiz.html">
           <div class="nav-card-icon">📈</div>
-          <h3 class="nav-card-title">Day 2 Quiz</h3>
+          <h3 class="nav-card-title">Day 2 Quiz <span class="quiz-status not-started" id="day2-status">Not Started</span></h3>
           <p class="nav-card-desc">Advanced features, workflows/SLAs, reporting/dashboards, and best practices.</p>
         </a>
       </div>
@@ -49,5 +54,25 @@
       <p>© 2024 Oracle Siebel CRM Training | Assessments</p>
     </footer>
   </div>
+  
+  <script>
+    // Display quiz completion badges
+    window.addEventListener('DOMContentLoaded', function(){
+      const topic1 = localStorage.getItem('siebel_training_topic1_quiz');
+      const day2 = localStorage.getItem('siebel_training_day2_quiz');
+      
+      const t1Badge = document.getElementById('topic1-status');
+      const d2Badge = document.getElementById('day2-status');
+      
+      if(topic1 === 'completed'){
+        t1Badge.textContent = '✅ Completed';
+        t1Badge.className = 'quiz-status completed';
+      }
+      if(day2 === 'completed'){
+        d2Badge.textContent = '✅ Completed';
+        d2Badge.className = 'quiz-status completed';
+      }
+    });
+  </script>
 </body>
 </html>

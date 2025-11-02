@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 2: Segment & Offer (Prepaid) - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Vodacom/Africa Context | Lab 2</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Labs</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Lab 2: Segment & Offer (Prepaid)</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">🎯 Lab 2: Segment At-Risk Prepaid and Simulate an Offer</h1>
+      <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
+
+      <div class="card card-highlight">
+        <h3>Goal</h3>
+        <p>Create a simple segment of at-risk prepaid users (low usage + recent SR) and simulate a retention offer message.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Prerequisites</h2>
+        <ul>
+          <li>Login: TRAINEE01–10 / Welcome123</li>
+          <li>Access to Marketing or Lists (if unavailable, use Contacts with filters)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Steps</h2>
+        <ol>
+          <li>Open Site Map → Marketing (or Lists) → Segments (or Contacts List).</li>
+          <li>Create New Segment (or Saved Query) named "Prepaid Low-Usage + SR (30d)".</li>
+          <li>Criteria examples:
+            <ul>
+              <li>Plan Type = Prepaid</li>
+              <li>Last 30-day Usage &lt; threshold (if field exists; else use a proxy like Last Recharge Date older than 30 days)</li>
+              <li>Has SR in last 30 days = Yes (join to SRs if available)</li>
+            </ul>
+          </li>
+          <li>Execute/Preview results; ensure at least a few records appear.</li>
+          <li>Create an "Offer" note: Title = Coverage Care Bundle, Channel = SMS, Message = "Get 2GB for TZSh 1,500 in your area—reply YES".</li>
+          <li>Link the Offer note to the Segment (or keep as documentation in the record).</li>
+          <li>Save segment; export list if the environment allows (optional).</li>
+        </ol>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Validation</h2>
+        <ul class="checklist">
+          <li>Segment or Saved Query exists with the specified name</li>
+          <li>Criteria reflect prepaid and at-risk behavior</li>
+          <li>Offer note documented with SMS text</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Troubleshooting</h2>
+        <ul>
+          <li>No Marketing screen? Use Contacts list and Saved Query instead.</li>
+          <li>Missing usage fields? Use Last Recharge Date or Last SR Date as proxy.</li>
+          <li>Zero results? Relax criteria (e.g., 60 days) and re-run.</li>
+        </ul>
+      </div>
+
+      <div class="page-navigation">
+        <a href="topic1_lab1_sr_coverage.html" class="nav-btn nav-btn-prev"><span class="arrow">←</span><span>Back: Lab 1</span></a>
+        <div class="nav-center">Lab 2 of 3</div>
+        <a href="topic1_lab3_order_activation.html" class="nav-btn nav-btn-next"><span>Next: Lab 3</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Labs</p>
+    </footer>
+  </div>
+</body>
+</html>

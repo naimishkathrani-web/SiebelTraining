@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3: Order to Activation - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Vodacom/Africa Context | Lab 3</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Labs</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Lab 3: Order → Activation</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">⚡ Lab 3: Capture Order and Walk Activation</h1>
+      <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
+
+      <div class="card card-highlight">
+        <h3>Goal</h3>
+        <p>Create a prepaid bundle order, submit it, and walk through status updates to simulate activation and customer notification.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Prerequisites</h2>
+        <ul>
+          <li>Login: TRAINEE01–10 / Welcome123</li>
+          <li>Product catalog contains at least one prepaid bundle product (or use a placeholder)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Steps</h2>
+        <ol>
+          <li>Open Site Map → Orders → All Orders (List).</li>
+          <li>New Order: Set Account/Contact, Order Type = Add-on, Status = In Progress.</li>
+          <li>Order Line: Add product (e.g., "Prepaid 2GB Bundle"). Quantity = 1.</li>
+          <li>Submit: Click Submit (or set Status to Submitted) and note Order #.</li>
+          <li>Simulate: Update Status sequence to Released → In Provisioning → Complete.</li>
+          <li>Assets: Verify a new Asset was created/updated for the subscriber (if available).</li>
+          <li>Notify: Add an Activity "Notify customer" with channel SMS/Email.</li>
+        </ol>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Validation</h2>
+        <ul class="checklist">
+          <li>Order header and line saved with correct product</li>
+          <li>Status progressed through key milestones</li>
+          <li>Asset created/updated (if feature enabled)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Troubleshooting</h2>
+        <ul>
+          <li>Can't find product? Use any available catalog item or note a placeholder in the line</li>
+          <li>Submit button missing? Manually set Status fields to simulate flow</li>
+          <li>No Assets? Skip asset validation and complete with Status = Complete</li>
+        </ul>
+      </div>
+
+      <div class="page-navigation">
+        <a href="topic1_lab2_segmentation_offer.html" class="nav-btn nav-btn-prev"><span class="arrow">←</span><span>Back: Lab 2</span></a>
+        <div class="nav-center">Lab 3 of 3</div>
+        <a href="index.html" class="nav-btn nav-btn-next"><span>All Labs</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Labs</p>
+    </footer>
+  </div>
+</body>
+</html>

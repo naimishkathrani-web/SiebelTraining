@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 1: SR for Coverage Complaint - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Vodacom/Africa Context | Lab 1</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Labs</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Lab 1: SR for Coverage Complaint</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">🎧 Lab 1: Create and Resolve an SR (Coverage)</h1>
+      <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
+
+      <div class="card card-highlight">
+        <h3>Goal</h3>
+        <p>Create a Service Request for a prepaid customer experiencing intermittent coverage, follow SLA-driven steps, and close with correct resolution codes.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Prerequisites</h2>
+        <ul>
+          <li>Login: TRAINEE01–10 / Welcome123</li>
+          <li>Siebel eCommunications application URL available</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Steps</h2>
+        <ol>
+          <li>Open Site Map → Service → Service Requests (List).</li>
+          <li>Click New and enter fields:
+            <ul>
+              <li>Type: Complaint</li>
+              <li>Category: Network</li>
+              <li>Area: Coverage</li>
+              <li>Summary: Intermittent coverage in rural area</li>
+              <li>Severity: Medium</li>
+              <li>Contact/Account: Select a test subscriber</li>
+            </ul>
+          </li>
+          <li>Save; note SR #. Set Status = In Progress.</li>
+          <li>Check Related: Activities → create an Activity “Network check” (Due today).</li>
+          <li>Knowledge: search for "coverage" and link a relevant solution (if available) to SR.</li>
+          <li>Resolution: Set Status = Pending External if you need Network; then back to In Progress.</li>
+          <li>Closure: Set Resolution Code = Network stabilized; Status = Closed.</li>
+        </ol>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Validation</h2>
+        <ul class="checklist">
+          <li>SR appears in the list with correct Category/Area</li>
+          <li>Status flow followed (In Progress → Pending External → Closed)</li>
+          <li>At least one Activity linked; optional Knowledge linked</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Troubleshooting</h2>
+        <ul>
+          <li>Can't save? Ensure required fields (Type, Status, Contact) are set.</li>
+          <li>No Knowledge? Skip link step and proceed to closure.</li>
+          <li>Permissions? Use a trainee login; if blocked, try a different SR Type.</li>
+        </ul>
+      </div>
+
+      <div class="page-navigation">
+        <a href="index.html" class="nav-btn nav-btn-prev"><span class="arrow">←</span><span>Back to Labs</span></a>
+        <div class="nav-center">Lab 1 of 3</div>
+        <a href="topic1_lab2_segmentation_offer.html" class="nav-btn nav-btn-next"><span>Next: Lab 2</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Labs</p>
+    </footer>
+  </div>
+</body>
+</html>

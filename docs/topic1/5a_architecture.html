@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siebel Architecture - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 1</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 1: Introduction to CRM</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">3-Tier Architecture</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">🏗️ 5a. Siebel Architecture</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 5 of 6</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 83%;"></div>
+                </div>
+                <span>83% Complete</span>
+            </div>
+
+            <p class="lead">
+                Siebel uses a classic 3-tier architecture: Presentation, Application, Data.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Three Tiers</h2>
+                
+                <div class="card">
+                    <h4>1. Presentation Tier (UI)</h4>
+                    <ul>
+                        <li><strong>Siebel Web Client:</strong> Runs in browser (HTML/JavaScript)</li>
+                        <li><strong>Siebel Mobile:</strong> Disconnected client for field users</li>
+                        <li><strong>Open UI:</strong> Modern JavaScript framework for customization</li>
+                    </ul>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>2. Application Tier (Business Logic)</h4>
+                    <ul>
+                        <li><strong>Siebel Server:</strong> Processes requests, workflows, and rules</li>
+                        <li><strong>Object Manager:</strong> Manages business objects (BOs) and components (BCs)</li>
+                        <li><strong>Workflow Engine:</strong> Executes multi-step processes</li>
+                        <li><strong>Assignment Manager:</strong> Routes tasks to users/queues</li>
+                    </ul>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>3. Data Tier (Database)</h4>
+                    <ul>
+                        <li><strong>Oracle DB, MS SQL, or DB2:</strong> Stores all customer and config data</li>
+                        <li><strong>Schema:</strong> Tables (S_ORG_EXT, S_CONTACT, S_SRV_REQ, etc.)</li>
+                        <li><strong>Indexes & Views:</strong> Optimize query performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Why 3-Tier?</h2>
+                <div class="card card-highlight">
+                    <ul style="margin:0;">
+                        <li><strong>Scalability:</strong> Add more app servers without changing UI or DB</li>
+                        <li><strong>Maintainability:</strong> Update logic without touching presentation</li>
+                        <li><strong>Security:</strong> Isolate database from direct user access</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 3 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="4_siebel_modules.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Modules</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 5a of 6
+                </div>
+                <a href="5b_integrations.html" class="nav-btn nav-btn-next">
+                    <span>Integrations</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.875rem;">
+            <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
+        </footer>
+    </div>
+</body>
+</html>

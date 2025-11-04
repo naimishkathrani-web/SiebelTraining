@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecom Features - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 1</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 1: Introduction to CRM</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Telecom Features</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">📡 3b. Siebel for Telecom</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 3 of 6</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 50%;"></div>
+                </div>
+                <span>50% Complete</span>
+            </div>
+
+            <p class="lead">
+                Siebel eCommunications is tailored for telecom operations: service requests, billing, provisioning, and customer care.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Telecom-Specific Features</h2>
+                
+                <div class="card">
+                    <h4>Service Request Lifecycle</h4>
+                    <p>Track complaints, outages, and inquiries from open to close with SLAs, escalations, and knowledge base integration.</p>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>Order-to-Activate</h4>
+                    <p>Manage product orders → provisioning → network activation → billing sync in a single flow.</p>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>Customer 360</h4>
+                    <p>View subscriber history: plans, usage, payments, SRs, devices, and churn risk — all in one screen.</p>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>Campaigns & Retention</h4>
+                    <p>Segment users by ARPU, usage, or SR history; launch targeted offers; track response and ROI.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Vodacom Scenario Example</h2>
+                <div class="card card-highlight">
+                    <p><strong>Before CRM:</strong> Agent checks 3 systems for customer data; manual notes in Excel; no visibility on churn risk.</p>
+                    <p style="margin:0;"><strong>After Siebel:</strong> Single screen shows all data; auto-escalate SR if SLA breaches; proactive churn offers triggered by usage pattern.</p>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h3 style="margin:0 0 8px;">Mermaid: Service Activation Flow</h3>
+<pre class="mermaid">
+flowchart LR
+  A[Order Placed] --> B[Bill Check]
+  B --> C{Credit OK?}
+  C -- Yes --> D[Provision in Network]
+  C -- No --> E[Manual Review]
+  D --> F[Activate Service]
+  F --> G[Notify Customer]
+</pre>
+                </div>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 3 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="3a_core_features.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Core Features</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 3b of 6
+                </div>
+                <a href="4_siebel_modules.html" class="nav-btn nav-btn-next">
+                    <span>Siebel Modules</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.875rem;">
+            <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
+</body>
+</html>

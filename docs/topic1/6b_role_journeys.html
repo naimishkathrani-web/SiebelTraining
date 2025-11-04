@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role-Based Journeys - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 1</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 1: Introduction to CRM</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Role Journeys</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">👥 6b. Role-Based Journeys (Telecom)</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 6 of 6</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 100%;"></div>
+                </div>
+                <span>100% Complete</span>
+            </div>
+
+            <p class="lead">
+                Different telecom roles use Siebel differently. Here are typical journeys for Call Center Agent, Sales Rep, and Manager.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Three Personas</h2>
+                
+                <div class="card">
+                    <h4>📞 Call Center Agent</h4>
+                    <p><strong>Goal:</strong> Resolve customer issues quickly</p>
+                    <p><strong>Typical Steps:</strong></p>
+                    <ol style="margin:0;">
+                        <li>Open Home → My SRs queue</li>
+                        <li>Pick next SR → View details</li>
+                        <li>Search Knowledge → Link solution</li>
+                        <li>Update Status → Close SR</li>
+                    </ol>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>📈 Sales Rep (Retention)</h4>
+                    <p><strong>Goal:</strong> Save at-risk customers</p>
+                    <p><strong>Typical Steps:</strong></p>
+                    <ol style="margin:0;">
+                        <li>Open Marketing → Churn Segment</li>
+                        <li>Select customer → View 360 (SRs, usage, payments)</li>
+                        <li>Create Order (retention bundle)</li>
+                        <li>Track to activation</li>
+                    </ol>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>📊 Service Manager</h4>
+                    <p><strong>Goal:</strong> Monitor team performance</p>
+                    <p><strong>Typical Steps:</strong></p>
+                    <ol style="margin:0;">
+                        <li>Open Home → KPI Dashboard</li>
+                        <li>Check SLA compliance, backlog</li>
+                        <li>Run Reports → SR by Category</li>
+                        <li>Escalate outliers</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Agent Journey Flow</h2>
+                <div class="card card-highlight">
+                    <h3 style="margin:0 0 8px;">Mermaid: Call Center Agent Workflow</h3>
+<pre class="mermaid">
+journey
+  title Agent Handles Coverage SR
+  section Login
+    Login to Siebel: 5
+    Check My Queue: 5
+  section Handle SR
+    Pick SR from List: 3
+    View Customer 360: 4
+    Search Knowledge: 4
+  section Resolve
+    Link Solution: 5
+    Update Status: 5
+    Close SR: 5
+</pre>
+                </div>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 3 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="6a_navigation.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Navigation Basics</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 6b of 6
+                </div>
+                <a href="index.html" class="nav-btn nav-btn-next">
+                    <span>Topic Overview</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.875rem;">
+            <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
+</body>
+</html>

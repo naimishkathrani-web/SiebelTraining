@@ -24,7 +24,7 @@
         </nav>
 
         <div class="content">
-            <h1 class="subtopic-title">🧩 4. Siebel CRM Modules Overview</h1>
+            <h1 class="subtopic-title">🧩 4. Siebel Modules</h1>
             
             <div class="topic-progress">
                 <span>Sub-topic 4 of 6</span>
@@ -35,70 +35,55 @@
             </div>
 
             <p class="lead">
-                Siebel CRM is organized into functional modules that address different aspects of customer relationship management. Understanding these modules is key to navigating the system effectively.
+                Siebel is organized into functional modules. In telecom, Service is most critical.
             </p>
 
             <div class="content-section">
                 <h2 class="sub3-topic-title">Core Modules</h2>
 
-                <div class="card card-highlight">
-                    <h4>📈 Sales Module</h4>
-                    <p><strong>Purpose:</strong> Manage the entire sales process from lead to closed deal.</p>
-                    <p><strong>Key Objects:</strong></p>
-                    <ul>
-                        <li><strong>Leads:</strong> Potential customers who have expressed interest</li>
-                        <li><strong>Opportunities:</strong> Qualified sales deals in your pipeline</li>
-                        <li><strong>Quotes:</strong> Pricing proposals sent to customers</li>
-                        <li><strong>Orders:</strong> Confirmed purchases</li>
-                        <li><strong>Forecasts:</strong> Projected revenue based on pipeline</li>
-                    </ul>
-                    <p><strong>Typical Users:</strong> Sales representatives, sales managers, sales operations</p>
+                <div class="card">
+                    <h4>📈 Sales</h4>
+                    <p><strong>Objects:</strong> Leads, Opportunities, Quotes, Orders</p>
+                    <p><strong>Users:</strong> Sales reps, managers</p>
                 </div>
 
-                <div class="card card-highlight mt-md">
-                    <h4>📢 Marketing Module</h4>
-                    <p><strong>Purpose:</strong> Plan, execute, and measure marketing campaigns.</p>
-                    <p><strong>Key Objects:</strong></p>
-                    <ul>
-                        <li><strong>Campaigns:</strong> Multi-channel marketing initiatives</li>
-                        <li><strong>Segments:</strong> Target audience definitions based on criteria</li>
-                        <li><strong>Programs:</strong> Series of related campaigns</li>
-                        <li><strong>Responses:</strong> Customer reactions to marketing outreach</li>
-                        <li><strong>Campaign ROI:</strong> Financial performance tracking</li>
-                    </ul>
-                    <p><strong>Typical Users:</strong> Marketing managers, campaign analysts, content creators</p>
+                <div class="card card-white mt-lg">
+                    <h4>📢 Marketing</h4>
+                    <p><strong>Objects:</strong> Campaigns, Segments, Responses</p>
+                    <p><strong>Users:</strong> Marketing managers, analysts</p>
                 </div>
 
-                <div class="card card-highlight mt-md">
-                    <h4>🛠️ Service Module</h4>
-                    <p><strong>Purpose:</strong> Handle customer support requests and field service operations.</p>
-                    <p><strong>Key Objects:</strong></p>
-                    <ul>
-                        <li><strong>Service Requests (SRs):</strong> Customer problems or questions</li>
-                        <li><strong>Cases:</strong> Complex issues requiring investigation</li>
-                        <li><strong>Solutions:</strong> Knowledge base articles for common problems</li>
-                        <li><strong>Assets:</strong> Customer-owned equipment requiring service</li>
-                        <li><strong>Service Contracts:</strong> Support agreements and SLAs</li>
-                    </ul>
-                    <p><strong>Typical Users:</strong> Call center agents, field technicians, service managers</p>
+                <div class="card mt-lg">
+                    <h4>🛠️ Service</h4>
+                    <p><strong>Objects:</strong> Service Requests (SRs), Cases, Solutions, Assets</p>
+                    <p><strong>Users:</strong> Call center agents, field techs</p>
                 </div>
-
-                <figure class="image-figure mt-lg">
-                    <img src="../images/siebel_modules.png" alt="Siebel Modules">
-                    <figcaption>The three core CRM modules work together to provide a 360-degree customer view</figcaption>
-                </figure>
             </div>
 
             <div class="content-section">
-                <h2 class="sub3-topic-title">Additional Modules</h2>
+                <h2 class="sub3-topic-title">Telecom Module Interactions</h2>
+                <div class="card card-highlight">
+                    <p style="margin:0;"><strong>Example:</strong> SR (coverage complaint) → Marketing (churn segment) → Sales (retention offer) → Order (bundle activation)</p>
+                </div>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-                    <div class="card card-white">
-                        <h5 style="color: var(--secondary-teal);">🤝 Partner Relationship Management</h5>
-                        <p style="font-size: 0.875rem;">Manage channel partners, resellers, and distributors</p>
-                    </div>
-                    <div class="card card-white">
-                        <h5 style="color: var(--secondary-teal);">🔧 Field Service</h5>
+                <div class="card card-white mt-lg">
+                    <h3 style="margin:0 0 8px;">Mermaid: Telecom Module Flow</h3>
+<pre class="mermaid">
+flowchart TD
+  A[Customer Call] --> B[Service: SR Created]
+  B --> C{Issue Type?}
+  C -- Coverage --> D[Service: Network Ticket]
+  C -- Billing --> E[Service: Billing Team]
+  D --> F[Marketing: Add to Churn Segment]
+  F --> G[Sales: Retention Offer]
+  G --> H[Order: Activate Bundle]
+</pre>
+                </div>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 3 minutes</span>
+            </div>
                         <p style="font-size: 0.875rem;">Dispatch technicians, track assets, manage service appointments</p>
                     </div>
                     <div class="card card-white">
@@ -168,14 +153,14 @@ flowchart LR
             </div>
 
             <div class="page-navigation">
-                <a href="3_siebel_features.html" class="nav-btn nav-btn-prev">
+                <a href="3b_telecom_features.html" class="nav-btn nav-btn-prev">
                     <span class="arrow">←</span>
-                    <span>Siebel Features</span>
+                    <span>Telecom Features</span>
                 </a>
                 <div class="nav-center">
                     Sub-topic 4 of 6
                 </div>
-                <a href="5_architecture.html" class="nav-btn nav-btn-next">
+                <a href="5a_architecture.html" class="nav-btn nav-btn-next">
                     <span>Architecture</span>
                     <span class="arrow">→</span>
                 </a>

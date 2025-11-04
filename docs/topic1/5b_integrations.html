@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecom Integrations - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 1</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 1: Introduction to CRM</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Telecom Integrations</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">🔗 5b. Integrations Landscape (Telecom)</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 5 of 6</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 83%;"></div>
+                </div>
+                <span>83% Complete</span>
+            </div>
+
+            <p class="lead">
+                In telecom, Siebel integrates with billing, network, and provisioning systems to enable end-to-end processes.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Key Integration Points</h2>
+                
+                <div class="card">
+                    <h4>1. Billing System (BSS)</h4>
+                    <p>Check account balance, payment history, generate invoices. Real-time API calls from Siebel to billing.</p>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>2. Network (OSS/Provisioning)</h4>
+                    <p>Activate SIM, provision data plans, check coverage. SOAP/REST or ESB middleware.</p>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>3. Trouble Ticketing</h4>
+                    <p>Create network tickets, track outage status. Bi-directional sync with OSS.</p>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>4. Data Warehouse/Analytics</h4>
+                    <p>Batch ETL exports for BI reporting. EIM or custom scripts.</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Order-to-Activation Flow</h2>
+                <div class="card card-highlight">
+                    <h3 style="margin:0 0 8px;">Mermaid: Order → Network Activation</h3>
+<pre class="mermaid">
+sequenceDiagram
+  participant Agent
+  participant Siebel
+  participant Billing
+  participant Network
+  Agent->>Siebel: Create Order (Data Bundle)
+  Siebel->>Billing: Check Account Credit
+  Billing-->>Siebel: OK
+  Siebel->>Network: Provision Service
+  Network-->>Siebel: Activation Confirmed
+  Siebel-->>Agent: Order Complete
+</pre>
+                </div>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 3 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="5a_architecture.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Architecture</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 5b of 6
+                </div>
+                <a href="6a_navigation.html" class="nav-btn nav-btn-next">
+                    <span>Navigation Basics</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.875rem;">
+            <p>© 2024 Oracle Siebel CRM Training | eCommunications Vertical</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>if (window.mermaid){ mermaid.initialize({ startOnLoad: true, theme: 'default' }); }</script>
+</body>
+</html>

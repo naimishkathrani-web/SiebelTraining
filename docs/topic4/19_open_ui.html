@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open UI Framework - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Open UI Framework</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 95%;"></div>
+            </div>
+
+            <h1 class="page-title">Siebel Open UI Framework</h1>
+
+            <div class="section">
+                <h2>What is Open UI?</h2>
+                <p>Siebel Open UI modernizes the user interface with HTML5, CSS3, and JavaScript (replacing ActiveX controls). It enables responsive design, browser compatibility, and extensive customization without modifying core Siebel code.</p>
+            </div>
+
+            <div class="section">
+                <h2>Key Benefits</h2>
+                <ul>
+                    <li><strong>Modern UX:</strong> Clean, responsive interface works on desktop, tablet, mobile browsers</li>
+                    <li><strong>No Plugins:</strong> Pure HTML5 (no ActiveX, Silverlight, or Flash)</li>
+                    <li><strong>Browser Support:</strong> Chrome, Firefox, Safari, Edge</li>
+                    <li><strong>Customizable:</strong> JavaScript/CSS-based customizations (easier than legacy ActiveX)</li>
+                    <li><strong>Performance:</strong> Client-side rendering reduces server load</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Architecture</h2>
+                <div class="key-point">
+                    <strong>3-Layer Model:</strong>
+                    <ul>
+                        <li><strong>Presentation Layer (Browser):</strong> HTML, CSS, JavaScript renders UI</li>
+                        <li><strong>Application Layer (Siebel Server):</strong> Business logic, data access</li>
+                        <li><strong>Data Layer (Database):</strong> Oracle/SQL Server stores data</li>
+                    </ul>
+                    <strong>Communication:</strong> Browser ↔ Server via JSON over HTTP (AJAX)
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Open UI Customization</h2>
+                
+                <h3>1. Physical Renderer (PR)</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Controls how controls render (HTML markup)</li>
+                    <li><strong>Example:</strong> Customize how phone number field displays (add click-to-dial icon)</li>
+                    <li><strong>Language:</strong> JavaScript</li>
+                </ul>
+
+                <h3>2. Presentation Model (PM)</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Business logic for UI behavior (event handling)</li>
+                    <li><strong>Example:</strong> When user selects product, auto-populate price field</li>
+                    <li><strong>Language:</strong> JavaScript</li>
+                </ul>
+
+                <h3>3. CSS Theming</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Visual styling (colors, fonts, spacing)</li>
+                    <li><strong>Example:</strong> Apply corporate branding (blue theme, company logo)</li>
+                    <li><strong>Language:</strong> CSS3</li>
+                </ul>
+
+                <h3>4. Manifest Files</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Register custom JS files with Siebel</li>
+                    <li><strong>File:</strong> <code>siebel/custom/myapp-manifest.js</code></li>
+                    <li><strong>Content:</strong> Declares custom Physical Renderers, Presentation Models</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Common Customizations</h2>
+                
+                <h3>Example 1: Click-to-Dial</h3>
+                <div class="code-block">
+                    <pre>
+// Physical Renderer: Add phone icon next to phone field
+if (typeof(SiebelAppFacade.PhoneNumberPR) === "undefined") {
+  SiebelJS.Namespace("SiebelAppFacade.PhoneNumberPR");
+  SiebelAppFacade.PhoneNumberPR = (function() {
+    function PhoneNumberPR(pm) {
+      SiebelAppFacade.PhoneNumberPR.superclass.constructor.call(this, pm);
+    }
+    SiebelJS.Extend(PhoneNumberPR, SiebelAppFacade.TextPR);
+    
+    PhoneNumberPR.prototype.ShowUI = function() {
+      var value = this.GetPM().Get("GetFormattedFieldValue");
+      var html = '<span>' + value + '</span>';
+      html += '<a href="tel:' + value + '">📞</a>';
+      this.GetEl().html(html);
+    };
+    return PhoneNumberPR;
+  }());
+}
+                    </pre>
+                </div>
+                <p><strong>Result:</strong> Phone numbers display with clickable phone icon</p>
+
+                <h3>Example 2: Inline Validation</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> Validate email format before saving</li>
+                    <li><strong>PM Code:</strong> On field change, check regex <code>/^[^@]+@[^@]+\.[^@]+$/</code></li>
+                    <li><strong>Result:</strong> Red border + error message if invalid email</li>
+                </ul>
+
+                <h3>Example 3: Custom Dashboard Widget</h3>
+                <ul>
+                    <li><strong>Use case:</strong> Embed Chart.js graph showing sales pipeline</li>
+                    <li><strong>Implementation:</strong> Create custom applet, render chart in PR using Chart.js library</li>
+                    <li><strong>Data:</strong> Fetch from Siebel via AJAX, populate chart</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Responsive Design</h2>
+                <ul>
+                    <li><strong>Desktop (1920px):</strong> 3-column layout, full navigation sidebar</li>
+                    <li><strong>Tablet (768px):</strong> 2-column layout, collapsible sidebar</li>
+                    <li><strong>Mobile (375px):</strong> 1-column stack, hamburger menu</li>
+                    <li><strong>CSS Media Queries:</strong>
+                        <div class="code-block">
+                            <pre>
+@media (max-width: 768px) {
+  .siebel-applet { width: 100%; }
+  .siebel-list { font-size: 14px; }
+}
+                            </pre>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Performance Best Practices</h2>
+                <div class="key-point">
+                    <strong>Optimization Tips:</strong>
+                    <ul>
+                        <li><strong>Minify JS/CSS:</strong> Reduce file sizes for faster load</li>
+                        <li><strong>Lazy Loading:</strong> Load applets only when user navigates to them</li>
+                        <li><strong>Caching:</strong> Cache static resources (CSS, images) in browser</li>
+                        <li><strong>Avoid DOM Manipulation:</strong> Minimize jQuery calls in tight loops</li>
+                        <li><strong>Batch API Calls:</strong> Fetch multiple records in 1 request (not 100 individual requests)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Debugging Open UI</h2>
+                <ul>
+                    <li><strong>Browser DevTools:</strong> Chrome Inspector → Console tab (view JavaScript errors)</li>
+                    <li><strong>Network Tab:</strong> Inspect AJAX calls to Siebel server (JSON payloads)</li>
+                    <li><strong>Breakpoints:</strong> Set breakpoints in custom JS files</li>
+                    <li><strong>Siebel Logs:</strong> Server-side logs in <code>siebsrvr/log/</code> directory</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: Corporate Branding Customization</h2>
+                <div class="key-point">
+                    <strong>Requirement:</strong> TelecomCo wants purple theme with company logo
+                    <ul>
+                        <li><strong>Step 1:</strong> Create custom CSS file <code>telecomco-theme.css</code></li>
+                        <li><strong>Step 2:</strong> Override colors:
+                            <div class="code-block">
+                                <pre>
+.siebui-header { background: #6A0DAD; } /* Purple header */
+.siebui-button-primary { background: #6A0DAD; color: #FFF; }
+.siebui-logo { background-image: url('telecomco-logo.png'); }
+                                </pre>
+                            </div>
+                        </li>
+                        <li><strong>Step 3:</strong> Register CSS in manifest file</li>
+                        <li><strong>Step 4:</strong> Clear browser cache, reload Siebel</li>
+                        <li><strong>Result:</strong> Purple header, branded logo, consistent colors throughout</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="18_mobile_crm.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Mobile CRM</span>
+                </a>
+                <div class="nav-center">
+                    Page 19 of 20
+                </div>
+                <a href="20_best_practices.html" class="nav-btn nav-btn-next">
+                    <span>Best Practices</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

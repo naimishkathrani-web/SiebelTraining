@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Pipeline - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Sales Pipeline</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 10%;"></div>
+            </div>
+
+            <h1 class="page-title">Sales Pipeline Overview</h1>
+
+            <div class="section">
+                <h2>The Sales Funnel</h2>
+                <p>Siebel's sales pipeline tracks prospects through standardized stages, enabling accurate forecasting and performance analytics.</p>
+
+                <figure>
+                    <img src="../images/sales_pipeline.png" alt="Sales Pipeline Stages" style="max-width: 700px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption>Sales Pipeline: Lead → Opportunity → Quote → Order</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Pipeline Stages</h2>
+                
+                <h3>1. Lead (Prospecting)</h3>
+                <ul>
+                    <li><strong>Source:</strong> Web forms, trade shows, referrals, marketing campaigns</li>
+                    <li><strong>Qualification:</strong> BANT criteria (Budget, Authority, Need, Timeline)</li>
+                    <li><strong>Status:</strong> New → Qualified → Converted (or Disqualified)</li>
+                </ul>
+
+                <h3>2. Opportunity (Active Sales)</h3>
+                <ul>
+                    <li><strong>Stages:</strong> Prospecting → Qualification → Proposal → Negotiation → Closed Won/Lost</li>
+                    <li><strong>Probability:</strong> Auto-calculated based on stage (e.g., Proposal = 50%, Negotiation = 75%)</li>
+                    <li><strong>Revenue:</strong> Weighted revenue = Amount × Probability</li>
+                </ul>
+
+                <h3>3. Quote (Pricing)</h3>
+                <ul>
+                    <li><strong>Configuration:</strong> Product selection, bundles, discounts</li>
+                    <li><strong>Approval:</strong> Workflow-based pricing approval for discounts > 15%</li>
+                    <li><strong>Versions:</strong> Track quote revisions and customer feedback</li>
+                </ul>
+
+                <h3>4. Order (Fulfillment)</h3>
+                <ul>
+                    <li><strong>Activation:</strong> Convert accepted quote to sales order</li>
+                    <li><strong>Integration:</strong> Push to ERP for provisioning and billing</li>
+                    <li><strong>Status Tracking:</strong> Pending → In Progress → Completed</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Pipeline Metrics</h2>
+                <div class="key-point">
+                    <strong>Key Performance Indicators:</strong>
+                    <ul>
+                        <li><strong>Pipeline Value:</strong> Sum of all weighted opportunities</li>
+                        <li><strong>Conversion Rate:</strong> Leads → Opportunities → Wins</li>
+                        <li><strong>Sales Cycle Length:</strong> Average days from lead to close</li>
+                        <li><strong>Win Rate:</strong> Closed Won / (Closed Won + Closed Lost)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Example: TelecomCo Enterprise Deal</h2>
+                <ul>
+                    <li><strong>Lead:</strong> CIO of RetailCorp requests 5G network demo (Source: Trade Show)</li>
+                    <li><strong>Qualification:</strong> Budget: $2M, Decision by Q2, Need: Store connectivity</li>
+                    <li><strong>Opportunity:</strong> Created for $1.8M (90-day sales cycle)</li>
+                    <li><strong>Quote:</strong> 500 5G lines + SD-WAN routers, 15% volume discount</li>
+                    <li><strong>Order:</strong> Quote accepted, integrated to SAP for provisioning</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="1_intro_advanced.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Introduction</span>
+                </a>
+                <div class="nav-center">
+                    Page 2 of 20
+                </div>
+                <a href="3_opportunity_mgmt.html" class="nav-btn nav-btn-next">
+                    <span>Opportunity Management</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

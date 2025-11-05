@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Operations - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Service Operations</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 55%;"></div>
+            </div>
+
+            <h1 class="page-title">Service Operations</h1>
+
+            <div class="section">
+                <h2>Contact Center Overview</h2>
+                <p>Siebel Service provides comprehensive customer support management for call centers, email support, chat, and self-service portals. It handles millions of interactions across multiple channels.</p>
+
+                <figure>
+                    <img src="../images/service_operations.png" alt="Service Operations Dashboard" style="max-width: 700px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption>Service Operations: Multi-channel support management</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Service Request (SR) Management</h2>
+                
+                <h3>SR Types</h3>
+                <ul>
+                    <li><strong>Incident:</strong> Service disruption (network outage, device not working)</li>
+                    <li><strong>Request:</strong> Account changes (plan upgrade, add line, unlock device)</li>
+                    <li><strong>Question:</strong> Billing inquiry, feature explanation</li>
+                    <li><strong>Complaint:</strong> Dissatisfaction with service/billing</li>
+                </ul>
+
+                <h3>SR Lifecycle</h3>
+                <ol>
+                    <li><strong>Create:</strong> Customer contacts support via phone/email/chat</li>
+                    <li><strong>Assign:</strong> Route to appropriate team (Technical Support, Billing, Account Management)</li>
+                    <li><strong>Work:</strong> Agent investigates, applies fix, escalates if needed</li>
+                    <li><strong>Resolve:</strong> Issue fixed, solution documented</li>
+                    <li><strong>Close:</strong> Customer confirms satisfaction, SR closed</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Multi-Channel Support</h2>
+                
+                <h3>Phone (CTI Integration)</h3>
+                <ul>
+                    <li>Computer Telephony Integration: Caller ID auto-opens customer record</li>
+                    <li>Screen pop: Shows account history, recent SRs, product details</li>
+                    <li><strong>Example:</strong> Customer calls → System displays "John Smith, Account #12345, 3 open SRs"</li>
+                </ul>
+
+                <h3>Email</h3>
+                <ul>
+                    <li>Auto-create SR from support emails (support@telecomco.com)</li>
+                    <li>Email threading: All replies attached to same SR</li>
+                    <li>Templates: Pre-written responses for common issues</li>
+                </ul>
+
+                <h3>Chat</h3>
+                <ul>
+                    <li>Real-time web chat, transcript saved to SR</li>
+                    <li>Canned responses for faster replies</li>
+                    <li>Chat routing: Technical questions → Tier 2 support</li>
+                </ul>
+
+                <h3>Self-Service Portal</h3>
+                <ul>
+                    <li>Customers search knowledge base (FAQs, troubleshooting guides)</li>
+                    <li>Submit SR online: "My internet is slow" → Creates SR, suggests KB articles</li>
+                    <li>Check SR status: "SR-12345 assigned to Tech Support, ETA 2 hours"</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Knowledge Base</h2>
+                <div class="key-point">
+                    <strong>Articles for Common Issues:</strong>
+                    <ul>
+                        <li><strong>KB-001:</strong> "How to Reset Your Router" (1,500 views/month)</li>
+                        <li><strong>KB-002:</strong> "Troubleshooting Slow Internet Speed" (1,200 views/month)</li>
+                        <li><strong>KB-003:</strong> "Understanding Your Bill" (900 views/month)</li>
+                        <li><strong>KB-004:</strong> "Setting Up Voicemail" (600 views/month)</li>
+                    </ul>
+                    <strong>Impact:</strong> 40% of customers resolve issues via KB (no agent needed)
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Case Routing & Assignment</h2>
+                
+                <h3>Skill-Based Routing</h3>
+                <ul>
+                    <li><strong>Tier 1:</strong> Password resets, basic troubleshooting (80% of cases)</li>
+                    <li><strong>Tier 2:</strong> Network configuration, technical escalations (15% of cases)</li>
+                    <li><strong>Tier 3:</strong> Complex integrations, engineering issues (5% of cases)</li>
+                </ul>
+
+                <h3>Round Robin</h3>
+                <ul>
+                    <li>Distribute cases evenly among available agents</li>
+                    <li><strong>Example:</strong> SR-001 → Agent A, SR-002 → Agent B, SR-003 → Agent C, SR-004 → Agent A (repeat)</li>
+                </ul>
+
+                <h3>VIP Routing</h3>
+                <ul>
+                    <li>High-value customers (Enterprise accounts) routed to dedicated support team</li>
+                    <li>Priority queue: VIP cases worked first</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: Network Outage SR</h2>
+                <ul>
+                    <li><strong>8:00 AM:</strong> Customer Jane calls: "No internet at home office"</li>
+                    <li><strong>8:02 AM:</strong> SR-56789 created, assigned to Tier 1 agent (Alice)</li>
+                    <li><strong>8:05 AM:</strong> Alice checks network status → Regional outage detected</li>
+                    <li><strong>8:10 AM:</strong> Alice links SR to Incident INC-2024-01 (affecting 500 customers)</li>
+                    <li><strong>10:30 AM:</strong> Network team resolves outage</li>
+                    <li><strong>10:35 AM:</strong> Auto-email to all 500 customers: "Service restored"</li>
+                    <li><strong>10:40 AM:</strong> Jane confirms internet working, SR-56789 closed</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="10_lead_nurturing.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Lead Nurturing</span>
+                </a>
+                <div class="nav-center">
+                    Page 11 of 20
+                </div>
+                <a href="12_sla_management.html" class="nav-btn nav-btn-next">
+                    <span>SLA Management</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

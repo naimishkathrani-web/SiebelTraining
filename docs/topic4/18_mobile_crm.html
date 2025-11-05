@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile CRM - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Mobile CRM</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 90%;"></div>
+            </div>
+
+            <h1 class="page-title">Siebel Mobile CRM</h1>
+
+            <div class="section">
+                <h2>Mobile CRM Overview</h2>
+                <p>Siebel Mobile enables sales reps and field techs to access CRM data on smartphones/tablets, with offline capabilities for areas without connectivity. Critical for field sales and service teams.</p>
+
+                <figure>
+                    <img src="../images/siebel_mobile_arch.png" alt="Siebel Mobile Architecture" style="max-width: 700px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption>Siebel Mobile Architecture: Online/Offline Sync</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Mobile Deployment Models</h2>
+                
+                <h3>1. Disconnected Mobile (Offline-First)</h3>
+                <ul>
+                    <li><strong>Use case:</strong> Field sales reps in areas with poor connectivity</li>
+                    <li><strong>Architecture:</strong> Local database on device, periodic sync with server</li>
+                    <li><strong>Sync frequency:</strong> Daily (overnight) or manual sync before/after field visits</li>
+                    <li><strong>Example:</strong> Rep visits 5 customers today, logs activities offline, syncs at end of day</li>
+                </ul>
+
+                <h3>2. Connected Mobile (Online-Only)</h3>
+                <ul>
+                    <li><strong>Use case:</strong> Always-connected environments (corporate WiFi, 5G coverage)</li>
+                    <li><strong>Architecture:</strong> Responsive web UI, no local database</li>
+                    <li><strong>Pros:</strong> Real-time data, no sync conflicts</li>
+                    <li><strong>Cons:</strong> Requires constant internet</li>
+                </ul>
+
+                <h3>3. Hybrid (Best of Both)</h3>
+                <ul>
+                    <li><strong>Use case:</strong> Sales reps who travel (airports, customer sites)</li>
+                    <li><strong>Architecture:</strong> Works online when available, switches to offline mode when not</li>
+                    <li><strong>Smart sync:</strong> Prioritizes recent/relevant data for offline cache</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Offline Capabilities</h2>
+                
+                <h3>What's Available Offline?</h3>
+                <ul>
+                    <li><strong>View Data:</strong> Accounts, contacts, opportunities, activities (synced to device)</li>
+                    <li><strong>Create Records:</strong> New activities, opportunities, notes</li>
+                    <li><strong>Update Records:</strong> Change opportunity stage, log call notes</li>
+                    <li><strong>Attachments:</strong> View PDFs, presentations cached on device</li>
+                </ul>
+
+                <h3>What Requires Online?</h3>
+                <ul>
+                    <li>Real-time inventory checks</li>
+                    <li>Credit card payments</li>
+                    <li>Complex reports/analytics</li>
+                    <li>Workflow approvals</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Data Synchronization</h2>
+                <div class="key-point">
+                    <strong>Sync Process:</strong>
+                    <ol>
+                        <li><strong>Download (Server → Device):</strong> Fetch new/updated records assigned to user (e.g., accounts, opportunities created today)</li>
+                        <li><strong>Upload (Device → Server):</strong> Send changes made offline (new activities, updated opportunity stages)</li>
+                        <li><strong>Conflict Resolution:</strong> If same record changed on server and device, server wins (or manual merge)</li>
+                        <li><strong>Delta Sync:</strong> Only sync changed records (not entire database)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Mobile Features</h2>
+                
+                <h3>GPS Integration</h3>
+                <ul>
+                    <li>Check-in at customer location: "Currently at Acme Corp (verified via GPS)"</li>
+                    <li>Nearby accounts: Show map of accounts within 10 miles</li>
+                    <li>Routing: Navigate to next appointment</li>
+                </ul>
+
+                <h3>Camera Integration</h3>
+                <ul>
+                    <li>Scan business cards → Auto-create Contact</li>
+                    <li>Photo documentation: Attach images to Service Requests</li>
+                    <li>Product demos: Capture whiteboard photos during meetings</li>
+                </ul>
+
+                <h3>Voice Integration</h3>
+                <ul>
+                    <li>Click-to-call: Tap contact phone number → Dial</li>
+                    <li>Voice notes: Dictate call summary instead of typing</li>
+                </ul>
+
+                <h3>Calendar Sync</h3>
+                <ul>
+                    <li>Siebel activities sync to device calendar (Outlook, Google Calendar)</li>
+                    <li>Meeting reminders: Notification 15 min before customer appointment</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Performance Optimization</h2>
+                <ul>
+                    <li><strong>Selective Sync:</strong> Only download rep's assigned accounts (not all 100K accounts in database)</li>
+                    <li><strong>Time Window:</strong> Sync last 90 days of activities (not 10 years of history)</li>
+                    <li><strong>Compression:</strong> Compress sync data to reduce mobile bandwidth usage</li>
+                    <li><strong>Background Sync:</strong> Sync overnight when device charging/on WiFi</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Security</h2>
+                <div class="key-point">
+                    <strong>Mobile Security Features:</strong>
+                    <ul>
+                        <li><strong>Device PIN/Biometrics:</strong> Require fingerprint or passcode to open app</li>
+                        <li><strong>Data Encryption:</strong> Local database encrypted (AES-256)</li>
+                        <li><strong>Remote Wipe:</strong> If device lost/stolen, admin can remotely delete Siebel data</li>
+                        <li><strong>Session Timeout:</strong> Auto-logout after 30 min of inactivity</li>
+                        <li><strong>MDM Integration:</strong> Works with MobileIron, AirWatch for corporate device management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Example: Field Sales Rep's Day</h2>
+                <ul>
+                    <li><strong>7:00 AM:</strong> Rep opens Siebel Mobile app at home, syncs overnight changes (5 min download)</li>
+                    <li><strong>8:30 AM:</strong> Drives to customer site (offline mode during drive)</li>
+                    <li><strong>9:00 AM:</strong> Arrives at Acme Corp, checks in via GPS, views account history offline</li>
+                    <li><strong>9:30 AM:</strong> Customer agrees to $50K deal, rep creates opportunity (offline)</li>
+                    <li><strong>10:00 AM:</strong> Logs meeting activity with notes (offline)</li>
+                    <li><strong>10:30 AM:</strong> Drives to next appointment (offline)</li>
+                    <li><strong>11:00 AM:</strong> Arrives at second customer, connects to customer WiFi (online)</li>
+                    <li><strong>11:05 AM:</strong> App auto-syncs: Uploads Acme Corp opportunity, downloads new leads</li>
+                    <li><strong>5:00 PM:</strong> Returns to office, full sync uploads all day's activities to server</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="17_erp_integration.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>ERP Integration</span>
+                </a>
+                <div class="nav-center">
+                    Page 18 of 20
+                </div>
+                <a href="19_open_ui.html" class="nav-btn nav-btn-next">
+                    <span>Open UI Framework</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

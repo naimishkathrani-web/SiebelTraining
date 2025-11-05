@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Management - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Lead Management</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%;"></div>
+            </div>
+
+            <h1 class="page-title">Lead Management</h1>
+
+            <div class="section">
+                <h2>What is a Lead?</h2>
+                <p>A lead is an unqualified prospect who has shown interest in your products/services but hasn't been validated as a sales-ready opportunity. Leads require nurturing and qualification before becoming opportunities.</p>
+
+                <figure>
+                    <img src="../images/lead_generation.png" alt="Lead Lifecycle" style="max-width: 700px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption>Lead Lifecycle: Capture → Score → Qualify → Convert</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Lead Sources</h2>
+                <ul>
+                    <li><strong>Website Forms:</strong> "Request a Quote" or "Contact Us" submissions</li>
+                    <li><strong>Marketing Campaigns:</strong> Responses to email/SMS campaigns</li>
+                    <li><strong>Trade Shows:</strong> Business cards collected at events</li>
+                    <li><strong>Social Media:</strong> LinkedIn InMail responses, Facebook lead ads</li>
+                    <li><strong>Referrals:</strong> Existing customers recommend prospects</li>
+                    <li><strong>Purchased Lists:</strong> Third-party lead databases</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Lead Scoring</h2>
+                <p>Automatically rank leads based on engagement and fit to prioritize sales follow-up.</p>
+
+                <h3>Scoring Criteria</h3>
+                <div class="key-point">
+                    <strong>Point System:</strong>
+                    <ul>
+                        <li><strong>Company Size:</strong> 1,000+ employees = +20 points</li>
+                        <li><strong>Job Title:</strong> C-level = +15, Manager = +10, Individual = +5</li>
+                        <li><strong>Email Engagement:</strong> Opened campaign email = +5, Clicked link = +10</li>
+                        <li><strong>Website Activity:</strong> Visited pricing page = +15, Downloaded whitepaper = +10</li>
+                        <li><strong>Budget:</strong> Indicated budget > $100K = +25</li>
+                    </ul>
+                    <strong>Hot Lead:</strong> 60+ points (immediate sales follow-up)
+                    <strong>Warm Lead:</strong> 30-59 points (nurture campaign)
+                    <strong>Cold Lead:</strong> < 30 points (long-term nurture or disqualify)
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Lead Qualification (BANT)</h2>
+                <ul>
+                    <li><strong>Budget:</strong> Does the prospect have money allocated? ($50K-$500K range)</li>
+                    <li><strong>Authority:</strong> Is this person a decision-maker? (VP of IT? CFO approval needed?)</li>
+                    <li><strong>Need:</strong> Do they have a business problem we solve? (Slow network? High costs?)</li>
+                    <li><strong>Timeline:</strong> When will they decide? (This quarter? Next fiscal year?)</li>
+                </ul>
+                <p><strong>Qualified Lead:</strong> All 4 BANT criteria met → Convert to Opportunity</p>
+            </div>
+
+            <div class="section">
+                <h2>Lead Assignment</h2>
+                <ul>
+                    <li><strong>Round Robin:</strong> Distribute leads evenly (Lead 1 → Alice, Lead 2 → Bob, Lead 3 → Carol, repeat)</li>
+                    <li><strong>Territory-Based:</strong> Assign based on geographic/account rules (NY leads → Northeast rep)</li>
+                    <li><strong>Score-Based:</strong> Hot leads (60+ points) → Senior reps, Cold leads → Inside sales</li>
+                    <li><strong>Queue-Based:</strong> All leads in pool, reps self-select</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Lead Conversion</h2>
+                <p>When a lead is qualified (BANT met), convert to:</p>
+                <ul>
+                    <li><strong>Account:</strong> Create company record (if not exists)</li>
+                    <li><strong>Contact:</strong> Create person record</li>
+                    <li><strong>Opportunity:</strong> Create sales opportunity with revenue estimate</li>
+                </ul>
+                <p><strong>Example:</strong> Lead "John Smith at RetailCorp" converts to Account "RetailCorp", Contact "John Smith", Opportunity "$500K 5G Network Upgrade"</p>
+            </div>
+
+            <div class="section">
+                <h2>Example: Inbound Lead Flow</h2>
+                <div class="key-point">
+                    <strong>Scenario:</strong>
+                    <ul>
+                        <li><strong>9:00 AM:</strong> Jane Doe (CTO of HealthCorp) fills out "Request 5G Demo" form</li>
+                        <li><strong>9:05 AM:</strong> Lead auto-created in Siebel, score = 55 (C-level + Enterprise company + Demo request)</li>
+                        <li><strong>9:10 AM:</strong> Assigned to Alice (Healthcare vertical specialist)</li>
+                        <li><strong>10:00 AM:</strong> Alice calls Jane, confirms BANT (Budget: $200K, Authority: Yes, Need: Secure connectivity for telemedicine, Timeline: Q2)</li>
+                        <li><strong>10:30 AM:</strong> Alice converts lead to Opportunity "HealthCorp 5G Deployment - $180K"</li>
+                        <li><strong>11:00 AM:</strong> Demo scheduled for next week</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="8_marketing_campaigns.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Marketing Campaigns</span>
+                </a>
+                <div class="nav-center">
+                    Page 9 of 20
+                </div>
+                <a href="10_lead_nurturing.html" class="nav-btn nav-btn-next">
+                    <span>Lead Nurturing</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

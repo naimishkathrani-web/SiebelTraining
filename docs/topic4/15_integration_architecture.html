@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration Architecture - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Integration Architecture</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+
+            <h1 class="page-title">Integration Architecture</h1>
+
+            <div class="section">
+                <h2>Why Integrate Siebel?</h2>
+                <p>Siebel CRM rarely operates in isolation. Enterprise deployments require integration with ERP (billing, inventory), marketing automation, data warehouses, and third-party services to create a unified business ecosystem.</p>
+
+                <figure>
+                    <img src="../images/integration_architecture.png" alt="Siebel Integration Architecture" style="max-width: 700px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption>Siebel Integration Architecture: Connecting Enterprise Systems</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Integration Patterns</h2>
+                
+                <h3>1. Real-Time Synchronous</h3>
+                <ul>
+                    <li><strong>Use case:</strong> Validate credit card payment during order</li>
+                    <li><strong>Method:</strong> Web Service call (SOAP/REST)</li>
+                    <li><strong>Flow:</strong> User clicks "Pay" → Siebel calls Payment Gateway API → Wait for approval → Display result</li>
+                    <li><strong>Pros:</strong> Immediate response</li>
+                    <li><strong>Cons:</strong> User waits, dependent on external system availability</li>
+                </ul>
+
+                <h3>2. Asynchronous Batch</h3>
+                <ul>
+                    <li><strong>Use case:</strong> Nightly export of new customers to ERP</li>
+                    <li><strong>Method:</strong> EIM, flat file export/import</li>
+                    <li><strong>Flow:</strong> 11 PM: Siebel exports 500 new accounts to CSV → ERP imports at 1 AM</li>
+                    <li><strong>Pros:</strong> No user impact, handles large volumes</li>
+                    <li><strong>Cons:</strong> Data not real-time</li>
+                </ul>
+
+                <h3>3. Event-Driven (Middleware)</h3>
+                <ul>
+                    <li><strong>Use case:</strong> New SR triggers email via messaging queue</li>
+                    <li><strong>Method:</strong> JMS, Oracle Integration Cloud, MuleSoft</li>
+                    <li><strong>Flow:</strong> SR created → Siebel publishes event to queue → Email service subscribes, sends notification</li>
+                    <li><strong>Pros:</strong> Decoupled, scalable</li>
+                    <li><strong>Cons:</strong> Requires middleware infrastructure</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Siebel Integration Capabilities</h2>
+                
+                <h3>Web Services (Inbound/Outbound)</h3>
+                <ul>
+                    <li><strong>Inbound:</strong> External systems call Siebel (e.g., Website creates lead via SOAP)</li>
+                    <li><strong>Outbound:</strong> Siebel calls external systems (e.g., Validate address with USPS API)</li>
+                    <li><strong>Protocols:</strong> SOAP, REST, XML</li>
+                </ul>
+
+                <h3>EAI (Enterprise Application Integration)</h3>
+                <ul>
+                    <li><strong>Siebel EAI Framework:</strong> Built-in adapters for SAP, Oracle, JD Edwards</li>
+                    <li><strong>Workflow Integration:</strong> Trigger external processes from Siebel workflows</li>
+                    <li><strong>Example:</strong> Opportunity closed → EAI creates sales order in Oracle E-Business Suite</li>
+                </ul>
+
+                <h3>EIM (Enterprise Integration Manager)</h3>
+                <ul>
+                    <li><strong>Batch import/export:</strong> Bulk data migration</li>
+                    <li><strong>Use case:</strong> Import 10,000 accounts from legacy CRM</li>
+                    <li><strong>Tables:</strong> EIM_ACCOUNT → S_ORG_EXT (Siebel accounts table)</li>
+                </ul>
+
+                <h3>Business Services</h3>
+                <ul>
+                    <li>Custom code to call external APIs, transform data</li>
+                    <li><strong>Example:</strong> "ValidateEmailService" calls email verification API</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Common Integration Points</h2>
+                <div class="key-point">
+                    <strong>Siebel Integrated With:</strong>
+                    <ul>
+                        <li><strong>ERP (SAP, Oracle):</strong> Orders, billing, inventory sync</li>
+                        <li><strong>Marketing Automation (Marketo, Eloqua):</strong> Campaign data, lead scoring</li>
+                        <li><strong>Data Warehouse:</strong> Analytics, reporting (extract Siebel data nightly)</li>
+                        <li><strong>Email Services (SendGrid, Mailchimp):</strong> Campaign execution</li>
+                        <li><strong>Payment Gateways (Stripe, PayPal):</strong> Real-time payment processing</li>
+                        <li><strong>Telephony (CTI):</strong> Screen pop on incoming calls</li>
+                        <li><strong>Identity Management (LDAP, Active Directory):</strong> User authentication</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Example: Order-to-Cash Integration</h2>
+                <ul>
+                    <li><strong>Step 1:</strong> Sales rep creates quote in Siebel (5× iPhone, 5× Unlimited Plans)</li>
+                    <li><strong>Step 2:</strong> Customer accepts quote → Rep converts to Order</li>
+                    <li><strong>Step 3:</strong> Siebel calls ERP via Web Service: "Create Sales Order SO-12345"</li>
+                    <li><strong>Step 4:</strong> ERP validates inventory (5× iPhones in stock ✓)</li>
+                    <li><strong>Step 5:</strong> ERP ships devices, updates Siebel order status to "Shipped"</li>
+                    <li><strong>Step 6:</strong> ERP generates invoice, sends to billing system</li>
+                    <li><strong>Step 7:</strong> Billing system charges customer, updates Siebel with payment status "Paid"</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="14_field_service.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Field Service</span>
+                </a>
+                <div class="nav-center">
+                    Page 15 of 20
+                </div>
+                <a href="16_web_services.html" class="nav-btn nav-btn-next">
+                    <span>Web Services</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

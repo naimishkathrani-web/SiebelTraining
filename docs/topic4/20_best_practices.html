@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration Best Practices - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Integration Best Practices</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+            </div>
+
+            <h1 class="page-title">Integration Best Practices</h1>
+
+            <div class="section">
+                <h2>Performance Optimization</h2>
+                
+                <h3>1. Use Batch Operations</h3>
+                <div class="key-point">
+                    <strong>Bad:</strong> 1,000 individual API calls to create 1,000 accounts (slow, high overhead)
+                    <br><strong>Good:</strong> 1 API call with 1,000 accounts in payload (batch insert)
+                    <br><strong>Impact:</strong> 100× faster, 1,000× fewer HTTP requests
+                </div>
+
+                <h3>2. Implement Pagination</h3>
+                <ul>
+                    <li>Don't fetch 100K records at once (timeout, memory issues)</li>
+                    <li>Use <code>PageSize=50, PageNumber=1</code> parameters</li>
+                    <li>Iterate through pages: Page 1 → Page 2 → ... → Page N</li>
+                </ul>
+
+                <h3>3. Delta Sync (Not Full Sync)</h3>
+                <ul>
+                    <li>Track last sync timestamp: <code>LastSync = 2024-01-15 10:00 AM</code></li>
+                    <li>Query only changed records: <code>WHERE ModifiedDate > '2024-01-15 10:00'</code></li>
+                    <li><strong>Example:</strong> Sync 100 changed accounts (not all 100K accounts)</li>
+                </ul>
+
+                <h3>4. Async for Non-Critical Operations</h3>
+                <ul>
+                    <li><strong>Sync (wait):</strong> Payment processing, inventory checks</li>
+                    <li><strong>Async (fire-and-forget):</strong> Email notifications, audit logs, analytics updates</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Error Handling & Resilience</h2>
+                
+                <h3>1. Retry Logic</h3>
+                <div class="key-point">
+                    <strong>Pattern:</strong> Exponential Backoff
+                    <ul>
+                        <li><strong>Attempt 1:</strong> Call API → Timeout → Wait 1 sec → Retry</li>
+                        <li><strong>Attempt 2:</strong> Call API → Error 500 → Wait 2 sec → Retry</li>
+                        <li><strong>Attempt 3:</strong> Call API → Error 503 → Wait 4 sec → Retry</li>
+                        <li><strong>Attempt 4:</strong> Call API → Still fails → Log error, alert admin, give up</li>
+                    </ul>
+                </div>
+
+                <h3>2. Circuit Breaker</h3>
+                <ul>
+                    <li>If external system fails 10 times in 5 min → Stop calling it (circuit "open")</li>
+                    <li>Wait 5 min, then try 1 test call → If success, resume normal calls (circuit "closed")</li>
+                    <li><strong>Benefit:</strong> Prevents cascading failures, gives failing system time to recover</li>
+                </ul>
+
+                <h3>3. Graceful Degradation</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> Inventory API is down</li>
+                    <li><strong>Bad:</strong> Block entire order creation (user can't proceed)</li>
+                    <li><strong>Good:</strong> Create order with status "Pending Inventory Validation", check later when API recovers</li>
+                </ul>
+
+                <h3>4. Comprehensive Logging</h3>
+                <ul>
+                    <li>Log every integration call: Timestamp, endpoint, payload, response, duration</li>
+                    <li><strong>Example Log:</strong> <code>2024-01-15 14:32:15 | POST /api/orders | Payload: {...} | Response: 500 Error | Duration: 3.2s</code></li>
+                    <li>Use correlation IDs to trace requests across systems</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Security Best Practices</h2>
+                
+                <h3>1. Never Hardcode Credentials</h3>
+                <ul>
+                    <li><strong>Bad:</strong> <code>password = "MyP@ssw0rd"</code> in source code</li>
+                    <li><strong>Good:</strong> Store in encrypted config file or vault (HashiCorp Vault, Azure Key Vault)</li>
+                </ul>
+
+                <h3>2. Use OAuth 2.0 (Not Basic Auth)</h3>
+                <ul>
+                    <li>OAuth tokens expire (1 hour), can be revoked</li>
+                    <li>Basic auth credentials don't expire, harder to rotate</li>
+                </ul>
+
+                <h3>3. Encrypt Data in Transit</h3>
+                <ul>
+                    <li>Always use HTTPS (not HTTP)</li>
+                    <li>TLS 1.2 or higher</li>
+                    <li>Reject self-signed certificates in production</li>
+                </ul>
+
+                <h3>4. Input Validation</h3>
+                <ul>
+                    <li>Validate all incoming data (check data types, length, format)</li>
+                    <li>Sanitize inputs to prevent SQL injection, XSS attacks</li>
+                    <li><strong>Example:</strong> Email field must match <code>/^[^@]+@[^@]+$/</code></li>
+                </ul>
+
+                <h3>5. Rate Limiting</h3>
+                <ul>
+                    <li>Limit API calls: 1,000 requests/hour per client</li>
+                    <li>Prevents abuse, DoS attacks</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Data Quality & Consistency</h2>
+                
+                <h3>1. Idempotency</h3>
+                <div class="key-point">
+                    <strong>Problem:</strong> API call times out → Retry → Duplicates created
+                    <br><strong>Solution:</strong> Use unique transaction IDs
+                    <ul>
+                        <li><strong>Call 1:</strong> Create order with ID <code>TXN-12345</code></li>
+                        <li><strong>Timeout, Retry Call:</strong> Send same ID <code>TXN-12345</code></li>
+                        <li><strong>Server:</strong> Checks if <code>TXN-12345</code> already processed → Returns existing order (no duplicate)</li>
+                    </ul>
+                </div>
+
+                <h3>2. Data Mapping Standards</h3>
+                <ul>
+                    <li>Document field mappings: <code>Siebel.Account.Name → SAP.Customer.Name</code></li>
+                    <li>Use common data formats: ISO dates (YYYY-MM-DD), E.164 phone numbers (+1-555-123-4567)</li>
+                    <li>Handle nulls: Agree on how to represent "no value" (null, empty string, "N/A"?)</li>
+                </ul>
+
+                <h3>3. Master Data Management</h3>
+                <ul>
+                    <li>Designate "system of record" for each data type</li>
+                    <li><strong>Example:</strong> ERP = master for products, Siebel = master for contacts</li>
+                    <li>One-way sync from master → Other systems (avoid circular updates)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Monitoring & Observability</h2>
+                <ul>
+                    <li><strong>Health Checks:</strong> Ping integration endpoints every 5 min (alert if down)</li>
+                    <li><strong>Performance Metrics:</strong> Track average response time, error rate, throughput</li>
+                    <li><strong>Alerts:</strong> Email/Slack notification if error rate > 5% or response time > 10s</li>
+                    <li><strong>Dashboards:</strong> Real-time view of integration health (Grafana, Datadog)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Testing Strategies</h2>
+                
+                <h3>1. Unit Tests</h3>
+                <ul>
+                    <li>Test individual functions (e.g., data transformation logic)</li>
+                    <li>Mock external API calls</li>
+                </ul>
+
+                <h3>2. Integration Tests</h3>
+                <ul>
+                    <li>Test end-to-end flow in sandbox environment</li>
+                    <li><strong>Example:</strong> Create account in Siebel → Verify it appears in ERP within 5 min</li>
+                </ul>
+
+                <h3>3. Load Testing</h3>
+                <ul>
+                    <li>Simulate high volume: 10,000 API calls in 1 hour</li>
+                    <li>Identify bottlenecks, optimize before production</li>
+                </ul>
+
+                <h3>4. Chaos Engineering</h3>
+                <ul>
+                    <li>Deliberately break things to test resilience</li>
+                    <li><strong>Example:</strong> Disable ERP → Verify circuit breaker activates, Siebel degrades gracefully</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Documentation</h2>
+                <div class="key-point">
+                    <strong>Essential Docs:</strong>
+                    <ul>
+                        <li><strong>Integration Spec:</strong> What systems connect, data flows, frequency</li>
+                        <li><strong>API Contract:</strong> Endpoints, request/response formats, error codes</li>
+                        <li><strong>Data Mapping:</strong> Field-by-field mapping between systems</li>
+                        <li><strong>Runbook:</strong> Troubleshooting steps (e.g., "If sync fails, check XYZ logs")</li>
+                        <li><strong>Architecture Diagram:</strong> Visual representation of integration landscape</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Summary: Integration Checklist</h2>
+                <div class="checklist">
+                    <input type="checkbox" id="bp1">
+                    <label for="bp1">Use batch operations for bulk data (not 1,000 individual calls)</label>
+
+                    <input type="checkbox" id="bp2">
+                    <label for="bp2">Implement retry logic with exponential backoff</label>
+
+                    <input type="checkbox" id="bp3">
+                    <label for="bp3">Encrypt credentials (OAuth tokens, not hardcoded passwords)</label>
+
+                    <input type="checkbox" id="bp4">
+                    <label for="bp4">Always use HTTPS (TLS 1.2+)</label>
+
+                    <input type="checkbox" id="bp5">
+                    <label for="bp5">Make operations idempotent (use transaction IDs)</label>
+
+                    <input type="checkbox" id="bp6">
+                    <label for="bp6">Delta sync (changed records only, not full database)</label>
+
+                    <input type="checkbox" id="bp7">
+                    <label for="bp7">Comprehensive logging (timestamp, payload, response, duration)</label>
+
+                    <input type="checkbox" id="bp8">
+                    <label for="bp8">Monitor health checks and performance metrics</label>
+
+                    <input type="checkbox" id="bp9">
+                    <label for="bp9">Document API contracts and data mappings</label>
+
+                    <input type="checkbox" id="bp10">
+                    <label for="bp10">Test integration flows in sandbox before production</label>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="19_open_ui.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Open UI Framework</span>
+                </a>
+                <div class="nav-center">
+                    Page 20 of 20
+                </div>
+                <a href="index.html" class="nav-btn nav-btn-next">
+                    <span>Topic 4 Complete ✓</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

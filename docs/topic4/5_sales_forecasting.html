@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecasting - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Sales Forecasting</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 25%;"></div>
+            </div>
+
+            <h1 class="page-title">Sales Forecasting</h1>
+
+            <div class="section">
+                <h2>Why Forecast?</h2>
+                <p>Accurate forecasting enables resource planning, inventory management, revenue projections, and executive decision-making. Siebel provides multiple forecasting methods based on pipeline data.</p>
+            </div>
+
+            <div class="section">
+                <h2>Forecasting Methods</h2>
+                
+                <h3>1. Pipeline-Based Forecasting</h3>
+                <ul>
+                    <li><strong>Formula:</strong> Sum of (Opportunity Revenue× Probability)</li>
+                    <li><strong>Example:</strong> 10 opportunities at $100K each, 50% avg probability = $500K forecast</li>
+                    <li><strong>Pros:</strong> Simple, real-time updates</li>
+                    <li><strong>Cons:</strong> Relies on accurate stage probabilities</li>
+                </ul>
+
+                <h3>2. Historical Trend Analysis</h3>
+                <ul>
+                    <li>Analyze past quarters' win rates and sales cycles</li>
+                    <li>Apply historical conversion rates to current pipeline</li>
+                    <li><strong>Example:</strong> Q1-Q3 show 30% lead → close rate → Apply to Q4 pipeline</li>
+                </ul>
+
+                <h3>3. Sales Rep Input</h3>
+                <ul>
+                    <li>Reps manually adjust forecast for opportunities they own</li>
+                    <li>Managers roll up team forecasts</li>
+                    <li><strong>Use case:</strong> Reps have insight system doesn't (e.g., budget freeze rumors)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Forecast Categories</h2>
+                <div class="key-point">
+                    <strong>Commit Levels:</strong>
+                    <ul>
+                        <li><strong>Best Case:</strong> All opportunities close (100% probability) = $2M</li>
+                        <li><strong>Commit:</strong> High-confidence deals (Negotiation stage+) = $1.2M</li>
+                        <li><strong>Most Likely:</strong> Weighted pipeline (Revenue× Probability) = $800K</li>
+                        <li><strong>Closed:</strong> Already won this period = $600K</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Forecast Rollups</h2>
+                <ul>
+                    <li><strong>Individual Rep:</strong> Alice's Q1 forecast = $300K</li>
+                    <li><strong>Team Level:</strong> West Coast Team (5 reps) = $1.5M</li>
+                    <li><strong>Regional:</strong> Western Region (3 teams) = $4.5M</li>
+                    <li><strong>Company-Wide:</strong> All regions = $18M</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Forecast Accuracy Metrics</h2>
+                <ul>
+                    <li><strong>Forecast vs Actual:</strong> Did we hit the $18M target? (Actual: $16.2M = 90% accuracy)</li>
+                    <li><strong>Pipeline Coverage:</strong> Pipeline value / Quota (Healthy = 3x coverage)</li>
+                    <li><strong>Win Rate Variance:</strong> Expected 30% win rate, actual 25% → Adjust next quarter</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: Q1 Forecast Review</h2>
+                <div class="key-point">
+                    <strong>Scenario:</strong> Sales Manager reviews pipeline on Jan 15
+                    <ul>
+                        <li><strong>Total Pipeline:</strong> 40 opportunities, $6M total value</li>
+                        <li><strong>Weighted Forecast:</strong> $1.8M (based on stage probabilities)</li>
+                        <li><strong>Commit Forecast:</strong> $1.2M (Negotiation+ only)</li>
+                        <li><strong>Already Closed:</strong> $400K</li>
+                        <li><strong>Gap to Quota:</strong> $2M quota - $1.2M commit = $800K gap</li>
+                        <li><strong>Action:</strong> Accelerate 5 top opportunities, add new leads</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="4_products_revenue.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Products & Revenue</span>
+                </a>
+                <div class="nav-center">
+                    Page 5 of 20
+                </div>
+                <a href="6_quota_mgmt.html" class="nav-btn nav-btn-next">
+                    <span>Quota Management</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Services - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Web Services</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+
+            <h1 class="page-title">Web Services Integration</h1>
+
+            <div class="section">
+                <h2>Siebel Web Services Overview</h2>
+                <p>Siebel exposes business objects (Accounts, Contacts, Opportunities, SRs) via SOAP and REST Web Services, enabling external applications to create, read, update, and delete data programmatically.</p>
+            </div>
+
+            <div class="section">
+                <h2>SOAP vs. REST</h2>
+                
+                <h3>SOAP (Legacy, XML-based)</h3>
+                <ul>
+                    <li><strong>Protocol:</strong> XML over HTTP</li>
+                    <li><strong>WSDL:</strong> Machine-readable service definition</li>
+                    <li><strong>Use case:</strong> Enterprise integrations requiring strict contracts</li>
+                    <li><strong>Example:</strong> Java application calls Siebel SOAP service to create account</li>
+                </ul>
+
+                <h3>REST (Modern, JSON-based)</h3>
+                <ul>
+                    <li><strong>Protocol:</strong> JSON over HTTP (GET, POST, PUT, DELETE)</li>
+                    <li><strong>Lightweight:</strong> Easier to consume from web/mobile apps</li>
+                    <li><strong>Use case:</strong> Website forms submitting leads to Siebel</li>
+                    <li><strong>Example:</strong> JavaScript app posts lead data to Siebel REST API</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Inbound Web Services (Siebel as Server)</h2>
+                <p>External systems call Siebel to manipulate data.</p>
+
+                <h3>SOAP Example: Create Account</h3>
+                <div class="code-block">
+                    <pre>
+POST /siebel/app/eai/enu?SWEExtSource=WebService&SWEExtCmd=Execute
+Content-Type: text/xml
+
+&lt;soapenv:Envelope&gt;
+  &lt;soapenv:Body&gt;
+    &lt;CreateAccount&gt;
+      &lt;Name&gt;Acme Corp&lt;/Name&gt;
+      &lt;Location&gt;New York&lt;/Location&gt;
+      &lt;Type&gt;Prospect&lt;/Type&gt;
+    &lt;/CreateAccount&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+                    </pre>
+                </div>
+                <p><strong>Response:</strong> Returns Account ID (e.g., "1-ABC123")</p>
+
+                <h3>REST Example: Query Opportunities</h3>
+                <div class="code-block">
+                    <pre>
+GET /siebel/v1.0/data/Opportunity?searchspec=[Sales%20Stage]='Negotiation'
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5...
+
+Response (JSON):
+{
+  "items": [
+    { "Id": "1-XYZ", "Name": "HealthCorp Deal", "Revenue": 500000, "Stage": "Negotiation" },
+    { "Id": "1-ABC", "Name": "RetailCo Upgrade", "Revenue": 300000, "Stage": "Negotiation" }
+  ]
+}
+                    </pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Outbound Web Services (Siebel as Client)</h2>
+                <p>Siebel calls external APIs to fetch/send data.</p>
+
+                <h3>Example: Address Validation</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> User enters address in Account form</li>
+                    <li><strong>Trigger:</strong> OnFieldUpdate event fires Business Service "ValidateAddress"</li>
+                    <li><strong>Business Service calls USPS API:</strong>
+                        <div class="code-block">
+                            <pre>
+POST https://api.usps.com/validate
+{
+  "address1": "123 Main St",
+  "city": "Springfield",
+  "state": "IL",
+  "zip": "62701"
+}
+                            </pre>
+                        </div>
+                    </li>
+                    <li><strong>USPS Response:</strong> Corrected address ("123 MAIN ST", validated ZIP: "62701-1234")</li>
+                    <li><strong>Siebel updates Account:</strong> Sets ZIP to "62701-1234"</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Authentication</h2>
+                <div class="key-point">
+                    <strong>Security Methods:</strong>
+                    <ul>
+                        <li><strong>Basic Auth:</strong> Username/password in header (Base64 encoded)</li>
+                        <li><strong>Token-Based (OAuth):</strong> Bearer token (modern, more secure)</li>
+                        <li><strong>Session-Based:</strong> Login once, receive session ID, use in subsequent calls</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Common Use Cases</h2>
+                
+                <h3>1. Website Lead Capture</h3>
+                <ul>
+                    <li>Customer fills "Request Demo" form on company website</li>
+                    <li>JavaScript posts data to Siebel REST API</li>
+                    <li>Siebel creates Lead, auto-assigns to sales rep</li>
+                </ul>
+
+                <h3>2. Mobile App Integration</h3>
+                <ul>
+                    <li>Field tech mobile app queries assigned work orders via REST</li>
+                    <li>App displays job list, tech updates status "Completed"</li>
+                    <li>App POSTs status update to Siebel</li>
+                </ul>
+
+                <h3>3. Partner Portal Sync</h3>
+                <ul>
+                    <li>Partner portal shows opportunities for channel partners</li>
+                    <li>Nightly batch job calls Siebel SOAP to fetch new opportunities</li>
+                    <li>Partner updates deal status in portal → Syncs back to Siebel via SOAP</li>
+                </ul>
+
+                <h3>4. Real-Time Inventory Check</h3>
+                <ul>
+                    <li>Sales rep configures quote in Siebel</li>
+                    <li>Siebel calls ERP REST API: "Check stock for iPhone 15 Pro"</li>
+                    <li>ERP responds: "50 units in warehouse"</li>
+                    <li>Siebel displays availability to rep</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Error Handling</h2>
+                <ul>
+                    <li><strong>HTTP 200 OK:</strong> Success</li>
+                    <li><strong>HTTP 400 Bad Request:</strong> Invalid data (e.g., missing required field)</li>
+                    <li><strong>HTTP 401 Unauthorized:</strong> Authentication failed</li>
+                    <li><strong>HTTP 404 Not Found:</strong> Resource doesn't exist (e.g., Account ID invalid)</li>
+                    <li><strong>HTTP 500 Internal Error:</strong> Siebel server error (check logs)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Performance Considerations</h2>
+                <div class="key-point">
+                    <strong>Best Practices:</strong>
+                    <ul>
+                        <li><strong>Batch Operations:</strong> Create 100 accounts in 1 call (not 100 individual calls)</li>
+                        <li><strong>Pagination:</strong> Query large datasets in pages (50 records at a time)</li>
+                        <li><strong>Caching:</strong> Cache rarely-changing data (product catalog) to avoid repeated API calls</li>
+                        <li><strong>Async Processing:</strong> For bulk operations, use asynchronous batch jobs (not real-time APIs)</li>
+                        <li><strong>Rate Limiting:</strong> Respect API call limits (e.g., 1,000 calls/hour)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="15_integration_architecture.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Integration Architecture</span>
+                </a>
+                <div class="nav-center">
+                    Page 16 of 20
+                </div>
+                <a href="17_erp_integration.html" class="nav-btn nav-btn-next">
+                    <span>ERP Integration</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

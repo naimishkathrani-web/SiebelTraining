@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Service - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Field Service</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 70%;"></div>
+            </div>
+
+            <h1 class="page-title">Field Service Management</h1>
+
+            <div class="section">
+                <h2>What is Field Service?</h2>
+                <p>Field Service manages mobile technicians who perform on-site installations, repairs, and maintenance. Siebel Field Service optimizes scheduling, routing, inventory, and workforce productivity.</p>
+            </div>
+
+            <div class="section">
+                <h2>Field Service Use Cases</h2>
+                <ul>
+                    <li><strong>Installations:</strong> New fiber optic line installation, equipment setup</li>
+                    <li><strong>Repairs:</strong> Fix network tower, replace damaged cable</li>
+                    <li><strong>Maintenance:</strong> Preventive inspections, equipment upgrades</li>
+                    <li><strong>Site Surveys:</strong> Pre-installation assessments</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Work Order Lifecycle</h2>
+                <ol>
+                    <li><strong>Create Work Order:</strong> Customer requests fiber installation</li>
+                    <li><strong>Schedule:</strong> System assigns to available tech, books 2-hour time window</li>
+                    <li><strong>Dispatch:</strong> Tech receives mobile notification with address, job details, required parts</li>
+                    <li><strong>Execute:</strong> Tech arrives, performs installation, captures customer signature</li>
+                    <li><strong>Complete:</strong> Tech updates status, uploads photos, logs parts used</li>
+                    <li><strong>Invoice:</strong> Work order data sent to billing system</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Scheduling & Dispatch</h2>
+                
+                <h3>Automatic Scheduling</h3>
+                <div class="key-point">
+                    <strong>Smart Assignment Factors:</strong>
+                    <ul>
+                        <li><strong>Skills:</strong> Fiber installation requires certified tech</li>
+                        <li><strong>Location:</strong> Assign nearest available tech (minimize travel time)</li>
+                        <li><strong>Availability:</strong> Check tech's calendar for open slots</li>
+                        <li><strong>Parts:</strong> Ensure tech has required equipment in van inventory</li>
+                        <li><strong>Priority:</strong> Emergency repairs scheduled before routine maintenance</li>
+                    </ul>
+                </div>
+
+                <h3>Optimized Routing</h3>
+                <ul>
+                    <li>System plans daily route to minimize drive time</li>
+                    <li><strong>Example:</strong> Tech has 5 jobs today
+                        <ul>
+                            <li>Job 1 (9 AM): Address A</li>
+                            <li>Job 2 (11 AM): Address B (5 miles from A)</li>
+                            <li>Job 3 (1 PM): Address C (3 miles from B)</li>
+                            <li>Lunch (2 PM): Near Address C</li>
+                            <li>Job 4 (3 PM): Address D (7 miles from C)</li>
+                            <li>Job 5 (5 PM): Address E (4 miles from D, near depot)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Result:</strong> 19 miles total vs. 45 miles unoptimized</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Mobile App Capabilities</h2>
+                <ul>
+                    <li><strong>Work Order Details:</strong> View customer info, site address, instructions</li>
+                    <li><strong>Navigation:</strong> GPS integration (tap address → Opens Maps)</li>
+                    <li><strong>Offline Access:</strong> View jobs even without internet (syncs when reconnected)</li>
+                    <li><strong>Time Tracking:</strong> Clock in/out per job (calculates labor hours)</li>
+                    <li><strong>Parts Usage:</strong> Scan barcode of parts used (updates inventory)</li>
+                    <li><strong>Photo Upload:</strong> Before/after photos, damage documentation</li>
+                    <li><strong>Customer Signature:</strong> Digital signature capture for work completion</li>
+                    <li><strong>Status Updates:</strong> "En Route" → "On Site" → "Completed"</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Inventory Management</h2>
+                
+                <h3>Van Stock</h3>
+                <ul>
+                    <li>Each tech's van has inventory (cables, routers, tools)</li>
+                    <li>System tracks van stock in real-time</li>
+                    <li><strong>Example:</strong> Tech Bob's van has 10× fiber cables, 5× routers, 20× connectors</li>
+                </ul>
+
+                <h3>Parts Reservation</h3>
+                <ul>
+                    <li>When work order scheduled, required parts automatically reserved</li>
+                    <li><strong>Example:</strong> Fiber install job tomorrow → System reserves 1× router, 50ft cable from Bob's van</li>
+                    <li>If parts unavailable, tech visits depot to restock before job</li>
+                </ul>
+
+                <h3>Restocking</h3>
+                <ul>
+                    <li>End of day: Tech returns to depot, replenishes used parts</li>
+                    <li>System generates restocking list: "Bob used 3× cables today, van now has 7× (restock to 10×)"</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Field Service Metrics</h2>
+                <ul>
+                    <li><strong>First-Time Fix Rate:</strong> % of jobs completed on first visit (Target: 90%+)</li>
+                    <li><strong>Average Job Duration:</strong> Time from arrival to completion</li>
+                    <li><strong>Utilization Rate:</strong> Billable hours / Total work hours (Target: 75%+)</li>
+                    <li><strong>Customer Satisfaction:</strong> Post-service survey rating (Target: 4.5/5)</li>
+                    <li><strong>Parts Accuracy:</strong> % of jobs with correct parts on van (Target: 95%+)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: Fiber Installation Job</h2>
+                <div class="key-point">
+                    <strong>Timeline:</strong>
+                    <ul>
+                        <li><strong>Day 1, 2 PM:</strong> Customer requests fiber install online</li>
+                        <li><strong>Day 1, 2:15 PM:</strong> System creates work order WO-12345</li>
+                        <li><strong>Day 1, 2:20 PM:</strong> Scheduler assigns to Tech Alice (has fiber cert, near customer location)</li>
+                        <li><strong>Day 2, 8 AM:</strong> Alice's mobile app shows WO-12345 first job (9-11 AM window)</li>
+                        <li><strong>Day 2, 8:45 AM:</strong> Alice updates status "En Route"</li>
+                        <li><strong>Day 2, 9:10 AM:</strong> Arrives on site, updates "On Site"</li>
+                        <li><strong>Day 2, 9:15 AM:</strong> Takes "before" photo of installation area</li>
+                        <li><strong>Day 2, 11:00 AM:</strong> Installation complete, tests speed (1 Gbps ✓)</li>
+                        <li><strong>Day 2, 11:05 AM:</strong> Customer signs on tablet, Alice uploads "after" photo</li>
+                        <li><strong>Day 2, 11:10 AM:</strong> Updates status "Completed", logs 1.75 hours labor, 1× router, 75ft cable used</li>
+                        <li><strong>Day 2, 11:15 AM:</strong> Data syncs to Siebel, billing system invoices customer $199 install fee</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="13_entitlements.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Entitlements</span>
+                </a>
+                <div class="nav-center">
+                    Page 14 of 20
+                </div>
+                <a href="15_integration_architecture.html" class="nav-btn nav-btn-next">
+                    <span>Integration Architecture</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

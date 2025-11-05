@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Integration - Advanced Features - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic4">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 4</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 4: Advanced Features</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">ERP Integration</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%;"></div>
+            </div>
+
+            <h1 class="page-title">ERP Integration</h1>
+
+            <div class="section">
+                <h2>Why Integrate Siebel with ERP?</h2>
+                <p>CRM handles customer-facing processes (sales, service). ERP manages back-office operations (finance, inventory, fulfillment). Integrating them creates seamless order-to-cash and quote-to-invoice workflows.</p>
+            </div>
+
+            <div class="section">
+                <h2>Common ERP Systems</h2>
+                <ul>
+                    <li><strong>Oracle E-Business Suite (EBS):</strong> Native integration with Siebel (same vendor)</li>
+                    <li><strong>SAP ERP:</strong> Pre-built adapters available</li>
+                    <li><strong>Oracle NetSuite:</strong> Cloud-based, REST API integration</li>
+                    <li><strong>Microsoft Dynamics:</strong> Middleware-based integration</li>
+                    <li><strong>JD Edwards:</strong> Oracle stack, similar to EBS integration</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Integration Scenarios</h2>
+                
+                <h3>1. Quote-to-Order</h3>
+                <ul>
+                    <li><strong>Siebel:</strong> Sales rep creates quote (5× iPhones, $4,000)</li>
+                    <li><strong>Customer accepts quote</strong></li>
+                    <li><strong>Siebel → ERP:</strong> "Create Sales Order SO-12345"</li>
+                    <li><strong>ERP:</strong> Checks inventory (5× iPhones available ✓), creates order</li>
+                    <li><strong>ERP → Siebel:</strong> Returns order number, estimated ship date</li>
+                    <li><strong>Siebel:</strong> Updates quote status "Order Created"</li>
+                </ul>
+
+                <h3>2. Product Catalog Sync</h3>
+                <ul>
+                    <li><strong>ERP:</strong> Product master (10,000 SKUs, pricing, inventory levels)</li>
+                    <li><strong>Nightly Batch:</strong> ERP exports active products to Siebel (CSV/XML)</li>
+                    <li><strong>Siebel:</strong> Imports products via EIM, updates prices</li>
+                    <li><strong>Result:</strong> Sales reps see up-to-date pricing and availability</li>
+                </ul>
+
+                <h3>3. Customer Master Sync</h3>
+                <ul>
+                    <li><strong>Siebel:</strong> New account "Acme Corp" created by sales rep</li>
+                    <li><strong>Siebel → ERP:</strong> Real-time API call "Create Customer"</li>
+                    <li><strong>ERP:</strong> Creates customer record, assigns customer ID "C-98765"</li>
+                    <li><strong>ERP → Siebel:</strong> Returns customer ID</li>
+                    <li><strong>Siebel:</strong> Stores "C-98765" in Account Integration ID field</li>
+                </ul>
+
+                <h3>4. Invoice Sync</h3>
+                <ul>
+                    <li><strong>ERP:</strong> Generates invoice INV-555 for shipped order</li>
+                    <li><strong>ERP → Siebel:</strong> Sends invoice details (amount, due date, line items)</li>
+                    <li><strong>Siebel:</strong> Creates Invoice record, attaches to Account</li>
+                    <li><strong>Customer Service:</strong> Agents can view invoice in Siebel when customer calls with billing question</li>
+                </ul>
+
+                <h3>5. Returns & Refunds</h3>
+                <ul>
+                    <li><strong>Siebel:</strong> Customer requests return via Service Request</li>
+                    <li><strong>Agent approves return in Siebel</strong></li>
+                    <li><strong>Siebel → ERP:</strong> "Create Return Authorization RA-222"</li>
+                    <li><strong>ERP:</strong> Processes return, issues refund, updates inventory</li>
+                    <li><strong>ERP → Siebel:</strong> Confirms refund processed</li>
+                    <li><strong>Siebel:</strong> Closes SR, notifies customer</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Integration Methods</h2>
+                
+                <h3>Real-Time (Synchronous)</h3>
+                <div class="key-point">
+                    <strong>When to use:</strong> Inventory checks, order creation, payment processing
+                    <ul>
+                        <li><strong>Tech:</strong> Web Services (SOAP/REST), EAI adapters</li>
+                        <li><strong>Pros:</strong> Immediate data consistency</li>
+                        <li><strong>Cons:</strong> Dependent on ERP availability, slower user experience if ERP is slow</li>
+                    </ul>
+                </div>
+
+                <h3>Batch (Asynchronous)</h3>
+                <div class="key-point">
+                    <strong>When to use:</strong> Bulk product updates, nightly customer sync, invoice imports
+                    <ul>
+                        <li><strong>Tech:</strong> EIM, flat file exchange (CSV, XML), scheduled jobs</li>
+                        <li><strong>Pros:</strong> Handles large volumes, no user impact</li>
+                        <li><strong>Cons:</strong> Data latency (e.g., product prices updated next day)</li>
+                    </ul>
+                </div>
+
+                <h3>Middleware (Event-Driven)</h3>
+                <div class="key-point">
+                    <strong>Tools:</strong> Oracle Integration Cloud (OIC), MuleSoft, Dell Boomi
+                    <ul>
+                        <li><strong>Flow:</strong> Siebel publishes "Order Created" event → Middleware transforms data → Pushes to ERP</li>
+                        <li><strong>Pros:</strong> Decoupled, scalable, handles complex transformations</li>
+                        <li><strong>Cons:</strong> Additional infrastructure cost</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Data Mapping Example</h2>
+                <div class="key-point">
+                    <strong>Siebel Account → SAP Customer:</strong>
+                    <ul>
+                        <li>Siebel: Account Name → SAP: Customer Name (KUNNR)</li>
+                        <li>Siebel: Account Location → SAP: City (ORT01)</li>
+                        <li>Siebel: Phone Number → SAP: Telephone (TELF1)</li>
+                        <li>Siebel: Account Status → SAP: Customer Status (SPERR)</li>
+                        <li>Siebel: ROW_ID → SAP: External Reference (EXTVG)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Error Handling</h2>
+                <ul>
+                    <li><strong>Scenario:</strong> Siebel tries to create order in ERP, but product SKU invalid</li>
+                    <li><strong>ERP Response:</strong> Error "Product XYZ not found"</li>
+                    <li><strong>Siebel Action:</strong> 
+                        <ul>
+                            <li>Log error to integration table</li>
+                            <li>Set order status "Pending - ERP Error"</li>
+                            <li>Alert sales manager via workflow</li>
+                            <li>Retry logic: Retry 3 times with 5-min intervals, then escalate</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>End-to-End Example: Order Fulfillment</h2>
+                <ol>
+                    <li><strong>Day 1, 10 AM:</strong> Sales rep creates quote in Siebel ($10K deal)</li>
+                    <li><strong>Day 2, 2 PM:</strong> Customer accepts quote</li>
+                    <li><strong>Day 2, 2:05 PM:</strong> Rep converts quote → Order in Siebel</li>
+                    <li><strong>Day 2, 2:06 PM:</strong> Siebel calls ERP API: "Create Sales Order" (real-time)</li>
+                    <li><strong>Day 2, 2:07 PM:</strong> ERP validates inventory, creates SO-9999, reserves stock</li>
+                    <li><strong>Day 2, 2:08 PM:</strong> ERP responds to Siebel: "Order created, ship by Day 5"</li>
+                    <li><strong>Day 2, 2:09 PM:</strong> Siebel updates order: "ERP Order ID: SO-9999, Ship Date: Day 5"</li>
+                    <li><strong>Day 5, 9 AM:</strong> ERP ships order, updates status "Shipped"</li>
+                    <li><strong>Day 5, 6 PM:</strong> Nightly batch: ERP sends shipment confirmation to Siebel (CSV)</li>
+                    <li><strong>Day 5, 11 PM:</strong> Siebel imports CSV, updates order status "Shipped", sends tracking email to customer</li>
+                </ol>
+            </div>
+
+            <div class="page-navigation">
+                <a href="16_web_services.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Web Services</span>
+                </a>
+                <div class="nav-center">
+                    Page 17 of 20
+                </div>
+                <a href="18_mobile_crm.html" class="nav-btn nav-btn-next">
+                    <span>Mobile CRM</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

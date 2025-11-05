@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Workspaces - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 2</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 2: Configuring Siebel</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Workspaces</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">🗂️ 3. Understanding Workspaces</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 3 of 9</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 33%;"></div>
+                </div>
+                <span>33% Complete</span>
+            </div>
+
+            <p class="lead">
+                Workspaces are the foundation of modern Siebel development. They enable parallel development, versioning, and safe experimentation.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">What is a Workspace?</h2>
+                
+                <div class="card">
+                    <p>
+                        A workspace is an isolated copy of the Siebel repository where you can make changes without affecting other developers or the production system.
+                    </p>
+                    <p><strong>Think of it like:</strong></p>
+                    <ul>
+                        <li>Git branches (if you're familiar with version control)</li>
+                        <li>A personal sandbox where you can experiment</li>
+                        <li>A staging area before changes go live</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Workspace Hierarchy</h2>
+                
+                <div class="card card-highlight">
+                    <h4>1. MAIN Workspace</h4>
+                    <p>
+                        The top-level, read-only workspace representing your production repository. No one makes changes directly in MAIN.
+                    </p>
+                </div>
+
+                <div class="card card-highlight mt-lg">
+                    <h4>2. Integration Workspace</h4>
+                    <p>
+                        A child of MAIN, created for a major release or project. This is where changes from multiple developers are consolidated and tested together.
+                    </p>
+                    <p><strong>Example names:</strong> <code>Release_2024Q1</code>, <code>MobileApp_Project</code></p>
+                </div>
+
+                <div class="card card-highlight mt-lg">
+                    <h4>3. Developer Workspace</h4>
+                    <p>
+                        A child of an Integration Workspace. This is YOUR personal workspace where you perform all configuration work.
+                    </p>
+                    <p><strong>Example names:</strong> <code>JSmith_ServiceRequest_Enhancement</code></p>
+                </div>
+
+                <figure style="margin: 24px 0;">
+                    <img src="../images/workspace_hierarchy.png" alt="Workspace Hierarchy" style="width: 100%; max-width: 700px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280; text-align: center;">Three-tier workspace structure enables parallel development</figcaption>
+                </figure>
+
+                <div class="banner banner-info">
+                    <div>
+                        <strong>🔑 Key Concept:</strong> Changes flow upward: Developer Workspace → Integration Workspace → MAIN. This ensures testing at each level before production deployment.
+                    </div>
+                </div>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 10 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="2_tools_comparison.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Tools Comparison</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 3 of 9
+                </div>
+                <a href="4_workspace_lifecycle.html" class="nav-btn nav-btn-next">
+                    <span>Workspace Lifecycle</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Components - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 2</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 2: Configuring Siebel</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Business Components</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">🧱 7. Business Components (BCs)</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 7 of 9</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 78%;"></div>
+                </div>
+                <span>78% Complete</span>
+            </div>
+
+            <p class="lead">
+                Business Components (BCs) are the heart of Siebel's data layer. They map database tables to logical business entities that users interact with.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">What is a Business Component?</h2>
+                
+                <div class="card">
+                    <p>
+                        A BC is a metadata definition that:
+                    </p>
+                    <ul>
+                        <li>Maps to one primary table (base table)</li>
+                        <li>Can join to additional tables for calculated fields</li>
+                        <li>Defines which fields are visible and editable</li>
+                        <li>Contains validation rules and calculated values</li>
+                        <li>Controls search behavior</li>
+                    </ul>
+                </div>
+
+                <h3>Key BC Properties</h3>
+                <div class="card mt-lg">
+                    <h4>Table</h4>
+                    <p>The primary database table this BC represents</p>
+                    <p><strong>Example:</strong> The "Account" BC maps to table <code>S_ORG_EXT</code></p>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>Search Specification</h4>
+                    <p>SQL WHERE clause that filters which records are visible</p>
+                    <p><strong>Example:</strong> <code>[Status] <> 'Inactive'</code> hides inactive records</p>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>Sort Specification</h4>
+                    <p>Default sort order for query results</p>
+                    <p><strong>Example:</strong> <code>[Name] ASC</code> sorts alphabetically by name</p>
+                </div>
+
+                <figure style="margin: 24px 0;">
+                    <img src="../images/business_component_mapping.png" alt="Business Component Mapping" style="width: 100%; max-width: 700px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280; text-align: center;">How Business Components map tables to logical entities</figcaption>
+                </figure>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 9 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="6_data_model.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Data Model</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 7 of 9
+                </div>
+                <a href="8_workflows.html" class="nav-btn nav-btn-next">
+                    <span>Workflows</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 3: Order to Activation - Siebel Training</title>
+  <title>Lab 3: Lead to Order Flow - Siebel Training</title>
   <link rel="stylesheet" href="../css/training.css">
 </head>
 <body data-module-id="day1_practicals">
@@ -20,63 +20,231 @@
       <span class="breadcrumb-separator">›</span>
       <a href="index.html">Labs</a>
       <span class="breadcrumb-separator">›</span>
-      <span class="breadcrumb-current">Lab 3: Order → Activation</span>
+      <span class="breadcrumb-current">Lab 3: Lead to Order Flow</span>
     </nav>
 
     <div class="content">
-      <h1 class="subtopic-title">⚡ Lab 3: Capture Order and Walk Activation</h1>
-      <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
+      <h1 class="subtopic-title">💼 Lab 3: Lead to Order Flow</h1>
+      <div class="topic-progress"><span>Estimated time: 20–25 minutes</span></div>
 
       <div class="card card-highlight">
         <h3>Goal</h3>
-        <p>Create a prepaid bundle order, submit it, and walk through status updates to simulate activation and customer notification.</p>
+        <p>Complete the full sales cycle: Create a contact as a lead, convert to opportunity, link to account, create quote, and convert quote to order.</p>
       </div>
 
       <div class="content-section">
         <h2 class="sub3-topic-title">Prerequisites</h2>
         <ul>
           <li>Login: TRAINEE01–10 / Welcome123</li>
-          <li>Product catalog contains at least one prepaid bundle product (or use a placeholder)</li>
+          <li>Access to Contacts, Opportunities, Quotes, and Orders views</li>
+          <li>At least one active product in catalog (from Lab 2 or existing)</li>
         </ul>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Steps</h2>
-        <ol>
-          <li>Open Site Map → Orders → All Orders (List).</li>
-          <li>New Order: Set Account/Contact, Order Type = Add-on, Status = In Progress.</li>
-          <li>Order Line: Add product (e.g., "Prepaid 2GB Bundle"). Quantity = 1.</li>
-          <li>Submit: Click Submit (or set Status to Submitted) and note Order #.</li>
-          <li>Simulate: Update Status sequence to Released → In Provisioning → Complete.</li>
-          <li>Assets: Verify a new Asset was created/updated for the subscriber (if available).</li>
-          <li>Notify: Add an Activity "Notify customer" with channel SMS/Email.</li>
-        </ol>
+        <h2 class="sub3-topic-title">Exercise 1: Create Contact as Lead</h2>
+        <div class="card">
+          <h4>Add New Lead Contact</h4>
+          <ol style="line-height: 1.8;">
+            <li>Click <strong>Site Map</strong> → <strong>Contacts</strong> → Opens contact list view</li>
+            <li>Click <strong>New</strong> button to create new contact</li>
+            <li>Fill in contact information:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>First Name:</strong> <code>Amina</code></li>
+                <li><strong>Last Name:</strong> <code>Juma</code></li>
+                <li><strong>Email:</strong> <code>amina.juma@example.com</code></li>
+                <li><strong>Phone:</strong> <code>+255 712 345 678</code></li>
+                <li><strong>Contact Type:</strong> Select <code>Lead</code> (very important!)</li>
+                <li><strong>Lead Source:</strong> <code>Web</code> or <code>Referral</code></li>
+              </ul>
+            </li>
+            <li>Click <strong>Save</strong></li>
+            <li>Note the Contact # generated</li>
+          </ol>
+          <p style="margin-top: 12px; background: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #0284c7;">
+            <strong>✅ Success Check:</strong> New contact created with Type = "Lead".
+          </p>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Validation</h2>
-        <ul class="checklist">
-          <li>Order header and line saved with correct product</li>
-          <li>Status progressed through key milestones</li>
-          <li>Asset created/updated (if feature enabled)</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 2: Create Opportunity for Contact</h2>
+        <div class="card">
+          <h4>Add Sales Opportunity</h4>
+          <ol style="line-height: 1.8;">
+            <li>While still in Amina Juma's contact record, locate the <strong>Opportunities</strong> applet (usually in lower section)</li>
+            <li>Click <strong>New</strong> in the Opportunities applet</li>
+            <li>Fill opportunity details:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>Opportunity Name:</strong> <code>5G Plan Upgrade - Amina Juma</code></li>
+                <li><strong>Revenue:</strong> <code>600000</code> (TZS 600,000 annual value)</li>
+                <li><strong>Close Date:</strong> Select date 30 days from today</li>
+                <li><strong>Probability:</strong> <code>50%</code></li>
+                <li><strong>Status:</strong> <code>Prospecting</code> or <code>Open</code></li>
+                <li><strong>Sales Stage:</strong> <code>Qualification</code></li>
+              </ul>
+            </li>
+            <li>Click <strong>Save</strong></li>
+            <li>Note the Opportunity # generated</li>
+          </ol>
+          <p style="margin-top: 12px; background: #ecfdf5; padding: 12px; border-radius: 6px; border-left: 4px solid #059669;">
+            <strong>✅ Success Check:</strong> Opportunity is linked to Amina Juma contact.
+          </p>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Capture This (Screenshots)</h2>
-        <ul class="checklist">
-          <li>Order header with Order #</li>
-          <li>Order line with product and final Status</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 3: Associate Opportunity with Account</h2>
+        <div class="card">
+          <h4>Link to Customer Account</h4>
+          <ol style="line-height: 1.8;">
+            <li>Navigate to <strong>Site Map</strong> → <strong>Opportunities</strong> → Find your newly created opportunity</li>
+            <li>Open the opportunity record</li>
+            <li>In the opportunity header, locate the <strong>Account</strong> field</li>
+            <li><strong>Option A - Link to Existing Account:</strong>
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li>Click the lookup icon (magnifying glass) next to Account field</li>
+                <li>Search for and select an existing test account</li>
+                <li>Click <strong>OK</strong></li>
+              </ul>
+            </li>
+            <li><strong>Option B - Create New Account:</strong>
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li>Click <strong>New</strong> button in the Account lookup</li>
+                <li>Enter Account Name: <code>Juma Family Account</code></li>
+                <li>Account Type: <code>Consumer</code></li>
+                <li>Save the account</li>
+              </ul>
+            </li>
+            <li>Save the opportunity with linked account</li>
+          </ol>
+          <p style="margin-top: 12px; background: #fef3c7; padding: 12px; border-radius: 6px; border-left: 4px solid #f59e0b;">
+            <strong>💡 Note:</strong> Linking to an Account ensures all transactions (orders, billing) are properly associated.
+          </p>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Troubleshooting</h2>
-        <ul>
-          <li>Can't find product? Use any available catalog item or note a placeholder in the line</li>
-          <li>Submit button missing? Manually set Status fields to simulate flow</li>
-          <li>No Assets? Skip asset validation and complete with Status = Complete</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 4: Create Quote for Opportunity</h2>
+        <div class="card">
+          <h4>Generate Quote with Products</h4>
+          <ol style="line-height: 1.8;">
+            <li>In the Opportunity record, locate the <strong>Quotes</strong> applet (lower section)</li>
+            <li>Click <strong>New</strong> in Quotes applet</li>
+            <li>Fill quote header:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>Quote Name:</strong> <code>5G Plan Quote - Amina</code></li>
+                <li><strong>Status:</strong> <code>Draft</code></li>
+                <li><strong>Valid From:</strong> Today's date</li>
+                <li><strong>Valid To:</strong> 14 days from today</li>
+              </ul>
+            </li>
+            <li>Save the quote</li>
+            <li>Now add product line items - Click <strong>Products</strong> tab or <strong>Line Items</strong> applet</li>
+            <li>Click <strong>New</strong> or <strong>Add Product</strong></li>
+            <li>Search for product: <code>5G Plan</code> (created in Lab 2)</li>
+            <li>Select the product and fill:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>Quantity:</strong> <code>1</code></li>
+                <li><strong>Price:</strong> <code>50000</code> TZS (should auto-populate from price list)</li>
+                <li><strong>Duration:</strong> <code>12 months</code></li>
+              </ul>
+            </li>
+            <li>Save the line item</li>
+            <li>Verify Quote Total = 600,000 TZS (50,000 × 12 months)</li>
+          </ol>
+          <p style="margin-top: 12px; background: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #0284c7;">
+            <strong>✅ Success Check:</strong> Quote contains at least one product line with correct pricing.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Exercise 5: Convert Quote to Order</h2>
+        <div class="card">
+          <h4>Submit and Generate Order</h4>
+          <ol style="line-height: 1.8;">
+            <li>In the Quote record, locate the <strong>Status</strong> field</li>
+            <li>Change Status from <code>Draft</code> to <code>Submitted</code> (or <code>Accepted</code>)</li>
+            <li>Save the quote</li>
+            <li>Look for <strong>Convert to Order</strong> button (or similar action button)</li>
+            <li><strong>If button exists:</strong> Click <strong>Convert to Order</strong> → System automatically creates order</li>
+            <li><strong>If no button:</strong> Manually create order:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li>Navigate to <strong>Site Map</strong> → <strong>Orders</strong></li>
+                <li>Click <strong>New</strong></li>
+                <li>Fill Order fields:
+                  <ul style="margin-top: 8px;">
+                    <li>Account: <code>Juma Family Account</code></li>
+                    <li>Contact: <code>Amina Juma</code></li>
+                    <li>Order Type: <code>New Service</code></li>
+                    <li>Status: <code>In Progress</code></li>
+                  </ul>
+                </li>
+                <li>Add order line items matching quote products</li>
+                <li>In Order header, reference the Quote # in notes or description</li>
+              </ul>
+            </li>
+            <li>Save the order</li>
+          </ol>
+          <p style="margin-top: 12px; background: #ecfdf5; padding: 12px; border-radius: 6px; border-left: 4px solid #059669;">
+            <strong>✅ Success Check:</strong> Order record created and linked to Quote/Opportunity/Account.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Exercise 6: Verify Order Created</h2>
+        <div class="card">
+          <h4>Validate Complete Flow</h4>
+          <ol style="line-height: 1.8;">
+            <li>Navigate to <strong>Site Map</strong> → <strong>Orders</strong> → View all orders</li>
+            <li>Find your newly created order (sort by Created date)</li>
+            <li>Open the order and verify:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>Order #:</strong> System-generated number</li>
+                <li><strong>Account:</strong> Juma Family Account</li>
+                <li><strong>Contact:</strong> Amina Juma</li>
+                <li><strong>Status:</strong> In Progress (or Submitted)</li>
+                <li><strong>Order Lines:</strong> At least one product (5G Plan - Unlimited Data)</li>
+                <li><strong>Total Amount:</strong> 600,000 TZS</li>
+              </ul>
+            </li>
+            <li>Optional: Update Order Status to <code>Released</code> or <code>Completed</code> to simulate fulfillment</li>
+          </ol>
+          
+          <div style="background: #ecfdf5; padding: 12px; border-radius: 6px; margin-top: 16px; border-left: 4px solid #059669;">
+            <p style="margin: 0; font-weight: 600;">Full Cycle Complete! 🎉</p>
+            <p style="margin: 8px 0 0 0; font-size: 14px;">You've successfully completed the sales journey:</p>
+            <ul style="margin: 8px 0 0 20px; line-height: 1.8; font-size: 14px;">
+              <li>Lead Contact created ✅</li>
+              <li>Opportunity generated ✅</li>
+              <li>Account association ✅</li>
+              <li>Quote with products ✅</li>
+              <li>Order conversion ✅</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Lab Summary</h2>
+        <div class="card card-highlight">
+          <h4>What You Learned</h4>
+          <ul style="line-height: 2; margin: 0;">
+            <li>✅ Create contact record with Type = Lead</li>
+            <li>✅ Generate opportunity for a contact</li>
+            <li>✅ Associate opportunity with account (existing or new)</li>
+            <li>✅ Create quote with product line items and pricing</li>
+            <li>✅ Convert quote to order (or manually create order)</li>
+            <li>✅ Verify complete sales cycle from lead to order</li>
+          </ul>
+          
+          <div style="background: #f0f9ff; padding: 12px; border-radius: 6px; margin-top: 16px;">
+            <p style="margin: 0; font-weight: 600;">Real-World Application:</p>
+            <p style="margin: 8px 0 0 0; font-size: 14px;">This is the standard B2C telecom sales flow for new customer acquisition or upselling existing customers to premium plans.</p>
+          </div>
+        </div>
       </div>
 
       <div class="page-navigation">

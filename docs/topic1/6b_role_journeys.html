@@ -24,7 +24,7 @@
         </nav>
 
         <div class="content">
-            <h1 class="subtopic-title">👥 6b. Role-Based Journeys (Telecom)</h1>
+            <h1 class="subtopic-title">👥 6b. Setting Up Users and Roles</h1>
             
             <div class="topic-progress">
                 <span>Sub-topic 6 of 6</span>
@@ -35,68 +35,209 @@
             </div>
 
             <p class="lead">
-                Different telecom roles use Siebel differently. Here are typical journeys for Call Center Agent, Sales Rep, and Manager.
+                Siebel security is built on users, responsibilities, and data visibility controls. Learn how to set up users and control their access to views and data.
             </p>
 
             <div class="content-section">
-                <h2 class="sub3-topic-title">Three Personas</h2>
+                <h2 class="sub3-topic-title">1. Creating Users in Siebel</h2>
                 
                 <div class="card">
-                    <h4>📞 Call Center Agent</h4>
-                    <p><strong>Goal:</strong> Resolve customer issues quickly</p>
-                    <p><strong>Typical Steps:</strong></p>
-                    <ol style="margin:0;">
-                        <li>Open Home → My SRs queue</li>
-                        <li>Pick next SR → View details</li>
-                        <li>Search Knowledge → Link solution</li>
-                        <li>Update Status → Close SR</li>
-                    </ol>
+                    <h4>Step 1: Navigate to User Administration</h4>
+                    <p><strong>Path:</strong> Site Map → Administration - Application → Users</p>
+                    <ul style="margin-top: 12px; line-height: 1.8;">
+                        <li>Click <strong>New</strong> button to create a new user</li>
+                        <li>Enter required fields:
+                            <ul style="margin-top: 8px;">
+                                <li><strong>Login Name:</strong> Username for authentication (e.g., AGENT01, SALESREP05)</li>
+                                <li><strong>First Name, Last Name:</strong> User's full name</li>
+                                <li><strong>Email:</strong> For notifications and password resets</li>
+                                <li><strong>Organization:</strong> Assign to organizational unit</li>
+                                <li><strong>Division:</strong> Business division (Sales, Service, Marketing)</li>
+                            </ul>
+                        </li>
+                        <li>Set initial password (user must change on first login)</li>
+                        <li>Activate user by checking <strong>"Active"</strong> checkbox</li>
+                    </ul>
                 </div>
 
                 <div class="card card-white mt-lg">
-                    <h4>📈 Sales Rep (Retention)</h4>
-                    <p><strong>Goal:</strong> Save at-risk customers</p>
-                    <p><strong>Typical Steps:</strong></p>
-                    <ol style="margin:0;">
-                        <li>Open Marketing → Churn Segment</li>
-                        <li>Select customer → View 360 (SRs, usage, payments)</li>
-                        <li>Create Order (retention bundle)</li>
-                        <li>Track to activation</li>
-                    </ol>
-                </div>
+                    <h4>Step 2: Assign Responsibilities</h4>
+                    <p><strong>What are Responsibilities?</strong> Define what views, screens, and functions a user can access</p>
+                    
+                    <figure style="margin: 20px 0;">
+                        <img src="../images/siebel_responsibilities.png" alt="Siebel User Responsibilities" style="width: 100%; max-width: 700px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280;">User Responsibilities Control Access to Views and Functions</figcaption>
+                    </figure>
 
-                <div class="card mt-lg">
-                    <h4>📊 Service Manager</h4>
-                    <p><strong>Goal:</strong> Monitor team performance</p>
-                    <p><strong>Typical Steps:</strong></p>
-                    <ol style="margin:0;">
-                        <li>Open Home → KPI Dashboard</li>
-                        <li>Check SLA compliance, backlog</li>
-                        <li>Run Reports → SR by Category</li>
-                        <li>Escalate outliers</li>
+                    <p style="margin-top: 16px;"><strong>Common Telecom Responsibilities:</strong></p>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Call Center Agent:</strong> Access to Service Requests, Accounts, Contacts, Knowledge Base (read/write SRs only)</li>
+                        <li><strong>Sales Representative:</strong> Access to Opportunities, Quotes, Orders, Campaigns (read/write own data)</li>
+                        <li><strong>Service Manager:</strong> All Service views + Reports + Dashboards (read/write team data)</li>
+                        <li><strong>System Administrator:</strong> Full access to all views including Administration</li>
+                    </ul>
+
+                    <p style="margin-top: 16px;"><strong>How to Assign:</strong></p>
+                    <ol style="line-height: 1.8;">
+                        <li>In User record, navigate to <strong>"Responsibilities"</strong> applet (bottom section)</li>
+                        <li>Click <strong>New</strong> → Select responsibility from list</li>
+                        <li>Set <strong>Start Date</strong> (when access begins) and <strong>End Date</strong> (optional, when access expires)</li>
+                        <li>Save the record</li>
                     </ol>
                 </div>
             </div>
 
             <div class="content-section">
-                <h2 class="sub3-topic-title">Agent Journey Flow</h2>
+                <h2 class="sub3-topic-title">2. Controlling View-Level Access</h2>
+                
+                <div class="card">
+                    <h4>View Visibility Rules</h4>
+                    <p>Responsibilities determine which <strong>views</strong> (screens) appear in the user's site map.</p>
+                    
+                    <div style="background: #f0f9ff; padding: 16px; border-radius: 8px; border-left: 4px solid #0284c7; margin-top: 16px;">
+                        <p style="margin: 0; line-height: 1.8;"><strong>Example:</strong></p>
+                        <ul style="margin-top: 8px; line-height: 1.8; margin-bottom: 0;">
+                            <li><strong>Call Center Agent</strong> sees: Home, Service Requests, Accounts, Contacts</li>
+                            <li><strong>Call Center Agent</strong> does NOT see: Opportunities, Quotes, Admin screens</li>
+                        </ul>
+                    </div>
+
+                    <p style="margin-top: 16px;"><strong>Limiting Access to Specific Views:</strong></p>
+                    <ol style="line-height: 1.8;">
+                        <li>Admin creates custom responsibility (e.g., "Tier 1 Agent - Limited")</li>
+                        <li>In Siebel Tools, configure which views are included in that responsibility</li>
+                        <li>Assign responsibility to user → User only sees authorized views</li>
+                        <li>Any unauthorized view access attempt → "Access Denied" error</li>
+                    </ol>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>Example: Creating a Limited Access Role</h4>
+                    <p><strong>Scenario:</strong> New trainee agents should only handle simple SRs, not access billing or account changes</p>
+                    <ol style="line-height: 1.8; margin-bottom: 0;">
+                        <li>Create responsibility: <strong>"Trainee Agent"</strong></li>
+                        <li>Include views: Service Requests (read-only), Knowledge Base, Contacts (view only)</li>
+                        <li>Exclude views: Billing, Account Edit, Orders, Opportunities</li>
+                        <li>Assign to all trainee users</li>
+                        <li>After training period, upgrade to <strong>"Call Center Agent"</strong> responsibility with full access</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">3. Data-Level Visibility Controls</h2>
+                
+                <div class="card">
+                    <h4>Position-Based Access Control</h4>
+                    <p>Beyond views, control <strong>which records</strong> users can see within a view.</p>
+                    
+                    <p style="margin-top: 16px;"><strong>Three Levels of Data Visibility:</strong></p>
+                    
+                    <div style="background: #fef3c7; padding: 14px; border-radius: 6px; margin-top: 12px;">
+                        <p style="margin: 0; font-weight: 600;">1. Personal Visibility (Most Restrictive)</p>
+                        <p style="margin: 8px 0 0 0; font-size: 14px;">User sees only their own records (SRs assigned to them, Opportunities they own)</p>
+                    </div>
+
+                    <div style="background: #e0e7ff; padding: 14px; border-radius: 6px; margin-top: 12px;">
+                        <p style="margin: 0; font-weight: 600;">2. Team/Group Visibility</p>
+                        <p style="margin: 8px 0 0 0; font-size: 14px;">User sees all records for their team/division (Manager sees all team member SRs)</p>
+                    </div>
+
+                    <div style="background: #d1fae5; padding: 14px; border-radius: 6px; margin-top: 12px;">
+                        <p style="margin: 0; font-weight: 600;">3. Organization Visibility (Least Restrictive)</p>
+                        <p style="margin: 8px 0 0 0; font-size: 14px;">User sees all records in the organization (Admins, Executives)</p>
+                    </div>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>How to Configure Data Visibility</h4>
+                    <ol style="line-height: 1.8;">
+                        <li><strong>Create Position:</strong> Site Map → Administration → Positions
+                            <ul style="margin-top: 8px;">
+                                <li>Create position: "Service Manager - Northeast Region"</li>
+                                <li>Set visibility: "Group" (sees all team records)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Assign User to Position:</strong> In User record → Position field → Select position</li>
+                        <li><strong>Set Position Hierarchy:</strong> Define reporting structure (Agent → Manager → Director)</li>
+                        <li><strong>Result:</strong> User automatically sees records based on position rules</li>
+                    </ol>
+
+                    <div style="background: #f0fdf4; padding: 16px; border-radius: 8px; border-left: 4px solid #059669; margin-top: 16px;">
+                        <p style="margin: 0; line-height: 1.8;"><strong>Example:</strong></p>
+                        <ul style="margin-top: 8px; line-height: 1.8; margin-bottom: 0;">
+                            <li><strong>Agent Position:</strong> "Personal" visibility → Sees only assigned SRs (50 records)</li>
+                            <li><strong>Manager Position:</strong> "Group" visibility → Sees all team SRs (500 records from 10 agents)</li>
+                            <li><strong>Director Position:</strong> "Organization" visibility → Sees all SRs (5,000 records across all regions)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">4. Advanced Security: Field-Level Access</h2>
+                
+                <div class="card">
+                    <h4>Restricting Field Visibility</h4>
+                    <p>Control which fields users can see or edit within a record.</p>
+                    
+                    <p style="margin-top: 16px;"><strong>Common Use Cases:</strong></p>
+                    <ul style="line-height: 1.8;">
+                        <li><strong>Billing Information:</strong> Only billing team sees customer payment details</li>
+                        <li><strong>Sensitive Notes:</strong> Manager comments visible only to managers, not agents</li>
+                        <li><strong>Discount Approvals:</strong> Sales reps can request discount, but only managers can approve</li>
+                    </ul>
+
+                    <p style="margin-top: 16px;"><strong>Configuration:</strong> Define in Siebel Tools → Field access controlled by responsibility</p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">5. Cache Management</h2>
+                
                 <div class="card card-highlight">
-                    <h3 style="margin:0 0 8px;">Mermaid: Call Center Agent Workflow</h3>
-<pre class="mermaid">
-journey
-  title Agent Handles Coverage SR
-  section Login
-    Login to Siebel: 5
-    Check My Queue: 5
-  section Handle SR
-    Pick SR from List: 3
-    View Customer 360: 4
-    Search Knowledge: 4
-  section Resolve
-    Link Solution: 5
-    Update Status: 5
-    Close SR: 5
-</pre>
+                    <h4>Why Clear Cache?</h4>
+                    <p>After changing user responsibilities or security settings, clear the cache to apply changes immediately.</p>
+                    
+                    <figure style="margin: 20px 0;">
+                        <img src="../images/clear_cache.png" alt="Clear Cache Option" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280;">Clear Cache After Security Changes</figcaption>
+                    </figure>
+
+                    <p style="margin-top: 16px;"><strong>When to Clear Cache:</strong></p>
+                    <ul style="line-height: 1.8;">
+                        <li>After adding/removing user responsibilities</li>
+                        <li>After changing position assignments</li>
+                        <li>After modifying visibility rules</li>
+                        <li>After importing new users in bulk</li>
+                    </ul>
+
+                    <p style="margin-top: 16px;"><strong>How to Clear Cache:</strong></p>
+                    <ol style="line-height: 1.8; margin-bottom: 0;">
+                        <li>Navigate: Site Map → Administration - Server Configuration → Enterprises</li>
+                        <li>Select your enterprise server</li>
+                        <li>Click <strong>"Clear Cache"</strong> button</li>
+                        <li>Wait 2-3 minutes for cache refresh</li>
+                        <li>Ask affected users to log out and log back in</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Best Practices Summary</h2>
+                
+                <div class="card">
+                    <ul style="line-height: 2; margin: 0;">
+                        <li>✅ Use <strong>pre-defined responsibilities</strong> when possible (less maintenance)</li>
+                        <li>✅ Follow <strong>least privilege principle</strong> - grant minimum access needed</li>
+                        <li>✅ Create <strong>position hierarchy</strong> that mirrors org chart for automatic visibility</li>
+                        <li>✅ Test new users in <strong>test environment</strong> before production</li>
+                        <li>✅ Document custom responsibilities and their purpose</li>
+                        <li>✅ Review user access quarterly, remove inactive users</li>
+                        <li>✅ Always <strong>clear cache</strong> after security changes</li>
+                        <li>❌ Don't give admin access unnecessarily (security risk)</li>
+                        <li>❌ Don't share login credentials between users (audit trail breaks)</li>
+                    </ul>
                 </div>
             </div>
 

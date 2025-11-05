@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 1: SR for Coverage Complaint - Siebel Training</title>
+  <title>Lab 1: Navigation and Query Basics - Siebel Training</title>
   <link rel="stylesheet" href="../css/training.css">
 </head>
 <body data-module-id="day1_practicals">
@@ -20,16 +20,16 @@
       <span class="breadcrumb-separator">›</span>
       <a href="index.html">Labs</a>
       <span class="breadcrumb-separator">›</span>
-      <span class="breadcrumb-current">Lab 1: SR for Coverage Complaint</span>
+      <span class="breadcrumb-current">Lab 1: Navigation and Query Basics</span>
     </nav>
 
     <div class="content">
-      <h1 class="subtopic-title">🎧 Lab 1: Create and Resolve an SR (Coverage)</h1>
-      <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
+      <h1 class="subtopic-title">🔍 Lab 1: Navigation and Query Basics</h1>
+      <div class="topic-progress"><span>Estimated time: 10–15 minutes</span></div>
 
       <div class="card card-highlight">
         <h3>Goal</h3>
-        <p>Create a Service Request for a prepaid customer experiencing intermittent coverage, follow SLA-driven steps, and close with correct resolution codes.</p>
+        <p>Learn how to navigate Siebel, search for records using queries, and save frequently used queries for future use.</p>
       </div>
 
       <div class="content-section">
@@ -37,55 +37,142 @@
         <ul>
           <li>Login: TRAINEE01–10 / Welcome123</li>
           <li>Siebel eCommunications application URL available</li>
+          <li>Sample Service Requests already exist in the system</li>
         </ul>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Steps</h2>
-        <ol>
-          <li>Open Site Map → Service → Service Requests (List).</li>
-          <li>Click New and enter fields:
-            <ul>
-              <li>Type: Complaint</li>
-              <li>Category: Network</li>
-              <li>Area: Coverage</li>
-              <li>Summary: Intermittent coverage in rural area</li>
-              <li>Severity: Medium</li>
-              <li>Contact/Account: Select a test subscriber</li>
+        <h2 class="sub3-topic-title">Exercise 1: Navigate to Service Requests</h2>
+        <div class="card">
+          <h4>Step-by-Step</h4>
+          <ol style="line-height: 1.8;">
+            <li>After logging in, locate <strong>Site Map</strong> button (top-left or hamburger menu)</li>
+            <li>Click Site Map → Expand <strong>Service</strong> section</li>
+            <li>Click <strong>Service Requests</strong> → Opens list view with all SRs</li>
+            <li>Observe columns: SR #, Status, Type, Category, Summary, Owner, Created date</li>
+          </ol>
+          <p style="margin-top: 12px; background: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #0284c7;">
+            <strong>✅ Success Check:</strong> You should see a list of Service Requests in the main panel.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Exercise 2: Query Records with Single Field</h2>
+        <div class="card">
+          <h4>Find All Open Service Requests</h4>
+          <ol style="line-height: 1.8;">
+            <li>In the Service Requests list view, locate the <strong>Query</strong> button (magnifying glass icon) or press <strong>F9</strong></li>
+            <li>This toggles query mode ON (you'll see query entry row appear at top of list)</li>
+            <li>In the <strong>Status</strong> column field, type: <code>Open</code></li>
+            <li>Press <strong>Enter</strong> or click <strong>Go</strong> button</li>
+            <li>List refreshes showing only SRs with Status = "Open"</li>
+            <li>Count the results displayed</li>
+          </ol>
+          <p style="margin-top: 12px; background: #ecfdf5; padding: 12px; border-radius: 6px; border-left: 4px solid #059669;">
+            <strong>✅ Success Check:</strong> All displayed SRs should have Status = "Open". Note the record count.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Exercise 3: Query with Operators</h2>
+        <div class="card">
+          <h4>Using Search Operators</h4>
+          <p>Siebel supports multiple query operators to refine searches:</p>
+          
+          <div style="margin: 16px 0;">
+            <h5 style="margin-bottom: 8px;">Operator 1: CONTAINS (~)</h5>
+            <ol style="line-height: 1.8;">
+              <li>Clear previous query: Press <strong>F9</strong> twice (toggle OFF then ON)</li>
+              <li>In <strong>Summary</strong> field, type: <code>~coverage</code></li>
+              <li>Press Enter → Shows all SRs with "coverage" anywhere in Summary</li>
+            </ol>
+          </div>
+
+          <div style="margin: 16px 0;">
+            <h5 style="margin-bottom: 8px;">Operator 2: EQUALS (exact match, no operator needed)</h5>
+            <ol style="line-height: 1.8;">
+              <li>Clear query (F9 twice)</li>
+              <li>In <strong>Type</strong> field, type: <code>Complaint</code></li>
+              <li>Press Enter → Shows only SRs where Type exactly equals "Complaint"</li>
+            </ol>
+          </div>
+
+          <div style="margin: 16px 0;">
+            <h5 style="margin-bottom: 8px;">Operator 3: GREATER THAN (>)</h5>
+            <ol style="line-height: 1.8;">
+              <li>Clear query (F9 twice)</li>
+              <li>In <strong>Created</strong> date field, type: <code>>1/1/2024</code></li>
+              <li>Press Enter → Shows SRs created after January 1, 2024</li>
+            </ol>
+          </div>
+
+          <div style="background: #fef3c7; padding: 12px; border-radius: 6px; margin-top: 12px;">
+            <p style="margin: 0;"><strong>Other Operators to Try:</strong></p>
+            <ul style="margin: 8px 0 0 20px; line-height: 1.8;">
+              <li><code>&lt;</code> = Less than (e.g., <code>&lt;12/31/2023</code>)</li>
+              <li><code>&gt;=</code> = Greater than or equal</li>
+              <li><code>*</code> = Wildcard (e.g., <code>Net*</code> finds "Network", "NetOps")</li>
             </ul>
-          </li>
-          <li>Save; note SR #. Set Status = In Progress.</li>
-          <li>Check Related: Activities → create an Activity “Network check” (Due today).</li>
-          <li>Knowledge: search for "coverage" and link a relevant solution (if available) to SR.</li>
-          <li>Resolution: Set Status = Pending External if you need Network; then back to In Progress.</li>
-          <li>Closure: Set Resolution Code = Network stabilized; Status = Closed.</li>
-        </ol>
+          </div>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Validation</h2>
-        <ul class="checklist">
-          <li>SR appears in the list with correct Category/Area</li>
-          <li>Status flow followed (In Progress → Pending External → Closed)</li>
-          <li>At least one Activity linked; optional Knowledge linked</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 4: Save a Pre-Defined Query</h2>
+        <div class="card">
+          <h4>Create "My Open SRs" Query</h4>
+          <ol style="line-height: 1.8;">
+            <li>Enter query mode (F9)</li>
+            <li>In <strong>Status</strong> field: <code>Open</code></li>
+            <li>In <strong>Owner</strong> field: Type your login name (e.g., <code>TRAINEE01</code>)</li>
+            <li>Before pressing Enter, click <strong>Query → Save Query As...</strong> (from menu bar)</li>
+            <li>Enter Query Name: <code>My Open SRs</code></li>
+            <li>Click <strong>OK</strong> → Query is saved</li>
+            <li>Now press Enter to execute the query</li>
+          </ol>
+          <p style="margin-top: 12px; background: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #0284c7;">
+            <strong>✅ Success Check:</strong> You should see only Open SRs assigned to you. The query is now saved for reuse.
+          </p>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Capture This (Screenshots)</h2>
-        <ul class="checklist">
-          <li>SR list after save (Row ID visible)</li>
-          <li>SR detail view with Activity</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 5: Use Pre-Defined Queries</h2>
+        <div class="card">
+          <h4>Run Saved Query</h4>
+          <ol style="line-height: 1.8;">
+            <li>Clear any active query (F9 twice to toggle off)</li>
+            <li>Click <strong>Query → Run Saved Query</strong> (or use dropdown in query toolbar)</li>
+            <li>From the list, select: <code>My Open SRs</code></li>
+            <li>Click <strong>OK</strong> → Query executes automatically with saved criteria</li>
+            <li>Results appear instantly without re-typing search fields</li>
+          </ol>
+
+          <div style="background: #ecfdf5; padding: 12px; border-radius: 6px; margin-top: 16px; border-left: 4px solid #059669;">
+            <p style="margin: 0;"><strong>💡 Tip:</strong> Pre-defined queries save time for frequently used searches. Common examples:</p>
+            <ul style="margin: 8px 0 0 20px; line-height: 1.8;">
+              <li>"High Priority SRs"</li>
+              <li>"Overdue Tasks"</li>
+              <li>"This Week's Opportunities"</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Troubleshooting</h2>
-        <ul>
-          <li>Can't save? Ensure required fields (Type, Status, Contact) are set.</li>
-          <li>No Knowledge? Skip link step and proceed to closure.</li>
-          <li>Permissions? Use a trainee login; if blocked, try a different SR Type.</li>
-        </ul>
+        <h2 class="sub3-topic-title">Lab Summary</h2>
+        <div class="card card-highlight">
+          <h4>What You Learned</h4>
+          <ul style="line-height: 2; margin: 0;">
+            <li>✅ Navigate to Service Requests view using Site Map</li>
+            <li>✅ Query records by filling a single field (Status = "Open")</li>
+            <li>✅ Use query operators: contains (~), equals, greater than (>)</li>
+            <li>✅ Save frequently used queries as pre-defined queries</li>
+            <li>✅ Execute saved queries from the Query menu</li>
+          </ul>
+        </div>
       </div>
 
       <div class="page-navigation">

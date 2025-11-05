@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lab 2: Segment & Offer (Prepaid) - Siebel Training</title>
+  <title>Lab 2: Product Catalog Setup - Siebel Training</title>
   <link rel="stylesheet" href="../css/training.css">
 </head>
 <body data-module-id="day1_practicals">
@@ -20,69 +20,170 @@
       <span class="breadcrumb-separator">›</span>
       <a href="index.html">Labs</a>
       <span class="breadcrumb-separator">›</span>
-      <span class="breadcrumb-current">Lab 2: Segment & Offer (Prepaid)</span>
+      <span class="breadcrumb-current">Lab 2: Product Catalog Setup</span>
     </nav>
 
     <div class="content">
-      <h1 class="subtopic-title">🎯 Lab 2: Segment At-Risk Prepaid and Simulate an Offer</h1>
+      <h1 class="subtopic-title">📦 Lab 2: Product Catalog Setup</h1>
       <div class="topic-progress"><span>Estimated time: 15–20 minutes</span></div>
 
       <div class="card card-highlight">
         <h3>Goal</h3>
-        <p>Create a simple segment of at-risk prepaid users (low usage + recent SR) and simulate a retention offer message.</p>
+        <p>Learn how to set up product catalog, create new products, attach pricelists, and activate products for sale.</p>
       </div>
 
       <div class="content-section">
         <h2 class="sub3-topic-title">Prerequisites</h2>
         <ul>
           <li>Login: TRAINEE01–10 / Welcome123</li>
-          <li>Access to Marketing or Lists (if unavailable, use Contacts with filters)</li>
+          <li>Access to Product Administration screens</li>
+          <li>Basic understanding of telecom product types (plans, bundles, add-ons)</li>
         </ul>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Steps</h2>
-        <ol>
-          <li>Open Site Map → Marketing (or Lists) → Segments (or Contacts List).</li>
-          <li>Create New Segment (or Saved Query) named "Prepaid Low-Usage + SR (30d)".</li>
-          <li>Criteria examples:
-            <ul>
-              <li>Plan Type = Prepaid</li>
-              <li>Last 30-day Usage &lt; threshold (if field exists; else use a proxy like Last Recharge Date older than 30 days)</li>
-              <li>Has SR in last 30 days = Yes (join to SRs if available)</li>
-            </ul>
-          </li>
-          <li>Execute/Preview results; ensure at least a few records appear.</li>
-          <li>Create an "Offer" note: Title = Coverage Care Bundle, Channel = SMS, Message = "Get 2GB for TZSh 1,500 in your area—reply YES".</li>
-          <li>Link the Offer note to the Segment (or keep as documentation in the record).</li>
-          <li>Save segment; export list if the environment allows (optional).</li>
-        </ol>
+        <h2 class="sub3-topic-title">Exercise 1: Navigate to Product Administration</h2>
+        <div class="card">
+          <h4>Access Product Catalog</h4>
+          <ol style="line-height: 1.8;">
+            <li>Click <strong>Site Map</strong> button</li>
+            <li>Expand <strong>Product & Catalog</strong> section (or <strong>Administration</strong> → Products)</li>
+            <li>Click <strong>Products</strong> → Opens product list view</li>
+            <li>Observe existing products: Product Name, Type, Status, Price List</li>
+          </ol>
+          <p style="margin-top: 12px; background: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #0284c7;">
+            <strong>✅ Success Check:</strong> You should see the product catalog with existing telecom products.
+          </p>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Validation</h2>
-        <ul class="checklist">
-          <li>Segment or Saved Query exists with the specified name</li>
-          <li>Criteria reflect prepaid and at-risk behavior</li>
-          <li>Offer note documented with SMS text</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 2: Create a New Product</h2>
+        <div class="card">
+          <h4>Add 5G Unlimited Plan</h4>
+          <ol style="line-height: 1.8;">
+            <li>In Products list view, click <strong>New</strong> button</li>
+            <li>Fill in required fields:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>Product Name:</strong> <code>5G Plan - Unlimited Data</code></li>
+                <li><strong>Product Type:</strong> Select <code>Service Plan</code> (or <code>Subscription</code>)</li>
+                <li><strong>Description:</strong> <code>Unlimited 5G data with unlimited calls and SMS</code></li>
+                <li><strong>Status:</strong> <code>Draft</code> (not active yet)</li>
+                <li><strong>Part Number/SKU:</strong> <code>5G-UNLIM-001</code></li>
+              </ul>
+            </li>
+            <li>Click <strong>Save</strong> → Product record is created</li>
+            <li>Note the Product # generated by the system</li>
+          </ol>
+          <p style="margin-top: 12px; background: #ecfdf5; padding: 12px; border-radius: 6px; border-left: 4px solid #059669;">
+            <strong>✅ Success Check:</strong> New product appears in list with Status = "Draft".
+          </p>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Capture This (Screenshots)</h2>
-        <ul class="checklist">
-          <li>Segment or Saved Query criteria screen</li>
-          <li>Offer note with SMS text</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 3: Define Product Attributes</h2>
+        <div class="card">
+          <h4>Add Product Details</h4>
+          <ol style="line-height: 1.8;">
+            <li>With your new product open, navigate to <strong>Characteristics</strong> or <strong>Attributes</strong> tab</li>
+            <li>Add product attributes (if available in your environment):
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>Data Allowance:</strong> <code>Unlimited</code></li>
+                <li><strong>Voice Minutes:</strong> <code>Unlimited</code></li>
+                <li><strong>SMS Count:</strong> <code>Unlimited</code></li>
+                <li><strong>Network Type:</strong> <code>5G</code></li>
+                <li><strong>Contract Duration:</strong> <code>30 Days</code> (monthly)</li>
+              </ul>
+            </li>
+            <li>If Attributes tab is not available, add this information in the <strong>Description</strong> field</li>
+            <li>Save changes</li>
+          </ol>
+        </div>
       </div>
 
       <div class="content-section">
-        <h2 class="sub3-topic-title">Troubleshooting</h2>
-        <ul>
-          <li>No Marketing screen? Use Contacts list and Saved Query instead.</li>
-          <li>Missing usage fields? Use Last Recharge Date or Last SR Date as proxy.</li>
-          <li>Zero results? Relax criteria (e.g., 60 days) and re-run.</li>
-        </ul>
+        <h2 class="sub3-topic-title">Exercise 4: Create Price List</h2>
+        <div class="card">
+          <h4>Set Product Pricing</h4>
+          <ol style="line-height: 1.8;">
+            <li>In Product record, navigate to <strong>Price Lists</strong> applet or tab</li>
+            <li>Click <strong>New</strong> to create a new price list item</li>
+            <li>Fill in pricing details:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li><strong>Price List Name:</strong> <code>Standard Retail Pricing</code> (or select existing)</li>
+                <li><strong>List Price:</strong> <code>50000</code> (TZS 50,000 monthly)</li>
+                <li><strong>Currency:</strong> <code>TZS</code> (Tanzanian Shilling)</li>
+                <li><strong>Effective Start Date:</strong> Today's date</li>
+                <li><strong>Effective End Date:</strong> Leave blank (no expiration)</li>
+              </ul>
+            </li>
+            <li>Save the price list entry</li>
+          </ol>
+          <p style="margin-top: 12px; background: #fef3c7; padding: 12px; border-radius: 6px; border-left: 4px solid #f59e0b;">
+            <strong>💡 Note:</strong> Price lists control pricing for different customer segments (retail, wholesale, corporate).
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Exercise 5: Attach Price List to Product</h2>
+        <div class="card">
+          <h4>Link Pricing</h4>
+          <ol style="line-height: 1.8;">
+            <li>Still in the Product record, verify <strong>Price Lists</strong> section shows your new price</li>
+            <li>If not automatically linked:
+              <ul style="margin-top: 8px; line-height: 1.8;">
+                <li>Click <strong>Add</strong> in Price Lists applet</li>
+                <li>Select <code>Standard Retail Pricing</code></li>
+                <li>Enter price: <code>50000 TZS</code></li>
+                <li>Save</li>
+              </ul>
+            </li>
+            <li>Verify price is now visible on product</li>
+          </ol>
+          <p style="margin-top: 12px; background: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #0284c7;">
+            <strong>✅ Success Check:</strong> Product shows price of 50,000 TZS under Standard Retail Pricing.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Exercise 6: Activate the Product</h2>
+        <div class="card">
+          <h4>Make Product Available for Sale</h4>
+          <ol style="line-height: 1.8;">
+            <li>Return to the main Product form view</li>
+            <li>Locate the <strong>Status</strong> field (currently "Draft")</li>
+            <li>Change Status from <code>Draft</code> to <code>Active</code></li>
+            <li>Save the product</li>
+            <li>Verify product status is now "Active" in the product list</li>
+          </ol>
+          
+          <div style="background: #ecfdf5; padding: 12px; border-radius: 6px; margin-top: 16px; border-left: 4px solid #059669;">
+            <p style="margin: 0;"><strong>✅ Success Check:</strong> Product is now available for selection in Quotes and Orders.</p>
+            <p style="margin: 8px 0 0 0; font-size: 14px;">Try navigating to Quotes → New Quote → Add Product → Search for "5G Plan" to verify.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="sub3-topic-title">Lab Summary</h2>
+        <div class="card card-highlight">
+          <h4>What You Learned</h4>
+          <ul style="line-height: 2; margin: 0;">
+            <li>✅ Navigate to Product Administration in Siebel</li>
+            <li>✅ Create new product (5G Plan - Unlimited Data)</li>
+            <li>✅ Define product attributes (data, voice, SMS, network type)</li>
+            <li>✅ Create and attach price list (50,000 TZS monthly)</li>
+            <li>✅ Activate product for sale (Draft → Active)</li>
+          </ul>
+          
+          <div style="background: #f0f9ff; padding: 12px; border-radius: 6px; margin-top: 16px;">
+            <p style="margin: 0; font-weight: 600;">Next Steps:</p>
+            <p style="margin: 8px 0 0 0; font-size: 14px;">In Lab 3, you'll use this product to create a complete sales cycle from Lead to Order.</p>
+          </div>
+        </div>
       </div>
 
       <div class="page-navigation">

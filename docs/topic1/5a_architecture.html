@@ -35,53 +35,137 @@
             </div>
 
             <p class="lead">
-                Siebel uses a classic 3-tier architecture: Presentation, Application, Data.
+                Siebel uses a classic 3-tier architecture: Presentation Layer, Application Layer, and Data Layer.
             </p>
 
             <figure style="margin: 24px 0;">
-                <img src="../images/tools_runtime_architecture.png" alt="Siebel 3-Tier Architecture" style="width: 100%; max-width: 700px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280; text-align: center;">Siebel's 3-Tier Architecture: UI → App Server → Database</figcaption>
+                <img src="../images/data_model_layers.png" alt="Siebel 3-Layer Architecture" style="width: 100%; max-width: 700px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280; text-align: center;">Siebel's 3-Layer Architecture: Presentation → Application → Data</figcaption>
             </figure>
 
             <div class="content-section">
-                <h2 class="sub3-topic-title">Three Tiers</h2>
+                <h2 class="sub3-topic-title">Three Architecture Layers</h2>
                 
                 <div class="card">
-                    <h4>1. Presentation Tier (UI)</h4>
-                    <ul>
-                        <li><strong>Siebel Web Client:</strong> Runs in browser (HTML/JavaScript)</li>
-                        <li><strong>Siebel Mobile:</strong> Disconnected client for field users</li>
-                        <li><strong>Open UI:</strong> Modern JavaScript framework for customization</li>
+                    <h4>1. Presentation Layer (User Interface)</h4>
+                    <p><strong>Purpose:</strong> Provides user interaction and displays business data</p>
+                    <ul style="margin-top: 12px; line-height: 1.8;">
+                        <li><strong>Web Browser Client:</strong> HTML/JavaScript interface accessed via standard browsers (Chrome, Edge, Firefox)</li>
+                        <li><strong>Mobile Applications:</strong> iOS and Android apps for field users and mobile workforce</li>
+                        <li><strong>Open UI Framework:</strong> Modern JavaScript-based UI for customization and enhanced user experience</li>
+                        <li><strong>Thin Client:</strong> No installation required on user devices, all processing server-side</li>
                     </ul>
+                    <p style="margin-top: 12px; padding: 12px; background: #f0f9ff; border-left: 4px solid #0284c7; border-radius: 4px;">
+                        <strong>Key Benefit:</strong> Users can access Siebel from anywhere - office desktops, home laptops, tablets, or smartphones - with consistent experience.
+                    </p>
                 </div>
 
                 <div class="card card-white mt-lg">
-                    <h4>2. Application Tier (Business Logic)</h4>
-                    <ul>
-                        <li><strong>Siebel Server:</strong> Processes requests, workflows, and rules</li>
-                        <li><strong>Object Manager:</strong> Manages business objects (BOs) and components (BCs)</li>
-                        <li><strong>Workflow Engine:</strong> Executes multi-step processes</li>
-                        <li><strong>Assignment Manager:</strong> Routes tasks to users/queues</li>
+                    <h4>2. Application Layer (Business Logic)</h4>
+                    <p><strong>Purpose:</strong> Processes business rules, workflows, and application logic</p>
+                    <ul style="margin-top: 12px; line-height: 1.8;">
+                        <li><strong>Siebel Application Server:</strong> Core processing engine that handles all business transactions</li>
+                        <li><strong>Object Manager (OM):</strong> Manages business objects (Accounts, Contacts, Opportunities) and enforces business rules</li>
+                        <li><strong>Workflow Process Manager:</strong> Executes automated workflows (approval processes, SR routing, order fulfillment)</li>
+                        <li><strong>Assignment Manager:</strong> Intelligently routes work items to appropriate users or teams based on rules</li>
+                        <li><strong>Business Services:</strong> Reusable code components for integrations and custom logic</li>
+                        <li><strong>EAI (Enterprise Application Integration):</strong> Connects to external systems (billing, ERP, provisioning)</li>
                     </ul>
+                    <p style="margin-top: 12px; padding: 12px; background: #f0fdf4; border-left: 4px solid #059669; border-radius: 4px;">
+                        <strong>Key Benefit:</strong> Centralized business logic ensures consistency across all channels and enables easy updates without touching UI or database.
+                    </p>
                 </div>
 
                 <div class="card mt-lg">
-                    <h4>3. Data Tier (Database)</h4>
-                    <ul>
-                        <li><strong>Oracle DB, MS SQL, or DB2:</strong> Stores all customer and config data</li>
-                        <li><strong>Schema:</strong> Tables (S_ORG_EXT, S_CONTACT, S_SRV_REQ, etc.)</li>
-                        <li><strong>Indexes & Views:</strong> Optimize query performance</li>
+                    <h4>3. Data Layer (Database)</h4>
+                    <p><strong>Purpose:</strong> Stores all business and configuration data persistently</p>
+                    <ul style="margin-top: 12px; line-height: 1.8;">
+                        <li><strong>Supported Databases:</strong> Oracle Database, Microsoft SQL Server, or IBM DB2</li>
+                        <li><strong>Data Model:</strong> Comprehensive schema with 1000+ tables covering CRM entities:
+                            <ul style="margin-top: 8px;">
+                                <li><code>S_ORG_EXT</code> - Accounts/Organizations</li>
+                                <li><code>S_CONTACT</code> - Contacts/People</li>
+                                <li><code>S_OPTY</code> - Sales Opportunities</li>
+                                <li><code>S_SRV_REQ</code> - Service Requests</li>
+                                <li><code>S_ORDER</code> - Orders</li>
+                                <li><code>S_PROD_INT</code> - Products</li>
+                            </ul>
+                        </li>
+                        <li><strong>Repository:</strong> Stores Siebel metadata (views, applets, business components, workflows)</li>
+                        <li><strong>Indexes & Partitioning:</strong> Optimized for high-volume data access and reporting</li>
+                        <li><strong>Audit & Archive:</strong> Historical data tracking and compliance features</li>
                     </ul>
+                    <p style="margin-top: 12px; padding: 12px; background: #fef3c7; border-left: 4px solid #b45309; border-radius: 4px;">
+                        <strong>Key Benefit:</strong> Enterprise-grade database ensures data integrity, security, and supports millions of customer records with high performance.
+                    </p>
                 </div>
             </div>
 
             <div class="content-section">
-                <h2 class="sub3-topic-title">Why 3-Tier?</h2>
+                <h2 class="sub3-topic-title">How the Layers Work Together</h2>
                 <div class="card card-highlight">
-                    <ul style="margin:0;">
-                        <li><strong>Scalability:</strong> Add more app servers without changing UI or DB</li>
-                        <li><strong>Maintainability:</strong> Update logic without touching presentation</li>
-                        <li><strong>Security:</strong> Isolate database from direct user access</li>
+                    <h4 style="margin-top: 0;">Example: Agent Creates a Service Request</h4>
+                    <ol style="line-height: 2; margin-bottom: 0;">
+                        <li><strong>Presentation Layer:</strong> Agent fills SR form in web browser → Clicks "Save"</li>
+                        <li><strong>Application Layer:</strong> 
+                            <ul style="margin-top: 8px;">
+                                <li>Object Manager receives request → Validates data (required fields, format)</li>
+                                <li>Workflow engine triggers → Assigns SR to appropriate queue based on issue type</li>
+                                <li>Business rules apply → Sets priority, SLA deadline, escalation rules</li>
+                                <li>Notification service → Sends email to assigned agent</li>
+                            </ul>
+                        </li>
+                        <li><strong>Data Layer:</strong> SR record inserted into <code>S_SRV_REQ</code> table → Committed to database</li>
+                        <li><strong>Response:</strong> Application Layer sends confirmation → Presentation Layer displays "SR #12345 Created Successfully"</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Advantages of 3-Layer Architecture</h2>
+                <div class="card">
+                    <h4>🔄 Scalability</h4>
+                    <ul style="line-height: 1.8; margin-bottom: 0;">
+                        <li>Add more application servers to handle increased user load (horizontal scaling)</li>
+                        <li>Database can be clustered for high availability</li>
+                        <li>Load balancers distribute traffic across multiple servers</li>
+                    </ul>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>🔧 Maintainability</h4>
+                    <ul style="line-height: 1.8; margin-bottom: 0;">
+                        <li>Update business logic without changing UI or database schema</li>
+                        <li>Deploy new features to application layer only</li>
+                        <li>Separate teams can work on different layers independently</li>
+                    </ul>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>🔒 Security</h4>
+                    <ul style="line-height: 1.8; margin-bottom: 0;">
+                        <li>Users never directly access database (application layer enforces security)</li>
+                        <li>Data encryption at rest (database) and in transit (SSL/TLS)</li>
+                        <li>Role-based access control applied at application layer</li>
+                        <li>Firewall isolation between layers</li>
+                    </ul>
+                </div>
+
+                <div class="card card-white mt-lg">
+                    <h4>⚡ Performance</h4>
+                    <ul style="line-height: 1.8; margin-bottom: 0;">
+                        <li>Application layer caching reduces database queries</li>
+                        <li>Connection pooling optimizes database connections</li>
+                        <li>Static content (images, CSS, JS) served by web server, not application server</li>
+                    </ul>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>🌐 Flexibility</h4>
+                    <ul style="line-height: 1.8; margin-bottom: 0;">
+                        <li>Support multiple UI types (web, mobile, API) using same application logic</li>
+                        <li>Swap database vendors (Oracle → SQL Server) without changing application code</li>
+                        <li>Deploy across multiple data centers for disaster recovery</li>
                     </ul>
                 </div>
             </div>

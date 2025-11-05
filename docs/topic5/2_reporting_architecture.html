@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting Architecture - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Reporting Architecture</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 13%;"></div>
+            </div>
+
+            <h1 class="page-title">Reporting Architecture</h1>
+
+            <div class="section">
+                <h2>Siebel Reporting Layers</h2>
+                
+                <figure>
+                    <img src="../images/reporting.png" alt="Reporting Architecture" style="max-width: 700px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption>Siebel Reporting Architecture: Data → Business Logic → Presentation</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Architecture Components</h2>
+                
+                <h3>1. Data Layer (Database)</h3>
+                <ul>
+                    <li><strong>Tables:</strong> S_OPTY (Opportunities), S_SRV_REQ (Service Requests), S_CONTACT (Contacts)</li>
+                    <li><strong>Views:</strong> Pre-joined tables for faster queries (e.g., S_OPTY_ACCOUNT_V combines opportunity + account data)</li>
+                    <li><strong>Indexes:</strong> Optimize query performance on frequently filtered columns</li>
+                </ul>
+
+                <h3>2. Business Object Layer</h3>
+                <ul>
+                    <li><strong>Business Components:</strong> Map to database tables (Opportunity BC → S_OPTY table)</li>
+                    <li><strong>Calculated Fields:</strong> Weighted Revenue = Revenue × Probability (computed at runtime)</li>
+                    <li><strong>Security:</strong> Row-level security filters (reps see only their accounts)</li>
+                </ul>
+
+                <h3>3. Report Object Layer</h3>
+                <ul>
+                    <li><strong>Report Definitions:</strong> Stored in Siebel repository (.srf file)</li>
+                    <li><strong>Data Sources:</strong> Which BCs provide data (e.g., "Opportunity Report" uses Opportunity BC)</li>
+                    <li><strong>Filters:</strong> Default criteria (e.g., "Opportunities closed this quarter")</li>
+                </ul>
+
+                <h3>4. Presentation Layer</h3>
+                <ul>
+                    <li><strong>Report UI:</strong> HTML rendering in browser</li>
+                    <li><strong>Charts:</strong> JavaScript-based visualizations (Chart.js, D3.js)</li>
+                    <li><strong>Export Formats:</strong> PDF, Excel, CSV generation</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Report Execution Flow</h2>
+                <div class="key-point">
+                    <strong>Step-by-Step:</strong>
+                    <ol>
+                        <li><strong>User Action:</strong> Clicks "Run Report: Sales Pipeline"</li>
+                        <li><strong>Report Server:</strong> Loads report definition from repository</li>
+                        <li><strong>Query Builder:</strong> Translates report to SQL query
+                            <div class="code-block">
+                                <pre>
+SELECT s.NAME, s.REVENUE, s.CLOSE_DT, s.SALES_STAGE
+FROM S_OPTY s
+WHERE s.CLOSE_DT >= '2024-01-01' AND s.SALES_STAGE != 'Closed Lost'
+ORDER BY s.REVENUE DESC
+                                </pre>
+                            </div>
+                        </li>
+                        <li><strong>Database:</strong> Executes query, returns 500 rows</li>
+                        <li><strong>Business Logic:</strong> Applies security (filter to user's territory), calculates weighted revenue</li>
+                        <li><strong>Renderer:</strong> Formats as HTML table with sorting/paging</li>
+                        <li><strong>Browser:</strong> Displays report to user</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Report Types & Storage</h2>
+                
+                <h3>Standard Reports (Pre-Built)</h3>
+                <ul>
+                    <li>Delivered by Oracle, stored in repository</li>
+                    <li>Examples: "Opportunity Pipeline", "Service Request Aging", "Campaign ROI"</li>
+                    <li>Can be customized (copy → modify → save as new report)</li>
+                </ul>
+
+                <h3>Custom Reports (User-Created)</h3>
+                <ul>
+                    <li>Built using Report Designer (Siebel Tools or Web Tools)</li>
+                    <li>Saved to repository or file system</li>
+                    <li>Can be shared with other users via access control</li>
+                </ul>
+
+                <h3>External Reports (BI Publisher)</h3>
+                <ul>
+                    <li>Created in Oracle BI Publisher</li>
+                    <li>Siebel data extracted → BI Publisher formats → Advanced layouts (pixel-perfect PDFs)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Integration Points</h2>
+                <ul>
+                    <li><strong>Data Warehouse:</strong> Nightly ETL exports Siebel data → DW for historical analytics</li>
+                    <li><strong>BI Tools:</strong> Tableau, Power BI connect to Siebel database (read-only) for advanced visualization</li>
+                    <li><strong>Excel Add-In:</strong> Users query Siebel directly from Excel (refresh data on demand)</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="1_intro_reporting.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Introduction</span>
+                </a>
+                <div class="nav-center">
+                    Page 2 of 15
+                </div>
+                <a href="3_standard_reports.html" class="nav-btn nav-btn-next">
+                    <span>Standard Reports</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

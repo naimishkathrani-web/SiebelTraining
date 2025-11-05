@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Security - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Report Security</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 87%;"></div>
+            </div>
+
+            <h1 class="page-title">Report Security & Access Control</h1>
+
+            <div class="section">
+                <h2>Why Report Security Matters</h2>
+                <p>Reports contain sensitive business data (revenue, salaries, customer info) that must be protected.</p>
+
+                <h3>Security Risks</h3>
+                <ul>
+                    <li><strong>Data Leakage:</strong> Sales rep sees competitor pricing (shouldn't have access)</li>
+                    <li><strong>Compliance Violations:</strong> GDPR/CCPA - unauthorized access to personal data (fines up to €20M)</li>
+                    <li><strong>Competitive Intelligence:</strong> Employee downloads customer list before leaving company (IP theft)</li>
+                    <li><strong>Privacy:</strong> HR report shows salaries (only HR should see, not entire company)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Security Layers</h2>
+                
+                <h3>Layer 1: User Authentication</h3>
+                <ul>
+                    <li><strong>Login Required:</strong> Must authenticate before accessing any reports</li>
+                    <li><strong>SSO Integration:</strong> Active Directory, LDAP, SAML (corporate credentials)</li>
+                    <li><strong>Session Timeout:</strong> 30-min inactivity → Auto-logout (prevent unauthorized access)</li>
+                </ul>
+
+                <h3>Layer 2: Role-Based Access</h3>
+                <ul>
+                    <li><strong>Roles:</strong> Sales Rep, Sales Manager, Sales VP, Admin</li>
+                    <li><strong>Permissions:</strong> Each role has specific report access
+                        <ul>
+                            <li>Sales Rep: My Pipeline, My Activities</li>
+                            <li>Sales Manager: Team Pipeline, Team Activities, Rep Performance</li>
+                            <li>Sales VP: Company Pipeline, Revenue Dashboard, Win Rate Trends</li>
+                            <li>Admin: All Reports + User Management</li>
+                        </ul>
+                    </li>
+                    <li><strong>Least Privilege:</strong> Grant minimum access needed (rep doesn't need company-wide data)</li>
+                </ul>
+
+                <h3>Layer 3: Row-Level Security</h3>
+                <p>Users see only data they're authorized to view (even within same report).</p>
+                <div class="key-point">
+                    <strong>Example: Territory-Based Access</strong>
+                    <ul>
+                        <li><strong>Report:</strong> "Opportunity Pipeline" (company-wide report)</li>
+                        <li><strong>Northeast Manager:</strong> Runs report → Sees only Northeast opportunities (WHERE Territory = 'Northeast')</li>
+                        <li><strong>Southeast Manager:</strong> Runs same report → Sees only Southeast opportunities (WHERE Territory = 'Southeast')</li>
+                        <li><strong>VP:</strong> Runs same report → Sees ALL territories (no filter)</li>
+                        <li><strong>Implementation:</strong> Security filter auto-applied based on user's profile (invisible to user)</li>
+                    </ul>
+                </div>
+
+                <h3>Layer 4: Column-Level Security</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> Opportunity report shows Revenue, Cost, Margin</li>
+                    <li><strong>Sales Rep:</strong> Sees Revenue only (Cost, Margin columns hidden)</li>
+                    <li><strong>Sales Manager:</strong> Sees Revenue, Margin (Cost hidden)</li>
+                    <li><strong>Finance:</strong> Sees all columns (Revenue, Cost, Margin)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Configuring Report Security</h2>
+                
+                <h3>Step 1: Define Security Roles</h3>
+                <ol>
+                    <li>Navigate to <strong>Administration → Security → Roles</strong></li>
+                    <li>Create role: "Sales Manager"</li>
+                    <li>Set permissions:
+                        <ul>
+                            <li>Can run: Team reports</li>
+                            <li>Can create: Custom reports (on own data)</li>
+                            <li>Can share: Reports with team members</li>
+                            <li>Cannot: Delete system reports, Access admin reports</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Step 2: Assign Users to Roles</h3>
+                <ul>
+                    <li>User: John Smith</li>
+                    <li>Role: Sales Manager</li>
+                    <li>Territory: Northeast</li>
+                    <li>Result: John sees only Northeast data in team reports</li>
+                </ul>
+
+                <h3>Step 3: Configure Row-Level Security</h3>
+                <div class="code-block">
+                    <pre>
+Report: Opportunity Pipeline
+Security Filter:
+  IF User.Role = "Sales Rep" THEN
+    WHERE Opportunity.Owner = CurrentUser.Id
+  ELSE IF User.Role = "Sales Manager" THEN
+    WHERE Opportunity.Owner IN (CurrentUser.TeamMembers)
+  ELSE IF User.Role = "Sales VP" THEN
+    -- No filter, see all data
+                    </pre>
+                </div>
+
+                <h3>Step 4: Configure Column Visibility</h3>
+                <ul>
+                    <li><strong>Revenue Column:</strong> Visible to: All Users</li>
+                    <li><strong>Cost Column:</strong> Visible to: Finance, Executives (hidden from Sales)</li>
+                    <li><strong>Margin Column:</strong> Visible to: Sales Manager, Finance, Executives</li>
+                    <li><strong>Commission Column:</strong> Visible to: Owner only (each rep sees own commission, not others')</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Report Sharing Controls</h2>
+                
+                <h3>Sharing Levels</h3>
+                <ul>
+                    <li><strong>Private:</strong> Only creator can view (default for new custom reports)</li>
+                    <li><strong>Team:</strong> Creator + team members (share with Northeast sales team)</li>
+                    <li><strong>Department:</strong> All Sales users (company-wide department access)</li>
+                    <li><strong>Public:</strong> All authenticated users (company-wide, use sparingly)</li>
+                    <li><strong>Specific Users:</strong> Choose individuals (share with VP + 2 directors)</li>
+                </ul>
+
+                <h3>Sharing Workflow</h3>
+                <ol>
+                    <li>User creates custom report "My Custom Pipeline Analysis"</li>
+                    <li>Initially: Private (only creator sees it)</li>
+                    <li>Click <strong>Share</strong> button</li>
+                    <li>Select: "Share with Team" (5 team members)</li>
+                    <li>Set permissions:
+                        <ul>
+                            <li>Can View: Yes (team members can run report)</li>
+                            <li>Can Edit: No (only creator can modify definition)</li>
+                            <li>Can Share: No (team members can't reshare)</li>
+                        </ul>
+                    </li>
+                    <li>Team members see report in "Shared with Me" folder</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Data Masking & Redaction</h2>
+                
+                <h3>Sensitive Field Masking</h3>
+                <ul>
+                    <li><strong>SSN:</strong> Display "***-**-1234" (last 4 digits only)</li>
+                    <li><strong>Credit Card:</strong> Display "****-****-****-5678"</li>
+                    <li><strong>Email:</strong> Display "j***@company.com" (partial masking)</li>
+                    <li><strong>Salary:</strong> Display "$XX,XXX" (only HR sees actual $85,000)</li>
+                </ul>
+
+                <h3>Dynamic Masking</h3>
+                <p><strong>Example:</strong> Contact Phone Number</p>
+                <ul>
+                    <li><strong>Account Owner:</strong> Sees full number "555-123-4567" (needs to call customer)</li>
+                    <li><strong>Other Sales Reps:</strong> See masked "555-***-****" (shouldn't poach accounts)</li>
+                    <li><strong>Finance:</strong> See masked (don't need customer contact info)</li>
+                    <li><strong>Implementation:</strong> Database function masks data based on user context</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Audit Logging</h2>
+                
+                <h3>What to Log</h3>
+                <ul>
+                    <li><strong>Report Execution:</strong> User, Report Name, Timestamp, Parameters</li>
+                    <li><strong>Data Exports:</strong> User downloaded 10,000 contacts to CSV (audit trail)</li>
+                    <li><strong>Report Sharing:</strong> User A shared report with User B (who has access)</li>
+                    <li><strong>Failed Access:</strong> User tried to access restricted report (security breach attempt)</li>
+                    <li><strong>Data Changes:</strong> User modified report definition (version history)</li>
+                </ul>
+
+                <h3>Audit Report Example</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr style="background: #f5f5f5; border: 1px solid #ddd;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Timestamp</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">User</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Report</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border: 1px solid #ddd;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Nov 5, 9:15 AM</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">john.smith</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Run Report</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Team Pipeline</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Success (247 rows)</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd; background: #fafafa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Nov 5, 9:18 AM</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">john.smith</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Export to Excel</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Team Pipeline</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Success (247 rows)</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd; background: #ffcccc;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Nov 5, 9:22 AM</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">jane.doe</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Run Report</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Executive Dashboard</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Failed (Access Denied)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Alert:</strong> Jane Doe tried to access Executive Dashboard (not authorized) → Notify security admin</p>
+            </div>
+
+            <div class="section">
+                <h2>Compliance Requirements</h2>
+                
+                <h3>GDPR (EU Regulations)</h3>
+                <ul>
+                    <li><strong>Right to Access:</strong> Customers can request all data stored about them → Generate report of customer's data</li>
+                    <li><strong>Right to Erasure:</strong> Customer requests deletion → Reports exclude deleted customer data</li>
+                    <li><strong>Data Minimization:</strong> Only collect/report necessary data (don't include personal data if not needed)</li>
+                    <li><strong>Consent Tracking:</strong> Report shows which customers consented to marketing (compliance check)</li>
+                </ul>
+
+                <h3>CCPA (California Regulations)</h3>
+                <ul>
+                    <li><strong>Disclosure:</strong> Report must show what personal data is collected (transparency)</li>
+                    <li><strong>Opt-Out:</strong> Customers can opt-out of data sale → Reports flag opted-out customers</li>
+                </ul>
+
+                <h3>SOX (Financial Regulations)</h3>
+                <ul>
+                    <li><strong>Audit Trail:</strong> All revenue reports must have audit log (who ran, when, what data)</li>
+                    <li><strong>Segregation of Duties:</strong> Finance creates reports, but IT approves (no single point of control)</li>
+                    <li><strong>Data Integrity:</strong> Reports must match source data (validation checks)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Regular Access Review:</strong> Quarterly audit - remove access for departed employees, reassign reports</li>
+                    <li><strong>Minimal Exposure:</strong> Default to Private (user explicitly shares if needed)</li>
+                    <li><strong>Monitor Exports:</strong> Alert if user exports > 10,000 rows (unusual activity)</li>
+                    <li><strong>Watermarking:</strong> Add "Confidential - John Smith - Nov 5, 2025" footer to PDFs (track leaks)</li>
+                    <li><strong>Training:</strong> Educate users on data handling (don't email sensitive reports to personal email)</li>
+                    <li><strong>Encrypt Exports:</strong> Password-protect Excel files (prevent unauthorized access if file shared)</li>
+                    <li><strong>Retention Policies:</strong> Auto-delete audit logs after 7 years (compliance + storage management)</li>
+                    <li><strong>Incident Response:</strong> If breach detected (unauthorized access) → Immediate alert to security team, lock user account</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: HR Salary Report Security</h2>
+                <div class="key-point">
+                    <strong>Requirements:</strong>
+                    <ul>
+                        <li><strong>Report:</strong> "Employee Compensation" (Name, Department, Title, Salary, Bonus)</li>
+                        <li><strong>Access:</strong> HR Director, Compensation Team (5 users total)</li>
+                        <li><strong>Security:</strong>
+                            <ul>
+                                <li>Role-Based: Only "HR" role can access (Sales/Finance blocked)</li>
+                                <li>Row-Level: HR Manager sees own department only, HR Director sees all</li>
+                                <li>Column-Level: "Bonus" column visible to Director only</li>
+                                <li>Masking: SSN always masked (***-**-1234)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sharing:</strong> Private (no sharing allowed, even within HR)</li>
+                        <li><strong>Export:</strong> Excel export disabled (must view in Siebel only, prevent file leaks)</li>
+                        <li><strong>Audit:</strong> Every execution logged with full details (timestamp, user, filters)</li>
+                        <li><strong>Alerts:</strong> If non-HR user attempts access → Email to CISO immediately</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="12_scheduled_reports.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Scheduled Reports</span>
+                </a>
+                <div class="nav-center">
+                    Page 13 of 15
+                </div>
+                <a href="14_data_export.html" class="nav-btn nav-btn-next">
+                    <span>Data Export</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

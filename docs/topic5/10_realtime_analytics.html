@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Analytics - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Real-Time Analytics</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 67%;"></div>
+            </div>
+
+            <h1 class="page-title">Real-Time Analytics</h1>
+
+            <div class="section">
+                <h2>What is Real-Time Analytics?</h2>
+                <p><strong>Real-Time Analytics</strong> provides live data updates (seconds/minutes vs hours/days), enabling immediate decision-making.</p>
+
+                <h3>Real-Time vs Batch</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr style="background: #f5f5f5; border: 1px solid #ddd;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Aspect</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Batch Reporting</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Real-Time Analytics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border: 1px solid #ddd;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Data Freshness</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Yesterday's data (24-hour lag)</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Live (< 1 minute lag)</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd; background: #fafafa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Update Frequency</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Nightly (12 AM run)</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Continuous (every 30 seconds)</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Use Case</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Monthly executive reports</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Call center queue monitoring</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd; background: #fafafa;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Performance</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Fast (reads from data warehouse)</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Slower (queries live database)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>Real-Time Use Cases</h2>
+                
+                <div class="key-point">
+                    <strong>Use Case 1: Call Center Queue Dashboard</strong>
+                    <ul>
+                        <li><strong>Metric:</strong> # SRs Waiting in Queue</li>
+                        <li><strong>Update:</strong> Every 30 seconds (live count)</li>
+                        <li><strong>Display:</strong> Large wall monitor (visible to all agents)</li>
+                        <li><strong>Alert:</strong> Queue > 50 → Notification to supervisors (bring in backup agents)</li>
+                        <li><strong>Impact:</strong> Reduced wait time from 8 min to 3 min (better customer experience)</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Use Case 2: Sales Activity Tracking</strong>
+                    <ul>
+                        <li><strong>Metric:</strong> # Calls Made Today (team total)</li>
+                        <li><strong>Update:</strong> Every 2 minutes (as reps log calls)</li>
+                        <li><strong>Display:</strong> Dashboard widget (manager's screen)</li>
+                        <li><strong>Goal:</strong> 200 calls/day (team target)</li>
+                        <li><strong>Action:</strong> 2 PM check: Only 80 calls → Manager sends motivational message to team</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Use Case 3: Promotional Campaign Monitoring</strong>
+                    <ul>
+                        <li><strong>Campaign:</strong> "Black Friday Sale" (website + email + SMS)</li>
+                        <li><strong>Metrics:</strong> Orders per minute, revenue per hour, inventory remaining</li>
+                        <li><strong>Update:</strong> Every 1 minute (live stream)</li>
+                        <li><strong>Alert:</strong> Hot product inventory < 100 units → Notification to warehouse (restock immediately)</li>
+                        <li><strong>Result:</strong> Avoided stockouts, captured $2M in sales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Technical Architecture</h2>
+                
+                <h3>Data Flow</h3>
+                <ol>
+                    <li><strong>Event Trigger:</strong> User creates SR (or updates opportunity, logs call, etc.)</li>
+                    <li><strong>Database Write:</strong> Siebel writes to S_SRV_REQ table</li>
+                    <li><strong>Change Detection:</strong> Database trigger fires (detects new row)</li>
+                    <li><strong>Message Queue:</strong> Pushes event to message queue (e.g., Kafka, Oracle AQ)</li>
+                    <li><strong>Analytics Engine:</strong> Consumes message → Updates aggregated metrics (increment counter)</li>
+                    <li><strong>Dashboard Update:</strong> WebSocket pushes update to browser (no page refresh)</li>
+                    <li><strong>Display:</strong> Chart/KPI updates in real-time (user sees new count)</li>
+                </ol>
+
+                <h3>Technologies</h3>
+                <ul>
+                    <li><strong>Streaming Platform:</strong> Apache Kafka (handles 1M events/sec)</li>
+                    <li><strong>In-Memory Database:</strong> Redis (stores latest metrics for instant retrieval)</li>
+                    <li><strong>WebSocket:</strong> Pushes updates to browser (no polling, efficient)</li>
+                    <li><strong>Visualization:</strong> D3.js or Chart.js (animated chart updates)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Configuration Example</h2>
+                
+                <h3>Step 1: Define Real-Time KPI</h3>
+                <ul>
+                    <li><strong>Name:</strong> "Open SRs - Live Count"</li>
+                    <li><strong>Metric:</strong> COUNT(Service Request) WHERE Status = 'Open'</li>
+                    <li><strong>Refresh Mode:</strong> Real-Time (vs Scheduled)</li>
+                    <li><strong>Data Source:</strong> Live Database (not data warehouse)</li>
+                </ul>
+
+                <h3>Step 2: Configure Dashboard Widget</h3>
+                <ul>
+                    <li><strong>Widget Type:</strong> KPI Tile (large number display)</li>
+                    <li><strong>Auto-Refresh:</strong> Enabled (30-second interval)</li>
+                    <li><strong>Animation:</strong> Number increments/decrements with smooth transition</li>
+                    <li><strong>Threshold Alert:</strong> Background turns red if > 100 open SRs</li>
+                </ul>
+
+                <h3>Step 3: Test</h3>
+                <ol>
+                    <li>Open dashboard in browser (shows current count: 87 open SRs)</li>
+                    <li>Create new SR in Siebel (in separate tab)</li>
+                    <li>Wait 30 seconds (or manually refresh)</li>
+                    <li>Dashboard updates to 88 (new SR counted)</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Real-Time Visualizations</h2>
+                
+                <h3>Live Trend Charts</h3>
+                <p><strong>Example:</strong> Orders per minute (last 60 minutes)</p>
+                <ul>
+                    <li><strong>Display:</strong> Line chart with rolling 60-minute window</li>
+                    <li><strong>Update:</strong> Every minute, new data point added (oldest point drops off)</li>
+                    <li><strong>Insight:</strong> Spot sudden spike (8:45 AM: 500 orders/min vs usual 50) → Viral social media post → Marketing investigates</li>
+                </ul>
+
+                <h3>Animated Gauges</h3>
+                <p><strong>Example:</strong> SLA Compliance (current hour)</p>
+                <ul>
+                    <li><strong>Display:</strong> Speedometer gauge (0-100%)</li>
+                    <li><strong>Update:</strong> Needle moves in real-time as SRs are resolved</li>
+                    <li><strong>Zones:</strong> Green (> 95%), Yellow (90-95%), Red (< 90%)</li>
+                    <li><strong>Action:</strong> Needle drops into yellow → Supervisor reassigns cases to faster agents</li>
+                </ul>
+
+                <h3>Heat Maps</h3>
+                <p><strong>Example:</strong> Agent Workload (live)</p>
+                <ul>
+                    <li><strong>Display:</strong> Grid of agent names (color-coded by # open cases)</li>
+                    <li><strong>Colors:</strong> Green (0-5 cases), Yellow (6-10), Red (11+)</li>
+                    <li><strong>Update:</strong> Every 2 minutes (as agents work cases)</li>
+                    <li><strong>Action:</strong> 3 agents show red → Supervisor routes new cases to agents in green</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Performance Considerations</h2>
+                
+                <h3>Challenges</h3>
+                <ul>
+                    <li><strong>Database Load:</strong> 100 users refreshing dashboards every 30 seconds = 200 queries/min (strain on database)</li>
+                    <li><strong>Network Bandwidth:</strong> Streaming data to browsers (high data transfer)</li>
+                    <li><strong>Browser Performance:</strong> Updating 20 charts simultaneously (CPU intensive)</li>
+                </ul>
+
+                <h3>Optimizations</h3>
+                <ul>
+                    <li><strong>Caching Layer:</strong> Store aggregated metrics in Redis (read from cache, not database)</li>
+                    <li><strong>Throttling:</strong> Limit updates to 1 per 30 seconds (not 1 per second)</li>
+                    <li><strong>Lazy Loading:</strong> Load only visible widgets (if user scrolls, load more)</li>
+                    <li><strong>Server-Side Aggregation:</strong> Database pre-calculates totals (don't count rows in real-time)</li>
+                    <li><strong>WebSocket:</strong> Push updates from server (don't poll every 10 seconds - wasteful)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Alerts & Actions</h2>
+                
+                <h3>Threshold Alerts</h3>
+                <ul>
+                    <li><strong>Trigger:</strong> Open SRs > 100 for 5 consecutive minutes</li>
+                    <li><strong>Action:</strong> Send SMS to on-call supervisor + Email to service director</li>
+                    <li><strong>Escalation:</strong> If > 150 for 10 minutes → Auto-page VP of Customer Service</li>
+                </ul>
+
+                <h3>Automated Actions</h3>
+                <ul>
+                    <li><strong>Trigger:</strong> Average response time > 4 hours (target: 2 hours)</li>
+                    <li><strong>Action:</strong> Auto-assign next 10 SRs to "Overflow Team" (specialists handle backlog)</li>
+                    <li><strong>Result:</strong> Response time drops to 2.5 hours within 1 hour</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Use Sparingly:</strong> Real-time for critical metrics only (not all reports - expensive)</li>
+                    <li><strong>Appropriate Refresh:</strong> 30 seconds for call center, 15 minutes for sales pipeline (balance freshness vs performance)</li>
+                    <li><strong>Fallback:</strong> If real-time fails, show cached data + "Last updated: 5 min ago" message</li>
+                    <li><strong>Testing:</strong> Load test with 100 concurrent users (ensure system handles load)</li>
+                    <li><strong>Mobile Caution:</strong> Real-time drains battery (use longer refresh on mobile, 5 min vs 30 sec)</li>
+                    <li><strong>User Training:</strong> Explain what "real-time" means (30-sec refresh, not instant)</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="9_kpi_config.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>KPI Configuration</span>
+                </a>
+                <div class="nav-center">
+                    Page 10 of 15
+                </div>
+                <a href="11_data_visualization.html" class="nav-btn nav-btn-next">
+                    <span>Data Visualization</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

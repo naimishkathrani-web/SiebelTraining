@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Reports - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Standard Reports</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 20%;"></div>
+            </div>
+
+            <h1 class="page-title">Standard Reports</h1>
+
+            <div class="section">
+                <h2>Pre-Built Reports</h2>
+                <p>Siebel includes 100+ standard reports covering Sales, Service, Marketing, and Operations. These reports are ready to run out-of-the-box with minimal configuration.</p>
+            </div>
+
+            <div class="section">
+                <h2>Sales Reports</h2>
+                
+                <h3>1. Opportunity Pipeline</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> View all open opportunities by stage</li>
+                    <li><strong>Columns:</strong> Account, Opportunity Name, Revenue, Probability, Close Date, Sales Stage, Owner</li>
+                    <li><strong>Grouping:</strong> By Sales Stage (Prospecting, Qualification, Proposal, Negotiation)</li>
+                    <li><strong>Totals:</strong> Sum of Revenue, Sum of Weighted Revenue per stage</li>
+                    <li><strong>Filters:</strong> Date range, territory, rep, probability threshold</li>
+                </ul>
+
+                <h3>2. Win/Loss Analysis</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Compare closed won vs. lost opportunities</li>
+                    <li><strong>Metrics:</strong> Win rate %, average deal size, sales cycle length</li>
+                    <li><strong>Dimensions:</strong> By rep, territory, product, competitor</li>
+                </ul>
+
+                <h3>3. Sales Forecast</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Quarterly revenue projection by rep/team</li>
+                    <li><strong>Calculation:</strong> Weighted pipeline (Revenue × Probability) + Closed Won</li>
+                    <li><strong>Comparison:</strong> Forecast vs. Quota</li>
+                </ul>
+
+                <h3>4. Activity Summary</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Track sales rep productivity</li>
+                    <li><strong>Metrics:</strong> # of calls, meetings, emails, demos per rep</li>
+                    <li><strong>Time Period:</strong> Daily, weekly, monthly</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Service Reports</h2>
+                
+                <h3>1. Service Request Aging</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Identify overdue service requests</li>
+                    <li><strong>Buckets:</strong> 0-24 hours, 1-3 days, 4-7 days, 7+ days</li>
+                    <li><strong>Status:</strong> Open, Pending, In Progress</li>
+                    <li><strong>Priority:</strong> Critical (red), High (orange), Medium (yellow), Low (green)</li>
+                </ul>
+
+                <h3>2. SLA Compliance</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Track SLA met vs. breached</li>
+                    <li><strong>Metrics:</strong> % SLA met, average response time, average resolution time</li>
+                    <li><strong>Grouping:</strong> By severity, agent, team, SR type</li>
+                </ul>
+
+                <h3>3. Customer Satisfaction (CSAT)</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Survey results and satisfaction scores</li>
+                    <li><strong>Rating:</strong> 1-5 stars, NPS (Net Promoter Score)</li>
+                    <li><strong>Trending:</strong> Month-over-month CSAT trends</li>
+                </ul>
+
+                <h3>4. Knowledge Base Usage</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Track KB article views and helpfulness</li>
+                    <li><strong>Metrics:</strong> Most viewed articles, self-service resolution rate</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Marketing Reports</h2>
+                
+                <h3>1. Campaign Performance</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> ROI and effectiveness of marketing campaigns</li>
+                    <li><strong>Metrics:</strong> Responses, response rate %, leads generated, cost per lead</li>
+                    <li><strong>Channels:</strong> Email, SMS, social media, events</li>
+                </ul>
+
+                <h3>2. Lead Conversion Funnel</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Track lead progression through funnel</li>
+                    <li><strong>Stages:</strong> Lead → Qualified → Opportunity → Closed Won</li>
+                    <li><strong>Conversion Rates:</strong> % at each stage, drop-off analysis</li>
+                </ul>
+
+                <h3>3. Email Campaign Analytics</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Email marketing performance</li>
+                    <li><strong>Metrics:</strong> Open rate, click-through rate, unsubscribe rate, bounces</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Operational Reports</h2>
+                
+                <h3>1. Account Summary</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Account list with key metrics</li>
+                    <li><strong>Columns:</strong> Account name, revenue, # of contacts, # of opportunities, last activity date</li>
+                    <li><strong>Filters:</strong> Account type (Prospect, Customer, Partner), industry, location</li>
+                </ul>
+
+                <h3>2. Territory Coverage</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Account distribution across territories</li>
+                    <li><strong>Metrics:</strong> # of accounts per territory, total revenue per territory</li>
+                    <li><strong>Balance Check:</strong> Identify under/over-allocated territories</li>
+                </ul>
+
+                <h3>3. Data Quality Report</h3>
+                <ul>
+                    <li><strong>Purpose:</strong> Identify incomplete or duplicate records</li>
+                    <li><strong>Checks:</strong> Missing emails, phone numbers, duplicate accounts</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Accessing Standard Reports</h2>
+                <div class="key-point">
+                    <strong>Navigation:</strong>
+                    <ol>
+                        <li>Click <strong>Reports</strong> tab in Siebel UI</li>
+                        <li>Select category: Sales Reports, Service Reports, Marketing Reports</li>
+                        <li>Choose report from list (e.g., "Opportunity Pipeline")</li>
+                        <li>Click <strong>Run</strong> to execute with default filters</li>
+                        <li>Modify filters (date range, owner) → Click <strong>Apply</strong> → View updated results</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="2_reporting_architecture.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Reporting Architecture</span>
+                </a>
+                <div class="nav-center">
+                    Page 3 of 15
+                </div>
+                <a href="4_running_reports.html" class="nav-btn nav-btn-next">
+                    <span>Running Reports</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Dashboards</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 53%;"></div>
+            </div>
+
+            <h1 class="page-title">Interactive Dashboards</h1>
+
+            <div class="section">
+                <h2>What are Dashboards?</h2>
+                <p><strong>Dashboards</strong> provide at-a-glance visualization of key metrics, combining charts, tables, and gauges on a single screen.</p>
+
+                <h3>Dashboard Benefits</h3>
+                <ul>
+                    <li><strong>Quick Insights:</strong> See pipeline health in 5 seconds (no need to run multiple reports)</li>
+                    <li><strong>Visual Clarity:</strong> Red/yellow/green indicators show status instantly</li>
+                    <li><strong>Drill-Down:</strong> Click chart segment → see detailed records</li>
+                    <li><strong>Real-Time:</strong> Auto-refresh every 15 minutes (or on-demand)</li>
+                    <li><strong>Personalized:</strong> Each user sees their own data (territory, team, region)</li>
+                </ul>
+
+                <figure>
+                    <img src="../images/dashboards.png" alt="Example Dashboard Layout">
+                    <figcaption>Sales Executive Dashboard with pipeline, forecast, and activity metrics</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Dashboard Components</h2>
+                
+                <h3>Widget Types</h3>
+                <ul>
+                    <li><strong>KPI Tiles:</strong> Single metric with trend (Pipeline: $4.2M ↑12% vs last month)</li>
+                    <li><strong>Gauges:</strong> Speedometer showing % to quota (85% of $5M quota)</li>
+                    <li><strong>Bar Charts:</strong> Revenue by product line (compare 5 products side-by-side)</li>
+                    <li><strong>Pie Charts:</strong> Opportunities by stage (Prospecting 40%, Negotiation 30%, Closed 30%)</li>
+                    <li><strong>Line Charts:</strong> Trend over time (Won deals per week for last 12 weeks)</li>
+                    <li><strong>Tables:</strong> Top 10 deals closing this month (sorted by revenue)</li>
+                    <li><strong>Heat Maps:</strong> Territory performance grid (color-coded by quota attainment)</li>
+                </ul>
+
+                <h3>Layout Example: Sales VP Dashboard</h3>
+                <div class="code-block">
+                    <pre>
++----------------------------------+----------------------------------+
+| KPI: Pipeline                    | KPI: Win Rate                    |
+| $12.5M (↑8% vs last month)      | 32% (↑2% vs last month)         |
++----------------------------------+----------------------------------+
+| Chart: Pipeline by Stage         | Chart: Revenue by Territory      |
+| [Bar chart: 5 stages]           | [Pie chart: 4 territories]      |
++----------------------------------+----------------------------------+
+| Table: Top 10 Deals This Quarter                                    |
+| [Account | Opp | Revenue | Stage | Close Date | Owner]            |
++---------------------------------------------------------------------+
+                    </pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Creating a Dashboard</h2>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li><strong>Navigate:</strong> Analytics → Dashboards → New Dashboard</li>
+                    <li><strong>Name:</strong> "My Sales Dashboard"</li>
+                    <li><strong>Layout:</strong> Choose template (2-column, 3-column, freeform)</li>
+                    <li><strong>Add Widgets:</strong> Drag "KPI Tile" to top-left → Configure:
+                        <ul>
+                            <li>Data Source: Opportunity BC</li>
+                            <li>Metric: SUM(Revenue)</li>
+                            <li>Filter: Status = 'Open'</li>
+                            <li>Label: "Open Pipeline"</li>
+                        </ul>
+                    </li>
+                    <li><strong>Add Chart:</strong> Drag "Bar Chart" to top-right → Configure:
+                        <ul>
+                            <li>X-Axis: Sales Stage</li>
+                            <li>Y-Axis: COUNT(Opportunity ID)</li>
+                            <li>Color: By Stage</li>
+                        </ul>
+                    </li>
+                    <li><strong>Add Table:</strong> Drag "Table" to bottom → Configure:
+                        <ul>
+                            <li>Columns: Account, Opportunity, Revenue, Close Date</li>
+                            <li>Filter: Close Date within next 30 days</li>
+                            <li>Sort: Revenue DESC</li>
+                            <li>Limit: Top 10</li>
+                        </ul>
+                    </li>
+                    <li><strong>Save:</strong> Click Save → Dashboard available in "My Dashboards"</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Interactive Features</h2>
+                
+                <h3>Drill-Down Example</h3>
+                <p><strong>Scenario:</strong> VP sees "Negotiation" stage has 15 opportunities worth $3.5M</p>
+                <ul>
+                    <li><strong>Action:</strong> Click "Negotiation" bar in chart</li>
+                    <li><strong>Result:</strong> Pop-up shows list of all 15 opportunities with details</li>
+                    <li><strong>Further Action:</strong> Click specific opportunity → Opens opportunity detail screen</li>
+                </ul>
+
+                <h3>Dynamic Filtering</h3>
+                <ul>
+                    <li><strong>Territory Filter:</strong> Dropdown at top "Show: All Territories" → Select "Northeast" → All widgets update to show only Northeast data</li>
+                    <li><strong>Date Range:</strong> Slider "Show: This Quarter" → Change to "Last 6 Months" → Charts redraw with 6-month data</li>
+                    <li><strong>Product Line:</strong> Checkboxes "5G Plans, Devices, Enterprise" → Uncheck "Devices" → Dashboard excludes device deals</li>
+                </ul>
+
+                <h3>Auto-Refresh</h3>
+                <ul>
+                    <li><strong>Setting:</strong> Configure dashboard to refresh every 15 minutes</li>
+                    <li><strong>Use Case:</strong> Call center manager monitors real-time SR queue (updates automatically as new tickets arrive)</li>
+                    <li><strong>Manual Refresh:</strong> User can click "Refresh" button for instant update</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Role-Based Dashboards</h2>
+                
+                <div class="key-point">
+                    <strong>Sales Rep Dashboard</strong>
+                    <ul>
+                        <li>My Pipeline ($450K total)</li>
+                        <li>My Activities This Week (18 calls, 6 meetings)</li>
+                        <li>My Top 5 Deals Closing This Month</li>
+                        <li>My Win Rate (28% vs team avg 32%)</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Sales Manager Dashboard</strong>
+                    <ul>
+                        <li>Team Pipeline ($8.2M total, by rep)</li>
+                        <li>Team Quota Attainment (82% of $10M quota)</li>
+                        <li>Top Performers (leaderboard)</li>
+                        <li>Deals at Risk (stalled > 30 days)</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Service Manager Dashboard</strong>
+                    <ul>
+                        <li>Open SRs by Priority (5 Critical, 23 High, 67 Medium, 145 Low)</li>
+                        <li>SLA Compliance (92% met, 8% breached)</li>
+                        <li>Average Resolution Time (4.2 hours, target: 4.0)</li>
+                        <li>Agent Workload (cases per agent, color-coded)</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Executive Dashboard</strong>
+                    <ul>
+                        <li>Company-Wide Revenue (Q1: $45M, Q2 Forecast: $52M)</li>
+                        <li>Customer Acquisition Cost (CAC: $1,200 vs LTV: $8,400)</li>
+                        <li>Churn Rate (2.1% monthly, down from 2.8%)</li>
+                        <li>NPS Score (67, industry avg: 55)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Dashboard Sharing</h2>
+                
+                <h3>Sharing Options</h3>
+                <ul>
+                    <li><strong>Private:</strong> Only you can see (personal workspace)</li>
+                    <li><strong>Team:</strong> Share with Sales Team (read-only for team members)</li>
+                    <li><strong>Public:</strong> All users can view (company-wide visibility)</li>
+                    <li><strong>Embedded:</strong> Embed dashboard in home screen (auto-displays when user logs in)</li>
+                </ul>
+
+                <h3>Export & Scheduling</h3>
+                <ul>
+                    <li><strong>PDF Export:</strong> Click "Export" → Generates PDF snapshot → Email to stakeholders</li>
+                    <li><strong>Scheduled Email:</strong> Dashboard auto-emails every Monday at 8 AM (executives receive weekly summary)</li>
+                    <li><strong>PowerPoint Export:</strong> Export dashboard as .pptx slide for board meeting</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Limit Widgets:</strong> 5-7 widgets max (too many = cluttered, hard to read)</li>
+                    <li><strong>Prioritize Top Metrics:</strong> Put most important KPIs in top-left (first thing user sees)</li>
+                    <li><strong>Use Color Wisely:</strong> Green = good, red = bad, yellow = warning (consistent across all dashboards)</li>
+                    <li><strong>Performance:</strong> Avoid complex queries in dashboards (use cached data for speed)</li>
+                    <li><strong>Mobile-Friendly:</strong> Test on tablet/phone (reps check dashboard on mobile)</li>
+                    <li><strong>Context:</strong> Add text annotations ("Pipeline down 5% due to end-of-quarter slowdown")</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="7_bi_publisher.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>BI Publisher</span>
+                </a>
+                <div class="nav-center">
+                    Page 8 of 15
+                </div>
+                <a href="9_kpi_config.html" class="nav-btn nav-btn-next">
+                    <span>KPI Configuration</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

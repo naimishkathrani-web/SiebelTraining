@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Reports - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Running Reports</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 27%;"></div>
+            </div>
+
+            <h1 class="page-title">Running Reports</h1>
+
+            <div class="section">
+                <h2>Report Execution Workflow</h2>
+                <ol>
+                    <li><strong>Select Report:</strong> Navigate to Reports → Choose "Opportunity Pipeline"</li>
+                    <li><strong>Set Parameters:</strong> Date range (Q1 2024), Territory (Western Region), Minimum Revenue ($10K)</li>
+                    <li><strong>Run Report:</strong> Click "Execute" button</li>
+                    <li><strong>View Results:</strong> Report displays in browser (500 opportunities found)</li>
+                    <li><strong>Interact:</strong> Sort, filter, drill-down, export</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Report Parameters</h2>
+                
+                <h3>Common Filters</h3>
+                <ul>
+                    <li><strong>Date Range:</strong> Last 30 days, This Quarter, Custom (01/01/2024 - 03/31/2024)</li>
+                    <li><strong>Owner:</strong> Current User, My Team, All Users, Specific Rep (select from dropdown)</li>
+                    <li><strong>Status:</strong> Open, Closed Won, Closed Lost, All</li>
+                    <li><strong>Territory:</strong> Northeast, Southeast, Midwest, West, All Territories</li>
+                    <li><strong>Threshold:</strong> Revenue > $50K, Probability > 50%</li>
+                </ul>
+
+                <h3>Advanced Filters</h3>
+                <ul>
+                    <li><strong>Multi-Select:</strong> Industry IN (Telecom, Technology, Healthcare)</li>
+                    <li><strong>Wildcards:</strong> Account Name LIKE "%Corp%"</li>
+                    <li><strong>Date Math:</strong> Close Date BETWEEN (Today AND Today + 30 days)</li>
+                    <li><strong>AND/OR Logic:</strong> (Stage = 'Negotiation' OR Probability > 75%) AND Revenue > $100K</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Viewing Results</h2>
+                
+                <h3>Table View (Default)</h3>
+                <ul>
+                    <li><strong>Columns:</strong> Account, Opportunity, Revenue, Close Date, Stage, Owner</li>
+                    <li><strong>Sorting:</strong> Click column header to sort (ascending/descending)</li>
+                    <li><strong>Paging:</strong> 50 rows per page, navigate with Previous/Next buttons</li>
+                    <li><strong>Totals:</strong> Footer row shows Sum of Revenue, Count of Opportunities</li>
+                </ul>
+
+                <h3>Chart View</h3>
+                <ul>
+                    <li><strong>Bar Chart:</strong> Revenue by Sales Stage (visual pipeline)</li>
+                    <li><strong>Pie Chart:</strong> Win/Loss distribution (60% Won, 40% Lost)</li>
+                    <li><strong>Line Chart:</strong> Revenue trend over time (monthly)</li>
+                    <li><strong>Interactive:</strong> Hover for values, click slice to drill-down</li>
+                </ul>
+
+                <h3>Summary View</h3>
+                <ul>
+                    <li><strong>Grouped Data:</strong> Opportunities grouped by Territory
+                        <ul>
+                            <li>Northeast: 150 opportunities, $5.2M total revenue</li>
+                            <li>Southeast: 120 opportunities, $4.1M total revenue</li>
+                            <li>West: 230 opportunities, $8.9M total revenue</li>
+                        </ul>
+                    </li>
+                    <li><strong>Expand/Collapse:</strong> Click (+) to expand group, see individual records</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Interactive Features</h2>
+                
+                <h3>Drill-Down</h3>
+                <div class="key-point">
+                    <strong>Example:</strong>
+                    <ul>
+                        <li>Report shows "Western Region: $8.9M revenue"</li>
+                        <li>Click region → Drill to see individual opportunities in West</li>
+                        <li>Click opportunity "Acme Corp 5G Upgrade" → Open full opportunity record</li>
+                    </ul>
+                </div>
+
+                <h3>Dynamic Filtering</h3>
+                <ul>
+                    <li><strong>Post-Execution Filter:</strong> Report shows 500 rows → Type "HealthCorp" in search box → View narrows to 3 matching rows</li>
+                    <li><strong>Column Filter:</strong> Click funnel icon on Revenue column → Show only Revenue > $100K</li>
+                </ul>
+
+                <h3>Sorting & Ranking</h3>
+                <ul>
+                    <li>Sort by Revenue (descending) → See top deals first</li>
+                    <li>Multi-level sort: Sort by Territory (ascending), then Revenue (descending)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Output Formats</h2>
+                
+                <h3>1. HTML (Browser)</h3>
+                <ul>
+                    <li>Default view, interactive, real-time filtering</li>
+                    <li>Best for on-screen analysis, drill-down</li>
+                </ul>
+
+                <h3>2. Excel (.xlsx)</h3>
+                <ul>
+                    <li>Export → Excel → Opens in Microsoft Excel or Google Sheets</li>
+                    <li>All rows exported (not just current page)</li>
+                    <li>Retains formatting (bold headers, totals row)</li>
+                    <li>Use for: Pivot tables, offline analysis, email distribution</li>
+                </ul>
+
+                <h3>3. PDF</h3>
+                <ul>
+                    <li>Export → PDF → Generates formatted document</li>
+                    <li>Includes: Company logo, report title, filters used, generation timestamp</li>
+                    <li>Use for: Executive presentations, printing, archiving</li>
+                </ul>
+
+                <h3>4. CSV (Comma-Separated Values)</h3>
+                <ul>
+                    <li>Raw data, no formatting</li>
+                    <li>Use for: Importing to other systems, data warehouse loads</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Saving & Sharing</h2>
+                <ul>
+                    <li><strong>Save Filters:</strong> Save filter criteria as "My Q1 Pipeline View" → Reload anytime</li>
+                    <li><strong>Bookmark:</strong> Save report URL for quick access</li>
+                    <li><strong>Email:</strong> Export → Email → Recipients receive PDF attachment</li>
+                    <li><strong>Share Report Definition:</strong> Grant access to other users ("Sales Team can run this report")</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: Running Sales Pipeline Report</h2>
+                <div class="key-point">
+                    <strong>Scenario:</strong> Sales Manager wants to review team's pipeline
+                    <ol>
+                        <li><strong>9:00 AM:</strong> Navigate to Reports → Sales Reports → "Opportunity Pipeline"</li>
+                        <li><strong>9:01 AM:</strong> Set filters: Date = This Quarter, Owner = My Team (5 reps), Stage ≠ Closed Lost</li>
+                        <li><strong>9:02 AM:</strong> Click "Run" → 147 opportunities displayed (Total: $4.2M weighted revenue)</li>
+                        <li><strong>9:03 AM:</strong> Sort by Close Date (ascending) → See deals closing soon first</li>
+                        <li><strong>9:05 AM:</strong> Click "Negotiation" stage bar in chart → Drill to 23 negotiation deals</li>
+                        <li><strong>9:10 AM:</strong> Export to Excel → Send to VP Sales for review</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="3_standard_reports.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Standard Reports</span>
+                </a>
+                <div class="nav-center">
+                    Page 4 of 15
+                </div>
+                <a href="5_custom_reports.html" class="nav-btn nav-btn-next">
+                    <span>Creating Custom Reports</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

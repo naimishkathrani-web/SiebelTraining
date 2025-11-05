@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Data Visualization</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 73%;"></div>
+            </div>
+
+            <h1 class="page-title">Data Visualization Techniques</h1>
+
+            <div class="section">
+                <h2>Choosing the Right Chart</h2>
+                <p>Effective visualization matches the chart type to the data story you want to tell.</p>
+
+                <h3>Chart Selection Guide</h3>
+                <ul>
+                    <li><strong>Bar Chart:</strong> Compare categories (Revenue by Product: 5G $8M, Devices $5M, Enterprise $10M)</li>
+                    <li><strong>Line Chart:</strong> Show trends over time (Monthly revenue: Jan $2M → Dec $4M)</li>
+                    <li><strong>Pie Chart:</strong> Show parts of a whole (Market share: Us 35%, Competitor A 25%, Others 40%)</li>
+                    <li><strong>Scatter Plot:</strong> Show correlation (Deal size vs Sales cycle: larger deals = longer cycles)</li>
+                    <li><strong>Heat Map:</strong> Show patterns in matrix (Best time to call: Tue-Thu, 10 AM-2 PM shows high connect rate)</li>
+                    <li><strong>Funnel Chart:</strong> Show conversion stages (1000 Leads → 150 Qualified → 50 Opps → 15 Won)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Bar & Column Charts</h2>
+                
+                <h3>When to Use</h3>
+                <ul>
+                    <li><strong>Compare categories:</strong> Revenue by territory, Cases by priority, Campaigns by response rate</li>
+                    <li><strong>Grouped bars:</strong> Compare multiple metrics (This Year vs Last Year revenue by quarter)</li>
+                    <li><strong>Stacked bars:</strong> Show composition (Total revenue = Products + Services + Subscriptions)</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li><strong>Sort bars:</strong> Descending order by value (highest revenue product first)</li>
+                    <li><strong>Limit categories:</strong> Max 10 bars (if more, show Top 10 + "Others")</li>
+                    <li><strong>Start Y-axis at zero:</strong> Don't truncate (misleading visual)</li>
+                    <li><strong>Use color intentionally:</strong> Green = positive, Red = negative, Gray = neutral</li>
+                </ul>
+
+                <div class="key-point">
+                    <strong>Example: Opportunity Count by Stage</strong>
+                    <ul>
+                        <li>Prospecting: 45 opportunities (blue bar)</li>
+                        <li>Qualification: 32 opportunities</li>
+                        <li>Proposal: 18 opportunities</li>
+                        <li>Negotiation: 12 opportunities</li>
+                        <li>Closed Won: 8 opportunities (green bar)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Line Charts</h2>
+                
+                <h3>When to Use</h3>
+                <ul>
+                    <li><strong>Time series:</strong> Revenue over 12 months, Daily SR volume, Weekly win rate</li>
+                    <li><strong>Multiple lines:</strong> Compare trends (This Year vs Last Year vs Target)</li>
+                    <li><strong>Identify patterns:</strong> Seasonality (Dec spike in sales), Anomalies (Mar drop in leads)</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li><strong>Consistent intervals:</strong> Daily, Weekly, Monthly (not mixed)</li>
+                    <li><strong>Limit lines:</strong> Max 5 lines (too many = spaghetti chart, unreadable)</li>
+                    <li><strong>Label endpoints:</strong> Show final value on line (Dec: $4.2M)</li>
+                    <li><strong>Use markers sparingly:</strong> Only for small datasets (< 20 points)</li>
+                </ul>
+
+                <div class="key-point">
+                    <strong>Example: Monthly Revenue Trend (12 months)</strong>
+                    <ul>
+                        <li>Blue line: Actual revenue (starts at $2.5M in Jan, ends at $4.1M in Dec)</li>
+                        <li>Dashed line: Target (straight line at $3.5M)</li>
+                        <li>Green shaded area: Above target months (Sep-Dec)</li>
+                        <li>Insight: Strong Q4 performance, exceeded target by 17%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Pie & Donut Charts</h2>
+                
+                <h3>When to Use</h3>
+                <ul>
+                    <li><strong>Part-to-whole:</strong> Market share, Budget allocation, Lead sources</li>
+                    <li><strong>Limited slices:</strong> 3-6 categories (max 8)</li>
+                    <li><strong>Percentage emphasis:</strong> Show proportions clearly (30% of revenue from Product X)</li>
+                </ul>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li><strong>Start at 12 o'clock:</strong> Largest slice first, clockwise descending</li>
+                    <li><strong>Label percentages:</strong> Show % and value (35% - $8.2M)</li>
+                    <li><strong>Use contrasting colors:</strong> Easy to distinguish slices</li>
+                    <li><strong>Avoid 3D:</strong> Distorts perception, stick to 2D</li>
+                </ul>
+
+                <div class="key-point">
+                    <strong>Example: Revenue by Product Line</strong>
+                    <ul>
+                        <li>Enterprise Solutions: 45% ($10M) - Blue</li>
+                        <li>5G Plans: 33% ($7.4M) - Green</li>
+                        <li>Devices: 22% ($5M) - Orange</li>
+                        <li>Total: 100% ($22.4M)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Advanced Visualizations</h2>
+                
+                <h3>Funnel Charts</h3>
+                <p><strong>Use Case:</strong> Sales pipeline, Lead conversion, Customer journey</p>
+                <ul>
+                    <li><strong>Stage 1:</strong> 1,000 Leads (100% - widest)</li>
+                    <li><strong>Stage 2:</strong> 250 Qualified (25% conversion)</li>
+                    <li><strong>Stage 3:</strong> 80 Opportunities (32% conversion)</li>
+                    <li><strong>Stage 4:</strong> 24 Closed Won (30% win rate)</li>
+                    <li><strong>Insight:</strong> Bottleneck at Lead → Qualified (75% drop-off, needs improvement)</li>
+                </ul>
+
+                <h3>Scatter Plots</h3>
+                <p><strong>Use Case:</strong> Correlation analysis (e.g., Deal Size vs Sales Cycle)</p>
+                <ul>
+                    <li><strong>X-Axis:</strong> Deal Size ($10K - $1M)</li>
+                    <li><strong>Y-Axis:</strong> Sales Cycle (10 - 180 days)</li>
+                    <li><strong>Each Dot:</strong> One opportunity</li>
+                    <li><strong>Trend Line:</strong> Shows positive correlation (larger deals = longer cycles)</li>
+                    <li><strong>Insight:</strong> $500K+ deals average 120 days (need executive engagement earlier)</li>
+                </ul>
+
+                <h3>Heat Maps</h3>
+                <p><strong>Use Case:</strong> Territory performance, Call connect rates by time/day</p>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0; text-align: center;">
+                    <thead>
+                        <tr style="background: #f5f5f5;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Time</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Mon</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Tue</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Wed</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Thu</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Fri</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>9-11 AM</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #90EE90;">72%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #32CD32;">85%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #32CD32;">88%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #32CD32;">82%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #90EE90;">68%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>1-3 PM</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #FFD700;">55%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #90EE90;">78%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #90EE90;">75%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #90EE90;">73%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #FFD700;">52%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>4-6 PM</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #FFA07A;">42%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #FFD700;">58%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #FFD700;">61%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #FFD700;">59%</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; background: #FF6347;">38%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Insight:</strong> Best call times are Tue-Thu, 9-11 AM (dark green = high connect rate)</p>
+            </div>
+
+            <div class="section">
+                <h2>Color & Design Principles</h2>
+                
+                <h3>Color Usage</h3>
+                <ul>
+                    <li><strong>Semantic Colors:</strong> Green = success/positive, Red = alert/negative, Yellow = warning, Blue = neutral/info</li>
+                    <li><strong>Accessibility:</strong> Colorblind-friendly palettes (avoid red/green only, add patterns/labels)</li>
+                    <li><strong>Contrast:</strong> Dark colors on light background (readable)</li>
+                    <li><strong>Consistency:</strong> Same color means same thing across all charts (don't switch "blue = revenue" to "blue = cost")</li>
+                </ul>
+
+                <h3>Design Best Practices</h3>
+                <ul>
+                    <li><strong>Clear Labels:</strong> Axis titles, legend, chart title (no ambiguity)</li>
+                    <li><strong>Remove Clutter:</strong> No unnecessary grid lines, borders, 3D effects</li>
+                    <li><strong>Readable Fonts:</strong> 12pt+ for labels, 14pt+ for titles</li>
+                    <li><strong>White Space:</strong> Don't cram charts together (breathing room)</li>
+                    <li><strong>Highlight Key Data:</strong> Bold the important bar, callout box for insight</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Interactive Features</h2>
+                
+                <h3>Drill-Down</h3>
+                <ul>
+                    <li><strong>Click bar:</strong> "Northeast $6.8M" → Shows breakdown by rep</li>
+                    <li><strong>Click rep:</strong> "Rep A $2.1M" → Shows individual opportunities</li>
+                    <li><strong>Breadcrumb:</strong> "Company > Northeast > Rep A" (easy to navigate back)</li>
+                </ul>
+
+                <h3>Tooltips</h3>
+                <ul>
+                    <li><strong>Hover over data point:</strong> Pop-up shows details</li>
+                    <li><strong>Example:</strong> Hover on "Dec" → "December 2024: $4.2M revenue, 147 deals, 32% win rate"</li>
+                    <li><strong>Keep concise:</strong> 3-5 key metrics (not overwhelming)</li>
+                </ul>
+
+                <h3>Filtering</h3>
+                <ul>
+                    <li><strong>Date slider:</strong> Change from "This Quarter" to "Last 6 Months" → Chart redraws</li>
+                    <li><strong>Category checkboxes:</strong> Uncheck "Devices" → Chart excludes device data</li>
+                    <li><strong>Dynamic updates:</strong> All charts on dashboard update together (coordinated filtering)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Export & Sharing</h2>
+                <ul>
+                    <li><strong>Image Export:</strong> PNG/SVG for presentations (high resolution, 300 DPI)</li>
+                    <li><strong>PDF:</strong> Multi-page report with all charts</li>
+                    <li><strong>PowerPoint:</strong> Each chart as editable slide (can tweak colors/labels)</li>
+                    <li><strong>Email:</strong> Schedule weekly chart email to executives (automated)</li>
+                    <li><strong>Embed:</strong> iFrame chart in intranet page (live updates)</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="10_realtime_analytics.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Real-Time Analytics</span>
+                </a>
+                <div class="nav-center">
+                    Page 11 of 15
+                </div>
+                <a href="12_scheduled_reports.html" class="nav-btn nav-btn-next">
+                    <span>Scheduled Reports</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BI Publisher Integration - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">BI Publisher Integration</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 47%;"></div>
+            </div>
+
+            <h1 class="page-title">Oracle BI Publisher Integration</h1>
+
+            <div class="section">
+                <h2>What is BI Publisher?</h2>
+                <p><strong>Oracle BI Publisher</strong> is an enterprise reporting tool that generates highly formatted documents (invoices, contracts, financial statements) from CRM data.</p>
+
+                <h3>Key Capabilities</h3>
+                <ul>
+                    <li><strong>Pixel-Perfect Layouts:</strong> Corporate letterhead, multi-page invoices, regulatory forms</li>
+                    <li><strong>Multi-Format Output:</strong> PDF, Excel, Word, HTML, RTF</li>
+                    <li><strong>Bursting:</strong> One report run generates 1,000 customer invoices (one per customer)</li>
+                    <li><strong>Localization:</strong> Same report template renders in 20 languages based on customer locale</li>
+                    <li><strong>Complex Logic:</strong> Conditional sections, calculated totals, nested tables</li>
+                </ul>
+
+                <figure>
+                    <img src="../images/bi_publisher.png" alt="BI Publisher Architecture">
+                    <figcaption>Siebel → BI Publisher integration flow</figcaption>
+                </figure>
+            </div>
+
+            <div class="section">
+                <h2>Integration Architecture</h2>
+                
+                <h3>Data Flow</h3>
+                <ol>
+                    <li><strong>Siebel Query:</strong> Business Component extracts data (Opportunity + Products + Account)</li>
+                    <li><strong>XML Generation:</strong> Siebel converts data to XML format</li>
+                    <li><strong>BI Publisher:</strong> Receives XML + Template → Merges data into layout</li>
+                    <li><strong>Rendering:</strong> Generates PDF with company logo, formatting, page numbers</li>
+                    <li><strong>Delivery:</strong> Returns PDF to Siebel UI or emails to customer</li>
+                </ol>
+
+                <h3>Example XML Data</h3>
+                <div class="code-block">
+                    <pre>
+&lt;Opportunity&gt;
+  &lt;Name&gt;TechCorp 5G Upgrade&lt;/Name&gt;
+  &lt;Account&gt;TechCorp Industries&lt;/Account&gt;
+  &lt;Revenue&gt;250000&lt;/Revenue&gt;
+  &lt;Products&gt;
+    &lt;Product&gt;
+      &lt;Name&gt;5G Enterprise Plan&lt;/Name&gt;
+      &lt;Quantity&gt;500&lt;/Quantity&gt;
+      &lt;Price&gt;120&lt;/Price&gt;
+      &lt;Total&gt;60000&lt;/Total&gt;
+    &lt;/Product&gt;
+    &lt;Product&gt;
+      &lt;Name&gt;5G Devices&lt;/Name&gt;
+      &lt;Quantity&gt;500&lt;/Quantity&gt;
+      &lt;Price&gt;380&lt;/Price&gt;
+      &lt;Total&gt;190000&lt;/Total&gt;
+    &lt;/Product&gt;
+  &lt;/Products&gt;
+&lt;/Opportunity&gt;
+                    </pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Template Design</h2>
+                
+                <h3>Template Types</h3>
+                <ul>
+                    <li><strong>RTF Templates:</strong> Designed in Microsoft Word with BI Publisher Add-In (drag-drop fields, tables, charts)</li>
+                    <li><strong>PDF Forms:</strong> Based on existing PDF forms (populate fields from CRM data)</li>
+                    <li><strong>Excel Templates:</strong> Formatted Excel workbooks (pivot tables auto-populate)</li>
+                </ul>
+
+                <h3>Template Components</h3>
+                <ul>
+                    <li><strong>Header/Footer:</strong> Company logo, page numbers, "Page 1 of 5"</li>
+                    <li><strong>Fields:</strong> {Account.Name}, {Opportunity.Revenue}, {TODAY}</li>
+                    <li><strong>Tables:</strong> Repeating product line items with subtotals</li>
+                    <li><strong>Conditional Sections:</strong> IF Revenue > 100K THEN show approval signature block</li>
+                    <li><strong>Charts:</strong> Revenue by month bar chart embedded in document</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Common Use Cases</h2>
+                
+                <div class="key-point">
+                    <strong>Use Case 1: Monthly Invoice Generation</strong>
+                    <ul>
+                        <li><strong>Requirement:</strong> Send itemized invoices to 5,000 customers</li>
+                        <li><strong>Process:</strong> Scheduled job runs on 1st of month → Queries billing data → Generates 5,000 PDFs → Emails automatically</li>
+                        <li><strong>Template:</strong> Corporate letterhead, itemized charges, subtotals, taxes, total due, payment instructions</li>
+                        <li><strong>Localization:</strong> US customers see USD, European customers see EUR, invoices in local language</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Use Case 2: Sales Quote Documents</strong>
+                    <ul>
+                        <li><strong>Requirement:</strong> Sales rep clicks "Generate Quote" → Professional PDF in 5 seconds</li>
+                        <li><strong>Data:</strong> Opportunity details, line items with discounts, terms & conditions</li>
+                        <li><strong>Template:</strong> Cover page with customer info, pricing table, contract terms (3 pages)</li>
+                        <li><strong>Action:</strong> Rep attaches PDF to email and sends to prospect</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Use Case 3: Regulatory Compliance Reports</strong>
+                    <ul>
+                        <li><strong>Requirement:</strong> Quarterly report to government agency (exact format required)</li>
+                        <li><strong>Template:</strong> Government-provided PDF form with 50 fields</li>
+                        <li><strong>Data:</strong> Siebel extracts subscriber counts, revenue, service metrics</li>
+                        <li><strong>Output:</strong> Completed PDF form ready for submission</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Report Bursting</h2>
+                <p><strong>Bursting:</strong> One report execution splits into thousands of personalized documents.</p>
+
+                <h3>Example: Monthly Account Statements</h3>
+                <ol>
+                    <li><strong>Query:</strong> Extract all active accounts + transactions</li>
+                    <li><strong>Burst Key:</strong> Account ID (splits into one document per account)</li>
+                    <li><strong>Output:</strong> 10,000 accounts = 10,000 PDFs generated</li>
+                    <li><strong>Delivery:</strong> Each PDF emailed to account's primary contact automatically</li>
+                </ol>
+
+                <h3>Delivery Options</h3>
+                <ul>
+                    <li><strong>Email:</strong> Attach PDF, customize subject/body per recipient</li>
+                    <li><strong>FTP:</strong> Upload to partner server for processing</li>
+                    <li><strong>Archive:</strong> Store in document repository for compliance (7-year retention)</li>
+                    <li><strong>Print Queue:</strong> Send to networked printer for physical mailing</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Configuration Steps</h2>
+                
+                <h3>Setup Process</h3>
+                <ol>
+                    <li><strong>Install BI Publisher:</strong> Separate server installation (Oracle middleware)</li>
+                    <li><strong>Configure Integration:</strong> Siebel → BI Publisher connection (SOAP web service)</li>
+                    <li><strong>Design Template:</strong> Create RTF template in Word with BI Publisher Add-In</li>
+                    <li><strong>Upload Template:</strong> Upload to BI Publisher report catalog</li>
+                    <li><strong>Create Report Definition:</strong> In Siebel Tools, define report (data query + template)</li>
+                    <li><strong>Test:</strong> Run report with sample data, verify output</li>
+                    <li><strong>Deploy:</strong> Make available to users or schedule automated runs</li>
+                </ol>
+
+                <h3>User Experience</h3>
+                <ul>
+                    <li><strong>Siebel UI:</strong> User clicks "Generate Invoice" button on Account screen</li>
+                    <li><strong>Processing:</strong> Progress indicator "Generating document... 3 seconds"</li>
+                    <li><strong>Result:</strong> PDF opens in new browser tab (or auto-downloads)</li>
+                    <li><strong>Actions:</strong> User can print, email, save to local disk, attach to SR</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Template Version Control:</strong> Store templates in source control (Git), track changes</li>
+                    <li><strong>Performance:</strong> Limit data to necessary fields (don't extract entire database)</li>
+                    <li><strong>Testing:</strong> Test templates with edge cases (100-line invoice, special characters, null values)</li>
+                    <li><strong>Error Handling:</strong> If template merge fails, log error and notify admin (don't crash)</li>
+                    <li><strong>Security:</strong> User sees only data they have access to (row-level security applied in Siebel query)</li>
+                </ul>
+            </div>
+
+            <div class="page-navigation">
+                <a href="6_advanced_reporting.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Advanced Reporting</span>
+                </a>
+                <div class="nav-center">
+                    Page 7 of 15
+                </div>
+                <a href="8_dashboards.html" class="nav-btn nav-btn-next">
+                    <span>Dashboards</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

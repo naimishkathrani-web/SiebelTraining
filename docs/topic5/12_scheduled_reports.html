@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduled Reports - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Scheduled Reports</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+
+            <h1 class="page-title">Automated Report Scheduling</h1>
+
+            <div class="section">
+                <h2>Why Schedule Reports?</h2>
+                <p>Automated report delivery saves time and ensures stakeholders receive critical data without manual intervention.</p>
+
+                <h3>Benefits</h3>
+                <ul>
+                    <li><strong>Consistency:</strong> Reports delivered same time every week (predictable)</li>
+                    <li><strong>Time Savings:</strong> No manual running/emailing (automation handles it)</li>
+                    <li><strong>Timeliness:</strong> Executives get Monday morning report at 7 AM (before they arrive)</li>
+                    <li><strong>Reduced Errors:</strong> No forgotten reports or wrong recipients</li>
+                    <li><strong>Scalability:</strong> One schedule sends to 100 recipients (no extra effort)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Common Scheduling Patterns</h2>
+                
+                <h3>Daily Reports</h3>
+                <ul>
+                    <li><strong>Use Case:</strong> Sales activity summary (calls, meetings, opps created)</li>
+                    <li><strong>Schedule:</strong> Every weekday at 6 AM</li>
+                    <li><strong>Recipients:</strong> Sales managers (review before team standup)</li>
+                    <li><strong>Format:</strong> Excel attachment (sortable data)</li>
+                </ul>
+
+                <h3>Weekly Reports</h3>
+                <ul>
+                    <li><strong>Use Case:</strong> Pipeline review (opportunities by stage, close dates)</li>
+                    <li><strong>Schedule:</strong> Every Monday at 7 AM</li>
+                    <li><strong>Recipients:</strong> Sales VPs, Directors</li>
+                    <li><strong>Format:</strong> PDF with charts (executive summary)</li>
+                </ul>
+
+                <h3>Monthly Reports</h3>
+                <ul>
+                    <li><strong>Use Case:</strong> Revenue summary (actuals vs budget vs forecast)</li>
+                    <li><strong>Schedule:</strong> 1st of month at 8 AM</li>
+                    <li><strong>Recipients:</strong> CFO, CEO, Board</li>
+                    <li><strong>Format:</strong> PowerPoint (ready for board meeting)</li>
+                </ul>
+
+                <h3>Quarterly Reports</h3>
+                <ul>
+                    <li><strong>Use Case:</strong> Customer satisfaction trends (CSAT, NPS, churn rate)</li>
+                    <li><strong>Schedule:</strong> 1st day of Q2, Q3, Q4, Q1 (Apr 1, Jul 1, Oct 1, Jan 1)</li>
+                    <li><strong>Recipients:</strong> Executive team, Customer Success</li>
+                    <li><strong>Format:</strong> PDF report (20 pages, detailed analysis)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Setting Up a Scheduled Report</h2>
+                
+                <h3>Step 1: Create/Select Report</h3>
+                <ul>
+                    <li>Navigate to <strong>Reports → My Reports</strong></li>
+                    <li>Select existing report: "Weekly Pipeline Summary"</li>
+                    <li>Or create new custom report (follow previous lessons)</li>
+                </ul>
+
+                <h3>Step 2: Configure Schedule</h3>
+                <ol>
+                    <li>Click <strong>Schedule</strong> button</li>
+                    <li><strong>Frequency:</strong> Select "Weekly"</li>
+                    <li><strong>Day:</strong> Monday</li>
+                    <li><strong>Time:</strong> 7:00 AM (server timezone: EST)</li>
+                    <li><strong>Start Date:</strong> Next Monday (Nov 11, 2025)</li>
+                    <li><strong>End Date:</strong> None (runs indefinitely) OR specific date (Dec 31, 2025)</li>
+                </ol>
+
+                <h3>Step 3: Set Parameters</h3>
+                <ul>
+                    <li><strong>Date Range:</strong> "Last 7 Days" (dynamic, always shows previous week)</li>
+                    <li><strong>Territory:</strong> "All" (or specific territory if needed)</li>
+                    <li><strong>Owner:</strong> "Current User's Team" (report shows each manager's team)</li>
+                </ul>
+
+                <h3>Step 4: Choose Output Format</h3>
+                <ul>
+                    <li><strong>PDF:</strong> Best for executives (formatted, charts)</li>
+                    <li><strong>Excel:</strong> Best for analysts (sortable, pivot tables)</li>
+                    <li><strong>CSV:</strong> Best for imports (raw data, no formatting)</li>
+                    <li><strong>HTML:</strong> Best for email body (no attachment, inline viewing)</li>
+                </ul>
+
+                <h3>Step 5: Configure Delivery</h3>
+                <ul>
+                    <li><strong>Email Recipients:</strong> sales-vp@company.com, director1@company.com, director2@company.com</li>
+                    <li><strong>Subject:</strong> "Weekly Pipeline Report - [Date]" (auto-populates date)</li>
+                    <li><strong>Body:</strong> "Attached is this week's pipeline summary. Total pipeline: $12.5M, Top 10 deals listed."</li>
+                    <li><strong>Attachment:</strong> "Pipeline_Report_2025-11-11.pdf"</li>
+                </ul>
+
+                <h3>Step 6: Save & Activate</h3>
+                <ul>
+                    <li>Click <strong>Save Schedule</strong></li>
+                    <li>Schedule appears in "My Scheduled Reports" list</li>
+                    <li>Status: Active (green indicator)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Advanced Scheduling Options</h2>
+                
+                <h3>Conditional Delivery</h3>
+                <ul>
+                    <li><strong>Only if data exists:</strong> Don't send empty report (if no new SRs today, skip email)</li>
+                    <li><strong>Only if threshold met:</strong> Alert if pipeline < $10M (send email with warning)</li>
+                    <li><strong>Only on business days:</strong> Skip holidays (US holiday calendar)</li>
+                </ul>
+
+                <h3>Bursting</h3>
+                <p>One schedule generates personalized reports for multiple recipients.</p>
+                <div class="key-point">
+                    <strong>Example: Territory Manager Reports</strong>
+                    <ul>
+                        <li><strong>Schedule:</strong> Weekly, Monday 7 AM</li>
+                        <li><strong>Report:</strong> "My Territory Performance"</li>
+                        <li><strong>Bursting Key:</strong> Territory (Northeast, Southeast, West)</li>
+                        <li><strong>Result:</strong>
+                            <ul>
+                                <li>Northeast Manager receives report filtered to Northeast data only</li>
+                                <li>Southeast Manager receives report filtered to Southeast data only</li>
+                                <li>West Manager receives report filtered to West data only</li>
+                            </ul>
+                        </li>
+                        <li><strong>Benefit:</strong> One schedule → 3 personalized emails (instead of creating 3 separate schedules)</li>
+                    </ul>
+                </div>
+
+                <h3>Cascading Parameters</h3>
+                <ul>
+                    <li><strong>Dynamic Date:</strong> "Last Week" always shows previous 7 days (not static dates)</li>
+                    <li><strong>Rolling Quarter:</strong> "Current Quarter" automatically updates (Q4 2024 → Q1 2025 on Jan 1)</li>
+                    <li><strong>Relative Owner:</strong> "My Team" shows current user's team (different for each recipient)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Managing Scheduled Reports</h2>
+                
+                <h3>Monitor Execution</h3>
+                <ul>
+                    <li>Navigate to <strong>Administration → Scheduled Reports → History</strong></li>
+                    <li>View execution log:
+                        <ul>
+                            <li>Nov 4, 7:00 AM - Success (delivered to 5 recipients)</li>
+                            <li>Oct 28, 7:00 AM - Success (delivered to 5 recipients)</li>
+                            <li>Oct 21, 7:00 AM - Failed (SMTP server unavailable - retried at 7:15 AM, success)</li>
+                        </ul>
+                    </li>
+                    <li>Click execution → View generated PDF (audit what was sent)</li>
+                </ul>
+
+                <h3>Pause/Resume Schedule</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> VP on vacation for 2 weeks (don't want daily reports)</li>
+                    <li><strong>Action:</strong> Select schedule → Click "Pause" → Status: Paused (yellow)</li>
+                    <li><strong>Resume:</strong> VP returns → Click "Resume" → Status: Active (green)</li>
+                </ul>
+
+                <h3>Edit Schedule</h3>
+                <ul>
+                    <li><strong>Change frequency:</strong> Weekly → Daily (more frequent updates)</li>
+                    <li><strong>Add recipient:</strong> New manager joins, add to distribution list</li>
+                    <li><strong>Update filters:</strong> Report now shows only "High Priority" opportunities</li>
+                </ul>
+
+                <h3>Delete Schedule</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> Report no longer needed (project completed)</li>
+                    <li><strong>Action:</strong> Select schedule → Click "Delete" → Confirm</li>
+                    <li><strong>Result:</strong> No future executions, history preserved (audit trail)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Error Handling</h2>
+                
+                <h3>Common Errors</h3>
+                <ul>
+                    <li><strong>Email Delivery Failed:</strong> Recipient mailbox full (retry 3 times, then notify admin)</li>
+                    <li><strong>Report Timeout:</strong> Query too slow (> 5 min) → Optimize query or schedule during off-hours</li>
+                    <li><strong>No Data:</strong> Filters too restrictive (0 records) → Send "No data found" email or skip</li>
+                    <li><strong>Server Down:</strong> Database maintenance window (schedule around it, or auto-retry)</li>
+                </ul>
+
+                <h3>Notifications</h3>
+                <ul>
+                    <li><strong>Admin Alert:</strong> If 3 consecutive failures → Email to report admin</li>
+                    <li><strong>Success Confirmation:</strong> Optional "Report sent successfully" email to creator</li>
+                    <li><strong>Recipient Confirmation:</strong> Track email opens (know if executives are reading reports)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Off-Peak Execution:</strong> Schedule heavy reports at night/weekends (avoid peak hours, reduce database load)</li>
+                    <li><strong>Limit Frequency:</strong> Don't over-email (daily reports should be 1 page, not 50 pages)</li>
+                    <li><strong>Clear Subject Lines:</strong> "Weekly Pipeline - [Date]" (recipients know what it is)</li>
+                    <li><strong>Test First:</strong> Run manually before scheduling (verify output, recipients)</li>
+                    <li><strong>Document Schedules:</strong> Maintain list of all scheduled reports (owner, purpose, recipients)</li>
+                    <li><strong>Regular Review:</strong> Quarterly audit - delete unused schedules (reduce clutter, server load)</li>
+                    <li><strong>Versioning:</strong> If report definition changes, notify recipients (new columns, filters)</li>
+                    <li><strong>Unsubscribe Option:</strong> Let recipients opt-out (if no longer relevant to them)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: End-of-Month Revenue Report</h2>
+                <div class="key-point">
+                    <strong>Configuration:</strong>
+                    <ul>
+                        <li><strong>Report:</strong> "Monthly Revenue Summary" (actuals, budget, variance)</li>
+                        <li><strong>Schedule:</strong> Last day of month, 11 PM (runs after all deals are entered)</li>
+                        <li><strong>Parameters:</strong> Date Range = "Current Month" (Jan 1-31, Feb 1-28, etc.)</li>
+                        <li><strong>Output:</strong> PDF with executive summary + Excel with detailed transactions</li>
+                        <li><strong>Recipients:</strong> CFO (PDF + Excel), CEO (PDF only), Finance Team (Excel only)</li>
+                        <li><strong>Email:</strong>
+                            <ul>
+                                <li>Subject: "October 2024 Revenue Report - $4.2M (8% above budget)"</li>
+                                <li>Body: "Revenue: $4.2M, Budget: $3.9M, Variance: +$300K (+8%). Top performer: Enterprise team $1.8M."</li>
+                            </ul>
+                        </li>
+                        <li><strong>Follow-Up:</strong> CFO reviews at 8 AM next day (ready for board meeting)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="11_data_visualization.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Data Visualization</span>
+                </a>
+                <div class="nav-center">
+                    Page 12 of 15
+                </div>
+                <a href="13_report_security.html" class="nav-btn nav-btn-next">
+                    <span>Report Security</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

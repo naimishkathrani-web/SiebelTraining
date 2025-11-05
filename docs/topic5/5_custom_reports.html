@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Custom Reports - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Creating Custom Reports</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 33%;"></div>
+            </div>
+
+            <h1 class="page-title">Creating Custom Reports</h1>
+
+            <div class="section">
+                <h2>When to Create Custom Reports</h2>
+                <p>Standard reports cover 80% of use cases, but custom reports are needed for:</p>
+                <ul>
+                    <li>Company-specific metrics (e.g., "5G Adoption Rate" for TelecomCo)</li>
+                    <li>Unique data combinations (e.g., "Opportunities with expired quotes")</li>
+                    <li>Executive dashboards with branded layouts</li>
+                    <li>Regulatory compliance reports</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Report Designer (Web Tools)</h2>
+                <p>Build reports using drag-and-drop interface without coding.</p>
+
+                <h3>Step 1: Create New Report</h3>
+                <ol>
+                    <li>Navigate to <strong>Administration → Reports → New Report</strong></li>
+                    <li>Enter report name: "High-Value Opportunities Expiring Soon"</li>
+                    <li>Select business component: <strong>Opportunity</strong></li>
+                    <li>Choose report type: <strong>Tabular</strong> (or Summary, Chart)</li>
+                </ol>
+
+                <h3>Step 2: Add Fields</h3>
+                <ul>
+                    <li>Available Fields panel shows all Opportunity BC fields</li>
+                    <li>Drag fields to "Selected Fields" panel:
+                        <ul>
+                            <li>Account Name</li>
+                            <li>Opportunity Name</li>
+                            <li>Revenue</li>
+                            <li>Close Date</li>
+                            <li>Sales Stage</li>
+                            <li>Owner</li>
+                        </ul>
+                    </li>
+                    <li>Reorder fields by dragging up/down (determines column order)</li>
+                </ul>
+
+                <h3>Step 3: Define Filters</h3>
+                <div class="key-point">
+                    <strong>Filter Criteria:</strong>
+                    <ul>
+                        <li><strong>Revenue:</strong> Greater Than $50,000</li>
+                        <li><strong>Close Date:</strong> Between Today AND Today + 30 days</li>
+                        <li><strong>Sales Stage:</strong> NOT IN ('Closed Won', 'Closed Lost')</li>
+                        <li><strong>Logic:</strong> All conditions must be true (AND)</li>
+                    </ul>
+                </div>
+
+                <h3>Step 4: Sorting & Grouping</h3>
+                <ul>
+                    <li><strong>Sort:</strong> Close Date (Ascending) → Nearest deadlines first</li>
+                    <li><strong>Group By:</strong> Sales Stage → Show opportunities grouped by stage
+                        <ul>
+                            <li>Prospecting (15 opportunities, $2.1M total)</li>
+                            <li>Negotiation (8 opportunities, $1.8M total)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Subtotals:</strong> Sum of Revenue per group</li>
+                </ul>
+
+                <h3>Step 5: Formatting</h3>
+                <ul>
+                    <li><strong>Column Width:</strong> Account Name = 200px, Revenue = 100px</li>
+                    <li><strong>Number Format:</strong> Revenue displays as "$50,000" (currency, 0 decimals)</li>
+                    <li><strong>Date Format:</strong> Close Date shows as "01/15/2024" (MM/DD/YYYY)</li>
+                    <li><strong>Conditional Formatting:</strong> Close Date < Today + 7 days → Highlight red</li>
+                </ul>
+
+                <h3>Step 6: Save & Test</h3>
+                <ol>
+                    <li>Click <strong>Save Report</strong></li>
+                    <li>Click <strong>Preview</strong> → Report runs with sample data</li>
+                    <li>Verify: 23 opportunities displayed, sorted correctly, totals accurate</li>
+                    <li>Click <strong>Publish</strong> → Make available to other users</li>
+                </ol>
+            </div>
+
+            <div class="section">
+                <h2>Report Types</h2>
+                
+                <h3>Tabular Reports</h3>
+                <ul>
+                    <li>Simple row/column layout (like Excel)</li>
+                    <li>Best for: Detailed data lists, exports</li>
+                    <li>Example: Contact list with name, email, phone, company</li>
+                </ul>
+
+                <h3>Summary Reports</h3>
+                <ul>
+                    <li>Grouped data with subtotals</li>
+                    <li>Best for: Aggregated metrics (revenue by territory)</li>
+                    <li>Example: Opportunities grouped by Rep → Sum revenue per rep</li>
+                </ul>
+
+                <h3>Chart Reports</h3>
+                <ul>
+                    <li>Visual graphs (bar, line, pie)</li>
+                    <li>Best for: Trends, comparisons, executive dashboards</li>
+                    <li>Example: Pipeline by stage (bar chart), Win rate trend (line chart)</li>
+                </ul>
+
+                <h3>Matrix Reports</h3>
+                <ul>
+                    <li>Cross-tab layout (rows and columns are dimensions)</li>
+                    <li>Best for: Multi-dimensional analysis</li>
+                    <li>Example: Revenue by Product (rows) × Territory (columns)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Advanced Features</h2>
+                
+                <h3>Calculated Fields</h3>
+                <ul>
+                    <li><strong>Formula:</strong> Weighted Revenue = [Revenue] × [Probability] / 100</li>
+                    <li><strong>Days to Close:</strong> [Close Date] - [Today]</li>
+                    <li><strong>Full Name:</strong> [First Name] + " " + [Last Name]</li>
+                </ul>
+
+                <h3>Prompts (User Input)</h3>
+                <ul>
+                    <li>When running report, user enters values:
+                        <ul>
+                            <li>Prompt: "Enter minimum revenue:" → User types "100000"</li>
+                            <li>Prompt: "Select territory:" → User chooses from dropdown (West, East, etc.)</li>
+                        </ul>
+                    </li>
+                    <li>Report filters dynamically based on user input</li>
+                </ul>
+
+                <h3>Multi-BC Reports</h3>
+                <ul>
+                    <li>Combine data from multiple business components</li>
+                    <li><strong>Example:</strong> Opportunity BC + Product BC → Show opportunities with product line items</li>
+                    <li><strong>Join:</strong> Link via foreign key (Opportunity.Id = Product.OpportunityId)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Example: Custom Report Workflow</h2>
+                <div class="key-point">
+                    <strong>Requirement:</strong> Marketing wants "Campaign ROI by Channel" report
+                    <ol>
+                        <li><strong>Create Report:</strong> Name = "Campaign ROI Analysis", BC = Campaign</li>
+                        <li><strong>Add Fields:</strong> Campaign Name, Channel (Email/SMS/Event), Budget, Leads Generated, Revenue</li>
+                        <li><strong>Add Calculated Field:</strong> ROI = ([Revenue] - [Budget]) / [Budget] × 100</li>
+                        <li><strong>Filter:</strong> Campaign Status = 'Completed', Start Date = Last 12 months</li>
+                        <li><strong>Group By:</strong> Channel → Show Email, SMS, Event sections</li>
+                        <li><strong>Sort:</strong> ROI (Descending) → Best-performing campaigns first</li>
+                        <li><strong>Format:</strong> ROI displays as "250%" with green background if > 100%, red if < 100%</li>
+                        <li><strong>Save & Share:</strong> Publish to Marketing team</li>
+                        <li><strong>Result:</strong> Report shows Email = 180% ROI, SMS = 220% ROI, Events = 90% ROI → Focus on SMS campaigns</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="page-navigation">
+                <a href="4_running_reports.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Running Reports</span>
+                </a>
+                <div class="nav-center">
+                    Page 5 of 15
+                </div>
+                <a href="6_advanced_reporting.html" class="nav-btn nav-btn-next">
+                    <span>Advanced Reporting</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

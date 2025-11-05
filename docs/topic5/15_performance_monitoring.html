@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Monitoring - Reporting & Analytics - Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body data-module-id="day2_topic5">
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 2 - Topic 5</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 5: Reporting & Analytics</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Performance Monitoring</span>
+        </nav>
+
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 100%;"></div>
+            </div>
+
+            <h1 class="page-title">Report Performance Monitoring & Optimization</h1>
+
+            <div class="section">
+                <h2>Why Performance Matters</h2>
+                <p>Slow reports frustrate users, reduce adoption, and strain database resources.</p>
+
+                <h3>Performance Expectations</h3>
+                <ul>
+                    <li><strong>Small Report:</strong> < 1,000 rows → < 5 seconds</li>
+                    <li><strong>Medium Report:</strong> 1,000-10,000 rows → < 30 seconds</li>
+                    <li><strong>Large Report:</strong> 10,000-100,000 rows → < 2 minutes</li>
+                    <li><strong>Massive Report:</strong> > 100,000 rows → Consider data warehouse (not real-time Siebel)</li>
+                </ul>
+
+                <h3>Impact of Slow Reports</h3>
+                <ul>
+                    <li><strong>User Frustration:</strong> Manager waits 5 minutes → Closes tab → Never runs report again</li>
+                    <li><strong>Database Load:</strong> 50 users run slow report simultaneously → Database CPU spikes to 100% → Entire CRM slows down</li>
+                    <li><strong>Timeouts:</strong> Query runs 10 minutes → Application server timeout (300 sec) → Error message, no results</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Performance Monitoring Tools</h2>
+                
+                <h3>Report Execution Log</h3>
+                <p>Navigate to <strong>Administration → Analytics → Report Performance</strong></p>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr style="background: #f5f5f5; border: 1px solid #ddd;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Report Name</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Avg Time</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Max Time</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Runs (30d)</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border: 1px solid #ddd;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Daily Activity</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">2.3 sec</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">5.1 sec</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">847</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; color: green;">✓ Good</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd; background: #fff9e6;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Pipeline Analysis</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">28.5 sec</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">67.2 sec</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">234</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; color: orange;">⚠ Slow</td>
+                        </tr>
+                        <tr style="border: 1px solid #ddd; background: #ffcccc;">
+                            <td style="padding: 10px; border: 1px solid #ddd;">Historical Trends</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">4m 23s</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">8m 15s</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">12</td>
+                            <td style="padding: 10px; border: 1px solid #ddd; color: red;">✗ Critical</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Action:</strong> "Historical Trends" report needs optimization (4+ min average)</p>
+
+                <h3>SQL Execution Plan</h3>
+                <p>View the actual database query generated by report.</p>
+                <div class="code-block">
+                    <pre>
+EXPLAIN PLAN FOR
+SELECT s.NAME, s.REVENUE, s.CLOSE_DT, a.NAME as ACCOUNT
+FROM S_OPTY s
+  LEFT JOIN S_ORG_EXT a ON s.BU_ID = a.ROW_ID
+WHERE s.CLOSE_DT >= '2024-01-01'
+  AND s.SALES_STAGE != 'Closed Lost'
+ORDER BY s.REVENUE DESC;
+
+Execution Plan:
+  1. TABLE ACCESS FULL on S_OPTY (Cost: 1500) ⚠ Full table scan
+  2. INDEX RANGE SCAN on S_ORG_EXT_IDX (Cost: 3) ✓ Using index
+  3. HASH JOIN (Cost: 1750)
+  4. SORT ORDER BY (Cost: 200)
+Total Cost: 3453
+                    </pre>
+                </div>
+                <p><strong>Issue:</strong> Full table scan on S_OPTY (millions of rows) → Need index on CLOSE_DT</p>
+            </div>
+
+            <div class="section">
+                <h2>Common Performance Bottlenecks</h2>
+                
+                <h3>1. Missing Indexes</h3>
+                <ul>
+                    <li><strong>Problem:</strong> Query filters on CLOSE_DT but no index exists → Database scans entire table (2M rows)</li>
+                    <li><strong>Solution:</strong> Create index: CREATE INDEX IDX_OPTY_CLOSE_DT ON S_OPTY(CLOSE_DT)</li>
+                    <li><strong>Result:</strong> Query time drops from 45 sec to 3 sec (15x faster)</li>
+                </ul>
+
+                <h3>2. Too Many Joins</h3>
+                <ul>
+                    <li><strong>Problem:</strong> Report joins 8 tables (Opportunity → Account → Contact → Product → Territory → Rep → Manager → Department)</li>
+                    <li><strong>Solution:</strong> 
+                        <ul>
+                            <li>Reduce to necessary joins only (do you really need Department?)</li>
+                            <li>OR create denormalized view (pre-join tables overnight, query view in report)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>3. Calculated Fields</h3>
+                <ul>
+                    <li><strong>Problem:</strong> Weighted Revenue = Revenue × Probability / 100 (calculated for each row at query time)</li>
+                    <li><strong>Solution:</strong> Store calculated value in database (update trigger recalculates when Revenue or Probability changes)</li>
+                    <li><strong>Trade-off:</strong> More storage (new column) but faster queries</li>
+                </ul>
+
+                <h3>4. Large Result Sets</h3>
+                <ul>
+                    <li><strong>Problem:</strong> User runs "All Opportunities" → Returns 500,000 rows → Browser crashes</li>
+                    <li><strong>Solution:</strong>
+                        <ul>
+                            <li>Add default filter (Close Date within last 12 months) → Reduces to 50,000 rows</li>
+                            <li>Pagination (show 1,000 rows per page, load more on demand)</li>
+                            <li>Summary first (show totals, drill-down loads details)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>5. No Query Limits</h3>
+                <ul>
+                    <li><strong>Problem:</strong> Query has no LIMIT clause → Database processes millions of rows unnecessarily</li>
+                    <li><strong>Solution:</strong> Add LIMIT 10000 (or user-specified max rows)</li>
+                    <li><strong>Example:</strong> "Top 100 Deals" should have LIMIT 100 (not retrieve 1M then show 100)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Optimization Techniques</h2>
+                
+                <h3>Caching</h3>
+                <ul>
+                    <li><strong>Report-Level Cache:</strong> Store query results for 15 minutes (subsequent runs read from cache)</li>
+                    <li><strong>Use Case:</strong> "Daily Activity" report run by 100 users at 9 AM → First user triggers query (10 sec), next 99 users get cached result (instant)</li>
+                    <li><strong>Invalidation:</strong> Cache expires after 15 min OR when underlying data changes</li>
+                </ul>
+
+                <h3>Pre-Aggregation</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> "Monthly Revenue by Territory" report sums 1M opportunities every time</li>
+                    <li><strong>Solution:</strong> Nightly job pre-calculates monthly totals → Stores in summary table (12 months × 4 territories = 48 rows)</li>
+                    <li><strong>Report:</strong> Queries summary table (48 rows) instead of opportunities (1M rows) → Sub-second response</li>
+                </ul>
+
+                <h3>Materialized Views</h3>
+                <ul>
+                    <li><strong>Definition:</strong> Pre-computed query result stored as table (database manages refresh)</li>
+                    <li><strong>Example:</strong> MV_PIPELINE_SUMMARY (query joins Opportunity + Account + Product, refreshed nightly)</li>
+                    <li><strong>Benefit:</strong> Complex joins done once (overnight), reports query simple view (fast)</li>
+                </ul>
+
+                <h3>Partitioning</h3>
+                <ul>
+                    <li><strong>Scenario:</strong> S_OPTY table has 5M rows (10 years of data)</li>
+                    <li><strong>Solution:</strong> Partition by year (2015 partition, 2016 partition, ... 2025 partition)</li>
+                    <li><strong>Query:</strong> "Show 2024 opportunities" → Database scans only 2024 partition (500K rows) instead of entire table (5M rows)</li>
+                    <li><strong>Result:</strong> 10x faster queries (fewer rows scanned)</li>
+                </ul>
+
+                <h3>Query Rewriting</h3>
+                <p><strong>Before:</strong> Inefficient subquery</p>
+                <div class="code-block">
+                    <pre>
+SELECT * FROM S_OPTY
+WHERE OWNER_ID IN (
+  SELECT ROW_ID FROM S_USER WHERE TERRITORY = 'Northeast'
+)
+-- Slow: Subquery runs for each row
+                    </pre>
+                </div>
+                <p><strong>After:</strong> Efficient join</p>
+                <div class="code-block">
+                    <pre>
+SELECT o.* FROM S_OPTY o
+INNER JOIN S_USER u ON o.OWNER_ID = u.ROW_ID
+WHERE u.TERRITORY = 'Northeast'
+-- Fast: Single join operation
+                    </pre>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Monitoring Dashboards</h2>
+                
+                <h3>Database Performance</h3>
+                <ul>
+                    <li><strong>CPU Usage:</strong> < 70% average (spike to 90% during peak hours is OK)</li>
+                    <li><strong>Memory:</strong> < 80% utilized (avoid swapping to disk)</li>
+                    <li><strong>Disk I/O:</strong> < 50 MB/s (high I/O = slow queries, need more RAM for cache)</li>
+                    <li><strong>Active Connections:</strong> < 200 (1,000 users, but not all query simultaneously)</li>
+                </ul>
+
+                <h3>Report Server Metrics</h3>
+                <ul>
+                    <li><strong>Concurrent Reports:</strong> Max 50 (throttle to prevent overload)</li>
+                    <li><strong>Queue Depth:</strong> If 10 reports waiting → Add more report servers (load balancing)</li>
+                    <li><strong>Memory per Report:</strong> < 500 MB (large reports consume too much memory)</li>
+                </ul>
+
+                <h3>Alerting</h3>
+                <ul>
+                    <li><strong>Slow Report Alert:</strong> If report > 60 sec → Email to admin (investigate)</li>
+                    <li><strong>Timeout Alert:</strong> If 5 reports timeout in 1 hour → Critical alert (system issue)</li>
+                    <li><strong>Usage Spike:</strong> If report runs 10x more than usual → Investigate (is someone bulk exporting?)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Best Practices</h2>
+                <ul>
+                    <li><strong>Design for Performance:</strong> Consider performance from the start (not after users complain)</li>
+                    <li><strong>Limit Data:</strong> Default to "Last 90 Days" not "All Time" (users can override if needed)</li>
+                    <li><strong>Pagination:</strong> Show 100 rows per page (not all 50,000 at once)</li>
+                    <li><strong>Summary First:</strong> Show high-level totals (drill-down for details on demand)</li>
+                    <li><strong>Index Strategy:</strong> Index all filter columns (CLOSE_DT, STATUS, OWNER_ID, TERRITORY)</li>
+                    <li><strong>Regular Maintenance:</strong> Weekly analyze tables, rebuild indexes (keeps stats current)</li>
+                    <li><strong>Archive Old Data:</strong> Move 5+ year old data to archive database (reduces active table size)</li>
+                    <li><strong>Monitor Trends:</strong> Track query time over months (if gradually slowing, data growth issue)</li>
+                    <li><strong>User Education:</strong> Teach users to use filters (don't run "All Opportunities" unnecessarily)</li>
+                    <li><strong>Off-Peak Scheduling:</strong> Heavy reports run at night (don't compete with daytime users)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Case Study: Optimizing "Historical Trends" Report</h2>
+                
+                <div class="key-point">
+                    <strong>Initial State:</strong>
+                    <ul>
+                        <li><strong>Performance:</strong> 4 min 23 sec average (unacceptable)</li>
+                        <li><strong>Query:</strong> Sums revenue for every month, every territory, every product (10 years × 12 months × 4 territories × 20 products = 9,600 calculations)</li>
+                        <li><strong>Data:</strong> Queries 5M opportunities directly</li>
+                    </ul>
+                </div>
+
+                <div class="key-point">
+                    <strong>Optimization Steps:</strong>
+                    <ol>
+                        <li><strong>Create Summary Table:</strong> REVENUE_SUMMARY_MV (pre-aggregated by month/territory/product, nightly refresh) → 9,600 rows instead of 5M</li>
+                        <li><strong>Add Indexes:</strong> Index on (YEAR, MONTH, TERRITORY, PRODUCT) → Fast lookups</li>
+                        <li><strong>Rewrite Query:</strong> Query summary table instead of S_OPTY</li>
+                        <li><strong>Add Cache:</strong> Cache results for 1 hour (data refreshes nightly, no need for real-time)</li>
+                    </ol>
+                </div>
+
+                <div class="key-point">
+                    <strong>Results:</strong>
+                    <ul>
+                        <li><strong>New Performance:</strong> 2.1 seconds (124x faster!)</li>
+                        <li><strong>Database Load:</strong> CPU usage during report run: 90% → 5% (minimal impact)</li>
+                        <li><strong>User Adoption:</strong> Report runs increased from 12/month to 200/month (users actually use it now)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Conclusion: Reporting & Analytics Mastery</h2>
+                <p>You've now completed the comprehensive Reporting & Analytics module. You've learned:</p>
+                <ul>
+                    <li>✓ Standard reports and how to run them effectively</li>
+                    <li>✓ Creating custom reports with advanced calculations</li>
+                    <li>✓ BI Publisher for enterprise-grade document generation</li>
+                    <li>✓ Building interactive dashboards with KPIs</li>
+                    <li>✓ Real-time analytics for immediate decision-making</li>
+                    <li>✓ Data visualization best practices</li>
+                    <li>✓ Scheduled reports for automated delivery</li>
+                    <li>✓ Security and compliance requirements</li>
+                    <li>✓ Data export strategies for system integration</li>
+                    <li>✓ Performance monitoring and optimization</li>
+                </ul>
+                <p><strong>Next Steps:</strong> Apply these skills to create reports that drive business decisions and provide actionable insights to your organization.</p>
+            </div>
+
+            <div class="page-navigation">
+                <a href="14_data_export.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Data Export</span>
+                </a>
+                <div class="nav-center">
+                    Page 15 of 15
+                </div>
+                <a href="index.html" class="nav-btn nav-btn-next">
+                    <span>Back to Topic Overview</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

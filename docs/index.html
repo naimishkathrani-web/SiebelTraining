@@ -253,8 +253,8 @@
           <div class="hero-stat-label">16 Hours</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-value">11 Topics</div>
-          <div class="hero-stat-label">Micro-Lessons</div>
+          <div class="hero-stat-value">5 Topics</div>
+          <div class="hero-stat-label">63 Micro-Lessons</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-value">6 Labs</div>
@@ -324,6 +324,30 @@
         <a href="assessments/topic1_quiz.html" class="btn btn-secondary" style="margin-left: 8px;">Quiz →</a>
       </div>
 
+      <div class="module-card" data-module-id="day1_topic2">
+        <div class="module-badge">Topic 2</div>
+        <h3 class="module-title">🔧 Configuring Siebel Applications</h3>
+        <div class="module-description">
+          Master Siebel Tools, workspaces, data model, business components, workflows, and UI customization (9 micro-topics, ~120 min).
+        </div>
+        <div class="module-progress">
+          <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day1_topic2">Not Started</span></div>
+        </div>
+        <a href="topic2/index.html" class="btn btn-primary" style="margin-top: 16px;">Start →</a>
+      </div>
+
+      <div class="module-card" data-module-id="day1_topic3">
+        <div class="module-badge">Topic 3</div>
+        <h3 class="module-title">📊 Managing Customer Data</h3>
+        <div class="module-description">
+          Data quality, accuracy, cleansing, EIM, segmentation, and service request management (8 micro-topics, ~90 min).
+        </div>
+        <div class="module-progress">
+          <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day1_topic3">Not Started</span></div>
+        </div>
+        <a href="topic3/index.html" class="btn btn-primary" style="margin-top: 16px;">Start →</a>
+      </div>
+
       <div class="module-card practical" data-module-id="day1_practicals">
         <div class="module-badge practical">Labs</div>
         <h3 class="module-title">Day 1 Hands-On Labs</h3>
@@ -341,6 +365,30 @@
     <h2 style="margin-top: 32px; margin-bottom: 16px; color: #0b66c3;">📅 Day 2</h2>
 
     <div class="modules-grid">
+      <div class="module-card" data-module-id="day2_topic4">
+        <div class="module-badge">Topic 4</div>
+        <h3 class="module-title">🚀 Advanced Features</h3>
+        <div class="module-description">
+          Sales automation, marketing campaigns, service operations, integrations, mobile CRM, and Open UI (20 micro-topics, ~200 min).
+        </div>
+        <div class="module-progress">
+          <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day2_topic4">Not Started</span></div>
+        </div>
+        <a href="topic4/index.html" class="btn btn-primary" style="margin-top: 16px;">Start →</a>
+      </div>
+
+      <div class="module-card" data-module-id="day2_topic5">
+        <div class="module-badge">Topic 5</div>
+        <h3 class="module-title">📊 Reporting & Analytics</h3>
+        <div class="module-description">
+          Standard reports, custom reporting, dashboards, KPIs, real-time analytics, and data export (15 micro-topics, ~150 min).
+        </div>
+        <div class="module-progress">
+          <div class="module-progress-label">Status: <span class="status-badge status-not-started" id="status-day2_topic5">Not Started</span></div>
+        </div>
+        <a href="topic5/index.html" class="btn btn-primary" style="margin-top: 16px;">Start →</a>
+      </div>
+
       <div class="module-card practical" data-module-id="day2_practicals">
         <div class="module-badge practical">Labs</div>
         <h3 class="module-title">Day 2 Advanced Labs</h3>
@@ -373,7 +421,7 @@
   <script>
     // Update module status badges
     document.addEventListener('DOMContentLoaded', function() {
-      const modules = ['day1_topic1', 'day1_topic2', 'day1_topic3', 'day1_practicals', 'day2_topic1', 'day2_topic2', 'day2_practicals'];
+      const modules = ['day1_topic1', 'day1_topic2', 'day1_topic3', 'day1_practicals', 'day2_topic4', 'day2_topic5', 'day2_practicals'];
       
       modules.forEach(moduleId => {
         const status = ProgressTracker.getStatus(moduleId);

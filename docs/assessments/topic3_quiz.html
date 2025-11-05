@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 3 Quiz - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+  <style>
+    .quiz-item { margin-bottom: 16px; }
+    .quiz-item h4 { margin: 0 0 8px; }
+    .quiz-options label { display: block; margin-bottom: 6px; }
+    .quiz-result { padding: 12px; border-radius: 8px; margin-top: 12px; display:none; }
+    .quiz-result.pass { background: #dcfce7; color: #166534; }
+    .quiz-result.fail { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Topic 3 Quiz</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Assessments</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Topic 3 Quiz</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">📊 Topic 3 Quiz</h1>
+      <p class="lead">Test your knowledge of customer data management. Answer 5 questions. Passing score: 3/5.</p>
+
+      <form id="quizForm">
+        <div class="quiz-item card card-white">
+          <h4>1) Why is data quality important in CRM?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a"> It's not important</label>
+            <label><input type="radio" name="q1" value="b"> Poor data leads to bad decisions and customer dissatisfaction</label>
+            <label><input type="radio" name="q1" value="c"> Only for compliance purposes</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>2) What is EIM in Siebel?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a"> Email Integration Manager</label>
+            <label><input type="radio" name="q2" value="b"> Enterprise Integration Manager for batch data operations</label>
+            <label><input type="radio" name="q2" value="c"> External Interface Module</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>3) What is customer segmentation?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q3" value="a"> Dividing customers into groups based on characteristics</label>
+            <label><input type="radio" name="q3" value="b"> Blocking customers from service</label>
+            <label><input type="radio" name="q3" value="c"> A type of database partition</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>4) What is data deduplication?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q4" value="a"> Creating duplicate records</label>
+            <label><input type="radio" name="q4" value="b"> Identifying and merging duplicate records</label>
+            <label><input type="radio" name="q4" value="c"> Deleting all customer data</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>5) What is a Service Request in Siebel?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q5" value="a"> A request for new software features</label>
+            <label><input type="radio" name="q5" value="b"> A customer issue or inquiry that needs resolution</label>
+            <label><input type="radio" name="q5" value="c"> A server maintenance request</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="../topic3/index.html" class="btn btn-secondary" style="margin-left: 8px;">Back to Topic 3</a>
+      </form>
+
+      <div id="result" class="quiz-result"></div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Assessments</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const answers = { q1: 'b', q2: 'b', q3: 'a', q4: 'b', q5: 'b' };
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      }
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+      if (score >= 3) {
+        result.className = 'quiz-result pass';
+        result.innerHTML = `✅ <strong>Passed!</strong> Score: ${score}/5`;
+      } else {
+        result.className = 'quiz-result fail';
+        result.innerHTML = `❌ <strong>Not passed.</strong> Score: ${score}/5. Review Topic 3 and try again.`;
+      }
+    });
+  </script>
+</body>
+</html>

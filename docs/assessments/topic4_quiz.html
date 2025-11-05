@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 4 Quiz - Siebel Training</title>
+  <link rel="stylesheet" href="../css/training.css">
+  <style>
+    .quiz-item { margin-bottom: 16px; }
+    .quiz-item h4 { margin: 0 0 8px; }
+    .quiz-options label { display: block; margin-bottom: 6px; }
+    .quiz-result { padding: 12px; border-radius: 8px; margin-top: 12px; display:none; }
+    .quiz-result.pass { background: #dcfce7; color: #166534; }
+    .quiz-result.fail { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <div class="logo">Oracle Siebel CRM Training</div>
+        <div class="subtitle">Topic 4 Quiz</div>
+      </div>
+    </div>
+
+    <nav class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="index.html">Assessments</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Topic 4 Quiz</span>
+    </nav>
+
+    <div class="content">
+      <h1 class="subtopic-title">🚀 Topic 4 Quiz</h1>
+      <p class="lead">Test your knowledge of advanced Siebel features. Answer 5 questions. Passing score: 3/5.</p>
+
+      <form id="quizForm">
+        <div class="quiz-item card card-white">
+          <h4>1) What is the sales pipeline flow in Siebel?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q1" value="a"> Lead → Opportunity → Quote → Order</label>
+            <label><input type="radio" name="q1" value="b"> Order → Quote → Lead → Opportunity</label>
+            <label><input type="radio" name="q1" value="c"> Quote → Order → Lead → Opportunity</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>2) What is an SLA in Siebel Service?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q2" value="a"> Standard Login Account</label>
+            <label><input type="radio" name="q2" value="b"> Service Level Agreement defining response times</label>
+            <label><input type="radio" name="q2" value="c"> System Load Analyzer</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>3) What is the purpose of Siebel integration architecture?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q3" value="a"> To connect Siebel with external systems</label>
+            <label><input type="radio" name="q3" value="b"> To design user interfaces</label>
+            <label><input type="radio" name="q3" value="c"> To manage database backups</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>4) What is Siebel Mobile CRM?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q4" value="a"> A mobile phone manufacturer</label>
+            <label><input type="radio" name="q4" value="b"> Mobile access to Siebel with offline capabilities</label>
+            <label><input type="radio" name="q4" value="c"> A type of server</label>
+          </div>
+        </div>
+
+        <div class="quiz-item card card-white">
+          <h4>5) What is the Open UI Framework?</h4>
+          <div class="quiz-options">
+            <label><input type="radio" name="q5" value="a"> A modern JavaScript-based UI customization framework</label>
+            <label><input type="radio" name="q5" value="b"> A database query tool</label>
+            <label><input type="radio" name="q5" value="c"> A reporting module</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="../topic4/index.html" class="btn btn-secondary" style="margin-left: 8px;">Back to Topic 4</a>
+      </form>
+
+      <div id="result" class="quiz-result"></div>
+    </div>
+
+    <footer style="text-align:center; padding:2rem; color:#64748b; font-size:0.875rem;">
+      <p>© 2024 Oracle Siebel CRM Training | Assessments</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const answers = { q1: 'a', q2: 'b', q3: 'a', q4: 'b', q5: 'a' };
+      let score = 0;
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      }
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+      if (score >= 3) {
+        result.className = 'quiz-result pass';
+        result.innerHTML = `✅ <strong>Passed!</strong> Score: ${score}/5`;
+      } else {
+        result.className = 'quiz-result fail';
+        result.innerHTML = `❌ <strong>Not passed.</strong> Score: ${score}/5. Review Topic 4 and try again.`;
+      }
+    });
+  </script>
+</body>
+</html>

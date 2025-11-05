@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import & Export (EIM) - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 3</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 3: Managing Customer Data</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Import/Export</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">🔄 4. Importing & Exporting Data (EIM)</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 4 of 8</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 50%;"></div>
+                </div>
+                <span>50% Complete</span>
+            </div>
+
+            <p class="lead">
+                Enterprise Integration Manager (EIM) handles batch import and export of large data volumes.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">EIM Process</h2>
+
+                <div class="card">
+                    <h4>Import Flow</h4>
+                    <ol>
+                        <li>Prepare CSV file with source data</li>
+                        <li>Load data into EIM staging tables (EIM_*)</li>
+                        <li>Run EIM Import process</li>
+                        <li>Data validated and moved to Siebel tables (S_*)</li>
+                        <li>Review log for errors</li>
+                    </ol>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>Export Flow</h4>
+                    <ol>
+                        <li>Run EIM Export process</li>
+                        <li>Data copied from Siebel tables to EIM staging tables</li>
+                        <li>Extract EIM tables to CSV files</li>
+                        <li>Use for reporting, backups, or external systems</li>
+                    </ol>
+                </div>
+
+                <figure style="margin: 24px 0;">
+                    <img src="../images/eim_architecture.png" alt="EIM Architecture" style="width: 100%; max-width: 700px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280; text-align: center;">EIM import/export architecture with staging tables</figcaption>
+                </figure>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 9 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="3_data_cleansing.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Data Cleansing</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 4 of 8
+                </div>
+                <a href="5_customer_segmentation.html" class="nav-btn nav-btn-next">
+                    <span>Segmentation</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

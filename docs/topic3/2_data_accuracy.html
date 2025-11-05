@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Accuracy & Completeness - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 3</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 3: Managing Customer Data</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Data Accuracy</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">✅ 2. Data Accuracy & Completeness</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 2 of 8</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 25%;"></div>
+                </div>
+                <span>25% Complete</span>
+            </div>
+
+            <p class="lead">
+                Prevention is better than cure. Siebel provides multiple mechanisms to enforce data quality at the point of entry.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Validation Mechanisms</h2>
+
+                <div class="card">
+                    <h4>1. Required Fields</h4>
+                    <p>Setting the "Required" property ensures users must provide a value before saving.</p>
+                    <p><strong>Configuration:</strong> In BC Field definition, set <code>Required = TRUE</code></p>
+                    <p><strong>User Experience:</strong> Required fields show asterisk (*) and block save if empty</p>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>2. Validation Rules</h4>
+                    <p>Logical expressions that must evaluate to TRUE for the record to save.</p>
+                    <p><strong>Examples:</strong></p>
+                    <ul>
+                        <li><code>[Probability] >= 0 AND [Probability] <= 100</code></li>
+                        <li><code>[Close Date] > Today()</code></li>
+                        <li><code>[Email] LIKE '%@%.%'</code></li>
+                    </ul>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>3. Pick Lists (Bounded)</h4>
+                    <p>Restrict input to predefined values, eliminating free-text variations.</p>
+                    <p><strong>Example:</strong> Status → New | In Progress | Resolved | Closed</p>
+                </div>
+
+                <figure style="margin: 24px 0;">
+                    <img src="../images/data_validation.png" alt="Data Validation Flow" style="width: 100%; max-width: 700px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <figcaption style="margin-top: 12px; font-size: 14px; color: #6b7280; text-align: center;">Data validation process from entry to save</figcaption>
+                </figure>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 8 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="1_intro_data_quality.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Introduction</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 2 of 8
+                </div>
+                <a href="3_data_cleansing.html" class="nav-btn nav-btn-next">
+                    <span>Data Cleansing</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>

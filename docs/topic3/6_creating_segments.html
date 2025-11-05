@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Segments in Siebel - Siebel Training</title>
+    <link rel="stylesheet" href="../css/training.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <div class="logo">Oracle Siebel CRM Training</div>
+                <div class="subtitle">eCommunications Industry | Day 1 - Topic 3</div>
+            </div>
+        </div>
+
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="index.html">Topic 3: Managing Customer Data</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Creating Segments</span>
+        </nav>
+
+        <div class="content">
+            <h1 class="subtopic-title">⚙️ 6. Creating Segments in Siebel</h1>
+            
+            <div class="topic-progress">
+                <span>Sub-topic 6 of 8</span>
+                <div class="topic-progress-bar">
+                    <div class="topic-progress-fill" style="width: 75%;"></div>
+                </div>
+                <span>75% Complete</span>
+            </div>
+
+            <p class="lead">
+                Hands-on: Build dynamic and static segments using Siebel Marketing.
+            </p>
+
+            <div class="content-section">
+                <h2 class="sub3-topic-title">Segment Types</h2>
+
+                <div class="card">
+                    <h4>Dynamic Segments</h4>
+                    <p>Membership recalculated automatically based on criteria</p>
+                    <p><strong>Example:</strong> "High ARPU Customers" → ARPU > $50</p>
+                    <p><strong>Use when:</strong> Criteria change frequently; need real-time updates</p>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>Static Segments</h4>
+                    <p>Fixed list of members; manual updates required</p>
+                    <p><strong>Example:</strong> "Conference Attendees 2024"</p>
+                    <p><strong>Use when:</strong> One-time campaign; historical snapshot needed</p>
+                </div>
+
+                <div class="card mt-lg">
+                    <h4>Creating a Dynamic Segment</h4>
+                    <ol>
+                        <li>Navigate to <strong>Marketing → Segments</strong></li>
+                        <li>Click <strong>New Segment</strong></li>
+                        <li>Set Type = "Dynamic"</li>
+                        <li>Define criteria: <code>[ARPU] > 50 AND [Status] = 'Active'</code></li>
+                        <li>Save and run query</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="meta mt-lg">
+                <span class="meta-time">Estimated reading: 10 minutes</span>
+            </div>
+
+            <div class="page-navigation">
+                <a href="5_customer_segmentation.html" class="nav-btn nav-btn-prev">
+                    <span class="arrow">←</span>
+                    <span>Segmentation</span>
+                </a>
+                <div class="nav-center">
+                    Sub-topic 6 of 8
+                </div>
+                <a href="7_contact_account_mgmt.html" class="nav-btn nav-btn-next">
+                    <span>Contact & Account Mgmt</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navigation.js"></script>
+</body>
+</html>
